@@ -116,12 +116,12 @@ TextureImporter:
       name: queso-fetas-187x187_0
       rect:
         serializedVersion: 2
-        x: 23
-        y: 9
-        width: 140
-        height: 169
+        x: 0
+        y: 0
+        width: 187
+        height: 187
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -138,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 4a8455d3a6824704096ccb327e87dc9e
     internalID: 0
     vertices: []
     indices: 

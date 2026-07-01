@@ -88,8 +88,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81b775268c42fc24c95aebdc641b134c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DraggableItem
-  image: {fileID: 7304942556572854847}
   parentAfterDrag: {fileID: 0}
+  image: {fileID: 7304942556572854847}
+  limiteArrastre: {fileID: 0}
 --- !u!1 &4523425190319752162
 GameObject:
   m_ObjectHideFlags: 0
@@ -179,3 +180,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e7efb2c4de48ee4e9a763cfebf56bcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventorySlot
+  tipoDeEstanteAceptado: 
