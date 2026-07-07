@@ -1,0 +1,4420 @@
+fileFormatVersion: 2
+guid: 08dfa061c193b6d42bf4ba826cda3a18
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4739592964907738770
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_0
+  - first:
+      213: -8096012839766808854
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_1
+  - first:
+      213: -3486088102889774009
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_2
+  - first:
+      213: 7895941408217699757
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_3
+  - first:
+      213: -2028082187949147476
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_4
+  - first:
+      213: 2984358247585511368
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_5
+  - first:
+      213: -7689931775986096256
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_6
+  - first:
+      213: -5220281885604260915
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_7
+  - first:
+      213: -1327285825741305553
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_8
+  - first:
+      213: -8965009138753137521
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_9
+  - first:
+      213: -1696736843220911418
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_10
+  - first:
+      213: 3695642453819761690
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_11
+  - first:
+      213: 6640186573073672156
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_12
+  - first:
+      213: -1204317690002460542
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_13
+  - first:
+      213: 1665923214815477510
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_14
+  - first:
+      213: 6527797931305025422
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_15
+  - first:
+      213: -9134896206203251218
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_16
+  - first:
+      213: 7336998443794297153
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_17
+  - first:
+      213: 6235530212740421817
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_18
+  - first:
+      213: 8526826627130205511
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_19
+  - first:
+      213: 926503274271277436
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_20
+  - first:
+      213: 8851790995254650332
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_21
+  - first:
+      213: 5048111045290559358
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_22
+  - first:
+      213: 1678068861920079671
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_23
+  - first:
+      213: 6265732814968866172
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_24
+  - first:
+      213: -4739488673680642509
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_25
+  - first:
+      213: 7479212437542236065
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_26
+  - first:
+      213: 7861340792376758935
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_27
+  - first:
+      213: -5259404163341047007
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_28
+  - first:
+      213: 2964027018666563234
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_29
+  - first:
+      213: 5141697969079984405
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_30
+  - first:
+      213: 8600561262908786244
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_31
+  - first:
+      213: 4233071746341914830
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_32
+  - first:
+      213: 6064379668068369597
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_33
+  - first:
+      213: -1879265263318694525
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_34
+  - first:
+      213: 3440594271277610269
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_35
+  - first:
+      213: 4163924875465486369
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_36
+  - first:
+      213: 9091894033906982248
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_37
+  - first:
+      213: -7693092323037886489
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_38
+  - first:
+      213: -4619447439541355710
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_39
+  - first:
+      213: 5903331545470908928
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_40
+  - first:
+      213: 5802826948011497137
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_41
+  - first:
+      213: 7117311065437358563
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_42
+  - first:
+      213: -6100497236826123431
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_43
+  - first:
+      213: 8116080199181356407
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_44
+  - first:
+      213: 784381289153563941
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_45
+  - first:
+      213: -5547909231147356509
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_46
+  - first:
+      213: -5812386561227485165
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_47
+  - first:
+      213: 3856722648883108056
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_48
+  - first:
+      213: 5581247459124728478
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_49
+  - first:
+      213: -5907894846739675462
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_50
+  - first:
+      213: -8653101637552193926
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_51
+  - first:
+      213: 9157567091396314188
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_52
+  - first:
+      213: -4348386397520137452
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_53
+  - first:
+      213: 2107204241735409082
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_54
+  - first:
+      213: 84085142511079174
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_55
+  - first:
+      213: 5011962587323153723
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_56
+  - first:
+      213: -5130731694957441382
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_57
+  - first:
+      213: -7606326482540645466
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_58
+  - first:
+      213: 4825863879812512502
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_59
+  - first:
+      213: -614156430371825973
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_60
+  - first:
+      213: 6226195645763555535
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_61
+  - first:
+      213: -2492014370270725998
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_62
+  - first:
+      213: -1235434995304572041
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_63
+  - first:
+      213: 2508926845863469961
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_64
+  - first:
+      213: 4821259769908831476
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_65
+  - first:
+      213: 8236444249234510747
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_66
+  - first:
+      213: 1730409287711474275
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_67
+  - first:
+      213: 5476450515730216938
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_68
+  - first:
+      213: 5095260969232765014
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_69
+  - first:
+      213: -3019766669243590330
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_70
+  - first:
+      213: 8166469494043492019
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_71
+  - first:
+      213: 7833935420167927495
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_72
+  - first:
+      213: 69259168081413263
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_73
+  - first:
+      213: -3390082606043229318
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_74
+  - first:
+      213: -1887808167184520527
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_75
+  - first:
+      213: -30500231233549210
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_76
+  - first:
+      213: -6740765636163467384
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_77
+  - first:
+      213: 923917854679017289
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_78
+  - first:
+      213: 437653378047319732
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_79
+  - first:
+      213: 5603324865075863810
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_80
+  - first:
+      213: 6930089763312520288
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_81
+  - first:
+      213: -1160196136298425038
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_82
+  - first:
+      213: -3012984184165052651
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_83
+  - first:
+      213: 3647186383354934389
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_84
+  - first:
+      213: -4869324295441188066
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_85
+  - first:
+      213: 363401126592097341
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_86
+  - first:
+      213: -6478306809792020849
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_87
+  - first:
+      213: 4212522328894935952
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_88
+  - first:
+      213: 5498782466567471559
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_89
+  - first:
+      213: -2931458675485219829
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_90
+  - first:
+      213: 5938948344713993582
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_91
+  - first:
+      213: 8243730975252903910
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_92
+  - first:
+      213: -1868645616640207431
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_93
+  - first:
+      213: 7612187758990170293
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_94
+  - first:
+      213: 5571149397127550804
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_95
+  - first:
+      213: 7502099561758045099
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_96
+  - first:
+      213: -700966836152087947
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_97
+  - first:
+      213: -6665932962415685422
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_98
+  - first:
+      213: -6876483456128568479
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_99
+  - first:
+      213: -4642664803430762657
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_100
+  - first:
+      213: 4903318941213759660
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_101
+  - first:
+      213: 9050528429670507585
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_102
+  - first:
+      213: 7536405611092072669
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_103
+  - first:
+      213: -3888324660760458068
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_104
+  - first:
+      213: -8878335024809784835
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_105
+  - first:
+      213: 7882881254481268559
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_106
+  - first:
+      213: 4133404940052254194
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_107
+  - first:
+      213: 4556677601399410348
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_108
+  - first:
+      213: 4561599178643972604
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_109
+  - first:
+      213: -8031743289461339510
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_110
+  - first:
+      213: -4336056969551034977
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_111
+  - first:
+      213: 5777944003448336287
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_112
+  - first:
+      213: 8481415326353451951
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_113
+  - first:
+      213: 268210491357627430
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_114
+  - first:
+      213: 8429613118379978259
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_115
+  - first:
+      213: 8747980859402763662
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_116
+  - first:
+      213: 7095459046934532423
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_117
+  - first:
+      213: -7292656959961395246
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_118
+  - first:
+      213: -5596419239571662432
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_119
+  - first:
+      213: 8042701019054363655
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_120
+  - first:
+      213: 8465391340520965154
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_121
+  - first:
+      213: 7304381105302184824
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_122
+  - first:
+      213: 2277129274800591275
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_123
+  - first:
+      213: 7039492485024657843
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_124
+  - first:
+      213: 1315211276899863098
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_125
+  - first:
+      213: -570862532475403760
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_126
+  - first:
+      213: 7093325598893088863
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_127
+  - first:
+      213: -1094241154115873157
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_128
+  - first:
+      213: -6295993033615387459
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_129
+  - first:
+      213: -5533537510285982130
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_130
+  - first:
+      213: 8331806791352087451
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_131
+  - first:
+      213: -8619975562007801080
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_132
+  - first:
+      213: -7104377679857949061
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_133
+  - first:
+      213: 3465237738744549766
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_134
+  - first:
+      213: 1280412653336769837
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_135
+  - first:
+      213: 5577503098990111327
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_136
+  - first:
+      213: 2725632378518697611
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_137
+  - first:
+      213: -3364230895558845998
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_138
+  - first:
+      213: -243384268729904517
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_139
+  - first:
+      213: -87006622910575468
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_140
+  - first:
+      213: -108300376461920854
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_141
+  - first:
+      213: -6176923424756333951
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_142
+  - first:
+      213: -4341483661997412571
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_143
+  - first:
+      213: 2327668658487475810
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_144
+  - first:
+      213: 8308588659755341668
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_145
+  - first:
+      213: -2152069575186816422
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_146
+  - first:
+      213: 7952511133861477067
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_147
+  - first:
+      213: 69932763969948486
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_148
+  - first:
+      213: 7290619426091143699
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_149
+  - first:
+      213: 466592255497104932
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_150
+  - first:
+      213: -2557033335775544024
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_151
+  - first:
+      213: -5151025747114339035
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_152
+  - first:
+      213: -7450703139140030618
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_153
+  - first:
+      213: 2674593109704884804
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_154
+  - first:
+      213: -850709664800184477
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_155
+  - first:
+      213: -8679112726377177202
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_156
+  - first:
+      213: -692764838451943611
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_157
+  - first:
+      213: -3946485079381566560
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_158
+  - first:
+      213: -3246858192320044035
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_159
+  - first:
+      213: -374334758180129480
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_160
+  - first:
+      213: 1206531009164519407
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_161
+  - first:
+      213: -3093354574801189180
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_162
+  - first:
+      213: -477183366033156929
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_163
+  - first:
+      213: 6239619364959729498
+    second: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_164
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_0
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 2246
+        width: 248
+        height: 247
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e69dbb25f45993eb0800000000000000
+      internalID: -4739592964907738770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_1
+      rect:
+        serializedVersion: 2
+        x: 460
+        y: 2365
+        width: 36
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae6a2bc773f25af80800000000000000
+      internalID: -8096012839766808854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_2
+      rect:
+        serializedVersion: 2
+        x: 485
+        y: 2390
+        width: 35
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7442a8b275dee9fc0800000000000000
+      internalID: -3486088102889774009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_3
+      rect:
+        serializedVersion: 2
+        x: 607
+        y: 2246
+        width: 248
+        height: 247
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da51d1450e4049d60800000000000000
+      internalID: 7895941408217699757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_4
+      rect:
+        serializedVersion: 2
+        x: 1061
+        y: 2365
+        width: 36
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: caa7efbcefdcad3e0800000000000000
+      internalID: -2028082187949147476
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_5
+      rect:
+        serializedVersion: 2
+        x: 1086
+        y: 2390
+        width: 35
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c777dda3029a6920800000000000000
+      internalID: 2984358247585511368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_6
+      rect:
+        serializedVersion: 2
+        x: 1208
+        y: 2246
+        width: 248
+        height: 247
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0872c51facfd74590800000000000000
+      internalID: -7689931775986096256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_7
+      rect:
+        serializedVersion: 2
+        x: 1662
+        y: 2365
+        width: 36
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc3d6258845dd87b0800000000000000
+      internalID: -5220281885604260915
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_8
+      rect:
+        serializedVersion: 2
+        x: 1687
+        y: 2390
+        width: 35
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f294741e298849de0800000000000000
+      internalID: -1327285825741305553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_9
+      rect:
+        serializedVersion: 2
+        x: 1809
+        y: 2246
+        width: 248
+        height: 247
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f841d7cdfa3e59380800000000000000
+      internalID: -8965009138753137521
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_10
+      rect:
+        serializedVersion: 2
+        x: 2263
+        y: 2365
+        width: 36
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6caff7ea4daf378e0800000000000000
+      internalID: -1696736843220911418
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_11
+      rect:
+        serializedVersion: 2
+        x: 2288
+        y: 2390
+        width: 35
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a14a7cc3b3f894330800000000000000
+      internalID: 3695642453819761690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_12
+      rect:
+        serializedVersion: 2
+        x: 2410
+        y: 2397
+        width: 90
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd7ef5ac18ea62c50800000000000000
+      internalID: 6640186573073672156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_13
+      rect:
+        serializedVersion: 2
+        x: 403
+        y: 2308
+        width: 53
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2803fa21177694fe0800000000000000
+      internalID: -1204317690002460542
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_14
+      rect:
+        serializedVersion: 2
+        x: 446
+        y: 2346
+        width: 23
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 60f3722665c8e1710800000000000000
+      internalID: 1665923214815477510
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_15
+      rect:
+        serializedVersion: 2
+        x: 1004
+        y: 2308
+        width: 53
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e8f37fcf1a5679a50800000000000000
+      internalID: 6527797931305025422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_16
+      rect:
+        serializedVersion: 2
+        x: 1047
+        y: 2346
+        width: 23
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee511399c445a3180800000000000000
+      internalID: -9134896206203251218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_17
+      rect:
+        serializedVersion: 2
+        x: 1605
+        y: 2308
+        width: 53
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 141f3f7263142d560800000000000000
+      internalID: 7336998443794297153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_18
+      rect:
+        serializedVersion: 2
+        x: 1648
+        y: 2346
+        width: 23
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b8db94f0bd098650800000000000000
+      internalID: 6235530212740421817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_19
+      rect:
+        serializedVersion: 2
+        x: 2206
+        y: 2308
+        width: 53
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 745207be3af555670800000000000000
+      internalID: 8526826627130205511
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_20
+      rect:
+        serializedVersion: 2
+        x: 2249
+        y: 2346
+        width: 23
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c710d22b1d99bdc00800000000000000
+      internalID: 926503274271277436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_21
+      rect:
+        serializedVersion: 2
+        x: 348
+        y: 2247
+        width: 42
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd5a72ae201e7da70800000000000000
+      internalID: 8851790995254650332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_22
+      rect:
+        serializedVersion: 2
+        x: 379
+        y: 2278
+        width: 41
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e770549ef3e7e0640800000000000000
+      internalID: 5048111045290559358
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_23
+      rect:
+        serializedVersion: 2
+        x: 949
+        y: 2247
+        width: 42
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 73fe3673db2b94710800000000000000
+      internalID: 1678068861920079671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_24
+      rect:
+        serializedVersion: 2
+        x: 980
+        y: 2278
+        width: 41
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c754ab54cca54f650800000000000000
+      internalID: 6265732814968866172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_25
+      rect:
+        serializedVersion: 2
+        x: 1550
+        y: 2247
+        width: 42
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 33e27448924f93eb0800000000000000
+      internalID: -4739488673680642509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_26
+      rect:
+        serializedVersion: 2
+        x: 1581
+        y: 2278
+        width: 41
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1af636bd5108bc760800000000000000
+      internalID: 7479212437542236065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_27
+      rect:
+        serializedVersion: 2
+        x: 2151
+        y: 2247
+        width: 42
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 79297ebacc7191d60800000000000000
+      internalID: 7861340792376758935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_28
+      rect:
+        serializedVersion: 2
+        x: 2182
+        y: 2278
+        width: 41
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 12ba8d967c7d207b0800000000000000
+      internalID: -5259404163341047007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_29
+      rect:
+        serializedVersion: 2
+        x: 263
+        y: 2162
+        width: 74
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a6d7409ed6522920800000000000000
+      internalID: 2964027018666563234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_30
+      rect:
+        serializedVersion: 2
+        x: 332
+        y: 1914
+        width: 255
+        height: 254
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5112c5d9f0bfa5740800000000000000
+      internalID: 5141697969079984405
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_31
+      rect:
+        serializedVersion: 2
+        x: 864
+        y: 2162
+        width: 74
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 446c9a0a6e45b5770800000000000000
+      internalID: 8600561262908786244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_32
+      rect:
+        serializedVersion: 2
+        x: 933
+        y: 1914
+        width: 293
+        height: 254
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec8c3755354eeba30800000000000000
+      internalID: 4233071746341914830
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_33
+      rect:
+        serializedVersion: 2
+        x: 1465
+        y: 2162
+        width: 74
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db4015a7d21092450800000000000000
+      internalID: 6064379668068369597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_34
+      rect:
+        serializedVersion: 2
+        x: 1534
+        y: 1914
+        width: 255
+        height: 254
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 385882523328be5e0800000000000000
+      internalID: -1879265263318694525
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_35
+      rect:
+        serializedVersion: 2
+        x: 2066
+        y: 2162
+        width: 74
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d15febbb2427fbf20800000000000000
+      internalID: 3440594271277610269
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_36
+      rect:
+        serializedVersion: 2
+        x: 2135
+        y: 1914
+        width: 255
+        height: 254
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1207881ec9b39c930800000000000000
+      internalID: 4163924875465486369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_37
+      rect:
+        serializedVersion: 2
+        x: 181
+        y: 2085
+        width: 35
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 86dd482f375ec2e70800000000000000
+      internalID: 9091894033906982248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_38
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 2110
+        width: 35
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e7ca0dba45ac3590800000000000000
+      internalID: -7693092323037886489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_39
+      rect:
+        serializedVersion: 2
+        x: 782
+        y: 2085
+        width: 35
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 24bbc83570d64efb0800000000000000
+      internalID: -4619447439541355710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_40
+      rect:
+        serializedVersion: 2
+        x: 807
+        y: 2110
+        width: 35
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00ab62f63c8dce150800000000000000
+      internalID: 5903331545470908928
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_41
+      rect:
+        serializedVersion: 2
+        x: 1383
+        y: 2085
+        width: 35
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b61a415d58c78050800000000000000
+      internalID: 5802826948011497137
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_42
+      rect:
+        serializedVersion: 2
+        x: 1408
+        y: 2110
+        width: 35
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e9c95374b4c5c260800000000000000
+      internalID: 7117311065437358563
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_43
+      rect:
+        serializedVersion: 2
+        x: 1984
+        y: 2085
+        width: 35
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9531abdb51ea65ba0800000000000000
+      internalID: -6100497236826123431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_44
+      rect:
+        serializedVersion: 2
+        x: 2009
+        y: 2110
+        width: 35
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 77d49c8b0fb12a070800000000000000
+      internalID: 8116080199181356407
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_45
+      rect:
+        serializedVersion: 2
+        x: 125
+        y: 2028
+        width: 52
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 52d067c60aea2ea00800000000000000
+      internalID: 784381289153563941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_46
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 2065
+        width: 23
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3aee957c2fdd103b0800000000000000
+      internalID: -5547909231147356509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_47
+      rect:
+        serializedVersion: 2
+        x: 726
+        y: 2028
+        width: 52
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 31018c8c731465fa0800000000000000
+      internalID: -5812386561227485165
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_48
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 2065
+        width: 23
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d891ebb0d4d58530800000000000000
+      internalID: 3856722648883108056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_49
+      rect:
+        serializedVersion: 2
+        x: 1327
+        y: 2028
+        width: 52
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e925eac4ef2947d40800000000000000
+      internalID: 5581247459124728478
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_50
+      rect:
+        serializedVersion: 2
+        x: 1369
+        y: 2065
+        width: 23
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab688b130f0f20ea0800000000000000
+      internalID: -5907894846739675462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_51
+      rect:
+        serializedVersion: 2
+        x: 1928
+        y: 2028
+        width: 52
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7eb95028e10ae780800000000000000
+      internalID: -8653101637552193926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_52
+      rect:
+        serializedVersion: 2
+        x: 1970
+        y: 2065
+        width: 23
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c440c7130c6361f70800000000000000
+      internalID: 9157567091396314188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_53
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 1968
+        width: 42
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 413fba53c9d67a3c0800000000000000
+      internalID: -4348386397520137452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_54
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 1999
+        width: 42
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: abdd5d9e71b4e3d10800000000000000
+      internalID: 2107204241735409082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_55
+      rect:
+        serializedVersion: 2
+        x: 670
+        y: 1968
+        width: 42
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 60fc24addfaba2100800000000000000
+      internalID: 84085142511079174
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_56
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 1999
+        width: 42
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b3db1fc2b611e8540800000000000000
+      internalID: 5011962587323153723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_57
+      rect:
+        serializedVersion: 2
+        x: 1271
+        y: 1968
+        width: 42
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a9e493c05bafbc8b0800000000000000
+      internalID: -5130731694957441382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_58
+      rect:
+        serializedVersion: 2
+        x: 1301
+        y: 1999
+        width: 42
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a3b48a3d56e07690800000000000000
+      internalID: -7606326482540645466
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_59
+      rect:
+        serializedVersion: 2
+        x: 1872
+        y: 1968
+        width: 42
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6fafc9251a9e8f240800000000000000
+      internalID: 4825863879812512502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_60
+      rect:
+        serializedVersion: 2
+        x: 1902
+        y: 1999
+        width: 42
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc65a230bf31a77f0800000000000000
+      internalID: -614156430371825973
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_61
+      rect:
+        serializedVersion: 2
+        x: 2473
+        y: 1969
+        width: 27
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc012d7b3f3e76650800000000000000
+      internalID: 6226195645763555535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_62
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 1645
+        width: 248
+        height: 247
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 29838dc22269a6dd0800000000000000
+      internalID: -2492014370270725998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_63
+      rect:
+        serializedVersion: 2
+        x: 460
+        y: 1764
+        width: 36
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 77bd8c9da6adadee0800000000000000
+      internalID: -1235434995304572041
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_64
+      rect:
+        serializedVersion: 2
+        x: 485
+        y: 1789
+        width: 35
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 98322276caf71d220800000000000000
+      internalID: 2508926845863469961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_65
+      rect:
+        serializedVersion: 2
+        x: 607
+        y: 1645
+        width: 248
+        height: 247
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f42c43773e88e240800000000000000
+      internalID: 4821259769908831476
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_66
+      rect:
+        serializedVersion: 2
+        x: 1061
+        y: 1764
+        width: 36
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b939ee7f76abd4270800000000000000
+      internalID: 8236444249234510747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_67
+      rect:
+        serializedVersion: 2
+        x: 1086
+        y: 1789
+        width: 35
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 362441e3416a30810800000000000000
+      internalID: 1730409287711474275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_68
+      rect:
+        serializedVersion: 2
+        x: 1208
+        y: 1645
+        width: 248
+        height: 247
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae7ba148ab2400c40800000000000000
+      internalID: 5476450515730216938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_69
+      rect:
+        serializedVersion: 2
+        x: 1662
+        y: 1764
+        width: 36
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 650180d0bd006b640800000000000000
+      internalID: 5095260969232765014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_70
+      rect:
+        serializedVersion: 2
+        x: 1687
+        y: 1789
+        width: 35
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 649db27b632a716d0800000000000000
+      internalID: -3019766669243590330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_71
+      rect:
+        serializedVersion: 2
+        x: 1809
+        y: 1645
+        width: 248
+        height: 247
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3beb68dacb0255170800000000000000
+      internalID: 8166469494043492019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_72
+      rect:
+        serializedVersion: 2
+        x: 2263
+        y: 1764
+        width: 36
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c6b57832cab7bc60800000000000000
+      internalID: 7833935420167927495
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_73
+      rect:
+        serializedVersion: 2
+        x: 2288
+        y: 1789
+        width: 35
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f848eeea8de06f000800000000000000
+      internalID: 69259168081413263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_74
+      rect:
+        serializedVersion: 2
+        x: 2410
+        y: 1796
+        width: 90
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a73109bc4d104f0d0800000000000000
+      internalID: -3390082606043229318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_75
+      rect:
+        serializedVersion: 2
+        x: 403
+        y: 1707
+        width: 53
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1baa2e659782dc5e0800000000000000
+      internalID: -1887808167184520527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_76
+      rect:
+        serializedVersion: 2
+        x: 446
+        y: 1744
+        width: 23
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 66cc1c78334a39ff0800000000000000
+      internalID: -30500231233549210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_77
+      rect:
+        serializedVersion: 2
+        x: 1004
+        y: 1707
+        width: 53
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 88701563e5df372a0800000000000000
+      internalID: -6740765636163467384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_78
+      rect:
+        serializedVersion: 2
+        x: 1047
+        y: 1744
+        width: 23
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 947a8c9c46a62dc00800000000000000
+      internalID: 923917854679017289
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_79
+      rect:
+        serializedVersion: 2
+        x: 1605
+        y: 1707
+        width: 53
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4be9245bd6bd21600800000000000000
+      internalID: 437653378047319732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_80
+      rect:
+        serializedVersion: 2
+        x: 1648
+        y: 1744
+        width: 23
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 201e5ffe64203cd40800000000000000
+      internalID: 5603324865075863810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_81
+      rect:
+        serializedVersion: 2
+        x: 2206
+        y: 1707
+        width: 53
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 06c40db2cef9c2060800000000000000
+      internalID: 6930089763312520288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_82
+      rect:
+        serializedVersion: 2
+        x: 2249
+        y: 1744
+        width: 23
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 235d622d2c726efe0800000000000000
+      internalID: -1160196136298425038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_83
+      rect:
+        serializedVersion: 2
+        x: 348
+        y: 1646
+        width: 42
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 51fc8f419dabf26d0800000000000000
+      internalID: -3012984184165052651
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_84
+      rect:
+        serializedVersion: 2
+        x: 378
+        y: 1677
+        width: 42
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 574338921b86d9230800000000000000
+      internalID: 3647186383354934389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_85
+      rect:
+        serializedVersion: 2
+        x: 949
+        y: 1646
+        width: 42
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e1b7c022a5fac6cb0800000000000000
+      internalID: -4869324295441188066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_86
+      rect:
+        serializedVersion: 2
+        x: 979
+        y: 1677
+        width: 42
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3caf75366f0b0500800000000000000
+      internalID: 363401126592097341
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_87
+      rect:
+        serializedVersion: 2
+        x: 1550
+        y: 1646
+        width: 42
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f8e3a50b74e6816a0800000000000000
+      internalID: -6478306809792020849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_88
+      rect:
+        serializedVersion: 2
+        x: 1580
+        y: 1677
+        width: 42
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0931f2e3db2e57a30800000000000000
+      internalID: 4212522328894935952
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_89
+      rect:
+        serializedVersion: 2
+        x: 1656
+        y: 1667
+        width: 69
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c186e005899f4c40800000000000000
+      internalID: 5498782466567471559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_90
+      rect:
+        serializedVersion: 2
+        x: 2151
+        y: 1646
+        width: 42
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b0467fdbddd5157d0800000000000000
+      internalID: -2931458675485219829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_91
+      rect:
+        serializedVersion: 2
+        x: 2181
+        y: 1677
+        width: 42
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e6d521abd026b6250800000000000000
+      internalID: 5938948344713993582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_92
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 1560
+        width: 75
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e775d315ad976270800000000000000
+      internalID: 8243730975252903910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_93
+      rect:
+        serializedVersion: 2
+        x: 263
+        y: 443
+        width: 1794
+        height: 1161
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b5d11156bc3116e0800000000000000
+      internalID: -1868645616640207431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_94
+      rect:
+        serializedVersion: 2
+        x: 863
+        y: 1560
+        width: 75
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b89f2a8f6ce3a960800000000000000
+      internalID: 7612187758990170293
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_95
+      rect:
+        serializedVersion: 2
+        x: 1464
+        y: 1560
+        width: 75
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4575b660cd2b05d40800000000000000
+      internalID: 5571149397127550804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_96
+      rect:
+        serializedVersion: 2
+        x: 2065
+        y: 1560
+        width: 75
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba3b338bdcfcc1860800000000000000
+      internalID: 7502099561758045099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_97
+      rect:
+        serializedVersion: 2
+        x: 2135
+        y: 1313
+        width: 255
+        height: 254
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 57a43db506aa546f0800000000000000
+      internalID: -700966836152087947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_98
+      rect:
+        serializedVersion: 2
+        x: 181
+        y: 1484
+        width: 35
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d055aec949dd73a0800000000000000
+      internalID: -6665932962415685422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_99
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 1509
+        width: 35
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1633b95dab2d190a0800000000000000
+      internalID: -6876483456128568479
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_100
+      rect:
+        serializedVersion: 2
+        x: 125
+        y: 1427
+        width: 52
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f57fc4c85f0f19fb0800000000000000
+      internalID: -4642664803430762657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_101
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 1464
+        width: 23
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca89d7f19961c0440800000000000000
+      internalID: 4903318941213759660
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_102
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 1367
+        width: 42
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 144a510b7afe99d70800000000000000
+      internalID: 9050528429670507585
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_103
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 1398
+        width: 42
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd8576449f0b69860800000000000000
+      internalID: 7536405611092072669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_104
+      rect:
+        serializedVersion: 2
+        x: 2473
+        y: 1368
+        width: 27
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cac4bff7255e90ac0800000000000000
+      internalID: -3888324660760458068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_105
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 1044
+        width: 248
+        height: 247
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df9cd499551d9c480800000000000000
+      internalID: -8878335024809784835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_106
+      rect:
+        serializedVersion: 2
+        x: 1786
+        y: 712
+        width: 604
+        height: 579
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f4f01f35cbe956d60800000000000000
+      internalID: 7882881254481268559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_107
+      rect:
+        serializedVersion: 2
+        x: 2410
+        y: 1195
+        width: 90
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2fdc8aca4edcc5930800000000000000
+      internalID: 4133404940052254194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_108
+      rect:
+        serializedVersion: 2
+        x: 181
+        y: 883
+        width: 35
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cae046bd2229c3f30800000000000000
+      internalID: 4556677601399410348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_109
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 908
+        width: 35
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cf1a9cad84e0e4f30800000000000000
+      internalID: 4561599178643972604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_110
+      rect:
+        serializedVersion: 2
+        x: 125
+        y: 826
+        width: 52
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a8a87804804898090800000000000000
+      internalID: -8031743289461339510
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_111
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 863
+        width: 23
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f95cd0cd82b33d3c0800000000000000
+      internalID: -4336056969551034977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_112
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 766
+        width: 42
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f9fe2a155716f2050800000000000000
+      internalID: 5777944003448336287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_113
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 797
+        width: 42
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fabe9d78d4a04b570800000000000000
+      internalID: 8481415326353451951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_114
+      rect:
+        serializedVersion: 2
+        x: 2473
+        y: 767
+        width: 27
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 62487665500e8b300800000000000000
+      internalID: 268210491357627430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_115
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 443
+        width: 248
+        height: 247
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 31ee20b18700cf470800000000000000
+      internalID: 8429613118379978259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_116
+      rect:
+        serializedVersion: 2
+        x: 2263
+        y: 562
+        width: 36
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e8d3e9a2e32176970800000000000000
+      internalID: 8747980859402763662
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_117
+      rect:
+        serializedVersion: 2
+        x: 2288
+        y: 587
+        width: 35
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7415ddae862287260800000000000000
+      internalID: 7095459046934532423
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_118
+      rect:
+        serializedVersion: 2
+        x: 2410
+        y: 594
+        width: 90
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2df88b012274bca90800000000000000
+      internalID: -7292656959961395246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_119
+      rect:
+        serializedVersion: 2
+        x: 2206
+        y: 505
+        width: 53
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a95b2b4a568552b0800000000000000
+      internalID: -5596419239571662432
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_120
+      rect:
+        serializedVersion: 2
+        x: 2249
+        y: 542
+        width: 23
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 704586bf6f96d9f60800000000000000
+      internalID: 8042701019054363655
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_121
+      rect:
+        serializedVersion: 2
+        x: 2151
+        y: 444
+        width: 42
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2248b68929c1b7570800000000000000
+      internalID: 8465391340520965154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_122
+      rect:
+        serializedVersion: 2
+        x: 2181
+        y: 475
+        width: 42
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 873ac9d3aef5e5560800000000000000
+      internalID: 7304381105302184824
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_123
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 358
+        width: 75
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba1d12cb20df99f10800000000000000
+      internalID: 2277129274800591275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_124
+      rect:
+        serializedVersion: 2
+        x: 332
+        y: 111
+        width: 255
+        height: 254
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b13de84e1d41b160800000000000000
+      internalID: 7039492485024657843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_125
+      rect:
+        serializedVersion: 2
+        x: 863
+        y: 358
+        width: 75
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3a443420b1904210800000000000000
+      internalID: 1315211276899863098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_126
+      rect:
+        serializedVersion: 2
+        x: 933
+        y: 111
+        width: 255
+        height: 254
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 01249302d83e318f0800000000000000
+      internalID: -570862532475403760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_127
+      rect:
+        serializedVersion: 2
+        x: 1464
+        y: 358
+        width: 75
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f502536dc0e807260800000000000000
+      internalID: 7093325598893088863
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_128
+      rect:
+        serializedVersion: 2
+        x: 1534
+        y: 111
+        width: 255
+        height: 254
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b765f46c77970d0f0800000000000000
+      internalID: -1094241154115873157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_129
+      rect:
+        serializedVersion: 2
+        x: 2065
+        y: 358
+        width: 75
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db4550b81b320a8a0800000000000000
+      internalID: -6295993033615387459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_130
+      rect:
+        serializedVersion: 2
+        x: 2135
+        y: 111
+        width: 255
+        height: 254
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e46ca1cc3fce433b0800000000000000
+      internalID: -5533537510285982130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_131
+      rect:
+        serializedVersion: 2
+        x: 181
+        y: 282
+        width: 35
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b937ab7022680a370800000000000000
+      internalID: 8331806791352087451
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_132
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 307
+        width: 35
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8031afd95e1bf5880800000000000000
+      internalID: -8619975562007801080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_133
+      rect:
+        serializedVersion: 2
+        x: 782
+        y: 282
+        width: 35
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b766ad9042e286d90800000000000000
+      internalID: -7104377679857949061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_134
+      rect:
+        serializedVersion: 2
+        x: 807
+        y: 307
+        width: 35
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 68195202d5ff61030800000000000000
+      internalID: 3465237738744549766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_135
+      rect:
+        serializedVersion: 2
+        x: 1383
+        y: 282
+        width: 35
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d25bd083680f4c110800000000000000
+      internalID: 1280412653336769837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_136
+      rect:
+        serializedVersion: 2
+        x: 1408
+        y: 307
+        width: 35
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f5a22f48485476d40800000000000000
+      internalID: 5577503098990111327
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_137
+      rect:
+        serializedVersion: 2
+        x: 1984
+        y: 282
+        width: 35
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b86f8ed053463d520800000000000000
+      internalID: 2725632378518697611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_138
+      rect:
+        serializedVersion: 2
+        x: 2009
+        y: 307
+        width: 35
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d912df23d9df41d0800000000000000
+      internalID: -3364230895558845998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_139
+      rect:
+        serializedVersion: 2
+        x: 125
+        y: 225
+        width: 52
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b729f6e0c435f9cf0800000000000000
+      internalID: -243384268729904517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_140
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 262
+        width: 23
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49c0f4cffe3eacef0800000000000000
+      internalID: -87006622910575468
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_141
+      rect:
+        serializedVersion: 2
+        x: 726
+        y: 225
+        width: 52
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa532f3a16d3f7ef0800000000000000
+      internalID: -108300376461920854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_142
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 262
+        width: 23
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1820c963fd8274aa0800000000000000
+      internalID: -6176923424756333951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_143
+      rect:
+        serializedVersion: 2
+        x: 1327
+        y: 225
+        width: 52
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 52f6b709c93ffb3c0800000000000000
+      internalID: -4341483661997412571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_144
+      rect:
+        serializedVersion: 2
+        x: 1369
+        y: 262
+        width: 23
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26eb4f7ff4a8d4020800000000000000
+      internalID: 2327668658487475810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_145
+      rect:
+        serializedVersion: 2
+        x: 1928
+        y: 225
+        width: 52
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4675e818d590e4370800000000000000
+      internalID: 8308588659755341668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_146
+      rect:
+        serializedVersion: 2
+        x: 1970
+        y: 262
+        width: 23
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a52601f9f105222e0800000000000000
+      internalID: -2152069575186816422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_147
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 165
+        width: 42
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bcaf626fdbefc5e60800000000000000
+      internalID: 7952511133861477067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_148
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 196
+        width: 42
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 64b07927a7378f000800000000000000
+      internalID: 69932763969948486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_149
+      rect:
+        serializedVersion: 2
+        x: 670
+        y: 165
+        width: 42
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 31299bc9dbb7d2560800000000000000
+      internalID: 7290619426091143699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_150
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 196
+        width: 42
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 42e6adb2f2ba97600800000000000000
+      internalID: 466592255497104932
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_151
+      rect:
+        serializedVersion: 2
+        x: 1271
+        y: 165
+        width: 42
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 82d34469ab7938cd0800000000000000
+      internalID: -2557033335775544024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_152
+      rect:
+        serializedVersion: 2
+        x: 1301
+        y: 196
+        width: 42
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 525db52df51e388b0800000000000000
+      internalID: -5151025747114339035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_153
+      rect:
+        serializedVersion: 2
+        x: 1872
+        y: 165
+        width: 42
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 66faba078f8c99890800000000000000
+      internalID: -7450703139140030618
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_154
+      rect:
+        serializedVersion: 2
+        x: 1902
+        y: 196
+        width: 42
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 442caae33401e1520800000000000000
+      internalID: 2674593109704884804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_155
+      rect:
+        serializedVersion: 2
+        x: 2473
+        y: 166
+        width: 27
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 367e79e211ca134f0800000000000000
+      internalID: -850709664800184477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_156
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 0
+        width: 96
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e8f57b295f89d8780800000000000000
+      internalID: -8679112726377177202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_157
+      rect:
+        serializedVersion: 2
+        x: 485
+        y: 0
+        width: 35
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 547e033cc0ec266f0800000000000000
+      internalID: -692764838451943611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_158
+      rect:
+        serializedVersion: 2
+        x: 607
+        y: 0
+        width: 96
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ab151ccab44b39c0800000000000000
+      internalID: -3946485079381566560
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_159
+      rect:
+        serializedVersion: 2
+        x: 1086
+        y: 0
+        width: 35
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df362ba3da7d0f2d0800000000000000
+      internalID: -3246858192320044035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_160
+      rect:
+        serializedVersion: 2
+        x: 1208
+        y: 0
+        width: 96
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 835779f45881ecaf0800000000000000
+      internalID: -374334758180129480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_161
+      rect:
+        serializedVersion: 2
+        x: 1687
+        y: 0
+        width: 35
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe7aeb37f857eb010800000000000000
+      internalID: 1206531009164519407
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_162
+      rect:
+        serializedVersion: 2
+        x: 1809
+        y: 0
+        width: 96
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c645ac47623215d0800000000000000
+      internalID: -3093354574801189180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_163
+      rect:
+        serializedVersion: 2
+        x: 2288
+        y: 0
+        width: 35
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb45edeb144b069f0800000000000000
+      internalID: -477183366033156929
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-foam-bubbles-soap-cartoon-png-image_6956357_164
+      rect:
+        serializedVersion: 2
+        x: 2410
+        y: 0
+        width: 90
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a57b216e0c4979650800000000000000
+      internalID: 6239619364959729498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_0: -4739592964907738770
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_1: -8096012839766808854
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_10: -1696736843220911418
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_100: -4642664803430762657
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_101: 4903318941213759660
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_102: 9050528429670507585
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_103: 7536405611092072669
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_104: -3888324660760458068
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_105: -8878335024809784835
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_106: 7882881254481268559
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_107: 4133404940052254194
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_108: 4556677601399410348
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_109: 4561599178643972604
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_11: 3695642453819761690
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_110: -8031743289461339510
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_111: -4336056969551034977
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_112: 5777944003448336287
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_113: 8481415326353451951
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_114: 268210491357627430
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_115: 8429613118379978259
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_116: 8747980859402763662
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_117: 7095459046934532423
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_118: -7292656959961395246
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_119: -5596419239571662432
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_12: 6640186573073672156
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_120: 8042701019054363655
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_121: 8465391340520965154
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_122: 7304381105302184824
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_123: 2277129274800591275
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_124: 7039492485024657843
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_125: 1315211276899863098
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_126: -570862532475403760
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_127: 7093325598893088863
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_128: -1094241154115873157
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_129: -6295993033615387459
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_13: -1204317690002460542
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_130: -5533537510285982130
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_131: 8331806791352087451
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_132: -8619975562007801080
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_133: -7104377679857949061
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_134: 3465237738744549766
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_135: 1280412653336769837
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_136: 5577503098990111327
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_137: 2725632378518697611
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_138: -3364230895558845998
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_139: -243384268729904517
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_14: 1665923214815477510
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_140: -87006622910575468
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_141: -108300376461920854
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_142: -6176923424756333951
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_143: -4341483661997412571
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_144: 2327668658487475810
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_145: 8308588659755341668
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_146: -2152069575186816422
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_147: 7952511133861477067
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_148: 69932763969948486
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_149: 7290619426091143699
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_15: 6527797931305025422
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_150: 466592255497104932
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_151: -2557033335775544024
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_152: -5151025747114339035
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_153: -7450703139140030618
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_154: 2674593109704884804
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_155: -850709664800184477
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_156: -8679112726377177202
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_157: -692764838451943611
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_158: -3946485079381566560
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_159: -3246858192320044035
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_16: -9134896206203251218
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_160: -374334758180129480
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_161: 1206531009164519407
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_162: -3093354574801189180
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_163: -477183366033156929
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_164: 6239619364959729498
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_17: 7336998443794297153
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_18: 6235530212740421817
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_19: 8526826627130205511
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_2: -3486088102889774009
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_20: 926503274271277436
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_21: 8851790995254650332
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_22: 5048111045290559358
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_23: 1678068861920079671
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_24: 6265732814968866172
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_25: -4739488673680642509
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_26: 7479212437542236065
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_27: 7861340792376758935
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_28: -5259404163341047007
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_29: 2964027018666563234
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_3: 7895941408217699757
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_30: 5141697969079984405
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_31: 8600561262908786244
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_32: 4233071746341914830
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_33: 6064379668068369597
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_34: -1879265263318694525
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_35: 3440594271277610269
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_36: 4163924875465486369
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_37: 9091894033906982248
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_38: -7693092323037886489
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_39: -4619447439541355710
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_4: -2028082187949147476
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_40: 5903331545470908928
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_41: 5802826948011497137
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_42: 7117311065437358563
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_43: -6100497236826123431
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_44: 8116080199181356407
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_45: 784381289153563941
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_46: -5547909231147356509
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_47: -5812386561227485165
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_48: 3856722648883108056
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_49: 5581247459124728478
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_5: 2984358247585511368
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_50: -5907894846739675462
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_51: -8653101637552193926
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_52: 9157567091396314188
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_53: -4348386397520137452
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_54: 2107204241735409082
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_55: 84085142511079174
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_56: 5011962587323153723
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_57: -5130731694957441382
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_58: -7606326482540645466
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_59: 4825863879812512502
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_6: -7689931775986096256
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_60: -614156430371825973
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_61: 6226195645763555535
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_62: -2492014370270725998
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_63: -1235434995304572041
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_64: 2508926845863469961
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_65: 4821259769908831476
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_66: 8236444249234510747
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_67: 1730409287711474275
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_68: 5476450515730216938
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_69: 5095260969232765014
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_7: -5220281885604260915
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_70: -3019766669243590330
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_71: 8166469494043492019
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_72: 7833935420167927495
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_73: 69259168081413263
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_74: -3390082606043229318
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_75: -1887808167184520527
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_76: -30500231233549210
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_77: -6740765636163467384
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_78: 923917854679017289
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_79: 437653378047319732
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_8: -1327285825741305553
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_80: 5603324865075863810
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_81: 6930089763312520288
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_82: -1160196136298425038
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_83: -3012984184165052651
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_84: 3647186383354934389
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_85: -4869324295441188066
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_86: 363401126592097341
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_87: -6478306809792020849
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_88: 4212522328894935952
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_89: 5498782466567471559
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_9: -8965009138753137521
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_90: -2931458675485219829
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_91: 5938948344713993582
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_92: 8243730975252903910
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_93: -1868645616640207431
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_94: 7612187758990170293
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_95: 5571149397127550804
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_96: 7502099561758045099
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_97: -700966836152087947
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_98: -6665932962415685422
+      pngtree-foam-bubbles-soap-cartoon-png-image_6956357_99: -6876483456128568479
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

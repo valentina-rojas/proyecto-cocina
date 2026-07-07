@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using System; // Necesario para el Action
 
 public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
@@ -12,6 +13,9 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     public RectTransform limiteArrastre;
 
     private RectTransform rectTransform;
+
+    // Evento para avisar a otros scripts que el arrastre terminó
+    public static event Action OnAnyItemEndDrag;
 
     private void Awake()
     {
@@ -61,14 +65,13 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         }
     }
 
- public void OnEndDrag(PointerEventData eventData)
-{
-    // Pasamos 'false' para que el ítem adopte la posición y escala local de su nuevo padre (el slot)
-    transform.SetParent(parentAfterDrag, false); 
-    
-    // Opcional pero recomendado por seguridad: asegurar que esté exactamente en el centro
-    rectTransform.anchoredPosition = Vector2.zero; 
+    public void OnEndDrag(PointerEventData eventData)
+    {
+        transform.SetParent(parentAfterDrag, false); 
+        rectTransform.anchoredPosition = Vector2.zero; 
+        image.raycastTarget = true;
 
-    image.raycastTarget = true;
-}
+        // Disparamos el evento global de que un objeto terminó de moverse
+        OnAnyItemEndDrag?.Invoke();
+    }
 }
