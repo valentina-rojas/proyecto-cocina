@@ -3,7 +3,7 @@ using UnityEngine;
 public class IngredienteData : MonoBehaviour
 {
     public string nombreIngrediente;
-    public string comida;
+    public string nombreReceta;
     public string tipoIngrediente;
 
     void Start()

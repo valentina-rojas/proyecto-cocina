@@ -7,10 +7,25 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
+    public enum EstadoJuego
+    {
+        OrdenandoIngredientes,
+        SeleccionandoReceta,
+        Lavado,
+        Cortado,
+        Final
+    }
+
+    [HideInInspector]
+    public EstadoJuego estadoActual = EstadoJuego.OrdenandoIngredientes;
+
     [Header("Botones de avance")]
     public Button botonIrALavado;
     public Button botonIrACortado;
     public Button botonMostrarResumen;
+
+    [Header("Inicio del día")]
+    public InicioDiaUI inicioDiaUI;
 
     [Header("UI: Panel de Resumen")]
     public GameObject panelResumen;
@@ -21,6 +36,7 @@ public class GameManager : MonoBehaviour
     public string nombreEscenaMenu = "MenuPrincipal";
 
     private InventorySlot[] todosLosSlots;
+    private bool diaMostrado = false;
 
     private void Awake()
     {
@@ -62,6 +78,7 @@ public class GameManager : MonoBehaviour
 
         ChequearEstadoMesa();
     }
+
     private void OnEnable()
     {
         DraggableItem.OnAnyItemEndDrag += OnItemDroppedNotification;
@@ -74,13 +91,17 @@ public class GameManager : MonoBehaviour
 
     private void OnItemDroppedNotification()
     {
-        ChequearEstadoMesa();
+        // Solo chequea la mesa durante la primera fase
+        if (estadoActual == EstadoJuego.OrdenandoIngredientes)
+        {
+            ChequearEstadoMesa();
+        }
     }
 
-    /// <summary>
-    /// Comprueba si ya no quedan ingredientes sobre la mesa.
-    /// Si es así, habilita el botón para pasar al lavado.
-    /// </summary>
+    //====================================================
+    // ORDENAR INGREDIENTES
+    //====================================================
+
     public void ChequearEstadoMesa()
     {
         int itemsEnMesa = 0;
@@ -88,32 +109,72 @@ public class GameManager : MonoBehaviour
         foreach (InventorySlot slot in todosLosSlots)
         {
             if (slot.tipoDeEstanteAceptado == "mesa")
-            {
                 itemsEnMesa += slot.transform.childCount;
-            }
         }
 
-        if (botonIrALavado != null)
-            botonIrALavado.interactable = (itemsEnMesa == 0);
+        if (itemsEnMesa == 0 && !diaMostrado)
+        {
+            diaMostrado = true;
+
+            if (inicioDiaUI != null)
+                inicioDiaUI.MostrarPanel();
+        }
     }
 
-    /// <summary>
-    /// Llamar desde el minijuego de lavado cuando el jugador termine.
-    /// </summary>
+    //====================================================
+    // SELECCIÓN DE RECETA
+    //====================================================
+
+    public void EmpezarSeleccionReceta()
+    {
+        estadoActual = EstadoJuego.SeleccionandoReceta;
+
+        Debug.Log("Estado: Seleccionando receta");
+
+        SeleccionRecetaManager.Instance.IniciarSeleccion();
+    }
+
+    public void ActivarLavado()
+    {
+        estadoActual = EstadoJuego.Lavado;
+
+        Debug.Log("Estado: Lavado");
+
+        if (botonIrALavado != null)
+            botonIrALavado.interactable = true;
+    }
+
+    //====================================================
+    // LAVADO
+    //====================================================
+
     public void LavadoManosCompleto()
     {
+        estadoActual = EstadoJuego.Cortado;
+
+        Debug.Log("Lavado completado");
+
         if (botonIrACortado != null)
             botonIrACortado.interactable = true;
     }
 
-    /// <summary>
-    /// Llamar desde el minijuego de cortado cuando el jugador termine.
-    /// </summary>
+    //====================================================
+    // CORTADO
+    //====================================================
+
     public void CortadoCompleto()
     {
+        estadoActual = EstadoJuego.Final;
+
+        Debug.Log("Cortado completado");
+
         if (botonMostrarResumen != null)
             botonMostrarResumen.interactable = true;
     }
+
+    //====================================================
+    // RESUMEN FINAL
+    //====================================================
 
     private void MostrarResumenFinal()
     {
