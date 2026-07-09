@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
-{
+{ 
     public static GameManager Instance;
 
     public enum EstadoJuego
@@ -13,6 +13,8 @@ public class GameManager : MonoBehaviour
         SeleccionandoReceta,
         Lavado,
         Cortado,
+        Coccion,
+        Emplatado,
         Final
     }
 
@@ -25,6 +27,8 @@ public class GameManager : MonoBehaviour
     [Header("Botones de avance")]
     public Button botonIrALavado;
     public Button botonIrACortado;
+    public Button botonIrACoccion;
+    public Button botonIrAEmplatado;
     public Button botonMostrarResumen;
 
     [Header("Inicio del día")]
@@ -72,6 +76,18 @@ public class GameManager : MonoBehaviour
         {
             botonIrACortado.interactable = false;
             botonIrACortado.onClick.AddListener(CameraManager.Instance.MostrarCamaraCortadoIngredientes);
+        }
+
+        if (botonIrACoccion != null)
+        {
+            botonIrACoccion.interactable = false;
+            botonIrACoccion.onClick.AddListener(CameraManager.Instance.MostrarCamaraCoccionIngredientes);
+        }
+
+        if (botonIrAEmplatado != null)
+        {
+            botonIrAEmplatado.interactable = false;
+            botonIrAEmplatado.onClick.AddListener(CameraManager.Instance.MostrarCamaraEmplatado);
         }
 
         if (botonMostrarResumen != null)
@@ -192,6 +208,33 @@ public class GameManager : MonoBehaviour
         if (botonMostrarResumen != null)
             botonMostrarResumen.interactable = true;
     }
+
+    //====================================================
+    // COCCION
+    //====================================================
+
+    public void CoccionCompleta()
+    {
+        estadoActual = EstadoJuego.Emplatado;
+
+        Debug.Log("Cocción completada");
+
+        botonIrAEmplatado.interactable = true;
+    }
+
+    //====================================================
+    // EMPLATADO
+    //====================================================
+
+    public void EmplatadoCompleto()
+    {
+        estadoActual = EstadoJuego.Final;
+
+        Debug.Log("Emplatado completado");
+
+        botonMostrarResumen.interactable = true;
+    }
+
 
     //====================================================
     // RESUMEN FINAL

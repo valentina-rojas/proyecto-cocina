@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: e8eccbc2b2b100d49a6599f7ce45da55
+guid: 3fe830d6cbb339d4e84ea39b27c809b3
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5829231515008949800
-    second: istockphoto-1194515466-612x612_0
+      213: -9148035310649316833
+    second: "se\xF1alador-LLENO_0"
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: istockphoto-1194515466-612x612_0
+      name: "se\xF1alador-LLENO_0"
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 612
-        height: 612
+        width: 238
+        height: 805
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 82ede95ad2795e050800000000000000
-      internalID: 5829231515008949800
+      spriteID: f1a64047a56ab0180800000000000000
+      internalID: -9148035310649316833
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      istockphoto-1194515466-612x612_0: 5829231515008949800
+      "se\xF1alador-LLENO_0": -9148035310649316833
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

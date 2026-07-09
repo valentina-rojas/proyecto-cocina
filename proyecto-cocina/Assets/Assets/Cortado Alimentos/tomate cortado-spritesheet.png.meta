@@ -1,0 +1,494 @@
+fileFormatVersion: 2
+guid: ce112f6932e6b4b4ca2c0d26ffe7a89f
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3052801980811565328
+    second: tomate cortado-spritesheet_0
+  - first:
+      213: -8365113612823842450
+    second: tomate cortado-spritesheet_1
+  - first:
+      213: 3452226907717660197
+    second: tomate cortado-spritesheet_2
+  - first:
+      213: 7197699968847812808
+    second: tomate cortado-spritesheet_3
+  - first:
+      213: -317617375292017148
+    second: tomate cortado-spritesheet_4
+  - first:
+      213: -7977163934534320010
+    second: tomate cortado-spritesheet_5
+  - first:
+      213: -1900882145904900075
+    second: tomate cortado-spritesheet_6
+  - first:
+      213: 6525924773900922409
+    second: tomate cortado-spritesheet_7
+  - first:
+      213: -7622755391107370917
+    second: tomate cortado-spritesheet_8
+  - first:
+      213: -4811749414895173959
+    second: tomate cortado-spritesheet_9
+  - first:
+      213: 3057322409754577057
+    second: tomate cortado-spritesheet_10
+  - first:
+      213: -6189472794014275048
+    second: tomate cortado-spritesheet_11
+  - first:
+      213: -8315186946594991312
+    second: tomate cortado-spritesheet_12
+  - first:
+      213: -2925888020773789511
+    second: tomate cortado-spritesheet_13
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: tomate cortado-spritesheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 560
+        height: 415
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f62e1cd5c442a5d0800000000000000
+      internalID: -3052801980811565328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tomate cortado-spritesheet_1
+      rect:
+        serializedVersion: 2
+        x: 1022
+        y: 0
+        width: 484
+        height: 415
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e61b9d94d7529eb80800000000000000
+      internalID: -8365113612823842450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tomate cortado-spritesheet_2
+      rect:
+        serializedVersion: 2
+        x: 1784
+        y: 86
+        width: 263
+        height: 224
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 52e6e86f416c8ef20800000000000000
+      internalID: 3452226907717660197
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tomate cortado-spritesheet_3
+      rect:
+        serializedVersion: 2
+        x: 2045
+        y: 0
+        width: 436
+        height: 415
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c893039cfd53e360800000000000000
+      internalID: 7197699968847812808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tomate cortado-spritesheet_4
+      rect:
+        serializedVersion: 2
+        x: 2694
+        y: 60
+        width: 376
+        height: 274
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4063a331ea8979bf0800000000000000
+      internalID: -317617375292017148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tomate cortado-spritesheet_5
+      rect:
+        serializedVersion: 2
+        x: 3068
+        y: 0
+        width: 376
+        height: 415
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 67046079aab6b4190800000000000000
+      internalID: -7977163934534320010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tomate cortado-spritesheet_6
+      rect:
+        serializedVersion: 2
+        x: 3647
+        y: 58
+        width: 446
+        height: 276
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 518c47572c5be95e0800000000000000
+      internalID: -1900882145904900075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tomate cortado-spritesheet_7
+      rect:
+        serializedVersion: 2
+        x: 4091
+        y: 0
+        width: 300
+        height: 405
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92e294b810eb09a50800000000000000
+      internalID: 6525924773900922409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tomate cortado-spritesheet_8
+      rect:
+        serializedVersion: 2
+        x: 4553
+        y: 35
+        width: 563
+        height: 321
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b50f95fdb58863690800000000000000
+      internalID: -7622755391107370917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tomate cortado-spritesheet_9
+      rect:
+        serializedVersion: 2
+        x: 5114
+        y: 19
+        width: 212
+        height: 386
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9bebaf0a66b393db0800000000000000
+      internalID: -4811749414895173959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tomate cortado-spritesheet_10
+      rect:
+        serializedVersion: 2
+        x: 5481
+        y: 35
+        width: 658
+        height: 321
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a84345888acd6a20800000000000000
+      internalID: 3057322409754577057
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tomate cortado-spritesheet_11
+      rect:
+        serializedVersion: 2
+        x: 6137
+        y: 65
+        width: 150
+        height: 339
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 81aa5dd79439a1aa0800000000000000
+      internalID: -6189472794014275048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tomate cortado-spritesheet_12
+      rect:
+        serializedVersion: 2
+        x: 6393
+        y: 31
+        width: 769
+        height: 325
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0339d3f17858a9c80800000000000000
+      internalID: -8315186946594991312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tomate cortado-spritesheet_13
+      rect:
+        serializedVersion: 2
+        x: 7200
+        y: 31
+        width: 984
+        height: 325
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b0253dd8582567d0800000000000000
+      internalID: -2925888020773789511
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      tomate cortado-spritesheet_0: -3052801980811565328
+      tomate cortado-spritesheet_1: -8365113612823842450
+      tomate cortado-spritesheet_10: 3057322409754577057
+      tomate cortado-spritesheet_11: -6189472794014275048
+      tomate cortado-spritesheet_12: -8315186946594991312
+      tomate cortado-spritesheet_13: -2925888020773789511
+      tomate cortado-spritesheet_2: 3452226907717660197
+      tomate cortado-spritesheet_3: 7197699968847812808
+      tomate cortado-spritesheet_4: -317617375292017148
+      tomate cortado-spritesheet_5: -7977163934534320010
+      tomate cortado-spritesheet_6: -1900882145904900075
+      tomate cortado-spritesheet_7: 6525924773900922409
+      tomate cortado-spritesheet_8: -7622755391107370917
+      tomate cortado-spritesheet_9: -4811749414895173959
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

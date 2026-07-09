@@ -1,10 +1,37 @@
 fileFormatVersion: 2
-guid: e13d3ccc5abb5004a8fc776334c6fac5
+guid: 84f36c2fed45be746b6e669a564d1df3
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6333931330286294498
-    second: pngtree-sink-clipart-png-image_3042804_0
+      213: 6669223408468824630
+    second: agua-spritesheet_0
+  - first:
+      213: -4332340142810807703
+    second: agua-spritesheet_1
+  - first:
+      213: -4953057869292964906
+    second: agua-spritesheet_2
+  - first:
+      213: -685521265232353271
+    second: agua-spritesheet_3
+  - first:
+      213: 3999239965796472869
+    second: agua-spritesheet_4
+  - first:
+      213: -5936457801766259805
+    second: agua-spritesheet_5
+  - first:
+      213: 2292520356195367728
+    second: agua-spritesheet_6
+  - first:
+      213: -9171536505100242810
+    second: agua-spritesheet_7
+  - first:
+      213: 5455475370180333695
+    second: agua-spritesheet_8
+  - first:
+      213: 7407087505778440936
+    second: agua-spritesheet_9
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,23 +140,67 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: pngtree-sink-clipart-png-image_3042804_0
+      name: agua-spritesheet_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 360
-        height: 360
+        width: 601
+        height: 656
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e1a6192830b5918a0800000000000000
-      internalID: -6333931330286294498
+      spriteID: 632118dda57dd8c50800000000000000
+      internalID: 6669223408468824630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: agua-spritesheet_1
+      rect:
+        serializedVersion: 2
+        x: 601
+        y: 0
+        width: 601
+        height: 656
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 962c895089f60e3c0800000000000000
+      internalID: -4332340142810807703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: agua-spritesheet_2
+      rect:
+        serializedVersion: 2
+        x: 1202
+        y: 0
+        width: 601
+        height: 656
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d3f6dc3c14334bb0800000000000000
+      internalID: -4953057869292964906
       vertices: []
       indices: 
       edges: []
@@ -138,7 +209,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 6b6968e4986e92f429699ae0deef7570
     internalID: 0
     vertices: []
     indices: 
@@ -146,9 +217,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":3.0,"y":1.0},"gridSpriteSize":{"x":601.0,"y":656.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      pngtree-sink-clipart-png-image_3042804_0: -6333931330286294498
+      agua-spritesheet_0: 6669223408468824630
+      agua-spritesheet_1: -4332340142810807703
+      agua-spritesheet_2: -4953057869292964906
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

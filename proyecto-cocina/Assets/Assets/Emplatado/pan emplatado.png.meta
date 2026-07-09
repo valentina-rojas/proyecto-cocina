@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: b17f40e9762733f489315ae0d124afbc
+guid: fc57cca0d6e2ad74886d23c89530376b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6186407879694808767
-    second: istockphoto-1973458637-612x612_0
+      213: 7829947995586942833
+    second: pan emplatado_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: istockphoto-1973458637-612x612_0
+      name: pan emplatado_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 612
-        height: 425
+        width: 418
+        height: 269
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1490d177fc6752aa0800000000000000
-      internalID: -6186407879694808767
+      spriteID: 177ddb6973099ac60800000000000000
+      internalID: 7829947995586942833
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      istockphoto-1973458637-612x612_0: -6186407879694808767
+      pan emplatado_0: 7829947995586942833
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

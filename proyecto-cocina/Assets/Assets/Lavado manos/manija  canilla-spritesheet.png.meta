@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: b49b8eaa729d66d44a4d2363777621c3
+guid: 784829d5035d7fa45ad077542cb536eb
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2667863134377669558
-    second: 187ff75b47bc66b99adcd7f09cf43751_0
+      213: 4764036234778820411
+    second: manija  canilla-spritesheet_0
+  - first:
+      213: 3645267867919346853
+    second: manija  canilla-spritesheet_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +116,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 187ff75b47bc66b99adcd7f09cf43751_0
+      name: manija  canilla-spritesheet_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 474
-        height: 474
+        y: 1
+        width: 92
+        height: 160
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +131,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a4c0f0e3d98d9fad0800000000000000
-      internalID: -2667863134377669558
+      spriteID: b3fb41fe6b14d1240800000000000000
+      internalID: 4764036234778820411
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: manija  canilla-spritesheet_1
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 0
+        width: 161
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ac6a7affc7969230800000000000000
+      internalID: 3645267867919346853
       vertices: []
       indices: 
       edges: []
@@ -148,7 +173,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      187ff75b47bc66b99adcd7f09cf43751_0: -2667863134377669558
+      manija  canilla-spritesheet_0: 4764036234778820411
+      manija  canilla-spritesheet_1: 3645267867919346853
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
