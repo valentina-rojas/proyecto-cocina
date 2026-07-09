@@ -1710,7 +1710,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -10
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -4276056733719409688, guid: a5ffd916ab688c04891b5c7c6fa34ff8, type: 3}
+  m_Sprite: {fileID: -3674938030964530893, guid: 7d9e4bdc37798eb4db2844ba8b8fb64b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -3196,13 +3196,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 688908565}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 6.06, y: 0.8707408, z: 0}
-  m_LocalScale: {x: 2.5088506, y: 1.853122, z: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 6.04, y: 0.08, z: 0}
+  m_LocalScale: {x: 0.93, y: 0.93, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1113450582}
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &688908567
 SpriteRenderer:
   serializedVersion: 2
@@ -3252,7 +3252,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -8
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 5589128817003548654, guid: da305453862590941bf720f85d20cc85, type: 3}
+  m_Sprite: {fileID: 6853898476671759001, guid: 1e9c0d366112f0d4a9206b39a5e09d8a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -6129,8 +6129,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 456, y: -232}
-  m_SizeDelta: {x: 80, y: 75.72}
+  m_AnchoredPosition: {x: 420, y: -216}
+  m_SizeDelta: {x: 142, y: 146}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1209881271
 MonoBehaviour:
@@ -6151,7 +6151,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 2
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -6162,7 +6162,7 @@ MonoBehaviour:
     m_FadeDuration: 0.1
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 7230620846565530027, guid: 0a8f4ae517205e3418f6d2b13adadd9c, type: 3}
     m_SelectedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
@@ -6189,15 +6189,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0.2244571, g: 0.49056602, b: 0.23303814, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: -1979737350618218849, guid: 0a8f4ae517205e3418f6d2b13adadd9c, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -6315,8 +6315,8 @@ Transform:
   m_GameObject: {fileID: 1210896128}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7.100073, y: -1.4092593, z: 0}
-  m_LocalScale: {x: 3.0233946, y: 2.0120547, z: 1}
+  m_LocalPosition: {x: 7.28, y: -0.82, z: 0}
+  m_LocalScale: {x: 0.93, y: 0.93, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1113450582}
@@ -6370,7 +6370,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -9
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -2705005901881801304, guid: 3894d5a0bd4407b4db6c0b471ce31663, type: 3}
+  m_Sprite: {fileID: -6847123348642159669, guid: 93a9e01c79b22fa47b28b1b56369635c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -7841,7 +7841,7 @@ MonoBehaviour:
   carneCruda: {fileID: -5704140008349122194, guid: 1494da740d63dcd4c800d5a597e09654, type: 3}
   carneMedia: {fileID: -1558129272, guid: 1494da740d63dcd4c800d5a597e09654, type: 3}
   carneCocida: {fileID: -1487373300, guid: 1494da740d63dcd4c800d5a597e09654, type: 3}
-  carneQuemada: {fileID: -1487373300, guid: 1494da740d63dcd4c800d5a597e09654, type: 3}
+  carneQuemada: {fileID: 5304478200348367800, guid: 0e4563e22769b214fbf72c0adeb11265, type: 3}
   tiempoAmarillo: 4
   tiempoVerde: 7
   tiempoRojo: 10
