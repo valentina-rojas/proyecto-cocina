@@ -4,26 +4,15 @@ public class CortadoManager : MonoBehaviour
 {
     public static CortadoManager Instance;
 
-    public int cortesNecesarios = 4;
-
-    private int cortesRealizados;
-
     private void Awake()
     {
         Instance = this;
     }
 
-    public void RegistrarCorte()
+    public void IngredienteCortado()
     {
-        cortesRealizados++;
+        Debug.Log("Ingrediente cortado completamente.");
 
-        Debug.Log(cortesRealizados + "/" + cortesNecesarios);
-
-        if (cortesRealizados >= cortesNecesarios)
-        {
-            Debug.Log("Tomate cortado.");
-
-            GameManager.Instance.CortadoCompleto();
-        }
+        GameManager.Instance.CortadoCompleto();
     }
 }

@@ -1,0 +1,14 @@
+using UnityEngine;
+
+public class SliceStart : MonoBehaviour
+{
+    public SlicePoint slicePoint;
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.GetComponent<KnifeController>() == null)
+            return;
+
+        slicePoint.EmpezarCorte();
+    }
+}

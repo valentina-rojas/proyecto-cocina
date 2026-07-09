@@ -1,39 +1,38 @@
 using UnityEngine;
 
-[RequireComponent(typeof(BoxCollider2D))]
 public class SlicePoint : MonoBehaviour
 {
-    public CuttableIngredient ingrediente;
+    private CuttableIngredient ingrediente;
 
+    private bool iniciado;
     private bool cortado;
 
-    private BoxCollider2D box;
-
-    private void Awake()
+    public void Inicializar(CuttableIngredient ingrediente)
     {
-        box = GetComponent<BoxCollider2D>();
+        this.ingrediente = ingrediente;
+
+        iniciado = false;
+        cortado = false;
     }
 
-    private void OnTriggerExit2D(Collider2D other)
+    public void EmpezarCorte()
     {
         if (cortado)
             return;
 
-        if (other.GetComponent<KnifeController>() == null)
+        iniciado = true;
+    }
+
+    public void TerminarCorte()
+    {
+        if (cortado)
             return;
 
-        float y = other.bounds.center.y;
+        if (!iniciado)
+            return;
 
-        float arriba = box.bounds.max.y;
-        float abajo = box.bounds.min.y;
+        cortado = true;
 
-        // El cuchillo debe terminar cerca del borde inferior
-        if (y <= abajo + 0.05f)
-        {
-            cortado = true;
-
-            ingrediente.RealizarCorte();
-            CortadoManager.Instance.RegistrarCorte();
-        }
+        ingrediente.RealizarCorte();
     }
 }

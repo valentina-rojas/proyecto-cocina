@@ -19,6 +19,9 @@ public class GameManager : MonoBehaviour
     [HideInInspector]
     public EstadoJuego estadoActual = EstadoJuego.OrdenandoIngredientes;
 
+    [Header("Botón Continuar")]
+    public Button botonContinuar;
+
     [Header("Botones de avance")]
     public Button botonIrALavado;
     public Button botonIrACortado;
@@ -52,6 +55,12 @@ public class GameManager : MonoBehaviour
 
         if (panelResumen != null)
             panelResumen.SetActive(false);
+
+        if (botonContinuar != null)
+        {
+            botonContinuar.interactable = false;
+            botonContinuar.onClick.AddListener(MostrarInicioDia);
+        }
 
         if (botonIrALavado != null)
         {
@@ -91,7 +100,6 @@ public class GameManager : MonoBehaviour
 
     private void OnItemDroppedNotification()
     {
-        // Solo chequea la mesa durante la primera fase
         if (estadoActual == EstadoJuego.OrdenandoIngredientes)
         {
             ChequearEstadoMesa();
@@ -112,13 +120,26 @@ public class GameManager : MonoBehaviour
                 itemsEnMesa += slot.transform.childCount;
         }
 
-        if (itemsEnMesa == 0 && !diaMostrado)
-        {
-            diaMostrado = true;
+        if (diaMostrado)
+            return;
 
-            if (inicioDiaUI != null)
-                inicioDiaUI.MostrarPanel();
+        if (botonContinuar != null)
+        {
+            botonContinuar.interactable = (itemsEnMesa == 0);
         }
+    }
+
+    private void MostrarInicioDia()
+    {
+        diaMostrado = true;
+
+        if (botonContinuar != null)
+            botonContinuar.interactable = false;
+
+        if (inicioDiaUI != null)
+            botonContinuar.gameObject.SetActive(false);
+            botonIrALavado.gameObject.SetActive(true);
+            inicioDiaUI.MostrarPanel();
     }
 
     //====================================================
