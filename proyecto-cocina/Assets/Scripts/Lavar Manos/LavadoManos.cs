@@ -3,16 +3,15 @@ using UnityEngine.UI;
 
 public class LavadoManos : MonoBehaviour
 {
-    public static LavadoManos instance;
+    public static LavadoManos Instance;
 
     [Header("Referencias")]
-    public DraggableItem jabonDraggable; // Referencia al script del jabón
+    public SoapController jabonDraggable;
     public Slider barra;
 
     [Header("Configuración")]
     public float tiempoNecesario = 3f;
-    public float velocidadMinima = 2f;    // Ajusta según qué tan rápido tengan que moverlo
-    public float velocidadEnfriamiento = 0.5f; // Qué tan rápido baja la barra si se detienen
+    public float velocidadMinima = 100f;
 
     private float progreso;
     private bool completado;
@@ -20,7 +19,7 @@ public class LavadoManos : MonoBehaviour
 
     private void Awake()
     {
-        instance = this;
+        Instance = this;
     }
 
     private void Start()
@@ -30,47 +29,44 @@ public class LavadoManos : MonoBehaviour
 
     private void Update()
     {
-        if (completado || jabonDraggable == null) return;
+        if (completado || jabonDraggable == null)
+            return;
 
-        // Comprobamos si el jugador está arrastrando el jabón Y está sobre las manos
-       
-        bool estaLavando = AreaLavado.JugadorEstaEncima && UnityEngine.InputSystem.Pointer.current != null && UnityEngine.InputSystem.Pointer.current.press.isPressed;
+        bool estaLavando =
+            AreaLavado.JugadorEstaEncima &&
+            jabonDraggable.EstaSiendoArrastrado;
 
         if (estaLavando)
         {
-            // Medimos cuánto se movió el jabón en este frame
-            float distanciaMovida = Vector3.Distance(jabonDraggable.transform.position, ultimaPosicionJabon);
-            
-            // Convertimos a una velocidad independiente del framerate
-            float velocidadActual = distanciaMovida / Time.deltaTime;
+            float distancia =
+                Vector3.Distance(
+                    jabonDraggable.transform.position,
+                    ultimaPosicionJabon);
 
-            if (velocidadActual >= velocidadMinima)
+            float velocidad = distancia / Time.deltaTime;
+
+            if (velocidad >= velocidadMinima)
             {
-                // Sube el progreso
                 progreso += Time.deltaTime;
             }
             else
             {
-                // Si está encima pero quieto, el progreso disminuye lento
-                progreso -= Time.deltaTime * velocidadEnfriamiento;
+                // Si el jabón se queda quieto, reinicia la barra.
+                progreso = 0f;
             }
         }
         else
         {
-            // Si sacó el jabón o soltó el click, la barra disminuye de a poco
-            progreso -= Time.deltaTime * velocidadEnfriamiento;
+            // Si salió del área o soltó el jabón, reinicia.
+            progreso = 0f;
         }
 
-        // Aseguramos que el progreso no sea menor a 0 ni mayor al tiempo necesario
         progreso = Mathf.Clamp(progreso, 0f, tiempoNecesario);
 
-        // Actualizamos la UI de la barra (0 a 1)
         barra.value = progreso / tiempoNecesario;
 
-        // Guardamos la posición actual para el siguiente frame
         ultimaPosicionJabon = jabonDraggable.transform.position;
 
-        // Condición de victoria
         if (progreso >= tiempoNecesario)
         {
             CompletarLavado();
@@ -80,6 +76,7 @@ public class LavadoManos : MonoBehaviour
     private void CompletarLavado()
     {
         completado = true;
+
         Debug.Log("¡Lavado completado con éxito!");
 
         if (GameManager.Instance != null)
@@ -92,10 +89,11 @@ public class LavadoManos : MonoBehaviour
     {
         progreso = 0f;
         completado = false;
-        barra.value = 0f;
+
+        if (barra != null)
+            barra.value = 0f;
+
         if (jabonDraggable != null)
-        {
             ultimaPosicionJabon = jabonDraggable.transform.position;
-        }
     }
 }
