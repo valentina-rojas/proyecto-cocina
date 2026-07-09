@@ -39,6 +39,13 @@ public class Hornalla : MonoBehaviour
         {
             Debug.Log("❌ Hornalla apagada");
 
+            // COMUNICACIÓN CON EL GAMEMANAGER:
+            // Al apagar la hornalla, permitimos avanzar al emplatado
+            if (GameManager.Instance != null)
+            {
+                GameManager.Instance.CoccionCompleta();
+            }
+
             if (carne != null)
             {
                 carne.OcultarBarra();
@@ -46,4 +53,7 @@ public class Hornalla : MonoBehaviour
             }
         }
     }
+
+
+    
 }

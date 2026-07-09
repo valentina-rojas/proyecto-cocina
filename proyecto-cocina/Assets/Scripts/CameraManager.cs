@@ -21,7 +21,7 @@ public class CameraManager : MonoBehaviour
 
     private void Start()
     {
-        MostrarCamaraCortadoIngredientes();
+        MostrarCamaraAlmacenIngredientes();
     }
 
     private void DesactivarTodas()
@@ -29,6 +29,8 @@ public class CameraManager : MonoBehaviour
         camaraAlmacenIngredientes.SetActive(false);
         camaraLavadoManos.SetActive(false);
         camaraCortadoIngredientes.SetActive(false);
+        camaraCoccionIngredientes.SetActive(false);
+        camaraCamaraEmplatado.SetActive(false);
     }
 
     public void MostrarCamaraAlmacenIngredientes()

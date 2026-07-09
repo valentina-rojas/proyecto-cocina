@@ -92,6 +92,7 @@ public class Carne : MonoBehaviour
         }
     }
 
+
     public void MostrarBarra()
     {
         barraCoccion.gameObject.SetActive(true);

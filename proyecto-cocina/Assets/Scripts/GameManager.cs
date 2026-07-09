@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
+using System.Collections; // Necesario para usar Corrutinas (IEnumerator)
 
 public class GameManager : MonoBehaviour
 { 
@@ -60,12 +61,20 @@ public class GameManager : MonoBehaviour
         if (panelResumen != null)
             panelResumen.SetActive(false);
 
+        // Configuración segura del botón Continuar
         if (botonContinuar != null)
         {
-            botonContinuar.interactable = false;
+            botonContinuar.onClick.RemoveAllListeners(); // Limpia cualquier residuo previo
             botonContinuar.onClick.AddListener(MostrarInicioDia);
+            botonContinuar.interactable = false; 
+            Debug.Log("GameManager: Botón Continuar configurado correctamente en código.");
+        }
+        else
+        {
+            Debug.LogError("GameManager: ¡No has arrastrado el Botón Continuar al Inspector!");
         }
 
+        // Configuración de los botones de avance
         if (botonIrALavado != null)
         {
             botonIrALavado.interactable = false;
@@ -77,7 +86,7 @@ public class GameManager : MonoBehaviour
             botonIrACortado.interactable = false;
             botonIrACortado.onClick.AddListener(CameraManager.Instance.MostrarCamaraCortadoIngredientes);
         }
-
+ 
         if (botonIrACoccion != null)
         {
             botonIrACoccion.interactable = false;
@@ -118,8 +127,15 @@ public class GameManager : MonoBehaviour
     {
         if (estadoActual == EstadoJuego.OrdenandoIngredientes)
         {
-            ChequearEstadoMesa();
+            // Esperamos un frame para que los objetos cambien de padre realmente en la jerarquía
+            StartCoroutine(ChequearMesaAlFinalDelFrame());
         }
+    }
+
+    private IEnumerator ChequearMesaAlFinalDelFrame()
+    {
+        yield return new WaitForEndOfFrame();
+        ChequearEstadoMesa();
     }
 
     //====================================================
@@ -141,21 +157,41 @@ public class GameManager : MonoBehaviour
 
         if (botonContinuar != null)
         {
+            // Se activa SOLO si está vacía (0 items)
             botonContinuar.interactable = (itemsEnMesa == 0);
         }
     }
 
     private void MostrarInicioDia()
     {
+        // Alerta en consola para verificar que Unity detecta el clic físico
+        Debug.LogWarning("¡EL CLIC FUNCIONA! Ejecutando MostrarInicioDia().");
+
         diaMostrado = true;
 
         if (botonContinuar != null)
+        {
             botonContinuar.interactable = false;
+            botonContinuar.gameObject.SetActive(false);
+        }
+
+        if (botonIrALavado != null)
+        {
+            botonIrALavado.gameObject.SetActive(true);
+        }
+        else
+        {
+            Debug.LogWarning("GameManager: 'botonIrALavado' no está asignado en el Inspector.");
+        }
 
         if (inicioDiaUI != null)
-            botonContinuar.gameObject.SetActive(false);
-            botonIrALavado.gameObject.SetActive(true);
+        {
             inicioDiaUI.MostrarPanel();
+        }
+        else 
+        {
+            Debug.LogError("GameManager: ¡Falta asignar el componente 'InicioDiaUI' en el Inspector!");
+        }
     }
 
     //====================================================
@@ -165,16 +201,13 @@ public class GameManager : MonoBehaviour
     public void EmpezarSeleccionReceta()
     {
         estadoActual = EstadoJuego.SeleccionandoReceta;
-
         Debug.Log("Estado: Seleccionando receta");
-
         SeleccionRecetaManager.Instance.IniciarSeleccion();
     }
 
     public void ActivarLavado()
     {
         estadoActual = EstadoJuego.Lavado;
-
         Debug.Log("Estado: Lavado");
 
         if (botonIrALavado != null)
@@ -188,7 +221,6 @@ public class GameManager : MonoBehaviour
     public void LavadoManosCompleto()
     {
         estadoActual = EstadoJuego.Cortado;
-
         Debug.Log("Lavado completado");
 
         if (botonIrACortado != null)
@@ -201,12 +233,11 @@ public class GameManager : MonoBehaviour
 
     public void CortadoCompleto()
     {
-        estadoActual = EstadoJuego.Final;
-
+        estadoActual = EstadoJuego.Coccion;
         Debug.Log("Cortado completado");
-
-        if (botonMostrarResumen != null)
-            botonMostrarResumen.interactable = true;
+        
+        if (botonIrACoccion != null)
+            botonIrACoccion.interactable = true;
     }
 
     //====================================================
@@ -216,10 +247,17 @@ public class GameManager : MonoBehaviour
     public void CoccionCompleta()
     {
         estadoActual = EstadoJuego.Emplatado;
+        Debug.Log("GameManager: Cocción completada (Hornalla apagada). Estado cambiado a Emplatado.");
 
-        Debug.Log("Cocción completada");
-
-        botonIrAEmplatado.interactable = true;
+        if (botonIrAEmplatado != null)
+        {
+            botonIrAEmplatado.gameObject.SetActive(true); // Por si acaso estaba oculto
+            botonIrAEmplatado.interactable = true;        // Habilita el clic
+        }
+        else
+        {
+            Debug.LogWarning("GameManager: El 'botonIrAEmplatado' no está asignado en el Inspector.");
+        }
     }
 
     //====================================================
@@ -229,12 +267,11 @@ public class GameManager : MonoBehaviour
     public void EmplatadoCompleto()
     {
         estadoActual = EstadoJuego.Final;
-
         Debug.Log("Emplatado completado");
 
-        botonMostrarResumen.interactable = true;
+        if (botonMostrarResumen != null)
+            botonMostrarResumen.interactable = true;
     }
-
 
     //====================================================
     // RESUMEN FINAL
