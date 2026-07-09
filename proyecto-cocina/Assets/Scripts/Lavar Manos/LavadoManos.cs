@@ -36,11 +36,11 @@ public class LavadoManos : MonoBehaviour
             AreaLavado.JugadorEstaEncima &&
             jabonDraggable.EstaSiendoArrastrado;
 
-        Debug.Log(
+       /* Debug.Log(
             $"Área: {AreaLavado.JugadorEstaEncima} | " +
             $"Arrastrando: {jabonDraggable.EstaSiendoArrastrado} | " +
             $"Está lavando: {estaLavando}"
-        );
+        );*/
 
         if (estaLavando)
         {
@@ -65,7 +65,7 @@ public class LavadoManos : MonoBehaviour
         }
         else
         {
-            Debug.Log("✖ No está lavando (no está sobre el área o no se está arrastrando).");
+          //  Debug.Log("✖ No está lavando (no está sobre el área o no se está arrastrando).");
             progreso = 0f;
         }
 
@@ -74,7 +74,7 @@ public class LavadoManos : MonoBehaviour
         if (barra != null)
         {
             barra.value = progreso / tiempoNecesario;
-            Debug.Log($"Barra: {barra.value}");
+           // Debug.Log($"Barra: {barra.value}");
         }
         else
         {
