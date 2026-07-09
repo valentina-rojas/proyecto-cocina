@@ -21,7 +21,7 @@ public class CameraManager : MonoBehaviour
 
     private void Start()
     {
-        MostrarCamaraCoccionIngredientes();
+        MostrarCamaraCortadoIngredientes();
     }
 
     private void DesactivarTodas()
