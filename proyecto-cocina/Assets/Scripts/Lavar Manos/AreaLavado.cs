@@ -7,14 +7,16 @@ public class AreaLavado : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     public static bool JugadorEstaEncima { get; private set; }
 
     public void OnPointerEnter(PointerEventData eventData)
-    {
-        JugadorEstaEncima = true;
-    }
+{
+    JugadorEstaEncima = true;
+    Debug.Log("Entró al área");
+}
 
-    public void OnPointerExit(PointerEventData eventData)
-    {
-        JugadorEstaEncima = false;
-    }
+public void OnPointerExit(PointerEventData eventData)
+{
+    JugadorEstaEncima = false;
+    Debug.Log("Salió del área");
+}
 
     private void OnDisable()
     {

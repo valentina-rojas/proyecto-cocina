@@ -36,34 +36,50 @@ public class LavadoManos : MonoBehaviour
             AreaLavado.JugadorEstaEncima &&
             jabonDraggable.EstaSiendoArrastrado;
 
+        Debug.Log(
+            $"Área: {AreaLavado.JugadorEstaEncima} | " +
+            $"Arrastrando: {jabonDraggable.EstaSiendoArrastrado} | " +
+            $"Está lavando: {estaLavando}"
+        );
+
         if (estaLavando)
         {
-            float distancia =
-                Vector3.Distance(
-                    jabonDraggable.transform.position,
-                    ultimaPosicionJabon);
+            float distancia = Vector3.Distance(
+                jabonDraggable.transform.position,
+                ultimaPosicionJabon);
 
             float velocidad = distancia / Time.deltaTime;
+
+            Debug.Log($"Distancia: {distancia} | Velocidad: {velocidad}");
 
             if (velocidad >= velocidadMinima)
             {
                 progreso += Time.deltaTime;
+                Debug.Log($"✔ Sumando progreso. Progreso actual: {progreso}");
             }
             else
             {
-                // Si el jabón se queda quieto, reinicia la barra.
+                Debug.Log("✖ Jabón demasiado quieto. Reiniciando progreso.");
                 progreso = 0f;
             }
         }
         else
         {
-            // Si salió del área o soltó el jabón, reinicia.
+            Debug.Log("✖ No está lavando (no está sobre el área o no se está arrastrando).");
             progreso = 0f;
         }
 
         progreso = Mathf.Clamp(progreso, 0f, tiempoNecesario);
 
-        barra.value = progreso / tiempoNecesario;
+        if (barra != null)
+        {
+            barra.value = progreso / tiempoNecesario;
+            Debug.Log($"Barra: {barra.value}");
+        }
+        else
+        {
+            Debug.LogError("La referencia a la barra es NULL.");
+        }
 
         ultimaPosicionJabon = jabonDraggable.transform.position;
 
@@ -83,6 +99,10 @@ public class LavadoManos : MonoBehaviour
         {
             GameManager.Instance.LavadoManosCompleto();
         }
+        else
+        {
+            Debug.LogWarning("GameManager.Instance es NULL.");
+        }
     }
 
     public void Reiniciar()
@@ -95,5 +115,7 @@ public class LavadoManos : MonoBehaviour
 
         if (jabonDraggable != null)
             ultimaPosicionJabon = jabonDraggable.transform.position;
+
+        Debug.Log("Lavado reiniciado.");
     }
 }
