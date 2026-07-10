@@ -35,9 +35,11 @@ public class GameManager : MonoBehaviour
     [Header("Inicio del día")]
     public InicioDiaUI inicioDiaUI;
 
-    [Header("UI: Panel de Resumen")]
+    [Header("UI: Resultado Final")]
     public GameObject panelResumen;
-    public TextMeshProUGUI textoResumen;
+    public Image imagenResultado;
+    public Sprite spriteVictoria;
+    public Sprite spriteDerrota;
     public Button botonMenuPrincipal;
 
     [Header("Configuración de la Escena")]
@@ -45,6 +47,10 @@ public class GameManager : MonoBehaviour
 
     private InventorySlot[] todosLosSlots;
     private bool diaMostrado = false;
+
+    [HideInInspector] public bool ingredientesMalOrdenados;
+    [HideInInspector] public bool carneCruda;
+    [HideInInspector] public bool carneQuemada;
 
     private void Awake()
     {
@@ -57,6 +63,10 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         todosLosSlots = FindObjectsByType<InventorySlot>(FindObjectsSortMode.None);
+
+       /* PopupManager.Instance.MostrarPopup(
+    "Guardado de alimentos",
+    "Almacena cada alimento en el lugar correspondiente.");*/
 
         if (panelResumen != null)
             panelResumen.SetActive(false);
@@ -167,6 +177,8 @@ public class GameManager : MonoBehaviour
         // Alerta en consola para verificar que Unity detecta el clic físico
         Debug.LogWarning("¡EL CLIC FUNCIONA! Ejecutando MostrarInicioDia().");
 
+        EvaluarIngredientes();
+
         diaMostrado = true;
 
         if (botonContinuar != null)
@@ -203,6 +215,8 @@ public class GameManager : MonoBehaviour
         estadoActual = EstadoJuego.SeleccionandoReceta;
         Debug.Log("Estado: Seleccionando receta");
         SeleccionRecetaManager.Instance.IniciarSeleccion();
+
+
     }
 
     public void ActivarLavado()
@@ -277,37 +291,71 @@ public class GameManager : MonoBehaviour
     // RESUMEN FINAL
     //====================================================
 
+    public void RegistrarIngredientesMalOrdenados()
+    {
+        ingredientesMalOrdenados = true;
+    }
+
+    public void RegistrarCarneCruda()
+    {
+        carneCruda = true;
+    }
+
+    public void RegistrarCarneQuemada()
+    {
+        carneQuemada = true;
+    }
+
+    private bool GanoPartida()
+    {
+        return !ingredientesMalOrdenados &&
+            !carneCruda &&
+            !carneQuemada;
+    }
+
     private void MostrarResumenFinal()
     {
-        int correctos = 0;
+        if (imagenResultado != null)
+        {
+            imagenResultado.sprite = GanoPartida()
+                ? spriteVictoria
+                : spriteDerrota;
+        }
+
+        if (panelResumen != null)
+        {
+            panelResumen.SetActive(true);
+        }
+    }
+
+    private void VolverAlMenu()
+    {
+        SceneManager.LoadScene(nombreEscenaMenu);
+    }
+
+    public void EvaluarIngredientes()
+    {
         int incorrectos = 0;
 
         foreach (InventorySlot slot in todosLosSlots)
         {
             IngredienteData ingrediente = slot.GetComponentInChildren<IngredienteData>();
 
-            if (ingrediente != null)
+            if (ingrediente != null &&
+                ingrediente.tipoIngrediente != slot.tipoDeEstanteAceptado)
             {
-                if (ingrediente.tipoIngrediente == slot.tipoDeEstanteAceptado)
-                    correctos++;
-                else
-                    incorrectos++;
+                incorrectos++;
             }
         }
 
-        if (textoResumen != null)
+        if (incorrectos > 0)
         {
-            textoResumen.text =
-                $"Ingredientes Correctos: <color=green>{correctos}</color>\n" +
-                $"Ingredientes Incorrectos: <color=red>{incorrectos}</color>";
+            RegistrarIngredientesMalOrdenados();
+            Debug.Log("❌ Ingredientes mal ordenados");
         }
-
-        if (panelResumen != null)
-            panelResumen.SetActive(true);
-    }
-
-    private void VolverAlMenu()
-    {
-        SceneManager.LoadScene(nombreEscenaMenu);
+        else
+        {
+            Debug.Log("✅ Ingredientes ordenados correctamente");
+        }
     }
 }

@@ -79,15 +79,23 @@ public class Carne : MonoBehaviour
         switch (estado)
         {
             case Estado.Cruda:
+
                 Debug.Log("❌ La carne quedó cruda.");
+                GameManager.Instance.RegistrarCarneCruda();
+
                 break;
 
             case Estado.Cocida:
+
                 Debug.Log("✅ Cocción correcta.");
+
                 break;
 
             case Estado.Quemada:
+
                 Debug.Log("❌ La carne se quemó.");
+                GameManager.Instance.RegistrarCarneQuemada();
+
                 break;
         }
     }

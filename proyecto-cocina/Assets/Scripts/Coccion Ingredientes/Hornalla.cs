@@ -36,23 +36,22 @@ public class Hornalla : MonoBehaviour
                 carne.MostrarBarra();
         }
         else
+    {
+        Debug.Log("❌ Hornalla apagada");
+
+        if (carne != null)
         {
-            Debug.Log("❌ Hornalla apagada");
+            carne.OcultarBarra();
+            carne.VerificarCoccion();
+        }
 
-            // COMUNICACIÓN CON EL GAMEMANAGER:
-            // Al apagar la hornalla, permitimos avanzar al emplatado
-            if (GameManager.Instance != null)
-            {
-                GameManager.Instance.CoccionCompleta();
-            }
-
-            if (carne != null)
-            {
-                carne.OcultarBarra();
-                carne.VerificarCoccion();
-            }
+        // Después de verificar la carne, avanzamos
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.CoccionCompleta();
         }
     }
+        }
 
 
     
