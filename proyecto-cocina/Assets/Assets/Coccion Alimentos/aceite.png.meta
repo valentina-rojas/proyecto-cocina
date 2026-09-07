@@ -1,0 +1,676 @@
+fileFormatVersion: 2
+guid: b09df3f342ac0934bb37299592697a60
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -2728149407623926187
+    second: aceite_0
+  - first:
+      213: 3884117065905187181
+    second: aceite_1
+  - first:
+      213: -6339673704210137507
+    second: aceite_2
+  - first:
+      213: 6175259097789070392
+    second: aceite_3
+  - first:
+      213: 3420111725940719681
+    second: aceite_4
+  - first:
+      213: -4250794445199278590
+    second: aceite_5
+  - first:
+      213: -3683288246768430251
+    second: aceite_6
+  - first:
+      213: 100221320759205667
+    second: aceite_7
+  - first:
+      213: 6382822114218311261
+    second: aceite_8
+  - first:
+      213: -4864619591222677181
+    second: aceite_9
+  - first:
+      213: 9174864938465016312
+    second: aceite_10
+  - first:
+      213: 6877039226405486688
+    second: aceite_11
+  - first:
+      213: 7803073076570886391
+    second: aceite_12
+  - first:
+      213: -9150637524200667764
+    second: aceite_13
+  - first:
+      213: 7031046090677298437
+    second: aceite_14
+  - first:
+      213: 5455816668370272993
+    second: aceite_15
+  - first:
+      213: 7592373493068526206
+    second: aceite_16
+  - first:
+      213: -641275029573257896
+    second: aceite_17
+  - first:
+      213: -5611250089905450748
+    second: aceite_18
+  - first:
+      213: 1280330384874722924
+    second: aceite_19
+  - first:
+      213: 1374346089441506112
+    second: aceite_20
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: aceite_0
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 268
+        width: 21
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 55e2260719aa32ad0800000000000000
+      internalID: -2728149407623926187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: aceite_1
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 279
+        width: 11
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d69af4b74e727e530800000000000000
+      internalID: 3884117065905187181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: aceite_2
+      rect:
+        serializedVersion: 2
+        x: 398
+        y: 278
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d5e7ba4ea54f408a0800000000000000
+      internalID: -6339673704210137507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: aceite_3
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 265
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 83c77b77e6de2b550800000000000000
+      internalID: 6175259097789070392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: aceite_4
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 237
+        width: 15
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 14048d48e7da67f20800000000000000
+      internalID: 3420111725940719681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: aceite_5
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 247
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 20e71b849f42205c0800000000000000
+      internalID: -4250794445199278590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: aceite_6
+      rect:
+        serializedVersion: 2
+        x: 410
+        y: 252
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5531ffdbad452ecc0800000000000000
+      internalID: -3683288246768430251
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: aceite_7
+      rect:
+        serializedVersion: 2
+        x: 387
+        y: 219
+        width: 32
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 32fd5ce92ce046100800000000000000
+      internalID: 100221320759205667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: aceite_8
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 179
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d5e7d7e25e6549850800000000000000
+      internalID: 6382822114218311261
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: aceite_9
+      rect:
+        serializedVersion: 2
+        x: 362
+        y: 171
+        width: 54
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 34134c171466d7cb0800000000000000
+      internalID: -4864619591222677181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: aceite_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 159
+        width: 36
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f9b46f0d0ba35f70800000000000000
+      internalID: 9174864938465016312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: aceite_11
+      rect:
+        serializedVersion: 2
+        x: 439
+        y: 171
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 06083548db6207f50800000000000000
+      internalID: 6877039226405486688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: aceite_12
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 147
+        width: 19
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f01c65ee951a4c60800000000000000
+      internalID: 7803073076570886391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: aceite_13
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 123
+        width: 25
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c85c8a567a7620180800000000000000
+      internalID: -9150637524200667764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: aceite_14
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 74
+        width: 89
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 505283ada2b439160800000000000000
+      internalID: 7031046090677298437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: aceite_15
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 52
+        width: 20
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e28ddd8a54f6bb40800000000000000
+      internalID: 5455816668370272993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: aceite_16
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 33
+        width: 154
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e72f07047778d5960800000000000000
+      internalID: 7592373493068526206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: aceite_17
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 3
+        width: 43
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 85535fa12cbb917f0800000000000000
+      internalID: -641275029573257896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: aceite_18
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 12
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4019e4dd5c5d022b0800000000000000
+      internalID: -5611250089905450748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: aceite_19
+      rect:
+        serializedVersion: 2
+        x: 278
+        y: 1
+        width: 31
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c66d89993b5a4c110800000000000000
+      internalID: 1280330384874722924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: aceite_20
+      rect:
+        serializedVersion: 2
+        x: 284
+        y: 0
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 043bb9b9c78a21310800000000000000
+      internalID: 1374346089441506112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      aceite_0: -2728149407623926187
+      aceite_1: 3884117065905187181
+      aceite_10: 9174864938465016312
+      aceite_11: 6877039226405486688
+      aceite_12: 7803073076570886391
+      aceite_13: -9150637524200667764
+      aceite_14: 7031046090677298437
+      aceite_15: 5455816668370272993
+      aceite_16: 7592373493068526206
+      aceite_17: -641275029573257896
+      aceite_18: -5611250089905450748
+      aceite_19: 1280330384874722924
+      aceite_2: -6339673704210137507
+      aceite_20: 1374346089441506112
+      aceite_3: 6175259097789070392
+      aceite_4: 3420111725940719681
+      aceite_5: -4250794445199278590
+      aceite_6: -3683288246768430251
+      aceite_7: 100221320759205667
+      aceite_8: 6382822114218311261
+      aceite_9: -4864619591222677181
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

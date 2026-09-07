@@ -1,0 +1,1 @@
+C:\Users\Vale\Documents\Repositorios\proyecto-cocina\proyecto-cocina\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\build\intermediates\cxx\RelWithDebInfo\5m0e5h4k\obj\arm64-v8a
