@@ -1,37 +1,31 @@
 fileFormatVersion: 2
-guid: 33d9fc29b5c7053418ee99aa53ee3b18
+guid: 8437b7f5c589b98408da60c9ef84bcdd
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6669223408468824630
-    second: agua-spritesheet_0
+      213: 6024880381546337831
+    second: lavadoManos-spritesheet_0
   - first:
-      213: -4332340142810807703
-    second: agua-spritesheet_1
+      213: -6014712655150249355
+    second: lavadoManos-spritesheet_1
   - first:
-      213: -4953057869292964906
-    second: agua-spritesheet_2
+      213: 9151786448429630402
+    second: lavadoManos-spritesheet_2
   - first:
-      213: -685521265232353271
-    second: agua-spritesheet_3
+      213: -3793825578814047247
+    second: lavadoManos-spritesheet_3
   - first:
-      213: 3999239965796472869
-    second: agua-spritesheet_4
+      213: 1373169985672832026
+    second: lavadoManos-spritesheet_4
   - first:
-      213: -5936457801766259805
-    second: agua-spritesheet_5
+      213: -9014792544768018442
+    second: lavadoManos-spritesheet_5
   - first:
-      213: 2292520356195367728
-    second: agua-spritesheet_6
+      213: 7350444665789148404
+    second: lavadoManos-spritesheet_6
   - first:
-      213: -9171536505100242810
-    second: agua-spritesheet_7
-  - first:
-      213: 5455475370180333695
-    second: agua-spritesheet_8
-  - first:
-      213: 7407087505778440936
-    second: agua-spritesheet_9
+      213: 2483072312010822603
+    second: lavadoManos-spritesheet_7
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -99,7 +93,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -140,13 +134,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: agua-spritesheet_0
+      name: lavadoManos-spritesheet_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 601
-        height: 656
+        width: 1004
+        height: 670
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -155,20 +149,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 632118dda57dd8c50800000000000000
-      internalID: 6669223408468824630
+      spriteID: 7261a4c29ccac9350800000000000000
+      internalID: 6024880381546337831
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: agua-spritesheet_1
+      name: lavadoManos-spritesheet_1
       rect:
         serializedVersion: 2
-        x: 601
+        x: 1004
         y: 0
-        width: 601
-        height: 656
+        width: 1004
+        height: 670
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -177,20 +171,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 962c895089f60e3c0800000000000000
-      internalID: -4332340142810807703
+      spriteID: 57a09bb15b2778ca0800000000000000
+      internalID: -6014712655150249355
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: agua-spritesheet_2
+      name: lavadoManos-spritesheet_2
       rect:
         serializedVersion: 2
-        x: 1202
+        x: 2008
         y: 0
-        width: 601
-        height: 656
+        width: 1004
+        height: 670
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -199,8 +193,74 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6d3f6dc3c14334bb0800000000000000
-      internalID: -4953057869292964906
+      spriteID: 2c3c1ee594da10f70800000000000000
+      internalID: 9151786448429630402
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lavadoManos-spritesheet_3
+      rect:
+        serializedVersion: 2
+        x: 3012
+        y: 0
+        width: 1004
+        height: 670
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1fb7ff29cbf995bc0800000000000000
+      internalID: -3793825578814047247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lavadoManos-spritesheet_4
+      rect:
+        serializedVersion: 2
+        x: 4016
+        y: 0
+        width: 1004
+        height: 670
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a14e14c93da7e0310800000000000000
+      internalID: 1373169985672832026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lavadoManos-spritesheet_5
+      rect:
+        serializedVersion: 2
+        x: 5020
+        y: 0
+        width: 1004
+        height: 670
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f7334561f505e280800000000000000
+      internalID: -9014792544768018442
       vertices: []
       indices: 
       edges: []
@@ -209,7 +269,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 0a56fd6811558d7408cdce034c8629a1
+    spriteID: 52846c1a30a7ebe49b00e6edb89cd853
     internalID: 0
     vertices: []
     indices: 
@@ -219,11 +279,14 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":3.0,"y":1.0},"gridSpriteSize":{"x":601.0,"y":656.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":6.0,"y":1.0},"gridSpriteSize":{"x":1004.0,"y":670.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      agua-spritesheet_0: 6669223408468824630
-      agua-spritesheet_1: -4332340142810807703
-      agua-spritesheet_2: -4953057869292964906
+      lavadoManos-spritesheet_0: 6024880381546337831
+      lavadoManos-spritesheet_1: -6014712655150249355
+      lavadoManos-spritesheet_2: 9151786448429630402
+      lavadoManos-spritesheet_3: -3793825578814047247
+      lavadoManos-spritesheet_4: 1373169985672832026
+      lavadoManos-spritesheet_5: -9014792544768018442
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

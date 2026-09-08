@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: 2dacb72333343a74890e922ecb559089
+guid: 3f5d5a45f0c6ddc439b23c113df428fc
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1011167611745778253
-    second: 239-2399862_manos-en-png-imagen-de-manos-png_0
-  - first:
-      213: -3024498576980308278
-    second: 239-2399862_manos-en-png-imagen-de-manos-png_1
+      213: -408327487947842520
+    second: fondo_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -116,23 +113,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 239-2399862_manos-en-png-imagen-de-manos-png_0
+      name: fondo_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 395
-        height: 261
+        width: 1920
+        height: 1080
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d4abc72e593680e00800000000000000
-      internalID: 1011167611745778253
+      spriteID: 82c57d82054555af0800000000000000
+      internalID: -408327487947842520
       vertices: []
       indices: 
       edges: []
@@ -141,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 2b17d34cbd0fe3e408e5b8606e766237
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -149,11 +146,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries:
-      - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":395.0,"y":261.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+      entries: []
     nameFileIdTable:
-      239-2399862_manos-en-png-imagen-de-manos-png_0: 1011167611745778253
+      fondo_0: -408327487947842520
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

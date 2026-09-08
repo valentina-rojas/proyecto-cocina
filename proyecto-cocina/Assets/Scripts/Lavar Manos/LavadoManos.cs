@@ -6,8 +6,19 @@ public class LavadoManos : MonoBehaviour
 {
     public static LavadoManos Instance { get; private set; }
 
+    [Header("Canilla")]
+    [SerializeField] private Button botonCanilla;
+    [SerializeField] private Image imagenCanilla;
+    [SerializeField] private Sprite canillaCerrada;
+    [SerializeField] private Sprite canillaAbierta;
+
+    [Header("Animaciones UI (Capas del Canvas)")]
+    [SerializeField] private ImageFrameAnimation animacionAgua;  
+    [SerializeField] private ImageFrameAnimation animacionManos;
+    [SerializeField] private ImageFrameAnimation animacionEspuma;
+
     [Header("Progreso y Sensibilidad")]
-    [Tooltip("Distancia total en píxeles que debe frotarse el jabón para completar el lavado (ej: 1500 a 3000)")]
+    [Tooltip("Distancia en píxeles que debe frotarse el jabón para completar el lavado")]
     [SerializeField] private float distanciaTotalNecesaria = 2000f;
     [Tooltip("Tiempo en segundos sin mover el jabón antes de reiniciar la barra")]
     [SerializeField] private float tiempoParaReiniciar = 0.5f;
@@ -17,31 +28,44 @@ public class LavadoManos : MonoBehaviour
     [SerializeField] private GameObject objetoBarra;
     [SerializeField] private Button botonContinuar;
 
-    [Header("Animaciones")]
-    [SerializeField] private ImageFrameAnimation animacionManos;
-    [SerializeField] private ImageFrameAnimation animacionEspuma;
-
     [Header("Resultado")]
     [SerializeField] private Image imagenManos;
+    [SerializeField] private Sprite manosSucias;
     [SerializeField] private Sprite manosLimpias;
 
     private float distanciaAcumulada;
     private float tiempoInactivo;
+    private bool canillaEstaAbierta;
     private bool completado;
 
     private void Awake()
     {
         if (Instance == null) Instance = this;
         else Destroy(gameObject);
+
+        CerrarCanilla();
     }
 
-    private void Start() => ReiniciarLavado();
+    private void Start()
+    {
+        ConfigurarBotonCanilla();
+        ReiniciarLavado();
+    }
+
+    private void ConfigurarBotonCanilla()
+    {
+        if (botonCanilla != null)
+        {
+            botonCanilla.onClick.RemoveAllListeners();
+            botonCanilla.onClick.AddListener(AlternarCanilla);
+            botonCanilla.transition = Selectable.Transition.None;
+        }
+    }
 
     private void Update()
     {
         if (completado || distanciaAcumulada <= 0f) return;
 
-        // Si el usuario deja quieto el cursor o dedo, contamos inactividad
         tiempoInactivo += Time.deltaTime;
 
         if (tiempoInactivo >= tiempoParaReiniciar)
@@ -51,14 +75,63 @@ public class LavadoManos : MonoBehaviour
     }
 
     // =========================================================
-    // MECÁNICA: SOLO SE EJECUTA SI HAY MOVIMIENTO FÍSICO
+    // MECÁNICA DE CANILLA (TOGGLE)
+    // =========================================================
+
+    public void AlternarCanilla()
+    {
+        if (completado) return;
+
+        if (canillaEstaAbierta)
+            CerrarCanilla();
+        else
+            AbrirCanilla();
+    }
+
+    public void AbrirCanilla()
+    {
+        canillaEstaAbierta = true;
+
+        if (imagenCanilla != null && canillaAbierta != null)
+            imagenCanilla.sprite = canillaAbierta;
+
+        // Inicia animación del agua
+        if (animacionAgua != null)
+        {
+            animacionAgua.gameObject.SetActive(true);
+            animacionAgua.Play();
+        }
+
+        Debug.Log("🚰 Canilla ABIERTA.");
+    }
+
+    public void CerrarCanilla()
+    {
+        canillaEstaAbierta = false;
+
+        if (imagenCanilla != null && canillaCerrada != null)
+            imagenCanilla.sprite = canillaCerrada;
+
+        // Detiene y oculta animación del agua
+        if (animacionAgua != null)
+        {
+            animacionAgua.Stop();
+            animacionAgua.gameObject.SetActive(false);
+        }
+
+        SetVisualesLavando(false);
+
+        Debug.Log("🚰 Canilla CERRADA.");
+    }
+
+    // =========================================================
+    // MECÁNICA: FROTADO DE MANOS
     // =========================================================
 
     public void ProcesarFrotado(float deltaMovimiento)
     {
-        if (completado || deltaMovimiento <= 0f) return;
+        if (!canillaEstaAbierta || completado || deltaMovimiento <= 0f) return;
 
-        // Se resetea el contador de inactividad porque se está moviendo activamente
         tiempoInactivo = 0f;
         distanciaAcumulada += deltaMovimiento;
 
@@ -81,6 +154,10 @@ public class LavadoManos : MonoBehaviour
         tiempoInactivo = 0f;
 
         if (barra != null) barra.value = 0f;
+
+        // Vuelve al sprite de manos sucias
+        if (imagenManos != null && manosSucias != null)
+            imagenManos.sprite = manosSucias;
 
         SetVisualesLavando(false);
         SetBotonContinuar(false);
@@ -110,6 +187,9 @@ public class LavadoManos : MonoBehaviour
         completado = true;
         SetVisualesLavando(false);
 
+        // Al terminar el lavado también cerramos el agua
+        CerrarCanilla();
+
         if (barra != null) barra.value = 1f;
 
         if (imagenManos != null && manosLimpias != null)
@@ -136,6 +216,8 @@ public class LavadoManos : MonoBehaviour
 
     public void IniciarLavado()
     {
+        completado = false;
+        CerrarCanilla();
         ReiniciarLavado();
 
         if (PopupContenido.Instance != null)

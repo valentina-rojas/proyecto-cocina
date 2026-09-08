@@ -1,19 +1,10 @@
 fileFormatVersion: 2
-guid: a0600646bee70954d965737dd32ec813
+guid: 5feebb07f0c80634ab4cc6cd03b5a8ca
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1115607546280363223
-    second: manos frotandose-spritesheet_0
-  - first:
-      213: 108818632905264211
-    second: manos frotandose-spritesheet_1
-  - first:
-      213: 1190973652656014131
-    second: manos frotandose-spritesheet_2
-  - first:
-      213: -8559648571532906187
-    second: manos frotandose-spritesheet_3
+      213: 2888868141844792940
+    second: pileta-fondo_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -122,89 +113,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: manos frotandose-spritesheet_0
+      name: pileta-fondo_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 695
-        height: 663
+        width: 1368
+        height: 288
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 92bb63fe8d09480f0800000000000000
-      internalID: -1115607546280363223
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: manos frotandose-spritesheet_1
-      rect:
-        serializedVersion: 2
-        x: 695
-        y: 0
-        width: 695
-        height: 663
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 35c034758f9928100800000000000000
-      internalID: 108818632905264211
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: manos frotandose-spritesheet_2
-      rect:
-        serializedVersion: 2
-        x: 1390
-        y: 0
-        width: 695
-        height: 663
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 333496f1a30378010800000000000000
-      internalID: 1190973652656014131
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: manos frotandose-spritesheet_3
-      rect:
-        serializedVersion: 2
-        x: 2085
-        y: 0
-        width: 695
-        height: 663
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 531f993a9f4063980800000000000000
-      internalID: -8559648571532906187
+      spriteID: c660a95e442571820800000000000000
+      internalID: 2888868141844792940
       vertices: []
       indices: 
       edges: []
@@ -213,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: f077bffabe06a734db857b2c6ae448d7
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -221,14 +146,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries:
-      - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":4.0,"y":1.0},"gridSpriteSize":{"x":695.0,"y":663.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+      entries: []
     nameFileIdTable:
-      manos frotandose-spritesheet_0: -1115607546280363223
-      manos frotandose-spritesheet_1: 108818632905264211
-      manos frotandose-spritesheet_2: 1190973652656014131
-      manos frotandose-spritesheet_3: -8559648571532906187
+      pileta-fondo_0: 2888868141844792940
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

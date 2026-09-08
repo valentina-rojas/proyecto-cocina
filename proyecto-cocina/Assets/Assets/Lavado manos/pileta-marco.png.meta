@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: 86610ce57a930414481d4725179d0093
+guid: ab83744de4729fa42be0336252758a2b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4088759248943511090
-    second: manos mojandose_0
-  - first:
-      213: -6045671759545085612
-    second: manos mojandose_1
+      213: -8479861105569283118
+    second: pileta-marco_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -116,23 +113,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: manos mojandose_0
+      name: pileta-marco_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1170
-        height: 607
+        width: 1664
+        height: 413
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 236fe5dafd03eb830800000000000000
-      internalID: 4088759248943511090
+      spriteID: 2d344e1b04b715a80800000000000000
+      internalID: -8479861105569283118
       vertices: []
       indices: 
       edges: []
@@ -141,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 2729df92fbb74e544b74488f420f64ee
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -149,11 +146,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries:
-      - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":1170.0,"y":607.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+      entries: []
     nameFileIdTable:
-      manos mojandose_0: 4088759248943511090
+      pileta-marco_0: -8479861105569283118
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
