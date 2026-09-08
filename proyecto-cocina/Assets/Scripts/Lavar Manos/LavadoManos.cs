@@ -4,362 +4,159 @@ using UnityEngine.Events;
 
 public class LavadoManos : MonoBehaviour
 {
-    public static LavadoManos Instance;
+    public static LavadoManos Instance { get; private set; }
 
     [Header("Referencias")]
-    public SoapController jabonDraggable;
-    public Slider barra;
-
-    [Header("UI Lavado")]
-    public GameObject objetoBarra;
+    [SerializeField] private SoapController jabonDraggable;
+    [SerializeField] private Slider barra;
+    [SerializeField] private GameObject objetoBarra;
 
     [Header("Animaciones")]
-    public ImageFrameAnimation animacionManos;
-    public ImageFrameAnimation animacionEspuma;
+    [SerializeField] private ImageFrameAnimation animacionManos;
+    [SerializeField] private ImageFrameAnimation animacionEspuma;
 
     [Header("Configuración")]
-    public float tiempoNecesario = 3f;
-    public float velocidadMinima = 100f;
+    [SerializeField] private float tiempoNecesario = 3f;
+    [SerializeField] private float velocidadMinima = 100f;
 
-    [Header("Resultado Lavado")]
-    public Image imagenManos;
-    public Sprite manosLimpias;
-
-    [Header("Botón Siguiente")]
+    [Header("Resultado")]
+    [SerializeField] private Image imagenManos;
+    [SerializeField] private Sprite manosLimpias;
     [SerializeField] private Button botonContinuar;
 
     private float progreso;
     private bool completado;
-
     private Vector3 ultimaPosicionJabon;
-
-
-    // =========================================================
-    // UNITY
-    // =========================================================
 
     private void Awake()
     {
-        if (Instance == null)
-        {
-            Instance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+        if (Instance == null) Instance = this;
+        else Destroy(gameObject);
     }
 
     private void Start()
     {
         Reiniciar();
-        OcultarBoton();
     }
-
-
-    // =========================================================
-    // MECÁNICA DEL LAVADO
-    // =========================================================
 
     private void Update()
     {
-        if (completado || jabonDraggable == null)
-            return;
+        if (completado || jabonDraggable == null) return;
 
-        bool estaLavando =
-            AreaLavado.JugadorEstaEncima &&
-            jabonDraggable.EstaSiendoArrastrado;
+        // Comprobación de arrastre y velocidad
+        float distancia = Vector3.Distance(jabonDraggable.transform.position, ultimaPosicionJabon);
+        bool estaLavando = AreaLavado.JugadorEstaEncima &&
+                           jabonDraggable.EstaSiendoArrastrado &&
+                           distancia >= velocidadMinima * Time.deltaTime;
+
+        ultimaPosicionJabon = jabonDraggable.transform.position;
 
         if (estaLavando)
         {
-            float distancia = Vector3.Distance(
-                jabonDraggable.transform.position,
-                ultimaPosicionJabon
-            );
+            progreso += Time.deltaTime;
+            SetVisualesLavando(true);
 
-            float velocidad = 0f;
-
-            if (Time.deltaTime > 0f)
-            {
-                velocidad = distancia / Time.deltaTime;
-            }
-
-            if (velocidad >= velocidadMinima)
-            {
-                progreso += Time.deltaTime;
-
-                MostrarElementosLavado();
-
-                if (animacionManos != null)
-                    animacionManos.Play();
-
-                if (animacionEspuma != null)
-                    animacionEspuma.Play();
-            }
-            else
-            {
-                progreso = 0f;
-
-                DetenerAnimaciones();
-                OcultarElementosLavado();
-            }
+            if (progreso >= tiempoNecesario)
+                CompletarLavado();
         }
         else
         {
             progreso = 0f;
-
-            DetenerAnimaciones();
-            OcultarElementosLavado();
+            SetVisualesLavando(false);
         }
-
-        progreso = Mathf.Clamp(
-            progreso,
-            0f,
-            tiempoNecesario
-        );
 
         if (barra != null)
-        {
-            barra.value = progreso / tiempoNecesario;
-        }
-
-        ultimaPosicionJabon =
-            jabonDraggable.transform.position;
-
-        if (progreso >= tiempoNecesario)
-        {
-            CompletarLavado();
-        }
+            barra.value = Mathf.Clamp01(progreso / tiempoNecesario);
     }
 
+    // --- Helpers de Estado Visual ---
 
-    // =========================================================
-    // ELEMENTOS VISUALES
-    // =========================================================
-
-    private void MostrarElementosLavado()
+    private void SetVisualesLavando(bool activo)
     {
-        if (objetoBarra != null)
-            objetoBarra.SetActive(true);
-
-        if (animacionEspuma != null)
-            animacionEspuma.gameObject.SetActive(true);
-    }
-
-
-    private void OcultarElementosLavado()
-    {
-        if (objetoBarra != null)
-            objetoBarra.SetActive(false);
+        if (objetoBarra != null && objetoBarra.activeSelf != activo)
+            objetoBarra.SetActive(activo);
 
         if (animacionEspuma != null)
         {
-            animacionEspuma.Stop();
-            animacionEspuma.gameObject.SetActive(false);
+            if (animacionEspuma.gameObject.activeSelf != activo)
+                animacionEspuma.gameObject.SetActive(activo);
+
+            if (activo) animacionEspuma.Play(); else animacionEspuma.Stop();
         }
-    }
 
-
-    private void DetenerAnimaciones()
-    {
         if (animacionManos != null)
-            animacionManos.Stop();
-
-        if (animacionEspuma != null)
-            animacionEspuma.Stop();
+        {
+            if (activo) animacionManos.Play(); else animacionManos.Stop();
+        }
     }
 
-
-    // =========================================================
-    // LAVADO COMPLETADO
-    // =========================================================
+    // --- Flujo de la Etapa ---
 
     private void CompletarLavado()
     {
-        if (completado)
-            return;
-
         completado = true;
+        SetVisualesLavando(false);
 
-        DetenerAnimaciones();
-        OcultarElementosLavado();
-
-        Debug.Log("¡Lavado completado con éxito!");
-
-        // Mostrar las manos limpias
         if (imagenManos != null && manosLimpias != null)
-        {
             imagenManos.sprite = manosLimpias;
-        }
 
-        // IMPORTANTE:
-        // No mostramos el feedback automáticamente.
-        // Primero aparece el botón Siguiente.
-        PrepararBoton(
-            ContinuarDesdeLavado
-        );
+        SetBotonContinuar(true, ContinuarDesdeLavado);
     }
-
-
-    // =========================================================
-    // BOTÓN SIGUIENTE
-    // =========================================================
-
-    private void PrepararBoton(UnityAction accion)
-    {
-        if (botonContinuar == null)
-        {
-            Debug.LogError(
-                "LavadoManos: No está asignado el botón Siguiente."
-            );
-
-            return;
-        }
-
-        botonContinuar.onClick.RemoveAllListeners();
-
-        botonContinuar.onClick.AddListener(accion);
-
-        botonContinuar.gameObject.SetActive(true);
-        botonContinuar.interactable = true;
-    }
-
-
-    private void OcultarBoton()
-    {
-        if (botonContinuar == null)
-            return;
-
-        botonContinuar.onClick.RemoveAllListeners();
-
-        botonContinuar.interactable = false;
-        botonContinuar.gameObject.SetActive(false);
-    }
-
-
-    // =========================================================
-    // CONTINUAR
-    // =========================================================
 
     private void ContinuarDesdeLavado()
     {
-        OcultarBoton();
-
-        Debug.Log(
-            "LavadoManos: Mostrando feedback del lavado."
-        );
+        SetBotonContinuar(false);
 
         if (PopupContenido.Instance != null)
-        {
-            PopupContenido.Instance.MostrarFeedbackLavado(
-                TerminarEtapaLavado
-            );
-        }
+            PopupContenido.Instance.MostrarFeedbackLavado(TerminarEtapaLavado);
         else
-        {
-            Debug.LogError(
-                "LavadoManos: No existe PopupContenido."
-            );
-
             TerminarEtapaLavado();
-        }
     }
-
 
     private void TerminarEtapaLavado()
     {
-        OcultarBoton();
-
-        Debug.Log(
-            "LavadoManos: Etapa finalizada."
-        );
-
-        if (GameManager.Instance != null)
-        {
-            GameManager.Instance.ContinuarDespuesDelLavado();
-        }
-        else
-        {
-            Debug.LogError(
-                "LavadoManos: No existe GameManager."
-            );
-        }
+        SetBotonContinuar(false);
+        GameManager.Instance?.ContinuarDespuesDelLavado();
     }
-
-
-    // =========================================================
-    // INICIAR / REINICIAR
-    // =========================================================
 
     public void IniciarLavado()
     {
         Reiniciar();
 
-        if (GameManager.Instance != null)
-        {
-            GameManager.Instance.estadoActual =
-                GameManager.EstadoJuego.Lavado;
-        }
-
-        OcultarBoton();
-
-        Debug.Log(
-            "LavadoManos: Iniciando etapa."
-        );
-
         if (PopupContenido.Instance != null)
-        {
-            PopupContenido.Instance.MostrarInstruccionesLavado(
-                ActivarCamaraLavado
-            );
-        }
+            PopupContenido.Instance.MostrarInstruccionesLavado(ActivarCamaraLavado);
         else
-        {
-            Debug.LogError(
-                "LavadoManos: No existe PopupContenido."
-            );
-
             ActivarCamaraLavado();
-        }
     }
-
 
     private void ActivarCamaraLavado()
     {
-        if (CameraManager.Instance != null)
-        {
-            CameraManager.Instance
-                .MostrarCamaraLavadoManos();
-        }
-        else
-        {
-            Debug.LogError(
-                "LavadoManos: No existe CameraManager."
-            );
-        }
+        CameraManager.Instance?.MostrarCamaraLavadoManos();
     }
-
 
     public void Reiniciar()
     {
         progreso = 0f;
         completado = false;
 
-        if (barra != null)
-            barra.value = 0f;
+        if (barra != null) barra.value = 0f;
+        if (jabonDraggable != null) ultimaPosicionJabon = jabonDraggable.transform.position;
 
-        if (jabonDraggable != null)
-        {
-            ultimaPosicionJabon =
-                jabonDraggable.transform.position;
-        }
+        SetVisualesLavando(false);
+        SetBotonContinuar(false);
+    }
 
-        DetenerAnimaciones();
-        OcultarElementosLavado();
-        OcultarBoton();
+    // --- Control del Botón ---
 
-        Debug.Log(
-            "Lavado reiniciado."
-        );
+    private void SetBotonContinuar(bool visible, UnityAction accion = null)
+    {
+        if (botonContinuar == null) return;
+
+        botonContinuar.onClick.RemoveAllListeners();
+        if (visible && accion != null)
+            botonContinuar.onClick.AddListener(accion);
+
+        botonContinuar.interactable = visible;
+        botonContinuar.gameObject.SetActive(visible);
     }
 }

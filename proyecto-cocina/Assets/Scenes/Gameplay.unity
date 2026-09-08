@@ -2119,17 +2119,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   estadoActual: 0
-  botonContinuar: {fileID: 991081302}
+  puntuacion: {fileID: 0}
   inicioDiaUI: {fileID: 1771478225}
-  panelResumen: {fileID: 1965777928}
-  imagenResultado: {fileID: 369733307}
-  spriteVictoria: {fileID: 3699745053668578963, guid: 24dcb48bd23b83d4d976ea5b6a2db903, type: 3}
-  spriteDerrota: {fileID: 2595671635727890008, guid: 6c2c624aab20b104db28dcd67023878c, type: 3}
-  botonMenuPrincipal: {fileID: 715174463}
   nombreEscenaMenu: MenuPrincipal
-  ingredientesMalOrdenados: 0
-  carneCruda: 0
-  carneQuemada: 0
 --- !u!1001 &380896539
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14416,7 +14408,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1965777929
 RectTransform:
   m_ObjectHideFlags: 0
@@ -15487,6 +15479,56 @@ Transform:
   m_Children: []
   m_Father: {fileID: 52268885}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2117617995
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2117617997}
+  - component: {fileID: 2117617996}
+  m_Layer: 0
+  m_Name: UIManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2117617996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2117617995}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: daf62fa1ad3b06a44a03e1d51ba76bb6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UIManager
+  botonContinuar: {fileID: 991081302}
+  panelResumen: {fileID: 1965777928}
+  imagenResultado: {fileID: 369733307}
+  spriteVictoria: {fileID: 3699745053668578963, guid: 24dcb48bd23b83d4d976ea5b6a2db903, type: 3}
+  spriteDerrota: {fileID: 2595671635727890008, guid: 6c2c624aab20b104db28dcd67023878c, type: 3}
+  botonMenuPrincipal: {fileID: 715174463}
+--- !u!4 &2117617997
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2117617995}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 33.91608, y: 1.7815, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2128922410
 GameObject:
   m_ObjectHideFlags: 0
@@ -15742,3 +15784,4 @@ SceneRoots:
   - {fileID: 810115509}
   - {fileID: 27558698}
   - {fileID: 1772019053}
+  - {fileID: 2117617997}

@@ -1,222 +1,130 @@
-using System.Collections;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class GuardadoAlimentosManager : MonoBehaviour
 {
-    public static GuardadoAlimentosManager Instance;
+    public static GuardadoAlimentosManager Instance { get; private set; }
 
-    [Header("Botón Siguiente")]
+    [Header("UI")]
     [SerializeField] private Button botonContinuar;
 
     private InventorySlot[] todosLosSlots;
-
-    private bool guardadoCompletado = false;
-    private bool feedbackMostrado = false;
+    private bool guardadoCompletado;
+    private bool feedbackMostrado;
 
     private void Awake()
     {
-        if (Instance == null)
-        {
-            Instance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+        if (Instance == null) Instance = this;
+        else Destroy(gameObject);
     }
 
     private void Start()
     {
-        todosLosSlots =
-            FindObjectsByType<InventorySlot>(FindObjectsSortMode.None);
-
-        OcultarBoton();
-
-        // Comprobamos el estado inicial
+        todosLosSlots = FindObjectsByType<InventorySlot>(FindObjectsSortMode.None);
+        SetBotonContinuar(false);
         ChequearEstadoGuardado();
     }
 
-    private void OnEnable()
-    {
-        DraggableItem.OnAnyItemEndDrag += OnItemTerminoDeMoverse;
-    }
-
-    private void OnDisable()
-    {
-        DraggableItem.OnAnyItemEndDrag -= OnItemTerminoDeMoverse;
-    }
+    private void OnEnable() => DraggableItem.OnAnyItemEndDrag += OnItemTerminoDeMoverse;
+    private void OnDisable() => DraggableItem.OnAnyItemEndDrag -= OnItemTerminoDeMoverse;
 
     private void OnItemTerminoDeMoverse()
     {
-        if (guardadoCompletado)
-            return;
-
-        StartCoroutine(ChequearAlFinalDelFrame());
+        if (!guardadoCompletado)
+            ChequearEstadoGuardado();
     }
 
-    private IEnumerator ChequearAlFinalDelFrame()
-    {
-        yield return new WaitForEndOfFrame();
-
-        ChequearEstadoGuardado();
-    }
+    // =========================================================
+    // MECÁNICA Y VALIDACIÓN
+    // =========================================================
 
     public void ChequearEstadoGuardado()
     {
-        if (todosLosSlots == null)
-            return;
+        if (todosLosSlots == null) return;
 
-        int alimentosEnMesa = 0;
-
-        foreach (InventorySlot slot in todosLosSlots)
-        {
-            if (slot == null)
-                continue;
-
-            if (slot.tipoDeEstanteAceptado == "mesa")
-            {
-                alimentosEnMesa += slot.transform.childCount;
-            }
-        }
-
-        Debug.Log("Alimentos restantes en mesa: " + alimentosEnMesa);
+        int alimentosEnMesa = todosLosSlots
+            .Where(slot => slot != null && slot.tipoDeEstanteAceptado == "mesa")
+            .Sum(slot => slot.transform.childCount);
 
         if (alimentosEnMesa == 0)
-        {
             CompletarGuardado();
-        }
         else
-        {
-            OcultarBoton();
-        }
+            SetBotonContinuar(false);
     }
 
     private void CompletarGuardado()
     {
-        if (guardadoCompletado)
-            return;
-
+        if (guardadoCompletado) return;
         guardadoCompletado = true;
 
-        Debug.Log("✅ Guardado de alimentos completado.");
-
-        PrepararBoton(ContinuarDesdeGuardado);
+        SetBotonContinuar(true, ContinuarDesdeGuardado);
     }
 
     private void ContinuarDesdeGuardado()
     {
-        OcultarBoton();
-
+        SetBotonContinuar(false);
         MostrarFeedback();
     }
 
     private void MostrarFeedback()
     {
-        if (feedbackMostrado)
-            return;
-
+        if (feedbackMostrado) return;
         feedbackMostrado = true;
 
         EvaluarIngredientes();
 
-        bool correcto = !GameManager.Instance.ingredientesMalOrdenados;
-
-        Debug.Log(
-            correcto
-                ? "✅ Todos los alimentos fueron guardados correctamente."
-                : "❌ Hay alimentos mal guardados."
-        );
+        bool ingredientesCorrectos = GameManager.Instance.Score == null || 
+                                     !GameManager.Instance.Score.IngredientesMalOrdenados;
 
         if (PopupContenido.Instance != null)
-        {
-            PopupContenido.Instance.MostrarFeedbackIngredientes(
-                correcto,
-                ContinuarDespuesDelFeedback
-            );
-        }
+            PopupContenido.Instance.MostrarFeedbackIngredientes(ingredientesCorrectos, TerminarEtapa);
         else
-        {
-            Debug.LogError(
-                "GuardadoAlimentosManager: No existe PopupContenido."
-            );
-
-            ContinuarDespuesDelFeedback();
-        }
+            TerminarEtapa();
     }
 
-    private void ContinuarDespuesDelFeedback()
+    private void TerminarEtapa()
     {
-        OcultarBoton();
-
-        if (GameManager.Instance != null)
-        {
-            GameManager.Instance.ContinuarDespuesDelGuardado();
-        }
+        SetBotonContinuar(false);
+        GameManager.Instance?.ContinuarDespuesDelGuardado();
     }
 
     public void EvaluarIngredientes()
     {
-        int incorrectos = 0;
+        if (todosLosSlots == null) return;
 
-        if (todosLosSlots == null)
-            return;
+        bool hayIncorrectos = false;
 
         foreach (InventorySlot slot in todosLosSlots)
         {
-            if (slot == null)
-                continue;
+            if (slot == null) continue;
 
-            IngredienteData ingrediente =
-                slot.GetComponentInChildren<IngredienteData>();
-
-            if (ingrediente != null &&
-                ingrediente.tipoIngrediente != slot.tipoDeEstanteAceptado)
+            IngredienteData ingrediente = slot.GetComponentInChildren<IngredienteData>();
+            if (ingrediente != null && ingrediente.tipoIngrediente != slot.tipoDeEstanteAceptado)
             {
-                incorrectos++;
-
-                Debug.LogWarning(
-                    $"❌ {ingrediente.nombreIngrediente} está mal guardado. " +
-                    $"Tipo: {ingrediente.tipoIngrediente} | " +
-                    $"Estante: {slot.tipoDeEstanteAceptado}"
-                );
+                hayIncorrectos = true;
+                break;
             }
         }
 
-        if (incorrectos > 0)
-        {
-            GameManager.Instance.RegistrarIngredientesMalOrdenados();
-        }
-        else
-        {
-            Debug.Log("✅ No se encontraron alimentos mal guardados.");
-        }
+        if (hayIncorrectos)
+            GameManager.Instance?.RegistrarIngredientesMalOrdenados();
     }
 
-    private void PrepararBoton(UnityEngine.Events.UnityAction accion)
+    // =========================================================
+    // HELPER UI
+    // =========================================================
+
+    private void SetBotonContinuar(bool visible, UnityAction accion = null)
     {
-        if (botonContinuar == null)
-        {
-            Debug.LogError(
-                "GuardadoAlimentosManager: No está asignado el botón Siguiente."
-            );
-            return;
-        }
+        if (botonContinuar == null) return;
 
         botonContinuar.onClick.RemoveAllListeners();
-        botonContinuar.onClick.AddListener(accion);
+        if (visible && accion != null)
+            botonContinuar.onClick.AddListener(accion);
 
-        botonContinuar.gameObject.SetActive(true);
-        botonContinuar.interactable = true;
-    }
-
-    private void OcultarBoton()
-    {
-        if (botonContinuar == null)
-            return;
-
-        botonContinuar.onClick.RemoveAllListeners();
-        botonContinuar.interactable = false;
-        botonContinuar.gameObject.SetActive(false);
+        botonContinuar.interactable = visible;
+        botonContinuar.gameObject.SetActive(visible);
     }
 }

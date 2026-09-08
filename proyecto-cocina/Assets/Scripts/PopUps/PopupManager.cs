@@ -6,22 +6,22 @@ using System.Collections;
 
 public class PopupManager : MonoBehaviour
 {
-    public static PopupManager Instance;
+    public static PopupManager Instance { get; private set; }
 
     [Header("UI")]
-    public GameObject panelPopup;
-    public TextMeshProUGUI titulo;
-    public TextMeshProUGUI descripcion;
+    [SerializeField] private GameObject panelPopup;
+    [SerializeField] private TextMeshProUGUI titulo;
+    [SerializeField] private TextMeshProUGUI descripcion;
+    [SerializeField] private Image imagenPopup; // NUEVO: Imagen ilustrativa del popup
 
     [Header("Botones")]
-    public Button botonContinuar;
-    public Button botonCerrar;
+    [SerializeField] private Button botonContinuar;
+    [SerializeField] private Button botonCerrar;
 
     [Header("Efecto de texto")]
     [SerializeField] private float velocidadTexto = 0.03f;
 
     private UnityAction accionAlCerrar;
-
     private Coroutine coroutineTexto;
     private string textoCompleto;
 
@@ -30,11 +30,8 @@ public class PopupManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-
             Time.timeScale = 1f;
-
-            if (panelPopup != null)
-                panelPopup.SetActive(false);
+            if (panelPopup != null) panelPopup.SetActive(false);
         }
         else
         {
@@ -44,55 +41,42 @@ public class PopupManager : MonoBehaviour
 
     private void Start()
     {
-        //================================================
-        // BOTÓN CONTINUAR
-        //================================================
-
         if (botonContinuar != null)
         {
             botonContinuar.onClick.RemoveAllListeners();
             botonContinuar.onClick.AddListener(CerrarPopup);
-
-            // Oculto hasta que termine el texto
             botonContinuar.gameObject.SetActive(false);
         }
-
-        //================================================
-        // BOTÓN CERRAR / OMITIR
-        //================================================
 
         if (botonCerrar != null)
         {
             botonCerrar.onClick.RemoveAllListeners();
-            botonCerrar.onClick.AddListener(OmitirPopup);
-
-            // Visible desde el comienzo
+            botonCerrar.onClick.AddListener(CerrarPopup);
             botonCerrar.gameObject.SetActive(true);
         }
     }
 
-    //====================================================
-    // MOSTRAR POPUP
-    //====================================================
+    // =========================================================
+    // MOSTRAR POPUP (Con soporte para Sprite opcional)
+    // =========================================================
 
-    public void MostrarPopup(
-        string tituloTexto,
-        string descripcionTexto,
-        UnityAction accion = null)
+    public void MostrarPopup(string tituloTexto, string descripcionTexto, Sprite sprite = null, UnityAction accion = null)
     {
         accionAlCerrar = accion;
-
         textoCompleto = descripcionTexto;
 
         if (titulo != null)
             titulo.text = tituloTexto;
 
+        // Configuración de la imagen: si hay sprite se muestra, si no se oculta
+        if (imagenPopup != null)
+        {
+            imagenPopup.gameObject.SetActive(sprite != null);
+            if (sprite != null) imagenPopup.sprite = sprite;
+        }
+
         if (panelPopup != null)
             panelPopup.SetActive(true);
-
-        //================================================
-        // CONFIGURAR BOTÓN CONTINUAR
-        //================================================
 
         if (botonContinuar != null)
         {
@@ -100,145 +84,50 @@ public class PopupManager : MonoBehaviour
             botonContinuar.interactable = false;
         }
 
-        //================================================
-        // CONFIGURAR BOTÓN CERRAR
-        //================================================
-
-        if (botonCerrar != null)
-        {
-            botonCerrar.gameObject.SetActive(true);
-            botonCerrar.interactable = true;
-        }
-
-        //================================================
-        // DETENER COROUTINE ANTERIOR
-        //================================================
-
         if (coroutineTexto != null)
-        {
             StopCoroutine(coroutineTexto);
-        }
 
         coroutineTexto = StartCoroutine(TipearTexto());
-
-        // Pausar juego
         Time.timeScale = 0f;
     }
 
-    //====================================================
-    // TIPEAR TEXTO
-    //====================================================
-
     private IEnumerator TipearTexto()
     {
-        if (descripcion == null)
-            yield break;
+        if (descripcion == null) yield break;
 
         descripcion.text = "";
-
         foreach (char letra in textoCompleto)
         {
             descripcion.text += letra;
-
-            yield return new WaitForSecondsRealtime(
-                velocidadTexto
-            );
+            yield return new WaitForSecondsRealtime(velocidadTexto);
         }
 
-        // Terminó el texto
-        MostrarBotonContinuar();
-
-        coroutineTexto = null;
-    }
-
-    //====================================================
-    // MOSTRAR BOTÓN CONTINUAR
-    //====================================================
-
-    private void MostrarBotonContinuar()
-    {
         if (botonContinuar != null)
         {
             botonContinuar.gameObject.SetActive(true);
             botonContinuar.interactable = true;
         }
-    }
 
-    //====================================================
-    // CONTINUAR
-    //====================================================
+        coroutineTexto = null;
+    }
 
     public void CerrarPopup()
     {
-        CerrarYContinuar();
-    }
-
-    //====================================================
-    // OMITIR / CERRAR
-    //====================================================
-
-    public void OmitirPopup()
-    {
-        Debug.Log("Popup omitido.");
-
-        CerrarYContinuar();
-    }
-
-    //====================================================
-    // CERRAR Y EJECUTAR SIGUIENTE ACCIÓN
-    //====================================================
-
-    private void CerrarYContinuar()
-    {
-        // Detener tipeo
         if (coroutineTexto != null)
         {
             StopCoroutine(coroutineTexto);
             coroutineTexto = null;
         }
 
-        // Cerrar panel
         if (panelPopup != null)
             panelPopup.SetActive(false);
 
-        // Restaurar juego
         Time.timeScale = 1f;
 
-        // Guardar acción antes de limpiarla
         UnityAction accion = accionAlCerrar;
-
         accionAlCerrar = null;
-
-        // Ejecutar siguiente paso
         accion?.Invoke();
     }
 
-    //====================================================
-    // CERRAR SIN ACCIÓN
-    //====================================================
-
-    public void CerrarPopupSinAccion()
-    {
-        if (coroutineTexto != null)
-        {
-            StopCoroutine(coroutineTexto);
-            coroutineTexto = null;
-        }
-
-        if (panelPopup != null)
-            panelPopup.SetActive(false);
-
-        Time.timeScale = 1f;
-
-        accionAlCerrar = null;
-    }
-
-    //====================================================
-    // SEGURIDAD
-    //====================================================
-
-    private void OnDestroy()
-    {
-        Time.timeScale = 1f;
-    }
+    private void OnDestroy() => Time.timeScale = 1f;
 }

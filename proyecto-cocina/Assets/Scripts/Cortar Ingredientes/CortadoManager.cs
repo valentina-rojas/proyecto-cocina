@@ -4,194 +4,78 @@ using UnityEngine.Events;
 
 public class CortadoManager : MonoBehaviour
 {
-    public static CortadoManager Instance;
+    public static CortadoManager Instance { get; private set; }
 
-    [Header("Botón Siguiente")]
+    [Header("UI")]
     [SerializeField] private Button botonContinuar;
 
-    private bool cortadoCompletado = false;
+    private bool cortadoCompletado;
 
     private void Awake()
     {
-        if (Instance == null)
-        {
-            Instance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+        if (Instance == null) Instance = this;
+        else Destroy(gameObject);
     }
 
-    private void Start()
-    {
-        OcultarBoton();
-    }
+    private void Start() => SetBotonContinuar(false);
 
     // =========================================================
-    // INICIAR ETAPA
+    // FLUJO DE ETAPA
     // =========================================================
 
     public void IniciarCortado()
     {
         cortadoCompletado = false;
-
-        OcultarBoton();
-
-        if (GameManager.Instance != null)
-        {
-            GameManager.Instance.estadoActual =
-                GameManager.EstadoJuego.Cortado;
-        }
-
-        Debug.Log("CortadoManager: Iniciando etapa de cortado.");
+        SetBotonContinuar(false);
 
         if (PopupContenido.Instance != null)
-        {
-            PopupContenido.Instance.MostrarInstruccionesCortado(
-                ActivarCamaraCortado
-            );
-        }
+            PopupContenido.Instance.MostrarInstruccionesCortado(ActivarCamaraCortado);
         else
-        {
-            Debug.LogError(
-                "CortadoManager: No existe PopupContenido."
-            );
-
             ActivarCamaraCortado();
-        }
     }
-
-    // =========================================================
-    // CÁMARA
-    // =========================================================
 
     private void ActivarCamaraCortado()
     {
-        if (CameraManager.Instance != null)
-        {
-            CameraManager.Instance
-                .MostrarCamaraCortadoIngredientes();
-        }
-        else
-        {
-            Debug.LogError(
-                "CortadoManager: No existe CameraManager."
-            );
-        }
+        CameraManager.Instance?.MostrarCamaraCortadoIngredientes();
     }
-
-    // =========================================================
-    // INGREDIENTE CORTADO
-    // =========================================================
 
     public void IngredienteCortado()
     {
-        if (cortadoCompletado)
-            return;
-
+        if (cortadoCompletado) return;
         cortadoCompletado = true;
 
-        Debug.Log(
-            "CortadoManager: Ingrediente cortado completamente."
-        );
-
-        // El feedback NO aparece todavía.
-        // Primero se muestra el botón Siguiente.
-        PrepararBoton(
-            ContinuarDesdeCortado
-        );
+        SetBotonContinuar(true, ContinuarDesdeCortado);
     }
-
-    // =========================================================
-    // BOTÓN SIGUIENTE
-    // =========================================================
-
-    private void PrepararBoton(UnityAction accion)
-    {
-        if (botonContinuar == null)
-        {
-            Debug.LogError(
-                "CortadoManager: No está asignado el botón Siguiente."
-            );
-
-            return;
-        }
-
-        botonContinuar.onClick.RemoveAllListeners();
-
-        botonContinuar.onClick.AddListener(accion);
-
-        botonContinuar.gameObject.SetActive(true);
-
-        botonContinuar.interactable = true;
-
-        Debug.Log(
-            "CortadoManager: Botón Siguiente habilitado."
-        );
-    }
-
-    private void OcultarBoton()
-    {
-        if (botonContinuar == null)
-            return;
-
-        botonContinuar.onClick.RemoveAllListeners();
-
-        botonContinuar.interactable = false;
-
-        botonContinuar.gameObject.SetActive(false);
-    }
-
-    // =========================================================
-    // FEEDBACK
-    // =========================================================
 
     private void ContinuarDesdeCortado()
     {
-        OcultarBoton();
-
-        Debug.Log(
-            "CortadoManager: Mostrando feedback del cortado."
-        );
+        SetBotonContinuar(false);
 
         if (PopupContenido.Instance != null)
-        {
-            PopupContenido.Instance.MostrarFeedbackCortado(
-                TerminarEtapaCortado
-            );
-        }
+            PopupContenido.Instance.MostrarFeedbackCortado(TerminarEtapaCortado);
         else
-        {
-            Debug.LogError(
-                "CortadoManager: No existe PopupContenido."
-            );
-
             TerminarEtapaCortado();
-        }
     }
-
-    // =========================================================
-    // TERMINAR ETAPA
-    // =========================================================
 
     private void TerminarEtapaCortado()
     {
-        OcultarBoton();
+        SetBotonContinuar(false);
+        GameManager.Instance?.ContinuarDespuesDelCortado();
+    }
 
-        Debug.Log(
-            "CortadoManager: Etapa de cortado finalizada."
-        );
+    // =========================================================
+    // HELPER UI
+    // =========================================================
 
-        if (GameManager.Instance != null)
-        {
-            GameManager.Instance.ContinuarDespuesDelCortado();
-        }
-        else
-        {
-            Debug.LogError(
-                "CortadoManager: No existe GameManager."
-            );
-        }
+    private void SetBotonContinuar(bool visible, UnityAction accion = null)
+    {
+        if (botonContinuar == null) return;
+
+        botonContinuar.onClick.RemoveAllListeners();
+        if (visible && accion != null)
+            botonContinuar.onClick.AddListener(accion);
+
+        botonContinuar.interactable = visible;
+        botonContinuar.gameObject.SetActive(visible);
     }
 }

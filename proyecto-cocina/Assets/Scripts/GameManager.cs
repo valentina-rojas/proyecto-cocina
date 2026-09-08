@@ -1,12 +1,8 @@
 using UnityEngine;
-using UnityEngine.UI;
-using TMPro;
-using UnityEngine.SceneManagement;
-using UnityEngine.Events;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager Instance;
+    public static GameManager Instance { get; private set; }
 
     public enum EstadoJuego
     {
@@ -19,67 +15,19 @@ public class GameManager : MonoBehaviour
         Final
     }
 
-    [HideInInspector]
+    // Mantiene 'estadoActual' en minúscula para no romper InventorySlot.cs
     public EstadoJuego estadoActual = EstadoJuego.OrdenandoIngredientes;
 
+    [Header("Referencias de Sistemas")]
+    [SerializeField] private ScoreData puntuacion;
+    [SerializeField] private InicioDiaUI inicioDiaUI;
+    [SerializeField] private string nombreEscenaMenu = "MenuPrincipal";
 
-    // =========================================================
-    // BOTÓN GENERAL
-    // =========================================================
-
-    [Header("Botón Siguiente")]
-    [Tooltip("Único botón Siguiente del Canvas general.")]
-    public Button botonContinuar;
-
-
-    // =========================================================
-    // INICIO DEL DÍA
-    // =========================================================
-
-    [Header("Inicio del día")]
-    public InicioDiaUI inicioDiaUI;
-
-
-    // =========================================================
-    // RESULTADO FINAL
-    // =========================================================
-
-    [Header("UI: Resultado Final")]
-    public GameObject panelResumen;
-
-    public Image imagenResultado;
-
-    public Sprite spriteVictoria;
-    public Sprite spriteDerrota;
-
-    public Button botonMenuPrincipal;
-
-
-    // =========================================================
-    // CONFIGURACIÓN
-    // =========================================================
-
-    [Header("Configuración de la Escena")]
-    public string nombreEscenaMenu = "MenuPrincipal";
-
-
-    // =========================================================
-    // RESULTADOS DE LAS ETAPAS
-    // =========================================================
-
-    [HideInInspector]
-    public bool ingredientesMalOrdenados;
-
-    [HideInInspector]
-    public bool carneCruda;
-
-    [HideInInspector]
-    public bool carneQuemada;
-
-
-    // =========================================================
-    // UNITY
-    // =========================================================
+    // Puentes hacia ScoreData para resolver los errores de GuardadoAlimentosManager.cs
+    public ScoreData Score => puntuacion;
+    public bool ingredientesMalOrdenados => puntuacion != null && puntuacion.IngredientesMalOrdenados;
+    public bool carneCruda => puntuacion != null && puntuacion.CarneCruda;
+    public bool carneQuemada => puntuacion != null && puntuacion.CarneQuemada;
 
     private void Awake()
     {
@@ -93,100 +41,51 @@ public class GameManager : MonoBehaviour
         }
     }
 
-
     private void Start()
     {
-        if (panelResumen != null)
-            panelResumen.SetActive(false);
-
-        OcultarBotonContinuar();
-
-        if (botonMenuPrincipal != null)
-        {
-            botonMenuPrincipal.onClick.RemoveAllListeners();
-            botonMenuPrincipal.onClick.AddListener(VolverAlMenu);
-        }
-
-        // Comienza mostrando las instrucciones
-        // para guardar los alimentos.
         MostrarInstruccionesIngredientes();
     }
 
-
     // =========================================================
-    // BOTÓN SIGUIENTE
+    // REGISTRO DE ERRORES (Delegados a ScoreData)
     // =========================================================
 
-    private void PrepararBotonContinuar(UnityAction accion)
+    public void RegistrarIngredientesMalOrdenados()
     {
-        if (botonContinuar == null)
-        {
-            Debug.LogError(
-                "GameManager: No está asignado el botonContinuar en el Inspector."
-            );
-
-            return;
-        }
-
-        botonContinuar.onClick.RemoveAllListeners();
-
-        botonContinuar.onClick.AddListener(accion);
-
-        botonContinuar.gameObject.SetActive(true);
-
-        botonContinuar.interactable = true;
-
-        Debug.Log(
-            "GameManager: Botón Siguiente habilitado."
-        );
+        puntuacion?.RegistrarIngredientesMalOrdenados();
+        Debug.Log("GameManager: Se registraron ingredientes mal ordenados.");
     }
 
-
-    private void OcultarBotonContinuar()
+    public void RegistrarCarneCruda()
     {
-        if (botonContinuar == null)
-            return;
-
-        botonContinuar.onClick.RemoveAllListeners();
-
-        botonContinuar.interactable = false;
-
-        botonContinuar.gameObject.SetActive(false);
+        puntuacion?.RegistrarCarneCruda();
+        Debug.Log("GameManager: Se registró carne cruda.");
     }
 
+    public void RegistrarCarneQuemada()
+    {
+        puntuacion?.RegistrarCarneQuemada();
+        Debug.Log("GameManager: Se registró carne quemada.");
+    }
 
     // =========================================================
     // ETAPA 1 - GUARDADO DE ALIMENTOS
     // =========================================================
 
-    private void MostrarInstruccionesIngredientes()
+    public void MostrarInstruccionesIngredientes()
     {
-        OcultarBotonContinuar();
-
+        UIManager.Instance?.OcultarBotonContinuar();
         estadoActual = EstadoJuego.OrdenandoIngredientes;
 
         if (PopupContenido.Instance != null)
-        {
             PopupContenido.Instance.MostrarInstruccionesIngredientes();
-        }
-        else
-        {
-            Debug.LogError(
-                "GameManager: No existe PopupContenido en la escena."
-            );
-        }
     }
-
 
     public void ContinuarDespuesDelGuardado()
     {
-        Debug.Log(
-            "GameManager: Guardado de alimentos finalizado."
-        );
-
+        Debug.Log("GameManager: Guardado de alimentos finalizado.");
         MostrarInstruccionesReceta();
     }
-
 
     // =========================================================
     // ETAPA 2 - SELECCIÓN DE RECETA
@@ -194,287 +93,65 @@ public class GameManager : MonoBehaviour
 
     private void MostrarInstruccionesReceta()
     {
-        OcultarBotonContinuar();
-
+        UIManager.Instance?.OcultarBotonContinuar();
         estadoActual = EstadoJuego.SeleccionandoReceta;
 
         if (PopupContenido.Instance != null)
-        {
-            PopupContenido.Instance.MostrarInstruccionesReceta(
-                IniciarSeleccionReceta
-            );
-        }
-        else
-        {
-            Debug.LogError(
-                "GameManager: No existe PopupContenido en la escena."
-            );
-        }
+            PopupContenido.Instance.MostrarInstruccionesReceta(IniciarSeleccionReceta);
     }
-
 
     private void IniciarSeleccionReceta()
     {
-        Debug.Log(
-            "Estado: Seleccionando receta."
-        );
-
         if (inicioDiaUI != null)
-        {
             inicioDiaUI.MostrarPanel();
-        }
-        else
-        {
-            Debug.LogError(
-                "GameManager: Falta asignar InicioDiaUI."
-            );
-        }
     }
-
 
     public void EmpezarSeleccionReceta()
     {
-        Debug.Log(
-            "Iniciando selección de receta."
-        );
-
         estadoActual = EstadoJuego.SeleccionandoReceta;
-
-        if (SeleccionRecetaManager.Instance != null)
-        {
-            SeleccionRecetaManager.Instance.IniciarSeleccion();
-        }
-        else
-        {
-            Debug.LogError(
-                "GameManager: No existe SeleccionRecetaManager."
-            );
-        }
+        SeleccionRecetaManager.Instance?.IniciarSeleccion();
     }
-
 
     public void SeleccionRecetaCompleta()
     {
-        Debug.Log(
-            "GameManager: Selección de receta completada."
-        );
-
-        // El feedback no aparece automáticamente.
-        // Primero se muestra el botón Siguiente.
-        PrepararBotonContinuar(
-            ContinuarDesdeSeleccionReceta
-        );
+        UIManager.Instance?.PrepararBotonContinuar(ContinuarDesdeSeleccionReceta);
     }
-
 
     private void ContinuarDesdeSeleccionReceta()
     {
-        OcultarBotonContinuar();
-
-        Debug.Log(
-            "GameManager: Continuando después de seleccionar receta."
-        );
-
+        UIManager.Instance?.OcultarBotonContinuar();
         ActivarLavado();
     }
 
-
     // =========================================================
-    // ETAPA 3 - LAVADO DE MANOS
-    // =========================================================
-
-    public void ActivarLavado()
-    {
-        if (LavadoManos.Instance != null)
-        {
-            LavadoManos.Instance.IniciarLavado();
-        }
-        else
-        {
-            Debug.LogError(
-                "GameManager: No existe LavadoManos en la escena."
-            );
-        }
-    }
-
-
-    public void ContinuarDespuesDelLavado()
-    {
-        Debug.Log(
-            "GameManager: Lavado de manos finalizado."
-        );
-
-        ActivarCortado();
-    }
-
-    // =========================================================
-    // ETAPA 4 - CORTADO
+    // ETAPAS RESTANTES
     // =========================================================
 
-    public void ActivarCortado()
-    {
-        if (CortadoManager.Instance != null)
-        {
-            CortadoManager.Instance.IniciarCortado();
-        }
-        else
-        {
-            Debug.LogError(
-                "GameManager: No existe CortadoManager en la escena."
-            );
-        }
-    }
+    public void ActivarLavado() => LavadoManos.Instance?.IniciarLavado();
+    public void ContinuarDespuesDelLavado() => ActivarCortado();
 
+    public void ActivarCortado() => CortadoManager.Instance?.IniciarCortado();
+    public void ContinuarDespuesDelCortado() => ActivarCoccion();
 
-    public void ContinuarDespuesDelCortado()
-    {
-        Debug.Log(
-            "GameManager: Cortado finalizado."
-        );
+    public void ActivarCoccion() => CoccionManager.Instance?.IniciarCoccion();
+    public void ContinuarDespuesDeCoccion() => ActivarEmplatado();
 
-        ActivarCoccion();
-    }
-
+    public void ActivarEmplatado() => EmplatadoManager.Instance?.IniciarEmplatado();
+    public void ContinuarDespuesDelEmplatado() => FinalizarPartida();
 
     // =========================================================
-    // ETAPA 5 - COCCIÓN
+    // FINALIZACIÓN Y MENÚ
     // =========================================================
 
-    public void ActivarCoccion()
+    private void FinalizarPartida()
     {
-        if (CoccionManager.Instance != null)
-        {
-            CoccionManager.Instance.IniciarCoccion();
-        }
-        else
-        {
-            Debug.LogError(
-                "GameManager: No existe CoccionManager en la escena."
-            );
-        }
+        estadoActual = EstadoJuego.Final;
+        bool gano = puntuacion != null && puntuacion.EsVictoria();
+        UIManager.Instance?.MostrarResumenFinal(gano);
     }
 
-
-    public void ContinuarDespuesDeCoccion()
+    public void VolverAlMenu()
     {
-        Debug.Log(
-            "GameManager: Cocción finalizada."
-        );
-
-        ActivarEmplatado();
-    }
-
-
-    // =========================================================
-    // ETAPA 6 - EMPLATADO
-    // =========================================================
-
-    public void ActivarEmplatado()
-    {
-        if (EmplatadoManager.Instance != null)
-        {
-            EmplatadoManager.Instance.IniciarEmplatado();
-        }
-        else
-        {
-            Debug.LogError(
-                "GameManager: No existe EmplatadoManager en la escena."
-            );
-        }
-    }
-
-
-    public void ContinuarDespuesDelEmplatado()
-    {
-        Debug.Log(
-            "GameManager: Emplatado finalizado."
-        );
-
-        MostrarResumenFinal();
-    }
-
-    // =========================================================
-    // RESULTADO FINAL
-    // =========================================================
-
-    private void ActivarBotonResumen()
-    {
-        OcultarBotonContinuar();
-
-        if (panelResumen != null)
-            panelResumen.SetActive(false);
-
-        MostrarResumenFinal();
-    }
-
-
-    private bool GanoPartida()
-    {
-        return !ingredientesMalOrdenados &&
-               !carneCruda &&
-               !carneQuemada;
-    }
-
-
-    private void MostrarResumenFinal()
-    {
-        if (imagenResultado != null)
-        {
-            imagenResultado.sprite =
-                GanoPartida()
-                    ? spriteVictoria
-                    : spriteDerrota;
-        }
-
-        if (panelResumen != null)
-            panelResumen.SetActive(true);
-    }
-
-
-    // =========================================================
-    // REGISTRO DE ERRORES
-    // =========================================================
-
-    public void RegistrarIngredientesMalOrdenados()
-    {
-        ingredientesMalOrdenados = true;
-
-        Debug.Log(
-            "GameManager: Se registraron ingredientes mal ordenados."
-        );
-    }
-
-
-    public void RegistrarCarneCruda()
-    {
-        carneCruda = true;
-
-        Debug.Log(
-            "GameManager: Se registró carne cruda."
-        );
-    }
-
-
-    public void RegistrarCarneQuemada()
-    {
-        carneQuemada = true;
-
-        Debug.Log(
-            "GameManager: Se registró carne quemada."
-        );
-    }
-
-
-    // =========================================================
-    // VOLVER AL MENÚ
-    // =========================================================
-
-    private void VolverAlMenu()
-    {
-        Time.timeScale = 1f;
-
-        SceneManager.LoadScene(
-            nombreEscenaMenu
-        );
+        SceneLoader.CargarEscena(nombreEscenaMenu);
     }
 }
