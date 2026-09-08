@@ -6,27 +6,28 @@ public class LavadoManos : MonoBehaviour
 {
     public static LavadoManos Instance { get; private set; }
 
-    [Header("Referencias")]
-    [SerializeField] private SoapController jabonDraggable;
+    [Header("Progreso y Sensibilidad")]
+    [Tooltip("Distancia total en píxeles que debe frotarse el jabón para completar el lavado (ej: 1500 a 3000)")]
+    [SerializeField] private float distanciaTotalNecesaria = 2000f;
+    [Tooltip("Tiempo en segundos sin mover el jabón antes de reiniciar la barra")]
+    [SerializeField] private float tiempoParaReiniciar = 0.5f;
+
+    [Header("UI")]
     [SerializeField] private Slider barra;
     [SerializeField] private GameObject objetoBarra;
+    [SerializeField] private Button botonContinuar;
 
     [Header("Animaciones")]
     [SerializeField] private ImageFrameAnimation animacionManos;
     [SerializeField] private ImageFrameAnimation animacionEspuma;
 
-    [Header("Configuración")]
-    [SerializeField] private float tiempoNecesario = 3f;
-    [SerializeField] private float velocidadMinima = 100f;
-
     [Header("Resultado")]
     [SerializeField] private Image imagenManos;
     [SerializeField] private Sprite manosLimpias;
-    [SerializeField] private Button botonContinuar;
 
-    private float progreso;
+    private float distanciaAcumulada;
+    private float tiempoInactivo;
     private bool completado;
-    private Vector3 ultimaPosicionJabon;
 
     private void Awake()
     {
@@ -34,42 +35,56 @@ public class LavadoManos : MonoBehaviour
         else Destroy(gameObject);
     }
 
-    private void Start()
-    {
-        Reiniciar();
-    }
+    private void Start() => ReiniciarLavado();
 
     private void Update()
     {
-        if (completado || jabonDraggable == null) return;
+        if (completado || distanciaAcumulada <= 0f) return;
 
-        // Comprobación de arrastre y velocidad
-        float distancia = Vector3.Distance(jabonDraggable.transform.position, ultimaPosicionJabon);
-        bool estaLavando = AreaLavado.JugadorEstaEncima &&
-                           jabonDraggable.EstaSiendoArrastrado &&
-                           distancia >= velocidadMinima * Time.deltaTime;
+        // Si el usuario deja quieto el cursor o dedo, contamos inactividad
+        tiempoInactivo += Time.deltaTime;
 
-        ultimaPosicionJabon = jabonDraggable.transform.position;
-
-        if (estaLavando)
+        if (tiempoInactivo >= tiempoParaReiniciar)
         {
-            progreso += Time.deltaTime;
-            SetVisualesLavando(true);
-
-            if (progreso >= tiempoNecesario)
-                CompletarLavado();
+            ReiniciarLavado();
         }
-        else
-        {
-            progreso = 0f;
-            SetVisualesLavando(false);
-        }
-
-        if (barra != null)
-            barra.value = Mathf.Clamp01(progreso / tiempoNecesario);
     }
 
-    // --- Helpers de Estado Visual ---
+    // =========================================================
+    // MECÁNICA: SOLO SE EJECUTA SI HAY MOVIMIENTO FÍSICO
+    // =========================================================
+
+    public void ProcesarFrotado(float deltaMovimiento)
+    {
+        if (completado || deltaMovimiento <= 0f) return;
+
+        // Se resetea el contador de inactividad porque se está moviendo activamente
+        tiempoInactivo = 0f;
+        distanciaAcumulada += deltaMovimiento;
+
+        SetVisualesLavando(true);
+
+        if (barra != null)
+            barra.value = Mathf.Clamp01(distanciaAcumulada / distanciaTotalNecesaria);
+
+        if (distanciaAcumulada >= distanciaTotalNecesaria)
+        {
+            CompletarLavado();
+        }
+    }
+
+    public void ReiniciarLavado()
+    {
+        if (completado) return;
+
+        distanciaAcumulada = 0f;
+        tiempoInactivo = 0f;
+
+        if (barra != null) barra.value = 0f;
+
+        SetVisualesLavando(false);
+        SetBotonContinuar(false);
+    }
 
     private void SetVisualesLavando(bool activo)
     {
@@ -90,12 +105,12 @@ public class LavadoManos : MonoBehaviour
         }
     }
 
-    // --- Flujo de la Etapa ---
-
     private void CompletarLavado()
     {
         completado = true;
         SetVisualesLavando(false);
+
+        if (barra != null) barra.value = 1f;
 
         if (imagenManos != null && manosLimpias != null)
             imagenManos.sprite = manosLimpias;
@@ -121,7 +136,7 @@ public class LavadoManos : MonoBehaviour
 
     public void IniciarLavado()
     {
-        Reiniciar();
+        ReiniciarLavado();
 
         if (PopupContenido.Instance != null)
             PopupContenido.Instance.MostrarInstruccionesLavado(ActivarCamaraLavado);
@@ -133,20 +148,6 @@ public class LavadoManos : MonoBehaviour
     {
         CameraManager.Instance?.MostrarCamaraLavadoManos();
     }
-
-    public void Reiniciar()
-    {
-        progreso = 0f;
-        completado = false;
-
-        if (barra != null) barra.value = 0f;
-        if (jabonDraggable != null) ultimaPosicionJabon = jabonDraggable.transform.position;
-
-        SetVisualesLavando(false);
-        SetBotonContinuar(false);
-    }
-
-    // --- Control del Botón ---
 
     private void SetBotonContinuar(bool visible, UnityAction accion = null)
     {

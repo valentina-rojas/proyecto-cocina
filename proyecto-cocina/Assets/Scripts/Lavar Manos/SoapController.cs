@@ -2,76 +2,60 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class SoapController : MonoBehaviour,
-    IBeginDragHandler,
-    IDragHandler,
-    IEndDragHandler
+public class SoapController : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
-    public Image image;
-    public RectTransform limiteArrastre;
-
     private Canvas canvas;
     private RectTransform rectTransform;
-
+    private Vector3 posicionInicial;
     private Transform parentOriginal;
-    private Vector2 posicionOriginal;
-
-    public bool EstaSiendoArrastrado { get; private set; }
+    private Image image;
 
     private void Awake()
     {
         canvas = GetComponentInParent<Canvas>();
         rectTransform = GetComponent<RectTransform>();
+        image = GetComponent<Image>();
+    }
+
+    private void Start()
+    {
+        posicionInicial = rectTransform.localPosition;
+        parentOriginal = rectTransform.parent;
     }
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        EstaSiendoArrastrado = true;
-
-        parentOriginal = transform.parent;
-        posicionOriginal = rectTransform.anchoredPosition;
-
-        transform.SetParent(canvas.transform);
-        transform.SetAsLastSibling();
-
-        image.raycastTarget = false;
+        if (image != null) image.raycastTarget = false;
+        rectTransform.SetParent(canvas.transform, true);
     }
 
     public void OnDrag(PointerEventData eventData)
     {
         Vector2 localPoint;
-
-        RectTransformUtility.ScreenPointToLocalPointInRectangle(
+        if (RectTransformUtility.ScreenPointToLocalPointInRectangle(
             canvas.transform as RectTransform,
             eventData.position,
             canvas.worldCamera,
-            out localPoint
-        );
-
-        if (limiteArrastre != null)
+            out localPoint))
         {
-            Vector2 halfLimit = limiteArrastre.rect.size / 2f;
-            Vector2 halfItem = rectTransform.rect.size / 2f;
+            rectTransform.localPosition = localPoint;
 
-            localPoint.x = Mathf.Clamp(localPoint.x,
-                -halfLimit.x + halfItem.x,
-                 halfLimit.x - halfItem.x);
-
-            localPoint.y = Mathf.Clamp(localPoint.y,
-                -halfLimit.y + halfItem.y,
-                 halfLimit.y - halfItem.y);
+            // Solo enviamos el movimiento si el puntero está físicamente dentro del área
+            if (AreaLavado.JugadorEstaEncima)
+            {
+                LavadoManos.Instance?.ProcesarFrotado(eventData.delta.magnitude);
+            }
         }
-
-        rectTransform.localPosition = localPoint;
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        EstaSiendoArrastrado = false;
+        rectTransform.SetParent(parentOriginal, true);
+        rectTransform.localPosition = posicionInicial;
+        rectTransform.rotation = Quaternion.identity;
 
-        transform.SetParent(parentOriginal, false);
-        rectTransform.anchoredPosition = posicionOriginal;
+        if (image != null) image.raycastTarget = true;
 
-        image.raycastTarget = true;
+        LavadoManos.Instance?.ReiniciarLavado();
     }
 }

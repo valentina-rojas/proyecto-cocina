@@ -198,12 +198,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 27558696}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 81.71524, y: -0.25626, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 80.32733, y: -0.28077, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 52268885}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &28560289
 GameObject:
@@ -425,6 +425,7 @@ Transform:
   - {fileID: 1303475721}
   - {fileID: 2092647324}
   - {fileID: 1574588638}
+  - {fileID: 27558698}
   - {fileID: 1431918766}
   - {fileID: 611479538}
   - {fileID: 699657325}
@@ -2119,7 +2120,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   estadoActual: 0
-  puntuacion: {fileID: 0}
+  puntuacion: {fileID: 709983775}
   inicioDiaUI: {fileID: 1771478225}
   nombreEscenaMenu: MenuPrincipal
 --- !u!1001 &380896539
@@ -4887,9 +4888,54 @@ MonoBehaviour:
   panelPopup: {fileID: 921029877}
   titulo: {fileID: 743844398}
   descripcion: {fileID: 62922683}
+  imagenPopup: {fileID: 658354221}
   botonContinuar: {fileID: 1401244931}
   botonCerrar: {fileID: 1525921810}
   velocidadTexto: 0.03
+--- !u!1 &709983774
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 709983776}
+  - component: {fileID: 709983775}
+  m_Layer: 0
+  m_Name: ScoreData
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &709983775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 709983774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6106c41b1f2991e4885bf015cd14e4f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ScoreData
+--- !u!4 &709983776
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 709983774}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 33.91608, y: 1.7815, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &715174461
 GameObject:
   m_ObjectHideFlags: 0
@@ -6289,8 +6335,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a49b94e7dd24b14889d5f06741e439e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SoapController
-  image: {fileID: 857308054}
-  limiteArrastre: {fileID: 1266700331}
 --- !u!1 &911472059
 GameObject:
   m_ObjectHideFlags: 0
@@ -6536,33 +6580,63 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e4742977594419498a45801cf12dbd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PopupContenido
-  instruccionesIngredientes: "Almacen\xE1 cada alimento en el lugar correspondiente."
-  feedbackIngredientesCorrectos: "\xA1Muy bien! Todos los ingredientes fueron almacenados
-    correctamente."
-  feedbackIngredientesIncorrectos: "Hay ingredientes almacenados en lugares incorrectos.
-    Record\xE1 colocar cada alimento en el lugar correspondiente."
-  instruccionesReceta: "Eleg\xED la receta que vas a preparar. Revis\xE1 los ingredientes
-    necesarios antes de comenzar."
-  instruccionesLavado: "Lavate las manos antes de comenzar a manipular los alimentos.
-    Arrastr\xE1 el jab\xF3n sobre tus manos y frot\xE1 hasta completar la barra."
-  feedbackLavado: "\xA1Muy bien! Completaste correctamente el lavado de manos antes
-    de manipular los alimentos."
-  instruccionesCortado: "Us\xE1 el cuchillo para cortar el ingrediente siguiendo
-    los puntos de corte. Realiz\xE1 los cortes en orden, de arriba hacia abajo."
-  feedbackCortado: "\xA1Buen trabajo! Completaste correctamente el corte de los ingredientes."
-  instruccionesCoccion: "Coloc\xE1 la carne sobre la hornalla y control\xE1 el indicador
-    de cocci\xF3n. Retirala del fuego cuando alcance el punto adecuado para evitar
-    que quede cruda o se queme."
-  feedbackCarneCorrecta: "\xA1Excelente! La carne alcanz\xF3 el punto de cocci\xF3n
-    adecuado."
-  feedbackCarneCruda: "La carne qued\xF3 cruda. Record\xE1 mantenerla en el fuego
-    hasta alcanzar el punto de cocci\xF3n adecuado."
-  feedbackCarneQuemada: "La carne se quem\xF3. Retirala del fuego cuando alcance
-    el punto de cocci\xF3n adecuado."
-  instruccionesEmplatado: "Coloc\xE1 los ingredientes en el plato siguiendo el orden
-    indicado para completar correctamente la preparaci\xF3n."
-  feedbackEmplatado: "\xA1Plato terminado! Completaste correctamente el proceso de
-    preparaci\xF3n."
+  instIngredientes:
+    titulo: Guardado de alimentos
+    texto: "Almacen\xE1 cada alimento en el lugar correspondiente."
+    imagen: {fileID: 614017651250292314, guid: 98682f698076ddb4cafe20c894318213, type: 3}
+  fbIngredientesCorrectos:
+    titulo: "\xA1Muy bien!"
+    texto: "\xA1Muy bien! Todos los ingredientes fueron almacenados correctamente."
+    imagen: {fileID: 2993095752457197746, guid: 6aa6eb039ee823045996d1e8abb3c1d0, type: 3}
+  fbIngredientesIncorrectos:
+    titulo: "Revis\xE1 la organizaci\xF3n"
+    texto: Hay ingredientes almacenados en lugares incorrectos.
+    imagen: {fileID: 2993095752457197746, guid: 6aa6eb039ee823045996d1e8abb3c1d0, type: 3}
+  instReceta:
+    titulo: "Seleccion\xE1 la receta"
+    texto: "Eleg\xED la receta que vas a preparar."
+    imagen: {fileID: 1882166521188240551, guid: 00eb2cf381a7be64b80448a7c22a3f0a, type: 3}
+  instLavado:
+    titulo: Lavado de manos
+    texto: Lavate las manos antes de comenzar a manipular los alimentos.
+    imagen: {fileID: 2196400052816904958, guid: 260a8a45222952941b8c61ab3b03e519, type: 3}
+  fbLavado:
+    titulo: "\xA1Lavado completado!"
+    texto: "\xA1Muy bien! Completaste correctamente el lavado de manos."
+    imagen: {fileID: 7243696176584207193, guid: 921920767bd1cc444a633475b157a3cf, type: 3}
+  instCortado:
+    titulo: Cortar los ingredientes
+    texto: "Us\xE1 el cuchillo para cortar el ingrediente siguiendo los puntos de
+      corte."
+    imagen: {fileID: 6551152255779376774, guid: 6a862b50e53d0a449a984720cdd8dada, type: 3}
+  fbCortado:
+    titulo: "\xA1Buen trabajo!"
+    texto: "\xA1Buen trabajo! Completaste correctamente el corte de los ingredientes."
+    imagen: {fileID: -6590363398050559408, guid: 4c75e87845e0e4841bd40c46d1b4532b, type: 3}
+  instCoccion:
+    titulo: "Cocci\xF3n"
+    texto: "Coloc\xE1 la carne sobre la hornalla y control\xE1 el indicador de cocci\xF3n."
+    imagen: {fileID: -6590363398050559408, guid: 4c75e87845e0e4841bd40c46d1b4532b, type: 3}
+  fbCarneCorrecta:
+    titulo: "\xA1Cocci\xF3n perfecta!"
+    texto: "\xA1Excelente! La carne alcanz\xF3 el punto de cocci\xF3n adecuado."
+    imagen: {fileID: -5932461725324412915, guid: 039b76ff0105efd408b1de656ff7be92, type: 3}
+  fbCarneCruda:
+    titulo: "Cocci\xF3n incompleta"
+    texto: "La carne qued\xF3 cruda."
+    imagen: {fileID: -5932461725324412915, guid: 039b76ff0105efd408b1de656ff7be92, type: 3}
+  fbCarneQuemada:
+    titulo: "Cocci\xF3n incorrecta"
+    texto: "La carne se quem\xF3."
+    imagen: {fileID: -5932461725324412915, guid: 039b76ff0105efd408b1de656ff7be92, type: 3}
+  instEmplatado:
+    titulo: Emplatado
+    texto: "Coloc\xE1 los ingredientes en el plato siguiendo el orden indicado."
+    imagen: {fileID: -6590363398050559408, guid: 4c75e87845e0e4841bd40c46d1b4532b, type: 3}
+  fbEmplatado:
+    titulo: "\xA1Plato terminado!"
+    texto: "\xA1Plato terminado! Completaste correctamente la preparaci\xF3n."
+    imagen: {fileID: 0}
 --- !u!1 &967623965
 GameObject:
   m_ObjectHideFlags: 0
@@ -13086,16 +13160,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae45c01612780a44fb1a94dc71f4b53e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LavarManos
-  jabonDraggable: {fileID: 857308056}
+  distanciaTotalNecesaria: 5000
+  tiempoParaReiniciar: 0.5
   barra: {fileID: 32337152}
   objetoBarra: {fileID: 32337151}
+  botonContinuar: {fileID: 991081302}
   animacionManos: {fileID: 818756225}
   animacionEspuma: {fileID: 173808897}
-  tiempoNecesario: 3
-  velocidadMinima: 0
   imagenManos: {fileID: 818756223}
   manosLimpias: {fileID: 4088759248943511090, guid: 86610ce57a930414481d4725179d0093, type: 3}
-  botonContinuar: {fileID: 991081302}
 --- !u!1 &1753472701
 GameObject:
   m_ObjectHideFlags: 0
@@ -14408,7 +14481,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1965777929
 RectTransform:
   m_ObjectHideFlags: 0
@@ -15780,8 +15853,8 @@ SceneRoots:
   - {fileID: 1532075999}
   - {fileID: 1113450582}
   - {fileID: 1203037563}
+  - {fileID: 1772019053}
   - {fileID: 52268885}
   - {fileID: 810115509}
-  - {fileID: 27558698}
-  - {fileID: 1772019053}
   - {fileID: 2117617997}
+  - {fileID: 709983776}
