@@ -2,14 +2,19 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
 
-public class CortadoManager : MonoBehaviour
+public class EmplatadoManager : MonoBehaviour
 {
-    public static CortadoManager Instance;
+    public static EmplatadoManager Instance;
 
     [Header("Botón Siguiente")]
     [SerializeField] private Button botonContinuar;
 
-    private bool cortadoCompletado = false;
+    private bool emplatadoCompletado = false;
+
+
+    // =========================================================
+    // UNITY
+    // =========================================================
 
     private void Awake()
     {
@@ -23,85 +28,92 @@ public class CortadoManager : MonoBehaviour
         }
     }
 
+
     private void Start()
     {
         OcultarBoton();
     }
 
+
     // =========================================================
     // INICIAR ETAPA
     // =========================================================
 
-    public void IniciarCortado()
+    public void IniciarEmplatado()
     {
-        cortadoCompletado = false;
+        emplatadoCompletado = false;
 
         OcultarBoton();
 
         if (GameManager.Instance != null)
         {
             GameManager.Instance.estadoActual =
-                GameManager.EstadoJuego.Cortado;
+                GameManager.EstadoJuego.Emplatado;
         }
 
-        Debug.Log("CortadoManager: Iniciando etapa de cortado.");
+        Debug.Log(
+            "EmplatadoManager: Iniciando etapa de emplatado."
+        );
 
         if (PopupContenido.Instance != null)
         {
-            PopupContenido.Instance.MostrarInstruccionesCortado(
-                ActivarCamaraCortado
+            PopupContenido.Instance.MostrarInstruccionesEmplatado(
+                ActivarCamaraEmplatado
             );
         }
         else
         {
             Debug.LogError(
-                "CortadoManager: No existe PopupContenido."
+                "EmplatadoManager: No existe PopupContenido."
             );
 
-            ActivarCamaraCortado();
+            ActivarCamaraEmplatado();
         }
     }
+
 
     // =========================================================
     // CÁMARA
     // =========================================================
 
-    private void ActivarCamaraCortado()
+    private void ActivarCamaraEmplatado()
     {
         if (CameraManager.Instance != null)
         {
             CameraManager.Instance
-                .MostrarCamaraCortadoIngredientes();
+                .MostrarCamaraEmplatado();
         }
         else
         {
             Debug.LogError(
-                "CortadoManager: No existe CameraManager."
+                "EmplatadoManager: No existe CameraManager."
             );
         }
     }
 
+
     // =========================================================
-    // INGREDIENTE CORTADO
+    // EMPLATADO COMPLETADO
     // =========================================================
 
-    public void IngredienteCortado()
+    public void EmplatadoCompleto()
     {
-        if (cortadoCompletado)
+        if (emplatadoCompletado)
             return;
 
-        cortadoCompletado = true;
+        emplatadoCompletado = true;
 
         Debug.Log(
-            "CortadoManager: Ingrediente cortado completamente."
+            "EmplatadoManager: Emplatado completado."
         );
 
-        // El feedback NO aparece todavía.
-        // Primero se muestra el botón Siguiente.
+        // Primero aparece el botón Siguiente.
+        // El feedback NO aparece automáticamente.
         PrepararBoton(
-            ContinuarDesdeCortado
+            ContinuarDesdeEmplatado
         );
     }
+
 
     // =========================================================
     // BOTÓN SIGUIENTE
@@ -112,7 +124,7 @@ public class CortadoManager : MonoBehaviour
         if (botonContinuar == null)
         {
             Debug.LogError(
-                "CortadoManager: No está asignado el botón Siguiente."
+                "EmplatadoManager: No está asignado el botón Siguiente."
             );
 
             return;
@@ -127,9 +139,10 @@ public class CortadoManager : MonoBehaviour
         botonContinuar.interactable = true;
 
         Debug.Log(
-            "CortadoManager: Botón Siguiente habilitado."
+            "EmplatadoManager: Botón Siguiente habilitado."
         );
     }
+
 
     private void OcultarBoton()
     {
@@ -143,54 +156,56 @@ public class CortadoManager : MonoBehaviour
         botonContinuar.gameObject.SetActive(false);
     }
 
+
     // =========================================================
     // FEEDBACK
     // =========================================================
 
-    private void ContinuarDesdeCortado()
+    private void ContinuarDesdeEmplatado()
     {
         OcultarBoton();
 
         Debug.Log(
-            "CortadoManager: Mostrando feedback del cortado."
+            "EmplatadoManager: Mostrando feedback del emplatado."
         );
 
         if (PopupContenido.Instance != null)
         {
-            PopupContenido.Instance.MostrarFeedbackCortado(
-                TerminarEtapaCortado
+            PopupContenido.Instance.MostrarFeedbackEmplatado(
+                TerminarEtapaEmplatado
             );
         }
         else
         {
             Debug.LogError(
-                "CortadoManager: No existe PopupContenido."
+                "EmplatadoManager: No existe PopupContenido."
             );
 
-            TerminarEtapaCortado();
+            TerminarEtapaEmplatado();
         }
     }
+
 
     // =========================================================
     // TERMINAR ETAPA
     // =========================================================
 
-    private void TerminarEtapaCortado()
+    private void TerminarEtapaEmplatado()
     {
         OcultarBoton();
 
         Debug.Log(
-            "CortadoManager: Etapa de cortado finalizada."
+            "EmplatadoManager: Etapa de emplatado finalizada."
         );
 
         if (GameManager.Instance != null)
         {
-            GameManager.Instance.ContinuarDespuesDelCortado();
+            GameManager.Instance.ContinuarDespuesDelEmplatado();
         }
         else
         {
             Debug.LogError(
-                "CortadoManager: No existe GameManager."
+                "EmplatadoManager: No existe GameManager."
             );
         }
     }

@@ -2,14 +2,17 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
 
-public class CortadoManager : MonoBehaviour
+public class CoccionManager : MonoBehaviour
 {
-    public static CortadoManager Instance;
+    public static CoccionManager Instance;
+
+    [Header("Referencias")]
+    [SerializeField] private Carne carne;
 
     [Header("Botón Siguiente")]
     [SerializeField] private Button botonContinuar;
 
-    private bool cortadoCompletado = false;
+    private bool coccionCompletada = false;
 
     private void Awake()
     {
@@ -28,80 +31,86 @@ public class CortadoManager : MonoBehaviour
         OcultarBoton();
     }
 
+
     // =========================================================
     // INICIAR ETAPA
     // =========================================================
 
-    public void IniciarCortado()
+    public void IniciarCoccion()
     {
-        cortadoCompletado = false;
+        coccionCompletada = false;
 
         OcultarBoton();
 
         if (GameManager.Instance != null)
         {
             GameManager.Instance.estadoActual =
-                GameManager.EstadoJuego.Cortado;
+                GameManager.EstadoJuego.Coccion;
         }
 
-        Debug.Log("CortadoManager: Iniciando etapa de cortado.");
+        Debug.Log(
+            "CoccionManager: Iniciando etapa de cocción."
+        );
 
         if (PopupContenido.Instance != null)
         {
-            PopupContenido.Instance.MostrarInstruccionesCortado(
-                ActivarCamaraCortado
+            PopupContenido.Instance.MostrarInstruccionesCoccion(
+                ActivarCamaraCoccion
             );
         }
         else
         {
             Debug.LogError(
-                "CortadoManager: No existe PopupContenido."
+                "CoccionManager: No existe PopupContenido."
             );
 
-            ActivarCamaraCortado();
+            ActivarCamaraCoccion();
         }
     }
+
 
     // =========================================================
     // CÁMARA
     // =========================================================
 
-    private void ActivarCamaraCortado()
+    private void ActivarCamaraCoccion()
     {
         if (CameraManager.Instance != null)
         {
             CameraManager.Instance
-                .MostrarCamaraCortadoIngredientes();
+                .MostrarCamaraCoccionIngredientes();
         }
         else
         {
             Debug.LogError(
-                "CortadoManager: No existe CameraManager."
+                "CoccionManager: No existe CameraManager."
             );
         }
     }
 
+
     // =========================================================
-    // INGREDIENTE CORTADO
+    // COCCIÓN COMPLETADA
     // =========================================================
 
-    public void IngredienteCortado()
+    public void CoccionCompleta()
     {
-        if (cortadoCompletado)
+        if (coccionCompletada)
             return;
 
-        cortadoCompletado = true;
+        coccionCompletada = true;
 
         Debug.Log(
-            "CortadoManager: Ingrediente cortado completamente."
+            "CoccionManager: Cocción completada."
         );
 
-        // El feedback NO aparece todavía.
-        // Primero se muestra el botón Siguiente.
+        // Primero aparece el botón Siguiente.
+        // El feedback NO aparece automáticamente.
         PrepararBoton(
-            ContinuarDesdeCortado
+            ContinuarDesdeCoccion
         );
     }
+
 
     // =========================================================
     // BOTÓN SIGUIENTE
@@ -112,7 +121,7 @@ public class CortadoManager : MonoBehaviour
         if (botonContinuar == null)
         {
             Debug.LogError(
-                "CortadoManager: No está asignado el botón Siguiente."
+                "CoccionManager: No está asignado el botón Siguiente."
             );
 
             return;
@@ -127,9 +136,10 @@ public class CortadoManager : MonoBehaviour
         botonContinuar.interactable = true;
 
         Debug.Log(
-            "CortadoManager: Botón Siguiente habilitado."
+            "CoccionManager: Botón Siguiente habilitado."
         );
     }
+
 
     private void OcultarBoton()
     {
@@ -143,54 +153,70 @@ public class CortadoManager : MonoBehaviour
         botonContinuar.gameObject.SetActive(false);
     }
 
+
     // =========================================================
     // FEEDBACK
     // =========================================================
 
-    private void ContinuarDesdeCortado()
+    private void ContinuarDesdeCoccion()
     {
         OcultarBoton();
 
         Debug.Log(
-            "CortadoManager: Mostrando feedback del cortado."
+            "CoccionManager: Mostrando feedback de la cocción."
         );
+
+        bool carneEstaCruda = false;
+        bool carneEstaQuemada = false;
+
+        if (carne != null)
+        {
+            carneEstaCruda =
+                carne.estado == Carne.Estado.Cruda;
+
+            carneEstaQuemada =
+                carne.estado == Carne.Estado.Quemada;
+        }
 
         if (PopupContenido.Instance != null)
         {
-            PopupContenido.Instance.MostrarFeedbackCortado(
-                TerminarEtapaCortado
+            PopupContenido.Instance.MostrarFeedbackCoccion(
+                carneEstaCruda,
+                carneEstaQuemada,
+                TerminarEtapaCoccion
             );
         }
         else
         {
             Debug.LogError(
-                "CortadoManager: No existe PopupContenido."
+                "CoccionManager: No existe PopupContenido."
             );
 
-            TerminarEtapaCortado();
+            TerminarEtapaCoccion();
         }
     }
+
 
     // =========================================================
     // TERMINAR ETAPA
     // =========================================================
 
-    private void TerminarEtapaCortado()
+    private void TerminarEtapaCoccion()
     {
         OcultarBoton();
 
         Debug.Log(
-            "CortadoManager: Etapa de cortado finalizada."
+            "CoccionManager: Etapa de cocción finalizada."
         );
 
         if (GameManager.Instance != null)
         {
-            GameManager.Instance.ContinuarDespuesDelCortado();
+            GameManager.Instance.ContinuarDespuesDeCoccion();
         }
         else
         {
             Debug.LogError(
-                "CortadoManager: No existe GameManager."
+                "CoccionManager: No existe GameManager."
             );
         }
     }

@@ -418,12 +418,15 @@ Transform:
   - {fileID: 376923183}
   - {fileID: 539385508}
   - {fileID: 1771478224}
+  - {fileID: 1055677250}
+  - {fileID: 526083611}
   - {fileID: 911472060}
   - {fileID: 1717910736}
   - {fileID: 1303475721}
+  - {fileID: 2092647324}
+  - {fileID: 1574588638}
   - {fileID: 1431918766}
   - {fileID: 611479538}
-  - {fileID: 526083611}
   - {fileID: 699657325}
   - {fileID: 935683237}
   m_Father: {fileID: 0}
@@ -7603,6 +7606,51 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f4b275e9f010ac43a0226fabb19b35f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraAspectRatio
+--- !u!1 &1055677249
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1055677250}
+  - component: {fileID: 1055677251}
+  m_Layer: 0
+  m_Name: GuardadoAlimentosManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1055677250
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1055677249}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 12.1524105, y: -7.7395, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 52268885}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1055677251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1055677249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 569d1b4659746404b90309a0e300ddd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GuardadoAlimentosManager
+  botonContinuar: {fileID: 991081302}
 --- !u!1 &1068331757
 GameObject:
   m_ObjectHideFlags: 0
@@ -10007,6 +10055,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b69293ff3ff9f94eb4c634da66bb62f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CortadoManager
+  botonContinuar: {fileID: 991081302}
 --- !u!1 &1312432346
 GameObject:
   m_ObjectHideFlags: 0
@@ -12249,6 +12298,51 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!1 &1574588637
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1574588638}
+  - component: {fileID: 1574588639}
+  m_Layer: 0
+  m_Name: EmplatadoManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1574588638
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1574588637}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 10.99512, y: -7.5742598, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 52268885}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1574588639
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1574588637}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c52901f791712be42b9d6c48c40117c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EmplatadoManager
+  botonContinuar: {fileID: 991081302}
 --- !u!224 &1609135430 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4300034225462924504, guid: 2e2d23b875c6a884fa05e851f36563db, type: 3}
@@ -13009,6 +13103,7 @@ MonoBehaviour:
   velocidadMinima: 0
   imagenManos: {fileID: 818756223}
   manosLimpias: {fileID: 4088759248943511090, guid: 86610ce57a930414481d4725179d0093, type: 3}
+  botonContinuar: {fileID: 991081302}
 --- !u!1 &1753472701
 GameObject:
   m_ObjectHideFlags: 0
@@ -15178,6 +15273,52 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 83.655685, y: 77.712234}
   m_EdgeRadius: 0
+--- !u!1 &2092647323
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2092647324}
+  - component: {fileID: 2092647325}
+  m_Layer: 0
+  m_Name: CoccionManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2092647324
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2092647323}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 10.99512, y: -7.5742598, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 52268885}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2092647325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2092647323}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4ebd904b95cc6d4db6c5d363a38fdfe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CoccionManager
+  carne: {fileID: 1431918765}
+  botonContinuar: {fileID: 991081302}
 --- !u!1001 &2101644250
 PrefabInstance:
   m_ObjectHideFlags: 0

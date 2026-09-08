@@ -36,23 +36,26 @@ public class Hornalla : MonoBehaviour
                 carne.MostrarBarra();
         }
         else
-    {
-        Debug.Log("❌ Hornalla apagada");
-
-        if (carne != null)
         {
-            carne.OcultarBarra();
-            carne.VerificarCoccion();
-        }
+            Debug.Log("❌ Hornalla apagada");
 
-        // Después de verificar la carne, avanzamos
-        if (GameManager.Instance != null)
-        {
-            GameManager.Instance.CoccionCompleta();
+            if (carne != null)
+            {
+                carne.OcultarBarra();
+                carne.VerificarCoccion();
+            }
+
+            // La etapa se completa al apagar la hornalla.
+            if (CoccionManager.Instance != null)
+            {
+                CoccionManager.Instance.CoccionCompleta();
+            }
+            else
+            {
+                Debug.LogError(
+                    "Hornalla: No existe CoccionManager."
+                );
+            }
         }
     }
-        }
-
-
-    
 }
