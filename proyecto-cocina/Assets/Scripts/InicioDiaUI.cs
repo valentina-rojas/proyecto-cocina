@@ -4,43 +4,90 @@ using UnityEngine.UI;
 
 public class InicioDiaUI : MonoBehaviour
 {
+    [Header("Panel")]
     public GameObject panelInicioDia;
+
+    [Header("Información de la receta")]
     public TextMeshProUGUI textoReceta;
     public Image imagenReceta;
 
+    [Header("Botón")]
     public Button botonContinuar;
+
+    //====================================================
+    // START
+    //====================================================
 
     private void Start()
     {
-        panelInicioDia.SetActive(false);
+        if (panelInicioDia != null)
+        {
+            panelInicioDia.SetActive(false);
+        }
 
-        botonContinuar.onClick.AddListener(CerrarPanel);
+        if (botonContinuar != null)
+        {
+            botonContinuar.onClick.RemoveAllListeners();
+            botonContinuar.onClick.AddListener(CerrarPanel);
+        }
     }
 
+    //====================================================
+    // MOSTRAR PANEL
+    //====================================================
 
     public void MostrarPanel()
     {
-        textoReceta.text =
-            "Hoy tenés que preparar:\n\n" +
-            DayManager.Instance.recetaActual;
+        if (DayManager.Instance == null)
+        {
+            Debug.LogError(
+                "InicioDiaUI: No existe DayManager."
+            );
 
+            return;
+        }
+
+        if (textoReceta != null)
+        {
+            textoReceta.text =
+                "Hoy tenés que preparar:\n\n" +
+                DayManager.Instance.recetaActual;
+        }
 
         if (imagenReceta != null)
-            imagenReceta.sprite = DayManager.Instance.imagenRecetaActual;
+        {
+            imagenReceta.sprite =
+                DayManager.Instance.imagenRecetaActual;
+        }
 
-
-        panelInicioDia.SetActive(true);
+        if (panelInicioDia != null)
+        {
+            panelInicioDia.SetActive(true);
+        }
     }
 
+    //====================================================
+    // CERRAR PANEL
+    //====================================================
 
     private void CerrarPanel()
     {
-        panelInicioDia.SetActive(false);
+        if (panelInicioDia != null)
+        {
+            panelInicioDia.SetActive(false);
+        }
 
-        // Habilita el botón para ir al lavado
+        // Una vez que el jugador vio la receta,
+        // comienza la selección de receta.
         if (GameManager.Instance != null)
         {
             GameManager.Instance.EmpezarSeleccionReceta();
+        }
+        else
+        {
+            Debug.LogError(
+                "InicioDiaUI: No existe GameManager."
+            );
         }
     }
 }
