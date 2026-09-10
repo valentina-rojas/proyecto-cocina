@@ -1,55 +1,299 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
+
+[System.Serializable]
+public class SlotIngredienteCortar
+{
+    public Button boton;
+    public Image imagenIcono;
+    public GameObject marcaCompletado;
+}
 
 public class CortadoManager : MonoBehaviour
 {
     public static CortadoManager Instance { get; private set; }
 
-    [Header("UI")]
+    [Header("Paneles de la Etapa")]
+    [SerializeField] private GameObject panelSeleccionIngredientes;
+    [SerializeField] private GameObject panelSeleccionTabla;
+    [SerializeField] private GameObject panelSeleccionCuchillo;
+    [SerializeField] private GameObject panelMesaDeCorte;
+
+    [Header("Botones de Tablas")]
+    [SerializeField] private Button botonTablaCarnes;
+    [SerializeField] private Button botonTablaVegetales;
+    [SerializeField] private Button botonTablaSecos;
+
+    [Header("Sprites de las Tablas en Escena")]
+    [SerializeField] private Sprite spriteTablaCarnes;
+    [SerializeField] private Sprite spriteTablaVegetales;
+    [SerializeField] private Sprite spriteTablaSecos;
+
+    [Header("Botones de Cuchillos")]
+    [SerializeField] private Button botonCuchilloCarnes;
+    [SerializeField] private Button botonCuchilloVegetales;
+    [SerializeField] private Button botonCuchilloSecos;
+    [SerializeField] private Button botonCuchilloAderezos;
+    [SerializeField] private Button botonCuchilloSucio;
+
+    [Header("Sprites de los Cuchillos en Escena")]
+    [SerializeField] private Sprite spriteCuchilloCarnes;
+    [SerializeField] private Sprite spriteCuchilloVegetales;
+    [SerializeField] private Sprite spriteCuchilloSecos;
+    [SerializeField] private Sprite spriteCuchilloAderezos;
+    [SerializeField] private Sprite spriteCuchilloSucio;
+
+    [Header("Slots de la UI (Máximo 3)")]
+    [SerializeField] private SlotIngredienteCortar[] slotsIngredientes = new SlotIngredienteCortar[3];
+
+    [Header("Ingredientes a Cortar en este Nivel/Escena")]
+    [Tooltip("Arrastra aquí directamente los ingredientes que se cortan")]
+    [SerializeField] private List<IngredienteData> ingredientesEtapa = new List<IngredienteData>();
+
+    [Header("Mesa y Cuchillo")]
+    [SerializeField] private Image imagenTabla;
+    [SerializeField] private KnifeController knifeController;
+    [SerializeField] private Transform contenedorIngrediente;
+
+    [Header("UI General")]
     [SerializeField] private Button botonContinuar;
 
-    private bool cortadoCompletado;
+    private IngredienteData ingredienteSeleccionado;
+    private CuttableIngredient ingredienteEnMesa;
+    private int ingredientesCortadosCount = 0;
 
     private void Awake()
     {
         if (Instance == null) Instance = this;
         else Destroy(gameObject);
+
+        ConfigurarBotonesTablas();
+        ConfigurarBotonesCuchillos();
     }
 
-    private void Start() => SetBotonContinuar(false);
+    private void Start()
+    {
+        SetBotonContinuar(false);
+    }
 
-    // =========================================================
-    // FLUJO DE ETAPA
-    // =========================================================
+    private void ConfigurarBotonesTablas()
+    {
+        VincularBotonTabla(botonTablaCarnes, spriteTablaCarnes);
+        VincularBotonTabla(botonTablaVegetales, spriteTablaVegetales);
+        VincularBotonTabla(botonTablaSecos, spriteTablaSecos);
+    }
+
+    private void VincularBotonTabla(Button btn, Sprite spriteDestino)
+    {
+        if (btn == null) return;
+        btn.onClick.RemoveAllListeners();
+        btn.onClick.AddListener(() => SeleccionarTabla(spriteDestino));
+    }
+
+    private void ConfigurarBotonesCuchillos()
+    {
+        VincularBotonCuchillo(botonCuchilloCarnes, spriteCuchilloCarnes);
+        VincularBotonCuchillo(botonCuchilloVegetales, spriteCuchilloVegetales);
+        VincularBotonCuchillo(botonCuchilloSecos, spriteCuchilloSecos);
+        VincularBotonCuchillo(botonCuchilloAderezos, spriteCuchilloAderezos);
+        VincularBotonCuchillo(botonCuchilloSucio, spriteCuchilloSucio);
+    }
+
+    private void VincularBotonCuchillo(Button btn, Sprite spriteDestino)
+    {
+        if (btn == null) return;
+        btn.onClick.RemoveAllListeners();
+        btn.onClick.AddListener(() => SeleccionarCuchillo(spriteDestino));
+    }
 
     public void IniciarCortado()
     {
-        cortadoCompletado = false;
+        ingredientesCortadosCount = 0;
         SetBotonContinuar(false);
 
+        if (ingredientesEtapa == null || ingredientesEtapa.Count == 0)
+        {
+            Debug.LogError("[CortadoManager] ¡No hay ingredientes asignados en el Inspector!");
+            TerminarEtapaCortado();
+            return;
+        }
+
+        for (int i = 0; i < ingredientesEtapa.Count; i++)
+        {
+            if (ingredientesEtapa[i] != null)
+                ingredientesEtapa[i].yaCortado = false;
+        }
+
         if (PopupContenido.Instance != null)
-            PopupContenido.Instance.MostrarInstruccionesCortado(ActivarCamaraCortado);
+            PopupContenido.Instance.MostrarInstruccionesCortado(IniciarSeleccionIngredientes);
         else
-            ActivarCamaraCortado();
+            IniciarSeleccionIngredientes();
     }
 
-    private void ActivarCamaraCortado()
+    public void IniciarSeleccionIngredientes()
     {
         CameraManager.Instance?.MostrarCamaraCortadoIngredientes();
+
+        if (panelSeleccionIngredientes != null) panelSeleccionIngredientes.SetActive(true);
+        if (panelSeleccionTabla != null) panelSeleccionTabla.SetActive(false);
+        if (panelSeleccionCuchillo != null) panelSeleccionCuchillo.SetActive(false);
+        if (panelMesaDeCorte != null) panelMesaDeCorte.SetActive(false);
+
+        SetBotonContinuar(false);
+        ActualizarBotonesIngredientes();
+    }
+
+    private void ActualizarBotonesIngredientes()
+    {
+        for (int i = 0; i < slotsIngredientes.Length; i++)
+        {
+            int index = i;
+            SlotIngredienteCortar slot = slotsIngredientes[i];
+
+            if (slot == null || slot.boton == null) continue;
+
+            if (i < ingredientesEtapa.Count && ingredientesEtapa[i] != null)
+            {
+                slot.boton.gameObject.SetActive(true);
+                IngredienteData data = ingredientesEtapa[i];
+
+                if (slot.imagenIcono != null && data.imagenIngrediente != null)
+                {
+                    slot.imagenIcono.sprite = data.imagenIngrediente.sprite;
+                    slot.imagenIcono.enabled = true;
+                }
+
+                slot.boton.interactable = !data.yaCortado;
+                if (slot.marcaCompletado != null)
+                    slot.marcaCompletado.SetActive(data.yaCortado);
+
+                slot.boton.onClick.RemoveAllListeners();
+                slot.boton.onClick.AddListener(() => OnClickSeleccionarIngrediente(index));
+            }
+            else
+            {
+                slot.boton.gameObject.SetActive(false);
+            }
+        }
+    }
+
+    private void OnClickSeleccionarIngrediente(int index)
+    {
+        ingredienteSeleccionado = ingredientesEtapa[index];
+
+        if (panelSeleccionIngredientes != null) 
+            panelSeleccionIngredientes.SetActive(false);
+
+        if (panelSeleccionTabla != null) 
+            panelSeleccionTabla.SetActive(true);
+    }
+
+    public void SeleccionarTabla(Sprite spriteTabla)
+    {
+        if (imagenTabla != null && spriteTabla != null)
+            imagenTabla.sprite = spriteTabla;
+
+        // Oculta el panel de tablas y activa el panel de selección de cuchillo
+        if (panelSeleccionTabla != null) 
+            panelSeleccionTabla.SetActive(false);
+
+        if (panelSeleccionCuchillo != null) 
+            panelSeleccionCuchillo.SetActive(true);
+    }
+
+    public void SeleccionarCuchillo(Sprite spriteCuchillo)
+    {
+        // Asigna el sprite al componente visual del cuchillo
+        if (knifeController != null && spriteCuchillo != null && knifeController.image != null)
+            knifeController.image.sprite = spriteCuchillo;
+
+        // Oculta el panel de cuchillos y pasa a cortar
+        if (panelSeleccionCuchillo != null) 
+            panelSeleccionCuchillo.SetActive(false);
+
+        PrepararMesaDeCorte();
+    }
+
+    private void PrepararMesaDeCorte()
+    {
+        if (panelMesaDeCorte != null) panelMesaDeCorte.SetActive(true);
+
+        if (ingredienteEnMesa != null)
+        {
+            Destroy(ingredienteEnMesa.gameObject);
+            ingredienteEnMesa = null;
+        }
+
+        if (ingredienteSeleccionado == null || ingredienteSeleccionado.prefabCortable == null)
+        {
+            Debug.LogError("[CortadoManager] Falta ingredienteSeleccionado o su prefab.");
+            return;
+        }
+
+        if (contenedorIngrediente == null)
+        {
+            Debug.LogError("[CortadoManager] Falta asignar contenedorIngrediente.");
+            return;
+        }
+
+        ingredienteEnMesa = Instantiate(ingredienteSeleccionado.prefabCortable, contenedorIngrediente, false);
+
+        RectTransform rectTransform = ingredienteEnMesa.GetComponent<RectTransform>();
+        if (rectTransform != null)
+        {
+            rectTransform.anchoredPosition = Vector2.zero;
+            rectTransform.localRotation = Quaternion.identity;
+        }
+        else
+        {
+            ingredienteEnMesa.transform.localPosition = Vector3.zero;
+            ingredienteEnMesa.transform.localRotation = Quaternion.identity;
+        }
+
+        ingredienteEnMesa.InicializarIngrediente();
+
+        if (knifeController != null)
+        {
+            knifeController.ReiniciarCuchillo();
+            knifeController.gameObject.SetActive(true);
+        }
     }
 
     public void IngredienteCortado()
     {
-        if (cortadoCompletado) return;
-        cortadoCompletado = true;
+        if (ingredienteSeleccionado != null)
+            ingredienteSeleccionado.yaCortado = true;
 
-        SetBotonContinuar(true, ContinuarDesdeCortado);
+        ingredientesCortadosCount++;
+
+        if (knifeController != null)
+            knifeController.gameObject.SetActive(false);
+
+        SetBotonContinuar(true, OnContinuarTrasCorte);
     }
 
-    private void ContinuarDesdeCortado()
+    private void OnContinuarTrasCorte()
     {
         SetBotonContinuar(false);
+
+        if (ingredienteEnMesa != null)
+            Destroy(ingredienteEnMesa.gameObject);
+
+        if (ingredientesCortadosCount < ingredientesEtapa.Count)
+        {
+            IniciarSeleccionIngredientes();
+        }
+        else
+        {
+            FinalizarEtapaCortado();
+        }
+    }
+
+    private void FinalizarEtapaCortado()
+    {
+        if (panelMesaDeCorte != null) panelMesaDeCorte.SetActive(false);
 
         if (PopupContenido.Instance != null)
             PopupContenido.Instance.MostrarFeedbackCortado(TerminarEtapaCortado);
@@ -62,10 +306,6 @@ public class CortadoManager : MonoBehaviour
         SetBotonContinuar(false);
         GameManager.Instance?.ContinuarDespuesDelCortado();
     }
-
-    // =========================================================
-    // HELPER UI
-    // =========================================================
 
     private void SetBotonContinuar(bool visible, UnityAction accion = null)
     {

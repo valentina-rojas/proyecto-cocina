@@ -14,22 +14,50 @@ public class KnifeController : MonoBehaviour, IBeginDragHandler, IDragHandler, I
 
     private Transform parentOriginal;
     private Vector2 posicionOriginal;
+    private bool initialized = false;
 
     private void Awake()
     {
         canvas = GetComponentInParent<Canvas>();
         rectTransform = GetComponent<RectTransform>();
+
+        if (!initialized)
+        {
+            parentOriginal = transform.parent;
+            posicionOriginal = rectTransform.anchoredPosition;
+            initialized = true;
+        }
+    }
+
+    public void ReiniciarCuchillo()
+    {
+        // 1. Restaurar jerarquía original
+        if (parentOriginal != null && transform.parent != parentOriginal)
+        {
+            transform.SetParent(parentOriginal, false);
+        }
+
+        // 2. Restaurar posición original
+        if (rectTransform != null)
+        {
+            rectTransform.anchoredPosition = posicionOriginal;
+            rectTransform.localRotation = Quaternion.identity;
+        }
+
+        // 3. Reactivar detección de raycast para poder volver a arrastrarlo
+        if (image != null)
+        {
+            image.raycastTarget = true;
+        }
     }
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        parentOriginal = transform.parent;
-        posicionOriginal = rectTransform.anchoredPosition;
-
         transform.SetParent(canvas.transform);
         transform.SetAsLastSibling();
 
-        image.raycastTarget = false;
+        if (image != null)
+            image.raycastTarget = false;
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -65,9 +93,6 @@ public class KnifeController : MonoBehaviour, IBeginDragHandler, IDragHandler, I
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        transform.SetParent(parentOriginal, false);
-        rectTransform.anchoredPosition = posicionOriginal;
-
-        image.raycastTarget = true;
+        ReiniciarCuchillo();
     }
 }

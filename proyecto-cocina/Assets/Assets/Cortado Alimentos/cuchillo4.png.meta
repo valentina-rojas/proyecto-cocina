@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 731b593e2c38d9440a2c31248202b226
+guid: e700ff49dc563344bb6a015823c3511e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7164706637471213058
-    second: fondo cortado_0
+      213: 3302718375361130864
+    second: cuchillo4_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,23 +113,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: fondo cortado_0
+      name: cuchillo4_0
       rect:
         serializedVersion: 2
-        x: 134
-        y: 162
-        width: 1266
-        height: 668
+        x: 0
+        y: 0
+        width: 656
+        height: 144
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ef915a10649d19c90800000000000000
-      internalID: -7164706637471213058
+      spriteID: 0713e842ddc95dd20800000000000000
+      internalID: 3302718375361130864
       vertices: []
       indices: 
       edges: []
@@ -138,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 71d201f97705d3f4bbde46d2bdbd12c4
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      fondo cortado_0: -7164706637471213058
+      cuchillo4_0: 3302718375361130864
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

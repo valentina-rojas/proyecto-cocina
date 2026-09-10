@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 731b593e2c38d9440a2c31248202b226
+guid: 741d7f11ca720ce47835f967f0f8d258
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7164706637471213058
-    second: fondo cortado_0
+      213: 574534103681429849
+    second: tabla1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,23 +113,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: fondo cortado_0
+      name: tabla1_0
       rect:
         serializedVersion: 2
-        x: 134
-        y: 162
-        width: 1266
-        height: 668
+        x: 0
+        y: 0
+        width: 486
+        height: 761
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ef915a10649d19c90800000000000000
-      internalID: -7164706637471213058
+      spriteID: 951774929b729f700800000000000000
+      internalID: 574534103681429849
       vertices: []
       indices: 
       edges: []
@@ -138,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 71d201f97705d3f4bbde46d2bdbd12c4
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      fondo cortado_0: -7164706637471213058
+      tabla1_0: 574534103681429849
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
