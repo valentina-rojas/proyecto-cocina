@@ -106,7 +106,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::IngredienteData
   nombreIngrediente: queso
   nombreReceta: hamburguesa
-  tipoIngrediente: lacteos
+  tipo: 2
   imagenIngrediente: {fileID: 9021905556250480250}
   prefabCortable: {fileID: 5539914816013432870, guid: 1ab87b5ed96d8f346836b379c424c420, type: 3}
   yaCortado: 0

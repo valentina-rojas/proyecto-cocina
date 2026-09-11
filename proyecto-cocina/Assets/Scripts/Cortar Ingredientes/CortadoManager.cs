@@ -60,9 +60,14 @@ public class CortadoManager : MonoBehaviour
     [Header("UI General")]
     [SerializeField] private Button botonContinuar;
 
+    // Variables para seguimiento de elecciones y errores
     private IngredienteData ingredienteSeleccionado;
     private CuttableIngredient ingredienteEnMesa;
+    private TipoAlimento tipoTablaSeleccionada;
+    private TipoAlimento tipoCuchilloSeleccionado;
     private int ingredientesCortadosCount = 0;
+
+    public int ErroresCometidos { get; private set; } = 0;
 
     private void Awake()
     {
@@ -80,37 +85,38 @@ public class CortadoManager : MonoBehaviour
 
     private void ConfigurarBotonesTablas()
     {
-        VincularBotonTabla(botonTablaCarnes, spriteTablaCarnes);
-        VincularBotonTabla(botonTablaVegetales, spriteTablaVegetales);
-        VincularBotonTabla(botonTablaSecos, spriteTablaSecos);
+        VincularBotonTabla(botonTablaCarnes, spriteTablaCarnes, TipoAlimento.Carnes);
+        VincularBotonTabla(botonTablaVegetales, spriteTablaVegetales, TipoAlimento.Vegetales);
+        VincularBotonTabla(botonTablaSecos, spriteTablaSecos, TipoAlimento.Secos);
     }
 
-    private void VincularBotonTabla(Button btn, Sprite spriteDestino)
+    private void VincularBotonTabla(Button btn, Sprite spriteDestino, TipoAlimento tipo)
     {
         if (btn == null) return;
         btn.onClick.RemoveAllListeners();
-        btn.onClick.AddListener(() => SeleccionarTabla(spriteDestino));
+        btn.onClick.AddListener(() => SeleccionarTabla(spriteDestino, tipo));
     }
 
     private void ConfigurarBotonesCuchillos()
     {
-        VincularBotonCuchillo(botonCuchilloCarnes, spriteCuchilloCarnes);
-        VincularBotonCuchillo(botonCuchilloVegetales, spriteCuchilloVegetales);
-        VincularBotonCuchillo(botonCuchilloSecos, spriteCuchilloSecos);
-        VincularBotonCuchillo(botonCuchilloAderezos, spriteCuchilloAderezos);
-        VincularBotonCuchillo(botonCuchilloSucio, spriteCuchilloSucio);
+        VincularBotonCuchillo(botonCuchilloCarnes, spriteCuchilloCarnes, TipoAlimento.Carnes);
+        VincularBotonCuchillo(botonCuchilloVegetales, spriteCuchilloVegetales, TipoAlimento.Vegetales);
+        VincularBotonCuchillo(botonCuchilloSecos, spriteCuchilloSecos, TipoAlimento.Secos);
+        VincularBotonCuchillo(botonCuchilloAderezos, spriteCuchilloAderezos, TipoAlimento.Aderezos);
+        VincularBotonCuchillo(botonCuchilloSucio, spriteCuchilloSucio, TipoAlimento.Sucio);
     }
 
-    private void VincularBotonCuchillo(Button btn, Sprite spriteDestino)
+    private void VincularBotonCuchillo(Button btn, Sprite spriteDestino, TipoAlimento tipo)
     {
         if (btn == null) return;
         btn.onClick.RemoveAllListeners();
-        btn.onClick.AddListener(() => SeleccionarCuchillo(spriteDestino));
+        btn.onClick.AddListener(() => SeleccionarCuchillo(spriteDestino, tipo));
     }
 
     public void IniciarCortado()
     {
         ingredientesCortadosCount = 0;
+        ErroresCometidos = 0;
         SetBotonContinuar(false);
 
         if (ingredientesEtapa == null || ingredientesEtapa.Count == 0)
@@ -190,12 +196,13 @@ public class CortadoManager : MonoBehaviour
             panelSeleccionTabla.SetActive(true);
     }
 
-    public void SeleccionarTabla(Sprite spriteTabla)
+    public void SeleccionarTabla(Sprite spriteTabla, TipoAlimento tipo)
     {
+        tipoTablaSeleccionada = tipo;
+
         if (imagenTabla != null && spriteTabla != null)
             imagenTabla.sprite = spriteTabla;
 
-        // Oculta el panel de tablas y activa el panel de selección de cuchillo
         if (panelSeleccionTabla != null) 
             panelSeleccionTabla.SetActive(false);
 
@@ -203,13 +210,13 @@ public class CortadoManager : MonoBehaviour
             panelSeleccionCuchillo.SetActive(true);
     }
 
-    public void SeleccionarCuchillo(Sprite spriteCuchillo)
+    public void SeleccionarCuchillo(Sprite spriteCuchillo, TipoAlimento tipo)
     {
-        // Asigna el sprite al componente visual del cuchillo
+        tipoCuchilloSeleccionado = tipo;
+
         if (knifeController != null && spriteCuchillo != null && knifeController.image != null)
             knifeController.image.sprite = spriteCuchillo;
 
-        // Oculta el panel de cuchillos y pasa a cortar
         if (panelSeleccionCuchillo != null) 
             panelSeleccionCuchillo.SetActive(false);
 
@@ -259,6 +266,83 @@ public class CortadoManager : MonoBehaviour
             knifeController.ReiniciarCuchillo();
             knifeController.gameObject.SetActive(true);
         }
+
+        // Evalúa si las herramientas coinciden con el ingrediente
+        ValidarSeleccionHerramientas();
+    }
+
+    private void ValidarSeleccionHerramientas()
+    {
+        if (ingredienteSeleccionado == null) return;
+
+        bool huboError = false;
+
+        // 1. Validar Tabla con la regla de 3 tablas
+        if (!EsTablaValida(tipoTablaSeleccionada, ingredienteSeleccionado.tipo))
+        {
+            huboError = true;
+            Debug.LogWarning($"[Error Contaminación] Tabla incorrecta: usaste tabla de {tipoTablaSeleccionada} con {ingredienteSeleccionado.nombreIngrediente} ({ingredienteSeleccionado.tipo}).");
+        }
+        else
+        {
+            Debug.Log($"[Higiene] Tabla correcta para {ingredienteSeleccionado.nombreIngrediente}.");
+        }
+
+        // 2. Validar Cuchillo
+        if (!EsCuchilloValido(tipoCuchilloSeleccionado, ingredienteSeleccionado.tipo))
+        {
+            huboError = true;
+            Debug.LogWarning($"[Error Contaminación] Cuchillo incorrecto: usaste cuchillo {tipoCuchilloSeleccionado} con {ingredienteSeleccionado.nombreIngrediente} ({ingredienteSeleccionado.tipo}).");
+        }
+        else
+        {
+            Debug.Log($"[Higiene] Cuchillo correcto para {ingredienteSeleccionado.nombreIngrediente}.");
+        }
+
+        if (huboError)
+        {
+            ErroresCometidos++;
+            GameManager.Instance?.RegistrarContaminacionCruzadaCortado();
+        }
+    }
+
+    private bool EsTablaValida(TipoAlimento tabla, TipoAlimento alimento)
+    {
+        switch (tabla)
+        {
+            case TipoAlimento.Carnes:
+                return alimento == TipoAlimento.Carnes;
+
+            case TipoAlimento.Vegetales:
+                return alimento == TipoAlimento.Vegetales;
+
+            case TipoAlimento.Secos:
+                // La tercera tabla acepta secos, lácteos y aderezos
+                return alimento == TipoAlimento.Secos || 
+                       alimento == TipoAlimento.Lacteos || 
+                       alimento == TipoAlimento.Aderezos;
+
+            default:
+                return false;
+        }
+    }
+
+    private bool EsCuchilloValido(TipoAlimento cuchillo, TipoAlimento alimento)
+    {
+        // El cuchillo sucio siempre genera contaminación
+        if (cuchillo == TipoAlimento.Sucio) return false;
+
+        if (cuchillo == TipoAlimento.Carnes) return alimento == TipoAlimento.Carnes;
+        if (cuchillo == TipoAlimento.Vegetales) return alimento == TipoAlimento.Vegetales;
+        
+        // Cuchillo de secos acepta secos y lácteos
+        if (cuchillo == TipoAlimento.Secos) 
+            return alimento == TipoAlimento.Secos || alimento == TipoAlimento.Lacteos;
+
+        if (cuchillo == TipoAlimento.Aderezos) 
+            return alimento == TipoAlimento.Aderezos;
+
+        return cuchillo == alimento;
     }
 
     public void IngredienteCortado()

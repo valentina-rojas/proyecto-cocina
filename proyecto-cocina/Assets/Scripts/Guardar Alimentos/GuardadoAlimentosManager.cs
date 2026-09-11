@@ -45,7 +45,7 @@ public class GuardadoAlimentosManager : MonoBehaviour
         if (todosLosSlots == null) return;
 
         int alimentosEnMesa = todosLosSlots
-            .Where(slot => slot != null && slot.tipoDeEstanteAceptado == "mesa")
+            .Where(slot => slot != null && slot.EsMesa)
             .Sum(slot => slot.transform.childCount);
 
         if (alimentosEnMesa == 0)
@@ -98,10 +98,10 @@ public class GuardadoAlimentosManager : MonoBehaviour
 
         foreach (InventorySlot slot in todosLosSlots)
         {
-            if (slot == null) continue;
+            if (slot == null || slot.EsMesa) continue;
 
             IngredienteData ingrediente = slot.GetComponentInChildren<IngredienteData>();
-            if (ingrediente != null && ingrediente.tipoIngrediente != slot.tipoDeEstanteAceptado)
+            if (ingrediente != null && ingrediente.tipo != slot.TipoAceptado)
             {
                 hayIncorrectos = true;
                 break;

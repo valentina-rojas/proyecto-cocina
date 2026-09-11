@@ -28,7 +28,9 @@ public class GameManager : MonoBehaviour
     public bool ingredientesMalOrdenados => puntuacion != null && puntuacion.IngredientesMalOrdenados;
     public bool carneCruda => puntuacion != null && puntuacion.CarneCruda;
     public bool carneQuemada => puntuacion != null && puntuacion.CarneQuemada;
+    public bool contaminacionCruzadaCortado => puntuacion != null && puntuacion.ContaminacionCruzadaCortado;
 
+   
     private void Awake()
     {
         if (Instance == null)
@@ -67,6 +69,14 @@ public class GameManager : MonoBehaviour
         puntuacion?.RegistrarCarneQuemada();
         Debug.Log("GameManager: Se registró carne quemada.");
     }
+
+     
+    public void RegistrarContaminacionCruzadaCortado()
+    {
+        puntuacion?.RegistrarContaminacionCruzadaCortado();
+        Debug.Log("GameManager: Se registró contaminación cruzada en la etapa de cortado.");
+    }
+
 
     // =========================================================
     // ETAPA 1 - GUARDADO DE ALIMENTOS

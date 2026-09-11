@@ -1117,6 +1117,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 238022883}
     - target: {fileID: 3553170032327232336, guid: 8c9772f230cfddb498faee8da715a83e, type: 3}
+      propertyPath: tipo
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3553170032327232336, guid: 8c9772f230cfddb498faee8da715a83e, type: 3}
       propertyPath: comida
       value: hamburguesa
       objectReference: {fileID: 0}
@@ -1419,6 +1423,10 @@ PrefabInstance:
     - target: {fileID: 4523425190319752162, guid: 2e2d23b875c6a884fa05e851f36563db, type: 3}
       propertyPath: m_Name
       value: InventorySlot (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6561324452219461536, guid: 2e2d23b875c6a884fa05e851f36563db, type: 3}
+      propertyPath: tipoAceptado
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6561324452219461536, guid: 2e2d23b875c6a884fa05e851f36563db, type: 3}
       propertyPath: tipoDeEstanteAceptado
@@ -1915,7 +1923,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3d1f98fcbfe6d6478bdd13013948332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ShelfEstante
-  tipoIngrediente: secos
+  esMesa: 0
+  tipoAceptado: 0
 --- !u!114 &308327412
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2435,6 +2444,10 @@ PrefabInstance:
     - target: {fileID: 4523425190319752162, guid: 2e2d23b875c6a884fa05e851f36563db, type: 3}
       propertyPath: m_Name
       value: InventorySlot
+      objectReference: {fileID: 0}
+    - target: {fileID: 6561324452219461536, guid: 2e2d23b875c6a884fa05e851f36563db, type: 3}
+      propertyPath: tipoAceptado
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6561324452219461536, guid: 2e2d23b875c6a884fa05e851f36563db, type: 3}
       propertyPath: tipoDeEstanteAceptado
@@ -3350,7 +3363,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::IngredienteData
   nombreIngrediente: pan
   nombreReceta: hamburguesa
-  tipoIngrediente: secos
+  tipo: 3
   imagenIngrediente: {fileID: 0}
   prefabCortable: {fileID: 0}
   yaCortado: 0
@@ -4646,7 +4659,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3d1f98fcbfe6d6478bdd13013948332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ShelfEstante
-  tipoIngrediente: mesa
+  esMesa: 1
+  tipoAceptado: 0
 --- !u!114 &643558141
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4982,6 +4996,10 @@ PrefabInstance:
     - target: {fileID: 4523425190319752162, guid: 2e2d23b875c6a884fa05e851f36563db, type: 3}
       propertyPath: m_Name
       value: InventorySlot (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6561324452219461536, guid: 2e2d23b875c6a884fa05e851f36563db, type: 3}
+      propertyPath: tipoAceptado
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6561324452219461536, guid: 2e2d23b875c6a884fa05e851f36563db, type: 3}
       propertyPath: tipoDeEstanteAceptado
@@ -8591,7 +8609,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::IngredienteData
   nombreIngrediente: harina
   nombreReceta: harina
-  tipoIngrediente: secos
+  tipo: 3
   imagenIngrediente: {fileID: 0}
   prefabCortable: {fileID: 0}
   yaCortado: 0
@@ -9716,6 +9734,10 @@ PrefabInstance:
       value: InventorySlot
       objectReference: {fileID: 0}
     - target: {fileID: 6561324452219461536, guid: 2e2d23b875c6a884fa05e851f36563db, type: 3}
+      propertyPath: tipoAceptado
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6561324452219461536, guid: 2e2d23b875c6a884fa05e851f36563db, type: 3}
       propertyPath: tipoDeEstanteAceptado
       value: secos
       objectReference: {fileID: 0}
@@ -10162,7 +10184,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3d1f98fcbfe6d6478bdd13013948332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ShelfEstante
-  tipoIngrediente: secos
+  esMesa: 0
+  tipoAceptado: 3
 --- !u!1 &1289801429
 GameObject:
   m_ObjectHideFlags: 0
@@ -10216,7 +10239,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3d1f98fcbfe6d6478bdd13013948332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ShelfEstante
-  tipoIngrediente: vegetales
+  esMesa: 0
+  tipoAceptado: 1
 --- !u!114 &1289801432
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11031,6 +11055,10 @@ PrefabInstance:
       value: InventorySlot (1)
       objectReference: {fileID: 0}
     - target: {fileID: 6561324452219461536, guid: 2e2d23b875c6a884fa05e851f36563db, type: 3}
+      propertyPath: tipoAceptado
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6561324452219461536, guid: 2e2d23b875c6a884fa05e851f36563db, type: 3}
       propertyPath: tipoDeEstanteAceptado
       value: lacteos
       objectReference: {fileID: 0}
@@ -11278,6 +11306,10 @@ PrefabInstance:
     - target: {fileID: 4523425190319752162, guid: 2e2d23b875c6a884fa05e851f36563db, type: 3}
       propertyPath: m_Name
       value: InventorySlot (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6561324452219461536, guid: 2e2d23b875c6a884fa05e851f36563db, type: 3}
+      propertyPath: tipoAceptado
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6561324452219461536, guid: 2e2d23b875c6a884fa05e851f36563db, type: 3}
       propertyPath: tipoDeEstanteAceptado
@@ -14042,7 +14074,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3d1f98fcbfe6d6478bdd13013948332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ShelfEstante
-  tipoIngrediente: mesa
+  esMesa: 1
+  tipoAceptado: 0
 --- !u!114 &1756017207
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15468,7 +15501,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3d1f98fcbfe6d6478bdd13013948332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ShelfEstante
-  tipoIngrediente: carnes
+  esMesa: 0
+  tipoAceptado: 0
 --- !u!114 &1987029054
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15584,7 +15618,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3d1f98fcbfe6d6478bdd13013948332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ShelfEstante
-  tipoIngrediente: lacteos
+  esMesa: 0
+  tipoAceptado: 2
 --- !u!114 &1988185234
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15995,6 +16030,10 @@ PrefabInstance:
     - target: {fileID: 4523425190319752162, guid: 2e2d23b875c6a884fa05e851f36563db, type: 3}
       propertyPath: m_Name
       value: InventorySlot (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6561324452219461536, guid: 2e2d23b875c6a884fa05e851f36563db, type: 3}
+      propertyPath: tipoAceptado
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6561324452219461536, guid: 2e2d23b875c6a884fa05e851f36563db, type: 3}
       propertyPath: tipoDeEstanteAceptado
@@ -16681,6 +16720,10 @@ PrefabInstance:
       value: InventorySlot
       objectReference: {fileID: 0}
     - target: {fileID: 6561324452219461536, guid: 2e2d23b875c6a884fa05e851f36563db, type: 3}
+      propertyPath: tipoAceptado
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6561324452219461536, guid: 2e2d23b875c6a884fa05e851f36563db, type: 3}
       propertyPath: tipoDeEstanteAceptado
       value: vegetales
       objectReference: {fileID: 0}
@@ -17127,6 +17170,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Image
       objectReference: {fileID: 0}
+    - target: {fileID: 7996430656726305259, guid: b18775678ad314243925054cce1dbf23, type: 3}
+      propertyPath: tipo
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -17219,6 +17266,10 @@ PrefabInstance:
     - target: {fileID: 1697329139139659231, guid: 833cd3ed15207e143add26b6dd4e74e0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3234311618153071977, guid: 833cd3ed15207e143add26b6dd4e74e0, type: 3}
+      propertyPath: tipo
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3930248627682161446, guid: 833cd3ed15207e143add26b6dd4e74e0, type: 3}
       propertyPath: m_Name

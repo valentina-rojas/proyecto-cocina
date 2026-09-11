@@ -91,7 +91,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::IngredienteData
   nombreIngrediente: tomate
   nombreReceta: hamburguesa
-  tipoIngrediente: vegetales
+  tipo: 1
   imagenIngrediente: {fileID: 9127544275915036447}
   prefabCortable: {fileID: 9020683821741004129, guid: 951aa66c5dd5a48499ee80e5b001eeea, type: 3}
   yaCortado: 0

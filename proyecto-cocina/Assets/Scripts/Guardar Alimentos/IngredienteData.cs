@@ -5,7 +5,9 @@ public class IngredienteData : MonoBehaviour
 {
     public string nombreIngrediente;
     public string nombreReceta;
-    public string tipoIngrediente;
+
+    [Header("Clasificación")]
+    public TipoAlimento tipo;
 
     [Header("Visual")]
     public Image imagenIngrediente;

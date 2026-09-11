@@ -62,7 +62,7 @@ public class SeleccionRecetaManager : MonoBehaviour
         {
             if (slot == null) continue;
 
-            bool esMesa = slot.tipoDeEstanteAceptado == "mesa";
+            bool esMesa = slot.EsMesa;
             IngredienteData[] ingredientes = slot.GetComponentsInChildren<IngredienteData>();
 
             foreach (IngredienteData ing in ingredientes)

@@ -12,9 +12,7 @@ public class RecetaUIManager : MonoBehaviour
     public TextMeshProUGUI textoTitulo;
     public TextMeshProUGUI textoIngredientes;
 
-
     private List<IngredienteData> ingredientes = new();
-
 
     private void Awake()
     {
@@ -24,61 +22,52 @@ public class RecetaUIManager : MonoBehaviour
             Destroy(gameObject);
     }
 
-
     public void MostrarReceta(List<IngredienteData> lista)
     {
         ingredientes = lista;
 
-
-        if(panelReceta != null)
+        if (panelReceta != null)
             panelReceta.SetActive(true);
 
-
-        textoTitulo.text = 
-            DayManager.Instance.recetaActual;
-
+        if (DayManager.Instance != null && textoTitulo != null)
+            textoTitulo.text = DayManager.Instance.recetaActual;
 
         ActualizarLista();
     }
 
-
     public void ActualizarLista()
     {
+        if (textoIngredientes == null) return;
+
         textoIngredientes.text = "";
 
-
-        InventorySlot[] slots =
-            FindObjectsByType<InventorySlot>(FindObjectsSortMode.None);
-
+        InventorySlot[] slots = FindObjectsByType<InventorySlot>(FindObjectsSortMode.None);
 
         foreach (IngredienteData ingrediente in ingredientes)
         {
-            bool estaEnMesa = false;
+            if (ingrediente == null) continue;
 
+            bool estaEnMesa = false;
 
             foreach (InventorySlot slot in slots)
             {
-                if(slot.tipoDeEstanteAceptado != "mesa")
+                if (slot == null || !slot.EsMesa)
                     continue;
 
-
-                if(ingrediente.transform.parent == slot.transform)
+                if (ingrediente.transform.parent == slot.transform)
                 {
                     estaEnMesa = true;
                     break;
                 }
             }
 
-
-            if(estaEnMesa)
+            if (estaEnMesa)
             {
-                textoIngredientes.text +=
-                    $"<s>{ingrediente.nombreIngrediente}</s>\n";
+                textoIngredientes.text += $"<s>{ingrediente.nombreIngrediente}</s>\n";
             }
             else
             {
-                textoIngredientes.text +=
-                    $"{ingrediente.nombreIngrediente}\n";
+                textoIngredientes.text += $"{ingrediente.nombreIngrediente}\n";
             }
         }
     }

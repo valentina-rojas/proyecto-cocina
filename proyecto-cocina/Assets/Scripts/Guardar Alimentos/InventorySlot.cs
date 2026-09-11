@@ -3,35 +3,45 @@ using UnityEngine.EventSystems;
 
 public class InventorySlot : MonoBehaviour, IDropHandler
 {
-    [Header("Configuración del Estante")]
-    public string tipoDeEstanteAceptado; 
+    private ShelfEstante shelfPadre;
+
+    private void Awake()
+    {
+        shelfPadre = GetComponentInParent<ShelfEstante>();
+    }
+
+    public bool EsMesa => shelfPadre != null && shelfPadre.esMesa;
+
+    public TipoAlimento TipoAceptado => shelfPadre != null ? shelfPadre.tipoAceptado : default;
 
     public void OnDrop(PointerEventData eventData)
     {
-        GameObject dropped = eventData.pointerDrag;
-        if (dropped == null) return;
+        if (eventData.pointerDrag == null) return;
 
-        DraggableItem draggableItem = dropped.GetComponent<DraggableItem>();
-        IngredienteData ingrediente = dropped.GetComponent<IngredienteData>();
+        DraggableItem draggableItem = eventData.pointerDrag.GetComponent<DraggableItem>();
+        IngredienteData ingrediente = eventData.pointerDrag.GetComponent<IngredienteData>();
 
         if (draggableItem == null || ingrediente == null)
             return;
 
         draggableItem.parentAfterDrag = transform;
 
-        // Corregido: 'estadoActual' con minúscula.
-        // Si NO estamos ordenando ingredientes, salimos sin validar.
+        // Si no estamos ordenando ingredientes, se omite la validación
         if (GameManager.Instance != null && GameManager.Instance.estadoActual != GameManager.EstadoJuego.OrdenandoIngredientes)
             return;
 
-        // Solo validar cuando se están ordenando ingredientes
-        if (ingrediente.tipoIngrediente == tipoDeEstanteAceptado)
+        // Si se deposita en una mesa, no genera acierto ni error
+        if (EsMesa)
+            return;
+
+        // Validación contra el tipo configurado en el estante padre
+        if (ingrediente.tipo == TipoAceptado)
         {
-            Debug.Log($"¡Correcto! Colocaste {ingrediente.nombreIngrediente} en el estante de {tipoDeEstanteAceptado}.");
+            Debug.Log($"¡Correcto! Colocaste {ingrediente.nombreIngrediente} en el estante de {TipoAceptado}.");
         }
         else
         {
-            Debug.LogWarning($"¡Incorrecto! No puedes poner {ingrediente.nombreIngrediente} ({ingrediente.tipoIngrediente}) en el estante de {tipoDeEstanteAceptado}.");
+            Debug.LogWarning($"¡Incorrecto! No puedes poner {ingrediente.nombreIngrediente} ({ingrediente.tipo}) en el estante de {TipoAceptado}.");
         }
     }
 }
