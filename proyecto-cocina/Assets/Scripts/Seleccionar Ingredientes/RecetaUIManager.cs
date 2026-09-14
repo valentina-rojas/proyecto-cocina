@@ -63,11 +63,11 @@ public class RecetaUIManager : MonoBehaviour
 
             if (estaEnMesa)
             {
-                textoIngredientes.text += $"<s>{ingrediente.nombreIngrediente}</s>\n";
+                textoIngredientes.text += $"<s>{ingrediente.ObtenerNombreVisible()}</s>\n";
             }
             else
             {
-                textoIngredientes.text += $"{ingrediente.nombreIngrediente}\n";
+                textoIngredientes.text += $"{ingrediente.ObtenerNombreVisible()}\n";
             }
         }
     }

@@ -1220,6 +1220,10 @@ PrefabInstance:
       value: enlatados
       objectReference: {fileID: 0}
     - target: {fileID: 3553170032327232336, guid: 8c9772f230cfddb498faee8da715a83e, type: 3}
+      propertyPath: nombreMostrar
+      value: Choclo
+      objectReference: {fileID: 0}
+    - target: {fileID: 3553170032327232336, guid: 8c9772f230cfddb498faee8da715a83e, type: 3}
       propertyPath: tipoIngrediente
       value: secos
       objectReference: {fileID: 0}
@@ -3453,6 +3457,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::IngredienteData
   nombreIngrediente: pan
+  nombreMostrar: Pan
   nombreReceta: hamburguesa
   tipo: 3
   imagenIngrediente: {fileID: 0}
@@ -3736,7 +3741,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DayManager
   dias:
   - nombreReceta: hamburguesa
-    imagenReceta: {fileID: 5183155540051760211, guid: 01281b9c29ceb464da13e89403364f72, type: 3}
+    imagenReceta: {fileID: 1882166521188240551, guid: 00eb2cf381a7be64b80448a7c22a3f0a, type: 3}
   catalogoIngredientes: []
 --- !u!224 &541706784 stripped
 RectTransform:
@@ -3780,7 +3785,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -733.48, y: 232.72998}
+  m_AnchoredPosition: {x: -733.4799, y: 232.72998}
   m_SizeDelta: {x: -1510.56, y: -527.47}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &572534464
@@ -7248,10 +7253,6 @@ MonoBehaviour:
     titulo: "Revis\xE1 la organizaci\xF3n"
     texto: Hay ingredientes almacenados en lugares incorrectos.
     imagen: {fileID: 2993095752457197746, guid: 6aa6eb039ee823045996d1e8abb3c1d0, type: 3}
-  instReceta:
-    titulo: "Seleccion\xE1 la receta"
-    texto: "Eleg\xED la receta que vas a preparar."
-    imagen: {fileID: 1882166521188240551, guid: 00eb2cf381a7be64b80448a7c22a3f0a, type: 3}
   instLavado:
     titulo: Lavado de manos
     texto: Lavate las manos antes de comenzar a manipular los alimentos.
@@ -7268,6 +7269,10 @@ MonoBehaviour:
   fbCortado:
     titulo: "\xA1Buen trabajo!"
     texto: "\xA1Buen trabajo! Completaste correctamente el corte de los ingredientes."
+    imagen: {fileID: -6590363398050559408, guid: 4c75e87845e0e4841bd40c46d1b4532b, type: 3}
+  fbCortadoContaminado:
+    titulo: "\xA1Cuidado!"
+    texto: "Se produjo contaminaci\xF3n cruzada durante el cortado de los alimentos."
     imagen: {fileID: -6590363398050559408, guid: 4c75e87845e0e4841bd40c46d1b4532b, type: 3}
   instCoccion:
     titulo: "Cocci\xF3n"
@@ -8697,6 +8702,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::IngredienteData
   nombreIngrediente: harina
+  nombreMostrar: Harina
   nombreReceta: harina
   tipo: 3
   imagenIngrediente: {fileID: 0}
@@ -14272,10 +14278,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9901e6bad2147146990ac0a35991177, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InicioDiaUI
-  panelInicioDia: {fileID: 1785370959}
-  textoReceta: {fileID: 967623968}
-  imagenReceta: {fileID: 1134634224}
-  botonContinuar: {fileID: 424867579}
 --- !u!1 &1772019049
 GameObject:
   m_ObjectHideFlags: 0
@@ -17056,6 +17058,10 @@ PrefabInstance:
       value: hamburguesa
       objectReference: {fileID: 0}
     - target: {fileID: 3553170032327232336, guid: 8c9772f230cfddb498faee8da715a83e, type: 3}
+      propertyPath: nombreMostrar
+      value: Carne picada
+      objectReference: {fileID: 0}
+    - target: {fileID: 3553170032327232336, guid: 8c9772f230cfddb498faee8da715a83e, type: 3}
       propertyPath: tipoIngrediente
       value: carnes
       objectReference: {fileID: 0}
@@ -17264,6 +17270,10 @@ PrefabInstance:
       propertyPath: tipo
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 7996430656726305259, guid: b18775678ad314243925054cce1dbf23, type: 3}
+      propertyPath: nombreMostrar
+      value: Queso
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -17360,6 +17370,10 @@ PrefabInstance:
     - target: {fileID: 3234311618153071977, guid: 833cd3ed15207e143add26b6dd4e74e0, type: 3}
       propertyPath: tipo
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3234311618153071977, guid: 833cd3ed15207e143add26b6dd4e74e0, type: 3}
+      propertyPath: nombreMostrar
+      value: Tomate
       objectReference: {fileID: 0}
     - target: {fileID: 3930248627682161446, guid: 833cd3ed15207e143add26b6dd4e74e0, type: 3}
       propertyPath: m_Name

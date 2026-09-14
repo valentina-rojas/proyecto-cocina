@@ -379,10 +379,7 @@ public class CortadoManager : MonoBehaviour
     {
         if (panelMesaDeCorte != null) panelMesaDeCorte.SetActive(false);
 
-        if (PopupContenido.Instance != null)
-            PopupContenido.Instance.MostrarFeedbackCortado(TerminarEtapaCortado);
-        else
-            TerminarEtapaCortado();
+        TerminarEtapaCortado();
     }
 
     private void TerminarEtapaCortado()

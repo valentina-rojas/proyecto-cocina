@@ -4,6 +4,7 @@ using UnityEngine.UI;
 public class IngredienteData : MonoBehaviour
 {
     public string nombreIngrediente;
+    public string nombreMostrar;
     public string nombreReceta;
 
     [Header("Clasificación")]
@@ -17,9 +18,14 @@ public class IngredienteData : MonoBehaviour
 
     [HideInInspector] public bool yaCortado;
 
+    // Devuelve nombreMostrar si existe; si está vacío, usa nombreIngrediente como respaldo
+    public string ObtenerNombreVisible()
+    {
+        return !string.IsNullOrWhiteSpace(nombreMostrar) ? nombreMostrar : nombreIngrediente;
+    }
+
     private void Reset()
     {
-        // Autoasigna el Image si está en el mismo GameObject
         if (imagenIngrediente == null)
             imagenIngrediente = GetComponent<Image>();
     }

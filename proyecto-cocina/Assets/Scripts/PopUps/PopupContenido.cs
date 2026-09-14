@@ -26,9 +26,6 @@ public class PopupContenido : MonoBehaviour
     public MensajePopup fbIngredientesCorrectos = new MensajePopup("¡Muy bien!", "¡Muy bien! Todos los ingredientes fueron almacenados correctamente.");
     public MensajePopup fbIngredientesIncorrectos = new MensajePopup("Revisá la organización", "Hay ingredientes almacenados en lugares incorrectos.");
 
-    [Header("Selección de Receta")]
-    public MensajePopup instReceta = new MensajePopup("Seleccioná la receta", "Elegí la receta que vas a preparar.");
-
     [Header("Lavado de Manos")]
     public MensajePopup instLavado = new MensajePopup("Lavado de manos", "Lavate las manos antes de comenzar a manipular los alimentos.");
     public MensajePopup fbLavado = new MensajePopup("¡Lavado completado!", "¡Muy bien! Completaste correctamente el lavado de manos.");
@@ -36,6 +33,7 @@ public class PopupContenido : MonoBehaviour
     [Header("Cortado")]
     public MensajePopup instCortado = new MensajePopup("Cortar los ingredientes", "Usá el cuchillo para cortar el ingrediente siguiendo los puntos de corte.");
     public MensajePopup fbCortado = new MensajePopup("¡Buen trabajo!", "¡Buen trabajo! Completaste correctamente el corte de los ingredientes.");
+    public MensajePopup fbCortadoContaminado = new MensajePopup("¡Cuidado!", "Se produjo contaminación cruzada durante el cortado de los alimentos.");
 
     [Header("Cocción")]
     public MensajePopup instCoccion = new MensajePopup("Cocción", "Colocá la carne sobre la hornalla y controlá el indicador de cocción.");
@@ -63,7 +61,41 @@ public class PopupContenido : MonoBehaviour
 
     // --- Métodos de Instrucciones ---
     public void MostrarInstruccionesIngredientes(UnityAction accion = null) => Mostrar(instIngredientes, accion);
-    public void MostrarInstruccionesReceta(UnityAction accion = null)       => Mostrar(instReceta, accion);
+
+    // Instrucción dinámica de la Receta generada desde el DayManager
+    public void MostrarInstruccionesReceta(UnityAction accion = null)
+    {
+        if (DayManager.Instance != null)
+        {
+            string titulo = "Receta del día";
+            Sprite imagen = DayManager.Instance.imagenRecetaActual;
+
+            // Diálogo 1: Presenta el plato
+            string textoPaso1 = $"El plato del día es: {DayManager.Instance.recetaActual}.";
+
+            // Diálogo 2: Instrucción sobre los ingredientes
+            string textoPaso2 = "Acá está la lista de ingredientes, asegurate de que no falte ninguno.";
+
+            if (PopupManager.Instance != null)
+            {
+                // Muestra el primer mensaje; al hacer clic, abre el segundo mensaje
+                PopupManager.Instance.MostrarPopup(titulo, textoPaso1, imagen, () =>
+                {
+                    PopupManager.Instance.MostrarPopup(titulo, textoPaso2, imagen, accion);
+                });
+            }
+            else
+            {
+                accion?.Invoke();
+            }
+        }
+        else
+        {
+            Debug.LogWarning("PopupContenido: DayManager.Instance es null.");
+            accion?.Invoke();
+        }
+    }
+
     public void MostrarInstruccionesLavado(UnityAction accion = null)       => Mostrar(instLavado, accion);
     public void MostrarInstruccionesCortado(UnityAction accion = null)      => Mostrar(instCortado, accion);
     public void MostrarInstruccionesCoccion(UnityAction accion = null)      => Mostrar(instCoccion, accion);
@@ -74,7 +106,11 @@ public class PopupContenido : MonoBehaviour
         Mostrar(correcto ? fbIngredientesCorrectos : fbIngredientesIncorrectos, accion);
 
     public void MostrarFeedbackLavado(UnityAction accion = null)  => Mostrar(fbLavado, accion);
-    public void MostrarFeedbackCortado(UnityAction accion = null) => Mostrar(fbCortado, accion);
+
+    public void MostrarFeedbackCortado(bool huboContaminacionCruzada, UnityAction accion = null)
+    {
+        Mostrar(huboContaminacionCruzada ? fbCortadoContaminado : fbCortado, accion);
+    }
 
     public void MostrarFeedbackCoccion(bool cruda, bool quemada, UnityAction accion = null)
     {

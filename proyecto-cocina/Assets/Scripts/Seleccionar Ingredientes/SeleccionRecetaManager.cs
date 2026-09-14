@@ -33,7 +33,6 @@ public class SeleccionRecetaManager : MonoBehaviour
         seleccionActiva = true;
         string recetaActual = ObtenerRecetaActual();
 
-        // Extrae los ingredientes necesarios directamente de los slots en escena
         List<IngredienteData> ingredientesNecesarios = slots
             .SelectMany(s => s.GetComponentsInChildren<IngredienteData>())
             .Where(ing => PerteneceAReceta(ing, recetaActual))
@@ -42,6 +41,11 @@ public class SeleccionRecetaManager : MonoBehaviour
         RecetaUIManager.Instance?.MostrarReceta(ingredientesNecesarios);
 
         ChequearReceta();
+    }
+
+    public void FinalizarSeleccion()
+    {
+        seleccionActiva = false;
     }
 
     // =========================================================
@@ -74,6 +78,7 @@ public class SeleccionRecetaManager : MonoBehaviour
                 }
                 else if (esMesa)
                 {
+                    // Ingrediente en la mesa que no pertenece a la receta del día
                     incorrectosEnMesa++;
                 }
             }
@@ -81,12 +86,10 @@ public class SeleccionRecetaManager : MonoBehaviour
 
         RecetaUIManager.Instance?.ActualizarLista();
 
-        // Todos los necesarios presentes y ningún elemento erróneo en mesa
-        if (necesarios > 0 && correctosEnMesa == necesarios && incorrectosEnMesa == 0)
-        {
-            seleccionActiva = false;
-            GameManager.Instance?.SeleccionRecetaCompleta();
-        }
+        // Válido únicamente si están todos los requeridos en mesa y no hay sobrantes
+        bool esValido = (necesarios > 0 && correctosEnMesa == necesarios && incorrectosEnMesa == 0);
+
+        GameManager.Instance?.ActualizarEstadoSeleccionReceta(esValido);
     }
 
     // =========================================================

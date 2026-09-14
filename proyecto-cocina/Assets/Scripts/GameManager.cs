@@ -15,7 +15,6 @@ public class GameManager : MonoBehaviour
         Final
     }
 
-    // Mantiene 'estadoActual' en minúscula para no romper InventorySlot.cs
     public EstadoJuego estadoActual = EstadoJuego.OrdenandoIngredientes;
 
     [Header("Referencias de Sistemas")]
@@ -23,24 +22,16 @@ public class GameManager : MonoBehaviour
     [SerializeField] private InicioDiaUI inicioDiaUI;
     [SerializeField] private string nombreEscenaMenu = "MenuPrincipal";
 
-    // Puentes hacia ScoreData para resolver los errores de GuardadoAlimentosManager.cs
     public ScoreData Score => puntuacion;
     public bool ingredientesMalOrdenados => puntuacion != null && puntuacion.IngredientesMalOrdenados;
     public bool carneCruda => puntuacion != null && puntuacion.CarneCruda;
     public bool carneQuemada => puntuacion != null && puntuacion.CarneQuemada;
     public bool contaminacionCruzadaCortado => puntuacion != null && puntuacion.ContaminacionCruzadaCortado;
 
-   
     private void Awake()
     {
-        if (Instance == null)
-        {
-            Instance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+        if (Instance == null) Instance = this;
+        else Destroy(gameObject);
     }
 
     private void Start()
@@ -49,34 +40,13 @@ public class GameManager : MonoBehaviour
     }
 
     // =========================================================
-    // REGISTRO DE ERRORES (Delegados a ScoreData)
+    // REGISTRO DE ERRORES
     // =========================================================
 
-    public void RegistrarIngredientesMalOrdenados()
-    {
-        puntuacion?.RegistrarIngredientesMalOrdenados();
-        Debug.Log("GameManager: Se registraron ingredientes mal ordenados.");
-    }
-
-    public void RegistrarCarneCruda()
-    {
-        puntuacion?.RegistrarCarneCruda();
-        Debug.Log("GameManager: Se registró carne cruda.");
-    }
-
-    public void RegistrarCarneQuemada()
-    {
-        puntuacion?.RegistrarCarneQuemada();
-        Debug.Log("GameManager: Se registró carne quemada.");
-    }
-
-     
-    public void RegistrarContaminacionCruzadaCortado()
-    {
-        puntuacion?.RegistrarContaminacionCruzadaCortado();
-        Debug.Log("GameManager: Se registró contaminación cruzada en la etapa de cortado.");
-    }
-
+    public void RegistrarIngredientesMalOrdenados() => puntuacion?.RegistrarIngredientesMalOrdenados();
+    public void RegistrarCarneCruda() => puntuacion?.RegistrarCarneCruda();
+    public void RegistrarCarneQuemada() => puntuacion?.RegistrarCarneQuemada();
+    public void RegistrarContaminacionCruzadaCortado() => puntuacion?.RegistrarContaminacionCruzadaCortado();
 
     // =========================================================
     // ETAPA 1 - GUARDADO DE ALIMENTOS
@@ -93,7 +63,6 @@ public class GameManager : MonoBehaviour
 
     public void ContinuarDespuesDelGuardado()
     {
-        Debug.Log("GameManager: Guardado de alimentos finalizado.");
         MostrarInstruccionesReceta();
     }
 
@@ -107,28 +76,40 @@ public class GameManager : MonoBehaviour
         estadoActual = EstadoJuego.SeleccionandoReceta;
 
         if (PopupContenido.Instance != null)
-            PopupContenido.Instance.MostrarInstruccionesReceta(IniciarSeleccionReceta);
-    }
-
-    private void IniciarSeleccionReceta()
-    {
-        if (inicioDiaUI != null)
-            inicioDiaUI.MostrarPanel();
+            PopupContenido.Instance.MostrarInstruccionesReceta(EmpezarSeleccionReceta);
+        else
+            EmpezarSeleccionReceta();
     }
 
     public void EmpezarSeleccionReceta()
     {
         estadoActual = EstadoJuego.SeleccionandoReceta;
+        UIManager.Instance?.OcultarBotonContinuar();
         SeleccionRecetaManager.Instance?.IniciarSeleccion();
+    }
+
+    public void ActualizarEstadoSeleccionReceta(bool esValido)
+    {
+        if (estadoActual != EstadoJuego.SeleccionandoReceta) return;
+
+        if (esValido)
+        {
+            UIManager.Instance?.PrepararBotonContinuar(ContinuarDesdeSeleccionReceta);
+        }
+        else
+        {
+            UIManager.Instance?.OcultarBotonContinuar();
+        }
     }
 
     public void SeleccionRecetaCompleta()
     {
-        UIManager.Instance?.PrepararBotonContinuar(ContinuarDesdeSeleccionReceta);
+        ActualizarEstadoSeleccionReceta(true);
     }
 
     private void ContinuarDesdeSeleccionReceta()
     {
+        SeleccionRecetaManager.Instance?.FinalizarSeleccion();
         UIManager.Instance?.OcultarBotonContinuar();
         ActivarLavado();
     }
@@ -141,7 +122,17 @@ public class GameManager : MonoBehaviour
     public void ContinuarDespuesDelLavado() => ActivarCortado();
 
     public void ActivarCortado() => CortadoManager.Instance?.IniciarCortado();
-    public void ContinuarDespuesDelCortado() => ActivarCoccion();
+    public void ContinuarDespuesDelCortado()
+    {
+        if (PopupContenido.Instance != null)
+        {
+            PopupContenido.Instance.MostrarFeedbackCortado(contaminacionCruzadaCortado, ActivarCoccion);
+        }
+        else
+        {
+            ActivarCoccion();
+        }
+    }
 
     public void ActivarCoccion() => CoccionManager.Instance?.IniciarCoccion();
     public void ContinuarDespuesDeCoccion() => ActivarEmplatado();
