@@ -12,7 +12,11 @@ public class PopupManager : MonoBehaviour
     [SerializeField] private GameObject panelPopup;
     [SerializeField] private TextMeshProUGUI titulo;
     [SerializeField] private TextMeshProUGUI descripcion;
-    [SerializeField] private Image imagenPopup; // NUEVO: Imagen ilustrativa del popup
+    [SerializeField] private Image imagenPopup;
+
+    [Header("Barra de Contaminación")]
+    [SerializeField] private Slider sliderContaminacion;
+    [SerializeField] private bool mostrarBarraSiempre = true; // Si es false, se puede prender solo en feedbacks
 
     [Header("Botones")]
     [SerializeField] private Button botonContinuar;
@@ -57,7 +61,7 @@ public class PopupManager : MonoBehaviour
     }
 
     // =========================================================
-    // MOSTRAR POPUP (Con soporte para Sprite opcional)
+    // MOSTRAR POPUP
     // =========================================================
 
     public void MostrarPopup(string tituloTexto, string descripcionTexto, Sprite sprite = null, UnityAction accion = null)
@@ -68,12 +72,14 @@ public class PopupManager : MonoBehaviour
         if (titulo != null)
             titulo.text = tituloTexto;
 
-        // Configuración de la imagen: si hay sprite se muestra, si no se oculta
         if (imagenPopup != null)
         {
             imagenPopup.gameObject.SetActive(sprite != null);
             if (sprite != null) imagenPopup.sprite = sprite;
         }
+
+        // Actualiza el nivel de contaminación actual al abrir cualquier popup
+        ActualizarBarraContaminacionVisual();
 
         if (panelPopup != null)
             panelPopup.SetActive(true);
@@ -89,6 +95,39 @@ public class PopupManager : MonoBehaviour
 
         coroutineTexto = StartCoroutine(TipearTexto());
         Time.timeScale = 0f;
+    }
+
+    // =========================================================
+    // CONTROL DEL SLIDER
+    // =========================================================
+
+    public void ActualizarNivelContaminacion(float valor, float valorMaximo = -1f)
+    {
+        if (sliderContaminacion == null) return;
+
+        if (valorMaximo > 0f)
+            sliderContaminacion.maxValue = valorMaximo;
+
+        sliderContaminacion.value = valor;
+    }
+
+    private void ActualizarBarraContaminacionVisual()
+    {
+        if (sliderContaminacion == null) return;
+
+        sliderContaminacion.gameObject.SetActive(mostrarBarraSiempre);
+
+        // Si existe GameManager y ScoreData, sincroniza automáticamente el valor
+        if (GameManager.Instance != null && GameManager.Instance.Score != null)
+        {
+            // Reemplazá 'TotalErrores' por la variable o método de tu ScoreData
+            int errores = 0;
+            if (GameManager.Instance.ingredientesMalOrdenados) errores++;
+            if (GameManager.Instance.contaminacionCruzadaCortado) errores++;
+            if (GameManager.Instance.carneCruda || GameManager.Instance.carneQuemada) errores++;
+
+            sliderContaminacion.value = errores;
+        }
     }
 
     private IEnumerator TipearTexto()
