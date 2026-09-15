@@ -1,16 +1,16 @@
 fileFormatVersion: 2
-guid: 4de864932786b0d4e87f62bb5ea5e61b
+guid: a782da09b80fb2542884344cd6babe49
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5246435326037042408
-    second: pan cortado-spritesheet_0
+      213: -3801366921928229139
+    second: termometro_0
   - first:
-      213: -6805783433158288444
-    second: pan cortado-spritesheet_1
+      213: -2635431012520818011
+    second: termometro_1
   - first:
-      213: 4162170306761341033
-    second: pan cortado-spritesheet_2
+      213: 3177976205230406022
+    second: termometro_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -119,45 +119,67 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: pan cortado-spritesheet_0
+      name: termometro_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 770
-        height: 455
+        x: 29
+        y: 65
+        width: 44
+        height: 387
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 81b50862edae037b0800000000000000
-      internalID: -5246435326037042408
+      spriteID: dee3c8dcce4de3bc0800000000000000
+      internalID: -3801366921928229139
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pan cortado-spritesheet_1
+      name: termometro_1
       rect:
         serializedVersion: 2
-        x: 770
-        y: 0
-        width: 770
-        height: 455
+        x: 72
+        y: 153
+        width: 6
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4cb9c50b6000d81a0800000000000000
-      internalID: -6805783433158288444
+      spriteID: 5aa06ac05711d6bd0800000000000000
+      internalID: -2635431012520818011
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: termometro_2
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 15
+        width: 45
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 689f66165807a1c20800000000000000
+      internalID: 3177976205230406022
       vertices: []
       indices: 
       edges: []
@@ -166,7 +188,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: d13c856874566a445b5dab5c33d67f5f
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -174,12 +196,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries:
-      - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":2.0,"y":1.0},"gridSpriteSize":{"x":770.0,"y":455.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+      entries: []
     nameFileIdTable:
-      pan cortado-spritesheet_0: -5246435326037042408
-      pan cortado-spritesheet_1: -6805783433158288444
+      termometro_0: -3801366921928229139
+      termometro_1: -2635431012520818011
+      termometro_2: 3177976205230406022
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

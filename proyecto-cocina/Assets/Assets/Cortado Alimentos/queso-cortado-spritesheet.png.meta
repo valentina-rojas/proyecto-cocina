@@ -1,0 +1,399 @@
+fileFormatVersion: 2
+guid: cbf31fe41c39f094e97873eacb54f388
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4516590895303797570
+    second: queso-cortado-spritesheet_0
+  - first:
+      213: -4721109826865905688
+    second: queso-cortado-spritesheet_1
+  - first:
+      213: -3476039202567491902
+    second: queso-cortado-spritesheet_2
+  - first:
+      213: 5649147226937347559
+    second: queso-cortado-spritesheet_3
+  - first:
+      213: -2599443256840175395
+    second: queso-cortado-spritesheet_4
+  - first:
+      213: 6621291610937511895
+    second: queso-cortado-spritesheet_5
+  - first:
+      213: -157945925304657830
+    second: queso-cortado-spritesheet_6
+  - first:
+      213: 1477237382756914821
+    second: queso-cortado-spritesheet_7
+  - first:
+      213: 8890652246403578035
+    second: queso-cortado-spritesheet_8
+  - first:
+      213: -6742918187716739815
+    second: queso-cortado-spritesheet_9
+  - first:
+      213: 2607125414951042213
+    second: queso-cortado-spritesheet_10
+  - first:
+      213: -8116955648222044677
+    second: queso-cortado-spritesheet_11
+  - first:
+      213: 5001276176861059340
+    second: queso-cortado-spritesheet_12
+  - first:
+      213: 5582639019434056882
+    second: queso-cortado-spritesheet_13
+  - first:
+      213: -6346839562689476256
+    second: queso-cortado-spritesheet_14
+  - first:
+      213: 4120023833497184774
+    second: queso-cortado-spritesheet_15
+  - first:
+      213: -4399603118786369224
+    second: queso-cortado-spritesheet_16
+  - first:
+      213: -4017204482385993966
+    second: queso-cortado-spritesheet_17
+  - first:
+      213: -9081601771948919955
+    second: queso-cortado-spritesheet_18
+  - first:
+      213: 1773074563494385717
+    second: queso-cortado-spritesheet_19
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: queso-cortado-spritesheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1172
+        height: 470
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 24ba8564d772eae30800000000000000
+      internalID: 4516590895303797570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: queso-cortado-spritesheet_1
+      rect:
+        serializedVersion: 2
+        x: 1172
+        y: 0
+        width: 1172
+        height: 470
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ef3d0040af3b7eb0800000000000000
+      internalID: -4721109826865905688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: queso-cortado-spritesheet_2
+      rect:
+        serializedVersion: 2
+        x: 2344
+        y: 0
+        width: 1172
+        height: 470
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2cee1a913c0a2cfc0800000000000000
+      internalID: -3476039202567491902
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: queso-cortado-spritesheet_3
+      rect:
+        serializedVersion: 2
+        x: 3516
+        y: 0
+        width: 1172
+        height: 470
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7edcb71f87dc56e40800000000000000
+      internalID: 5649147226937347559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: queso-cortado-spritesheet_4
+      rect:
+        serializedVersion: 2
+        x: 4688
+        y: 0
+        width: 1172
+        height: 470
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd0c14e512cecebd0800000000000000
+      internalID: -2599443256840175395
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: queso-cortado-spritesheet_5
+      rect:
+        serializedVersion: 2
+        x: 5860
+        y: 0
+        width: 1172
+        height: 470
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7df443893ad83eb50800000000000000
+      internalID: 6621291610937511895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: queso-cortado-spritesheet_6
+      rect:
+        serializedVersion: 2
+        x: 7032
+        y: 0
+        width: 1172
+        height: 470
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a58de7c840ddecdf0800000000000000
+      internalID: -157945925304657830
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: queso-cortado-spritesheet_7
+      rect:
+        serializedVersion: 2
+        x: 8204
+        y: 0
+        width: 1172
+        height: 470
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5865728a293308410800000000000000
+      internalID: 1477237382756914821
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: queso-cortado-spritesheet_8
+      rect:
+        serializedVersion: 2
+        x: 9376
+        y: 0
+        width: 1172
+        height: 470
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b8f9680d11f16b70800000000000000
+      internalID: 8890652246403578035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 9ff87ea4f2b865a4bae384954333931b
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":9.0,"y":1.0},"gridSpriteSize":{"x":1172.0,"y":470.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      queso-cortado-spritesheet_0: 4516590895303797570
+      queso-cortado-spritesheet_1: -4721109826865905688
+      queso-cortado-spritesheet_2: -3476039202567491902
+      queso-cortado-spritesheet_3: 5649147226937347559
+      queso-cortado-spritesheet_4: -2599443256840175395
+      queso-cortado-spritesheet_5: 6621291610937511895
+      queso-cortado-spritesheet_6: -157945925304657830
+      queso-cortado-spritesheet_7: 1477237382756914821
+      queso-cortado-spritesheet_8: 8890652246403578035
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,16 +1,10 @@
 fileFormatVersion: 2
-guid: 4de864932786b0d4e87f62bb5ea5e61b
+guid: 51bcee1077f176741af5dda4e92abc5b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5246435326037042408
-    second: pan cortado-spritesheet_0
-  - first:
-      213: -6805783433158288444
-    second: pan cortado-spritesheet_1
-  - first:
-      213: 4162170306761341033
-    second: pan cortado-spritesheet_2
+      213: 8564646809648727091
+    second: flecha termometro_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -119,45 +113,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: pan cortado-spritesheet_0
+      name: flecha termometro_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 770
-        height: 455
+        width: 36
+        height: 38
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 81b50862edae037b0800000000000000
-      internalID: -5246435326037042408
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: pan cortado-spritesheet_1
-      rect:
-        serializedVersion: 2
-        x: 770
-        y: 0
-        width: 770
-        height: 455
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 4cb9c50b6000d81a0800000000000000
-      internalID: -6805783433158288444
+      spriteID: 3348bcb55ecbbd670800000000000000
+      internalID: 8564646809648727091
       vertices: []
       indices: 
       edges: []
@@ -166,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: d13c856874566a445b5dab5c33d67f5f
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -174,12 +146,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries:
-      - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":2.0,"y":1.0},"gridSpriteSize":{"x":770.0,"y":455.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+      entries: []
     nameFileIdTable:
-      pan cortado-spritesheet_0: -5246435326037042408
-      pan cortado-spritesheet_1: -6805783433158288444
+      flecha termometro_0: 8564646809648727091
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

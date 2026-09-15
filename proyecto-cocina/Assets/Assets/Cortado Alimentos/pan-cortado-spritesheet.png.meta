@@ -1,16 +1,16 @@
 fileFormatVersion: 2
-guid: 4de864932786b0d4e87f62bb5ea5e61b
+guid: ebdf42a044610e64b93b9f7bb277a60e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5246435326037042408
-    second: pan cortado-spritesheet_0
+      213: 8632157890497882624
+    second: pan-cortado-spritesheet_0
   - first:
-      213: -6805783433158288444
-    second: pan cortado-spritesheet_1
+      213: 6000051967927824920
+    second: pan-cortado-spritesheet_1
   - first:
-      213: 4162170306761341033
-    second: pan cortado-spritesheet_2
+      213: 1287744415249922586
+    second: pan-cortado-spritesheet_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -119,13 +119,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: pan cortado-spritesheet_0
+      name: pan-cortado-spritesheet_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 770
-        height: 455
+        width: 982
+        height: 527
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -134,20 +134,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 81b50862edae037b0800000000000000
-      internalID: -5246435326037042408
+      spriteID: 00a2634cdd59bc770800000000000000
+      internalID: 8632157890497882624
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pan cortado-spritesheet_1
+      name: pan-cortado-spritesheet_1
       rect:
         serializedVersion: 2
-        x: 770
+        x: 982
         y: 0
-        width: 770
-        height: 455
+        width: 982
+        height: 527
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -156,8 +156,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4cb9c50b6000d81a0800000000000000
-      internalID: -6805783433158288444
+      spriteID: 812b836a977744350800000000000000
+      internalID: 6000051967927824920
       vertices: []
       indices: 
       edges: []
@@ -166,7 +166,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: d13c856874566a445b5dab5c33d67f5f
+    spriteID: fd73fa40856f6f8408566fd4ddf43eb7
     internalID: 0
     vertices: []
     indices: 
@@ -176,10 +176,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":2.0,"y":1.0},"gridSpriteSize":{"x":770.0,"y":455.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":2.0,"y":1.0},"gridSpriteSize":{"x":982.0,"y":527.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      pan cortado-spritesheet_0: -5246435326037042408
-      pan cortado-spritesheet_1: -6805783433158288444
+      pan-cortado-spritesheet_0: 8632157890497882624
+      pan-cortado-spritesheet_1: 6000051967927824920
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

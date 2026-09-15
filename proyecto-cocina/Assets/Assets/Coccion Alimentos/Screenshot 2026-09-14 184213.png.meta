@@ -1,52 +1,31 @@
 fileFormatVersion: 2
-guid: 1945f063ecc6e404aad3075a56e407b2
+guid: 0963967d29b31c24dad5864bf34bdc1a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1715303294654058685
-    second: tomato-8084939_12801234-0_0
+      213: -7796219539274333699
+    second: Screenshot 2026-09-14 184213_0
   - first:
-      213: -993240828660749799
-    second: tomato-8084939_12801234-0_1
+      213: 87888164247804776
+    second: Screenshot 2026-09-14 184213_1
   - first:
-      213: 7027436591775299359
-    second: tomato-8084939_12801234-0_2
+      213: 6244606698809365769
+    second: Screenshot 2026-09-14 184213_2
   - first:
-      213: -1919602749529064346
-    second: tomato-8084939_12801234-0_3
+      213: -2444375118713737362
+    second: Screenshot 2026-09-14 184213_3
   - first:
-      213: 9109723945252198386
-    second: tomato-8084939_12801234-0_4
+      213: -1357680707081417243
+    second: Screenshot 2026-09-14 184213_4
   - first:
-      213: 1158349762350641849
-    second: tomato-8084939_12801234-0_5
+      213: -4715242621280408574
+    second: Screenshot 2026-09-14 184213_5
   - first:
-      213: -4432176292982958684
-    second: tomato-8084939_12801234-0_6
+      213: 6700881409189425801
+    second: Screenshot 2026-09-14 184213_6
   - first:
-      213: 715995753397746444
-    second: tomato-8084939_12801234-0_7
-  - first:
-      213: 7521438004790758041
-    second: tomato-8084939_12801234-0_8
-  - first:
-      213: -8114231571256017477
-    second: tomato-8084939_12801234-0_9
-  - first:
-      213: 6525032991733414098
-    second: tomato-8084939_12801234-0_10
-  - first:
-      213: 7794802145800500227
-    second: tomato-8084939_12801234-0_11
-  - first:
-      213: -4085755565717075876
-    second: tomato-8084939_12801234-0_12
-  - first:
-      213: -2610681177880745441
-    second: tomato-8084939_12801234-0_13
-  - first:
-      213: -3476515416510878289
-    second: tomato-8084939_12801234-0_14
+      213: 9216732885734071004
+    second: Screenshot 2026-09-14 184213_7
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -155,111 +134,177 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: tomato-8084939_12801234-0_0
+      name: Screenshot 2026-09-14 184213_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1280
-        height: 1280
+        x: 26
+        y: 209
+        width: 167
+        height: 166
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: db099e7224bfdc710800000000000000
-      internalID: 1715303294654058685
+      spriteID: df1089a92a34ec390800000000000000
+      internalID: -7796219539274333699
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tomato-8084939_12801234-0_1
+      name: Screenshot 2026-09-14 184213_1
       rect:
         serializedVersion: 2
-        x: 1280
-        y: 0
-        width: 1280
-        height: 1280
+        x: 212
+        y: 209
+        width: 167
+        height: 167
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 91ae24f8abc4732f0800000000000000
-      internalID: -993240828660749799
+      spriteID: 86b93f9d1dd383100800000000000000
+      internalID: 87888164247804776
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tomato-8084939_12801234-0_2
+      name: Screenshot 2026-09-14 184213_2
       rect:
         serializedVersion: 2
-        x: 2560
-        y: 0
-        width: 1280
-        height: 1280
+        x: 399
+        y: 209
+        width: 167
+        height: 167
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f173956e858768160800000000000000
-      internalID: 7027436591775299359
+      spriteID: 9059e8c05bc49a650800000000000000
+      internalID: 6244606698809365769
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tomato-8084939_12801234-0_3
+      name: Screenshot 2026-09-14 184213_3
       rect:
         serializedVersion: 2
-        x: 3840
-        y: 0
-        width: 1280
-        height: 1280
+        x: 584
+        y: 209
+        width: 167
+        height: 167
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 66cf47448733c55e0800000000000000
-      internalID: -1919602749529064346
+      spriteID: e6fa347c7c5d31ed0800000000000000
+      internalID: -2444375118713737362
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tomato-8084939_12801234-0_4
+      name: Screenshot 2026-09-14 184213_4
       rect:
         serializedVersion: 2
-        x: 5120
-        y: 0
-        width: 1280
-        height: 1280
+        x: 26
+        y: 26
+        width: 167
+        height: 166
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2f790aea9ad3c6e70800000000000000
-      internalID: 9109723945252198386
+      spriteID: 5edc208179c882de0800000000000000
+      internalID: -1357680707081417243
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Screenshot 2026-09-14 184213_5
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 26
+        width: 167
+        height: 167
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 20cacc081d7109eb0800000000000000
+      internalID: -4715242621280408574
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Screenshot 2026-09-14 184213_6
+      rect:
+        serializedVersion: 2
+        x: 399
+        y: 26
+        width: 167
+        height: 167
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 98231cc83205efc50800000000000000
+      internalID: 6700881409189425801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Screenshot 2026-09-14 184213_7
+      rect:
+        serializedVersion: 2
+        x: 585
+        y: 27
+        width: 166
+        height: 165
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cda17db2ab968ef70800000000000000
+      internalID: 9216732885734071004
       vertices: []
       indices: 
       edges: []
@@ -268,7 +313,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: d8f629bc2998ce64a971e7cd316973a5
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -276,15 +321,16 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries:
-      - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":5.0,"y":1.0},"gridSpriteSize":{"x":1280.0,"y":1280.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+      entries: []
     nameFileIdTable:
-      tomato-8084939_12801234-0_0: 1715303294654058685
-      tomato-8084939_12801234-0_1: -993240828660749799
-      tomato-8084939_12801234-0_2: 7027436591775299359
-      tomato-8084939_12801234-0_3: -1919602749529064346
-      tomato-8084939_12801234-0_4: 9109723945252198386
+      Screenshot 2026-09-14 184213_0: -7796219539274333699
+      Screenshot 2026-09-14 184213_1: 87888164247804776
+      Screenshot 2026-09-14 184213_2: 6244606698809365769
+      Screenshot 2026-09-14 184213_3: -2444375118713737362
+      Screenshot 2026-09-14 184213_4: -1357680707081417243
+      Screenshot 2026-09-14 184213_5: -4715242621280408574
+      Screenshot 2026-09-14 184213_6: 6700881409189425801
+      Screenshot 2026-09-14 184213_7: 9216732885734071004
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

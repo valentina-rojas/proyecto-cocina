@@ -105,6 +105,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::IngredienteData
   nombreIngrediente: queso
+  nombreMostrar: 
   nombreReceta: hamburguesa
   tipo: 2
   imagenIngrediente: {fileID: 9021905556250480250}
