@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System;
+using System.Collections;
 
 public class TermometroTemperatura : MonoBehaviour
 {
@@ -15,6 +16,11 @@ public class TermometroTemperatura : MonoBehaviour
     [Header("Botón de Parada")]
     [SerializeField] private Button botonDetener;
 
+    [Header("Animación Botón Detener")]
+    [SerializeField] private Image imagenBotonDetener;
+    [SerializeField] private Sprite[] framesBoton;
+    [SerializeField] private float frameRateBoton = 0.08f;
+
     [Header("Resultado UI")]
     [SerializeField] private GameObject popupResultado;
     [SerializeField] private TextMeshProUGUI textoResultado;
@@ -27,18 +33,22 @@ public class TermometroTemperatura : MonoBehaviour
     private bool moviendo;
     private int direccion = 1;
     private DetectorColisionFlecha detectorFlecha;
+    private Coroutine rutinaAnimBoton;
 
     public bool TemperaturaCorrecta { get; private set; }
     public event Action OnFinalizado;
 
     private void Awake()
     {
-        // Forzamos el popup apagado desde el primer instante
         if (popupResultado != null) popupResultado.SetActive(false);
 
         if (botonDetener != null) botonDetener.onClick.AddListener(Detener);
         if (botonReintentar != null) botonReintentar.onClick.AddListener(Reintentar);
         if (botonContinuar != null) botonContinuar.onClick.AddListener(Continuar);
+
+        // Si no asignaste la imagen manualmente en el Inspector, la busca del botón
+        if (imagenBotonDetener == null && botonDetener != null)
+            imagenBotonDetener = botonDetener.GetComponent<Image>();
     }
 
     private void OnDestroy()
@@ -79,33 +89,35 @@ public class TermometroTemperatura : MonoBehaviour
     }
 
     public void Iniciar()
-{
-    Debug.Log("TERMOMETRO INICIAR - activo: " + gameObject.activeInHierarchy);
-
-
-    if (popupResultado != null)
-        popupResultado.SetActive(false);
-
-    if (contenedorTermometro != null)
-        contenedorTermometro.SetActive(true);
-
-    ConfigurarDetectorFisico();
-
-    if (limiteInferior != null && flecha != null)
-        flecha.position = limiteInferior.position;
-
-    TemperaturaCorrecta = false;
-    direccion = 1;
-
-    if (botonDetener != null)
     {
-        botonDetener.gameObject.SetActive(true);
-        botonDetener.interactable = true;
-    }
+        Debug.Log("TERMOMETRO INICIAR - activo: " + gameObject.activeInHierarchy);
 
-    moviendo = true;
+        if (popupResultado != null)
+            popupResultado.SetActive(false);
+
+        if (contenedorTermometro != null)
+            contenedorTermometro.SetActive(true);
+
+        ConfigurarDetectorFisico();
+
+        if (limiteInferior != null && flecha != null)
+            flecha.position = limiteInferior.position;
+
+        TemperaturaCorrecta = false;
+        direccion = 1;
+
+        if (botonDetener != null)
+        {
+            botonDetener.gameObject.SetActive(true);
+            botonDetener.interactable = true;
+
+            // Inicia / reinicia la animación de frames del botón
+            IniciarAnimacionBoton();
+        }
+
+        moviendo = true;
         Debug.Log("TERMOMETRO INICIAR - moviendo: " + moviendo);
-}
+    }
 
     private void MoverFlecha()
     {
@@ -132,11 +144,44 @@ public class TermometroTemperatura : MonoBehaviour
 
         moviendo = false;
 
+        DetenerAnimacionBoton();
+
         if (botonDetener != null)
             botonDetener.gameObject.SetActive(false);
 
         TemperaturaCorrecta = detectorFlecha != null && detectorFlecha.EstaTocando;
         MostrarResultado();
+    }
+
+    private void IniciarAnimacionBoton()
+    {
+        DetenerAnimacionBoton();
+
+        if (gameObject.activeInHierarchy && framesBoton != null && framesBoton.Length > 0)
+            rutinaAnimBoton = StartCoroutine(AnimarFramesBoton());
+    }
+
+    private void DetenerAnimacionBoton()
+    {
+        if (rutinaAnimBoton != null)
+        {
+            StopCoroutine(rutinaAnimBoton);
+            rutinaAnimBoton = null;
+        }
+    }
+
+    private IEnumerator AnimarFramesBoton()
+    {
+        int frameActual = 0;
+
+        while (true)
+        {
+            if (imagenBotonDetener != null && framesBoton[frameActual] != null)
+                imagenBotonDetener.sprite = framesBoton[frameActual];
+
+            frameActual = (frameActual + 1) % framesBoton.Length;
+            yield return new WaitForSeconds(frameRateBoton);
+        }
     }
 
     private void MostrarResultado()
@@ -160,6 +205,8 @@ public class TermometroTemperatura : MonoBehaviour
 
     private void Continuar()
     {
+        DetenerAnimacionBoton();
+
         if (popupResultado != null) 
             popupResultado.SetActive(false);
 
