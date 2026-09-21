@@ -5,45 +5,35 @@ using UnityEngine.EventSystems;
 [RequireComponent(typeof(Image))]
 public class ManoVerduraController : MonoBehaviour, IDragHandler, IPointerDownHandler
 {
-    [Header("Sprites de Estados")]
-    [SerializeField] private Sprite spriteSosteniendo;       // 1. Reposo con tomate
-    [SerializeField] private Sprite spriteBajoAgua;          // 2. Quieto bajo el chorro
-    [SerializeField] private Sprite spriteTomateLimpio;      // 3. Tomate limpio terminado
-
-    [Header("Frames de Animación (Frotado)")]
-    [SerializeField] private Sprite[] framesFrotado;
-    [SerializeField] private float frameRate = 0.08f;
-
     private Image imagen;
     private bool estaFrotando;
     private int frameActual;
     private float temporizadorFrame;
     private bool puedeInteractuar;
 
+    // Datos de la verdura actualmente en la mano
+    private DatosVerdura verduraActual;
+
     private void Awake()
     {
         imagen = GetComponent<Image>();
-        // OCULTAR INMEDIATAMENTE AL DESPERTAR
         Ocultar();
     }
 
     private void Update()
     {
-        if (!estaFrotando || framesFrotado == null || framesFrotado.Length == 0) return;
+        if (!estaFrotando || verduraActual == null || verduraActual.framesFrotado == null || verduraActual.framesFrotado.Length == 0) return;
 
         temporizadorFrame += Time.deltaTime;
-        if (temporizadorFrame >= frameRate)
+        if (temporizadorFrame >= verduraActual.frameRate)
         {
             temporizadorFrame = 0f;
-            frameActual = (frameActual + 1) % framesFrotado.Length;
-            imagen.sprite = framesFrotado[frameActual];
+            frameActual = (frameActual + 1) % verduraActual.framesFrotado.Length;
+            imagen.sprite = verduraActual.framesFrotado[frameActual];
         }
     }
 
-    public void OnPointerDown(PointerEventData eventData)
-    {
-        // Requerido para inicializar el drag
-    }
+    public void OnPointerDown(PointerEventData eventData) { }
 
     public void OnDrag(PointerEventData eventData)
     {
@@ -52,34 +42,40 @@ public class ManoVerduraController : MonoBehaviour, IDragHandler, IPointerDownHa
     }
 
     // =========================================================
-    // CONTROL VISUAL Y ESTADOS
+    // CONFIGURACIÓN DINÁMICA POR VERDURA
     // =========================================================
+    public void CargarVerdura(DatosVerdura datos)
+    {
+        verduraActual = datos;
+        frameActual = 0;
+        temporizadorFrame = 0f;
+    }
 
     public void MostrarSosteniendo()
     {
+        if (verduraActual == null) return;
         estaFrotando = false;
         puedeInteractuar = false;
-
-        ActivarImagen(spriteSosteniendo);
+        ActivarImagen(verduraActual.spriteManoSosteniendo);
     }
 
     public void MostrarBajoAgua()
     {
+        if (verduraActual == null) return;
         estaFrotando = false;
         puedeInteractuar = true;
-
-        ActivarImagen(spriteBajoAgua);
+        ActivarImagen(verduraActual.spriteManoBajoAgua);
     }
 
     public void IniciarAnimacionFrotado()
     {
-        if (estaFrotando) return;
+        if (estaFrotando || verduraActual == null) return;
         estaFrotando = true;
         temporizadorFrame = 0f;
 
-        if (framesFrotado != null && framesFrotado.Length > 0)
+        if (verduraActual.framesFrotado != null && verduraActual.framesFrotado.Length > 0)
         {
-            imagen.sprite = framesFrotado[frameActual];
+            imagen.sprite = verduraActual.framesFrotado[frameActual];
         }
     }
 
@@ -92,20 +88,19 @@ public class ManoVerduraController : MonoBehaviour, IDragHandler, IPointerDownHa
 
     public void MostrarLimpio()
     {
+        if (verduraActual == null) return;
         estaFrotando = false;
         puedeInteractuar = false;
-
-        ActivarImagen(spriteTomateLimpio);
+        ActivarImagen(verduraActual.spriteManoLimpiaFinal);
     }
 
     public void Ocultar()
     {
         estaFrotando = false;
         puedeInteractuar = false;
+        verduraActual = null;
 
         if (imagen == null) imagen = GetComponent<Image>();
-        
-        // Apagamos el renderer visual para que no se vea nada al arrancar
         imagen.enabled = false;
         imagen.raycastTarget = false;
     }
@@ -113,7 +108,6 @@ public class ManoVerduraController : MonoBehaviour, IDragHandler, IPointerDownHa
     private void ActivarImagen(Sprite sprite)
     {
         if (imagen == null) imagen = GetComponent<Image>();
-
         imagen.enabled = true;
         imagen.raycastTarget = true;
 
@@ -122,8 +116,6 @@ public class ManoVerduraController : MonoBehaviour, IDragHandler, IPointerDownHa
         imagen.color = c;
 
         if (sprite != null)
-        {
             imagen.sprite = sprite;
-        }
     }
 }

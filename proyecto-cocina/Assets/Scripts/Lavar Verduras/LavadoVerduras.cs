@@ -15,38 +15,38 @@ public class LavadoVerduras : MonoBehaviour
     [SerializeField] private Sprite canillaAbierta;
     [SerializeField] private ImageFrameAnimation animacionAgua;
 
-    [Header("Tomates en Mesa (Lado Izquierdo - Sucios)")]
-    [Tooltip("Arrastra aquí los botones de tomates sucios que están en la mesa")]
-    [SerializeField] private List<Button> botonesTomatesMesa = new List<Button>();
+    [Header("Prefabs de Verduras a Lavar")]
+    [Tooltip("Arrastra aquí los prefabs de las verduras (ej. Prefab_Tomate, Prefab_Zanahoria)")]
+    [SerializeField] private List<DatosVerdura> prefabsVerduras = new List<DatosVerdura>();
 
-    [Header("Tomates en Mesa (Lado Derecho - Limpios)")]
-    [Tooltip("Arrastra aquí las imágenes de los tomates limpios que irán apareciendo al otro lado")]
-    [SerializeField] private List<GameObject> tomatesLimpiosMesa = new List<GameObject>();
+    [Header("Slots en Mesada")]
+    [Tooltip("Transforms vacíos en la mesada izquierda que marcan dónde aparecen las verduras sucias")]
+    [SerializeField] private List<Transform> slotsSuciosMesa = new List<Transform>();
+
+    [Tooltip("Imágenes en la mesada derecha que mostrarán las verduras limpiadas")]
+    [SerializeField] private List<Image> slotsLimpiosMesa = new List<Image>();
 
     [Header("Mano y Verdura")]
     [SerializeField] private ManoVerduraController manoVerdura;
 
-    [Header("Progreso y Sensibilidad")]
-    [Tooltip("Distancia en píxeles que debe frotarse para lavar CADA tomate")]
-    [SerializeField] private float distanciaTotalNecesaria = 1800f;
-    [Tooltip("Tiempo en segundos sin mover el dedo/mouse antes de reiniciar la barra a 0")]
-    [SerializeField] private float tiempoParaReiniciar = 0.5f;
-
-    [Header("UI")]
+    [Header("UI y Sensibilidad")]
     [SerializeField] private Slider barraProgreso;
-    [Tooltip("El GameObject padre del Slider que contiene fondo, relleno y borde")]
     [SerializeField] private GameObject objetoBarra;
     [SerializeField] private Button botonContinuar;
+    [SerializeField] private float tiempoParaReiniciar = 0.5f;
+    [SerializeField] private float delayVerduraLimpia = 0.6f;
 
-    [Header("Tiempos de Transición")]
-    [Tooltip("Tiempo que se muestra el tomate limpio en la mano antes de dejarlo en la mesada")]
-    [SerializeField] private float delayTomateLimpio = 0.6f;
+    // Lista de instancias vivas en la escena
+    private List<DatosVerdura> verdurasInstanciadas = new List<DatosVerdura>();
 
-    private int tomatesLavados = 0;
+    // Estado actual de la ronda
+    private DatosVerdura verduraSeleccionada;
+    private float distanciaObjetivo;
     private float distanciaAcumulada;
     private float tiempoInactivo;
+    private int verdurasLavadasTotal;
     private bool estaMoviendo;
-    private bool tomateAgarrado;
+    private bool verduraAgarrada;
     private bool canillaEstaAbierta;
     private bool completadoTodo;
 
@@ -54,15 +54,18 @@ public class LavadoVerduras : MonoBehaviour
     {
         if (Instance == null) Instance = this;
         else Destroy(gameObject);
+
+        // Ocultar de inmediato todos los slots limpios desde el inicio para evitar el cuadro blanco
+        ApagarSlotsLimpios();
     }
 
     private void Start()
     {
-        ConfigurarBotones();
+        ConfigurarBotonCanilla();
         ReiniciarEscena();
     }
 
-    private void ConfigurarBotones()
+    private void ConfigurarBotonCanilla()
     {
         if (botonCanilla != null)
         {
@@ -70,16 +73,57 @@ public class LavadoVerduras : MonoBehaviour
             botonCanilla.onClick.AddListener(AlternarCanilla);
             botonCanilla.transition = Selectable.Transition.None;
         }
+    }
 
-        // Asignar evento de click a cada tomate sucio
-        for (int i = 0; i < botonesTomatesMesa.Count; i++)
+    private void ApagarSlotsLimpios()
+    {
+        for (int i = 0; i < slotsLimpiosMesa.Count; i++)
         {
-            Button btnTomate = botonesTomatesMesa[i];
-            if (btnTomate != null)
+            if (slotsLimpiosMesa[i] != null)
             {
-                btnTomate.onClick.RemoveAllListeners();
-                btnTomate.onClick.AddListener(() => AgarrarTomate(btnTomate));
+                // Limpiar el sprite, apagar el Image y desactivar el GameObject
+                slotsLimpiosMesa[i].sprite = null;
+                slotsLimpiosMesa[i].enabled = false;
+                slotsLimpiosMesa[i].gameObject.SetActive(false);
             }
+        }
+    }
+
+    // =========================================================
+    // INSTANCIACIÓN EN LOS SLOTS SUCIOS
+    // =========================================================
+    private void SpawnearVerdurasEnSlots()
+    {
+        foreach (var v in verdurasInstanciadas)
+        {
+            if (v != null) Destroy(v.gameObject);
+        }
+        verdurasInstanciadas.Clear();
+
+        int cantidad = Mathf.Min(prefabsVerduras.Count, slotsSuciosMesa.Count);
+
+        for (int i = 0; i < cantidad; i++)
+        {
+            if (prefabsVerduras[i] == null || slotsSuciosMesa[i] == null) continue;
+
+            DatosVerdura nuevaVerdura = Instantiate(prefabsVerduras[i], slotsSuciosMesa[i]);
+            
+            RectTransform rt = nuevaVerdura.GetComponent<RectTransform>();
+            if (rt != null)
+            {
+                rt.anchoredPosition = Vector2.zero;
+                rt.localScale = Vector3.one;
+                rt.localRotation = Quaternion.identity;
+            }
+
+            Button btn = nuevaVerdura.Boton;
+            if (btn != null)
+            {
+                btn.onClick.RemoveAllListeners();
+                btn.onClick.AddListener(() => AgarrarVerdura(nuevaVerdura));
+            }
+
+            verdurasInstanciadas.Add(nuevaVerdura);
         }
     }
 
@@ -88,7 +132,6 @@ public class LavadoVerduras : MonoBehaviour
         if (completadoTodo || distanciaAcumulada <= 0f) return;
 
         tiempoInactivo += Time.deltaTime;
-
         if (tiempoInactivo >= tiempoParaReiniciar)
         {
             ReiniciarLavadoActual();
@@ -96,32 +139,34 @@ public class LavadoVerduras : MonoBehaviour
     }
 
     // =========================================================
-    // 1. CLIC EN UN TOMATE DE LA IZQUIERDA
+    // 1. AGARRAR CUALQUIER VERDURA DEL SLOT
     // =========================================================
-    public void AgarrarTomate(Button tomateClickeado)
+    public void AgarrarVerdura(DatosVerdura item)
     {
-        if (tomateAgarrado || completadoTodo) return;
+        if (verduraAgarrada || completadoTodo || item == null) return;
 
-        tomateAgarrado = true;
+        verduraAgarrada = true;
+        verduraSeleccionada = item;
+        verduraSeleccionada.gameObject.SetActive(false);
 
-        if (tomateClickeado != null)
-            tomateClickeado.gameObject.SetActive(false);
+        distanciaObjetivo = item.distanciaFrotadoNecesaria > 0 ? item.distanciaFrotadoNecesaria : 1800f;
 
         if (botonCanilla != null)
             botonCanilla.interactable = true;
 
         if (manoVerdura != null)
         {
+            manoVerdura.CargarVerdura(item);
             manoVerdura.MostrarSosteniendo();
         }
     }
 
     // =========================================================
-    // 2. ABRIR / CERRAR CANILLA
+    // 2. CANILLA
     // =========================================================
     public void AlternarCanilla()
     {
-        if (completadoTodo || !tomateAgarrado) return;
+        if (completadoTodo || !verduraAgarrada) return;
 
         if (canillaEstaAbierta) CerrarCanilla();
         else AbrirCanilla();
@@ -129,7 +174,7 @@ public class LavadoVerduras : MonoBehaviour
 
     private void AbrirCanilla()
     {
-        if (!tomateAgarrado || completadoTodo) return;
+        if (!verduraAgarrada || completadoTodo) return;
 
         canillaEstaAbierta = true;
 
@@ -161,7 +206,7 @@ public class LavadoVerduras : MonoBehaviour
 
         ReiniciarLavadoActual();
 
-        if (tomateAgarrado && !completadoTodo)
+        if (verduraAgarrada && !completadoTodo)
         {
             manoVerdura?.MostrarSosteniendo();
             SetVisibilidadBarra(false);
@@ -169,16 +214,16 @@ public class LavadoVerduras : MonoBehaviour
     }
 
     // =========================================================
-    // 3. FROTADO Y PROGRESO
+    // 3. FROTADO
     // =========================================================
     public void ProcesarFrotado(float deltaMovimiento)
     {
-        if (!canillaEstaAbierta || !tomateAgarrado || completadoTodo || deltaMovimiento <= 0f) return;
+        if (!canillaEstaAbierta || !verduraAgarrada || completadoTodo || deltaMovimiento <= 0f) return;
 
         tiempoInactivo = 0f;
         distanciaAcumulada += deltaMovimiento;
 
-        float porcentaje = Mathf.Clamp01(distanciaAcumulada / distanciaTotalNecesaria);
+        float porcentaje = Mathf.Clamp01(distanciaAcumulada / distanciaObjetivo);
         if (barraProgreso != null) barraProgreso.value = porcentaje;
 
         if (!estaMoviendo)
@@ -187,9 +232,9 @@ public class LavadoVerduras : MonoBehaviour
             manoVerdura?.IniciarAnimacionFrotado();
         }
 
-        if (distanciaAcumulada >= distanciaTotalNecesaria)
+        if (distanciaAcumulada >= distanciaObjetivo)
         {
-            CompletarTomateActual();
+            CompletarVerduraActual();
         }
     }
 
@@ -203,16 +248,16 @@ public class LavadoVerduras : MonoBehaviour
 
         manoVerdura?.PausarAnimacionFrotado();
 
-        if (canillaEstaAbierta && tomateAgarrado)
+        if (canillaEstaAbierta && verduraAgarrada)
         {
             manoVerdura?.MostrarBajoAgua();
         }
     }
 
     // =========================================================
-    // 4. DEPOSITAR EL TOMATE AL OTRO LADO DE LA MESADA
+    // 4. COMPLETAR Y COLOCAR EN SLOT DERECHO
     // =========================================================
-    private void CompletarTomateActual()
+    private void CompletarVerduraActual()
     {
         distanciaAcumulada = 0f;
         estaMoviendo = false;
@@ -222,36 +267,44 @@ public class LavadoVerduras : MonoBehaviour
         if (botonCanilla != null)
             botonCanilla.interactable = false;
 
-        // Mostrar el tomate limpio en la mano
         manoVerdura?.MostrarLimpio();
 
-        StartCoroutine(RutinaPasarTomateALaMesada());
+        StartCoroutine(RutinaPasarALaMesada());
     }
 
-    private IEnumerator RutinaPasarTomateALaMesada()
+    private IEnumerator RutinaPasarALaMesada()
     {
         if (barraProgreso != null) barraProgreso.value = 1f;
 
-        // Breve pausa para ver el resultado limpio
-        yield return new WaitForSeconds(delayTomateLimpio);
+        yield return new WaitForSeconds(delayVerduraLimpia);
 
         SetVisibilidadBarra(false);
         if (barraProgreso != null) barraProgreso.value = 0f;
 
-        // 1. Ocultar la mano que lo sostenía
         manoVerdura?.Ocultar();
-        tomateAgarrado = false;
+        verduraAgarrada = false;
 
-        // 2. Colocar el tomate limpio en el otro lado de la mesada
-        if (tomatesLavados < tomatesLimpiosMesa.Count && tomatesLimpiosMesa[tomatesLavados] != null)
+        // ACTIVAR Y MOSTRAR EL SLOT LIMPIO CORRESPONDIENTE
+        if (verdurasLavadasTotal < slotsLimpiosMesa.Count && slotsLimpiosMesa[verdurasLavadasTotal] != null)
         {
-            tomatesLimpiosMesa[tomatesLavados].SetActive(true);
+            Image slotLimpio = slotsLimpiosMesa[verdurasLavadasTotal];
+            
+            // 1. Primero asignar el sprite
+            slotLimpio.sprite = verduraSeleccionada.spriteMesaLimpia;
+            
+            // 2. Asegurar color opaco visible
+            Color c = slotLimpio.color;
+            c.a = 1f;
+            slotLimpio.color = c;
+            
+            // 3. Encender componente Image y GameObject
+            slotLimpio.enabled = true;
+            slotLimpio.gameObject.SetActive(true);
         }
 
-        tomatesLavados++;
+        verdurasLavadasTotal++;
 
-        // 3. Evaluar si terminamos todos
-        if (tomatesLavados >= botonesTomatesMesa.Count)
+        if (verdurasLavadasTotal >= verdurasInstanciadas.Count)
         {
             completadoTodo = true;
             SetBotonContinuar(true, Finalizar);
@@ -269,37 +322,28 @@ public class LavadoVerduras : MonoBehaviour
         StopAllCoroutines();
 
         completadoTodo = false;
-        tomateAgarrado = false;
+        verduraAgarrada = false;
         canillaEstaAbierta = false;
         estaMoviendo = false;
         distanciaAcumulada = 0f;
         tiempoInactivo = 0f;
-        tomatesLavados = 0;
+        verdurasLavadasTotal = 0;
 
         CerrarCanilla();
 
         if (botonCanilla != null)
             botonCanilla.interactable = false;
 
-        // Reactivar todos los tomates sucios de la izquierda
-        for (int i = 0; i < botonesTomatesMesa.Count; i++)
-        {
-            if (botonesTomatesMesa[i] != null)
-                botonesTomatesMesa[i].gameObject.SetActive(true);
-        }
-
-        // Ocultar todos los tomates limpios de la derecha
-        for (int i = 0; i < tomatesLimpiosMesa.Count; i++)
-        {
-            if (tomatesLimpiosMesa[i] != null)
-                tomatesLimpiosMesa[i].SetActive(false);
-        }
+        // Limpiar y apagar todos los slots limpios
+        ApagarSlotsLimpios();
 
         SetVisibilidadBarra(false);
         if (barraProgreso != null) barraProgreso.value = 0f;
 
         manoVerdura?.Ocultar();
         SetBotonContinuar(false);
+
+        SpawnearVerdurasEnSlots();
     }
 
     private void SetBotonContinuar(bool visible, UnityAction accion = null)
