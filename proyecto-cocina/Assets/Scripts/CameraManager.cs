@@ -7,6 +7,7 @@ public class CameraManager : MonoBehaviour
     [Header("Cámaras")]
     public GameObject camaraAlmacenIngredientes;
     public GameObject camaraLavadoManos;
+    public GameObject camaraLavadoVerduras;
     public GameObject camaraCortadoIngredientes;
     public GameObject camaraCoccionIngredientes;
     public GameObject camaraCamaraEmplatado;
@@ -21,13 +22,14 @@ public class CameraManager : MonoBehaviour
 
     private void Start()
     {
-        MostrarCamaraAlmacenIngredientes();
+        MostrarCamaraLavadoVerduras();
     }
 
     private void DesactivarTodas()
     {
         camaraAlmacenIngredientes.SetActive(false);
         camaraLavadoManos.SetActive(false);
+        camaraLavadoVerduras.SetActive(false);
         camaraCortadoIngredientes.SetActive(false);
         camaraCoccionIngredientes.SetActive(false);
         camaraCamaraEmplatado.SetActive(false);
@@ -43,6 +45,12 @@ public class CameraManager : MonoBehaviour
     {
         DesactivarTodas();
         camaraLavadoManos.SetActive(true);
+    }
+
+    public void MostrarCamaraLavadoVerduras()
+    {
+        DesactivarTodas();
+        camaraLavadoVerduras.SetActive(true);
     }
 
     public void MostrarCamaraCortadoIngredientes()
