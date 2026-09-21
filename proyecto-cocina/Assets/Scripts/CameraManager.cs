@@ -22,7 +22,7 @@ public class CameraManager : MonoBehaviour
 
     private void Start()
     {
-        MostrarCamaraLavadoVerduras();
+        MostrarCamaraAlmacenIngredientes();
     }
 
     private void DesactivarTodas()

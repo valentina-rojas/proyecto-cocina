@@ -26,6 +26,10 @@ public class PopupContenido : MonoBehaviour
     public MensajePopup fbIngredientesCorrectos = new MensajePopup("¡Muy bien!", "¡Muy bien! Todos los ingredientes fueron almacenados correctamente.");
     public MensajePopup fbIngredientesIncorrectos = new MensajePopup("Revisá la organización", "Hay ingredientes almacenados en lugares incorrectos.");
 
+    [Header("Lavado de Verduras")]
+    public MensajePopup instLavadoVerduras = new MensajePopup("Lavado de verduras", "Asegurate de lavar correctamente las verduras para quitarles la suciedad.");
+    public MensajePopup fbLavadoVerduras = new MensajePopup("¡Verduras limpias!", "¡Excelente! Todas las verduras quedaron limpias y listas para cortar.");
+
     [Header("Lavado de Manos")]
     public MensajePopup instLavado = new MensajePopup("Lavado de manos", "Lavate las manos antes de comenzar a manipular los alimentos.");
     public MensajePopup fbLavado = new MensajePopup("¡Lavado completado!", "¡Muy bien! Completaste correctamente el lavado de manos.");
@@ -62,7 +66,6 @@ public class PopupContenido : MonoBehaviour
     // --- Métodos de Instrucciones ---
     public void MostrarInstruccionesIngredientes(UnityAction accion = null) => Mostrar(instIngredientes, accion);
 
-    // Instrucción dinámica de la Receta generada desde el DayManager
     public void MostrarInstruccionesReceta(UnityAction accion = null)
     {
         if (DayManager.Instance != null)
@@ -70,15 +73,11 @@ public class PopupContenido : MonoBehaviour
             string titulo = "Receta del día";
             Sprite imagen = DayManager.Instance.imagenRecetaActual;
 
-            // Diálogo 1: Presenta el plato
             string textoPaso1 = $"El plato del día es: {DayManager.Instance.recetaActual}.";
-
-            // Diálogo 2: Instrucción sobre los ingredientes
             string textoPaso2 = "Acá está la lista de ingredientes, asegurate de que no falte ninguno.";
 
             if (PopupManager.Instance != null)
             {
-                // Muestra el primer mensaje; al hacer clic, abre el segundo mensaje
                 PopupManager.Instance.MostrarPopup(titulo, textoPaso1, imagen, () =>
                 {
                     PopupManager.Instance.MostrarPopup(titulo, textoPaso2, imagen, accion);
@@ -96,16 +95,21 @@ public class PopupContenido : MonoBehaviour
         }
     }
 
-    public void MostrarInstruccionesLavado(UnityAction accion = null)       => Mostrar(instLavado, accion);
-    public void MostrarInstruccionesCortado(UnityAction accion = null)      => Mostrar(instCortado, accion);
-    public void MostrarInstruccionesCoccion(UnityAction accion = null)      => Mostrar(instCoccion, accion);
-    public void MostrarInstruccionesEmplatado(UnityAction accion = null)    => Mostrar(instEmplatado, accion);
+    // Métodos para Verduras
+    public void MostrarInstruccionesLavadoVerduras(UnityAction accion = null) => Mostrar(instLavadoVerduras, accion);
+    public void MostrarFeedbackLavadoVerduras(UnityAction accion = null)      => Mostrar(fbLavadoVerduras, accion);
+
+    // Métodos para Manos y etapas siguientes
+    public void MostrarInstruccionesLavado(UnityAction accion = null)         => Mostrar(instLavado, accion);
+    public void MostrarInstruccionesCortado(UnityAction accion = null)        => Mostrar(instCortado, accion);
+    public void MostrarInstruccionesCoccion(UnityAction accion = null)        => Mostrar(instCoccion, accion);
+    public void MostrarInstruccionesEmplatado(UnityAction accion = null)      => Mostrar(instEmplatado, accion);
 
     // --- Métodos de Feedbacks ---
     public void MostrarFeedbackIngredientes(bool correcto, UnityAction accion = null) => 
         Mostrar(correcto ? fbIngredientesCorrectos : fbIngredientesIncorrectos, accion);
 
-    public void MostrarFeedbackLavado(UnityAction accion = null)  => Mostrar(fbLavado, accion);
+    public void MostrarFeedbackLavado(UnityAction accion = null)              => Mostrar(fbLavado, accion);
 
     public void MostrarFeedbackCortado(bool huboContaminacionCruzada, UnityAction accion = null)
     {
@@ -119,5 +123,5 @@ public class PopupContenido : MonoBehaviour
         else Mostrar(fbCarneCorrecta, accion);
     }
 
-    public void MostrarFeedbackEmplatado(UnityAction accion = null) => Mostrar(fbEmplatado, accion);
+    public void MostrarFeedbackEmplatado(UnityAction accion = null)           => Mostrar(fbEmplatado, accion);
 }

@@ -8,7 +8,8 @@ public class GameManager : MonoBehaviour
     {
         OrdenandoIngredientes,
         SeleccionandoReceta,
-        Lavado,
+        LavadoVerduras, // <-- Nuevo estado antes de LavadoManos
+        LavadoManos,
         Cortado,
         Coccion,
         Emplatado,
@@ -72,7 +73,6 @@ public class GameManager : MonoBehaviour
     public void MostrarInstruccionesIngredientes()
     {
         UIManager.Instance?.OcultarBotonContinuar();
-
         estadoActual = EstadoJuego.OrdenandoIngredientes;
 
         if (PopupContenido.Instance != null)
@@ -91,7 +91,6 @@ public class GameManager : MonoBehaviour
     private void MostrarInstruccionesReceta()
     {
         UIManager.Instance?.OcultarBotonContinuar();
-
         estadoActual = EstadoJuego.SeleccionandoReceta;
 
         if (PopupContenido.Instance != null)
@@ -109,9 +108,7 @@ public class GameManager : MonoBehaviour
     public void EmpezarSeleccionReceta()
     {
         estadoActual = EstadoJuego.SeleccionandoReceta;
-
         UIManager.Instance?.OcultarBotonContinuar();
-
         SeleccionRecetaManager.Instance?.IniciarSeleccion();
     }
 
@@ -140,28 +137,56 @@ public class GameManager : MonoBehaviour
     private void ContinuarDesdeSeleccionReceta()
     {
         SeleccionRecetaManager.Instance?.FinalizarSeleccion();
-
         UIManager.Instance?.OcultarBotonContinuar();
 
-        ActivarLavado();
+        // Tras seleccionar la receta, vamos al LAVADO DE VERDURAS
+        ActivarLavadoVerduras();
     }
 
     // =========================================================
-    // ETAPAS RESTANTES
+    // ETAPA 3 - LAVADO DE VERDURAS (NUEVO)
     // =========================================================
 
-    public void ActivarLavado()
+    public void ActivarLavadoVerduras()
     {
+        estadoActual = EstadoJuego.LavadoVerduras;
+        IniciarEtapaLavadoVerduras();
+    }
+
+    private void IniciarEtapaLavadoVerduras()
+    {
+        CameraManager.Instance?.MostrarCamaraLavadoVerduras(); 
+        LavadoVerduras.Instance?.IniciarLavado(); 
+    }
+
+    public void ContinuarDespuesDelLavadoVerduras()
+    {
+        ActivarLavadoManos();
+    }
+
+    // =========================================================
+    // ETAPA 4 - LAVADO DE MANOS
+    // =========================================================
+
+    public void ActivarLavadoManos()
+    {
+        estadoActual = EstadoJuego.LavadoManos;
         LavadoManos.Instance?.IniciarLavado();
     }
 
-    public void ContinuarDespuesDelLavado()
+    public void ContinuarDespuesDelLavadoManos()
     {
+        // Al terminar el lavado de manos, pasamos al CORTADO
         ActivarCortado();
     }
 
+    // =========================================================
+    // ETAPA 5 - CORTADO
+    // =========================================================
+
     public void ActivarCortado()
     {
+        estadoActual = EstadoJuego.Cortado;
         CortadoManager.Instance?.IniciarCortado();
     }
 
@@ -181,32 +206,31 @@ public class GameManager : MonoBehaviour
     }
 
     // =========================================================
-    // ETAPA - COCCIÓN
+    // ETAPA 6 - COCCIÓN
     // =========================================================
 
-    // En GameManager.cs
-public void ActivarCoccion()
-{
-    estadoActual = EstadoJuego.Coccion;
-    Debug.Log("[Coccion] ActivarCoccion ejecutado");
-
-    if (PopupContenido.Instance != null)
+    public void ActivarCoccion()
     {
-        Debug.Log("[Coccion] Mostrando popup de instrucciones...");
-        PopupContenido.Instance.MostrarInstruccionesCoccion(IniciarCoccion);
-    }
-    else
-    {
-        Debug.LogWarning("[Coccion] PopupContenido es nulo, iniciando directo");
-        IniciarCoccion();
-    }
-}
+        estadoActual = EstadoJuego.Coccion;
+        Debug.Log("[Coccion] ActivarCoccion ejecutado");
 
-private void IniciarCoccion()
-{
-    Debug.Log("[Coccion] Callback IniciarCoccion recibido");
-    CoccionManager.Instance?.IniciarCoccion();
-}
+        if (PopupContenido.Instance != null)
+        {
+            Debug.Log("[Coccion] Mostrando popup de instrucciones...");
+            PopupContenido.Instance.MostrarInstruccionesCoccion(IniciarCoccion);
+        }
+        else
+        {
+            Debug.LogWarning("[Coccion] PopupContenido es nulo, iniciando directo");
+            IniciarCoccion();
+        }
+    }
+
+    private void IniciarCoccion()
+    {
+        Debug.Log("[Coccion] Callback IniciarCoccion recibido");
+        CoccionManager.Instance?.IniciarCoccion();
+    }
 
     public void ContinuarDespuesDeCoccion()
     {
@@ -214,11 +238,12 @@ private void IniciarCoccion()
     }
 
     // =========================================================
-    // ETAPA - EMPLATADO
+    // ETAPA 7 - EMPLATADO
     // =========================================================
 
     public void ActivarEmplatado()
     {
+        estadoActual = EstadoJuego.Emplatado;
         EmplatadoManager.Instance?.IniciarEmplatado();
     }
 

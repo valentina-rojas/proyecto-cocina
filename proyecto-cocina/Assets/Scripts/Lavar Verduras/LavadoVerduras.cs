@@ -55,7 +55,6 @@ public class LavadoVerduras : MonoBehaviour
         if (Instance == null) Instance = this;
         else Destroy(gameObject);
 
-        // Ocultar de inmediato todos los slots limpios desde el inicio para evitar el cuadro blanco
         ApagarSlotsLimpios();
     }
 
@@ -81,7 +80,6 @@ public class LavadoVerduras : MonoBehaviour
         {
             if (slotsLimpiosMesa[i] != null)
             {
-                // Limpiar el sprite, apagar el Image y desactivar el GameObject
                 slotsLimpiosMesa[i].sprite = null;
                 slotsLimpiosMesa[i].enabled = false;
                 slotsLimpiosMesa[i].gameObject.SetActive(false);
@@ -90,8 +88,31 @@ public class LavadoVerduras : MonoBehaviour
     }
 
     // =========================================================
+    // CONTROL DEL FLUJO GLOBAL
+    // =========================================================
+
+    public void IniciarLavado()
+    {
+        gameObject.SetActive(true);
+        completadoTodo = false;
+        ReiniciarEscena();
+
+        // Muestra las instrucciones de lavado de verduras antes de encender la interacción/cámara
+        if (PopupContenido.Instance != null)
+            PopupContenido.Instance.MostrarInstruccionesLavadoVerduras(ActivarCamaraLavadoVerduras);
+        else
+            ActivarCamaraLavadoVerduras();
+    }
+
+    private void ActivarCamaraLavadoVerduras()
+    {
+        CameraManager.Instance?.MostrarCamaraLavadoVerduras();
+    }
+
+    // =========================================================
     // INSTANCIACIÓN EN LOS SLOTS SUCIOS
     // =========================================================
+
     private void SpawnearVerdurasEnSlots()
     {
         foreach (var v in verdurasInstanciadas)
@@ -107,7 +128,7 @@ public class LavadoVerduras : MonoBehaviour
             if (prefabsVerduras[i] == null || slotsSuciosMesa[i] == null) continue;
 
             DatosVerdura nuevaVerdura = Instantiate(prefabsVerduras[i], slotsSuciosMesa[i]);
-            
+
             RectTransform rt = nuevaVerdura.GetComponent<RectTransform>();
             if (rt != null)
             {
@@ -141,6 +162,7 @@ public class LavadoVerduras : MonoBehaviour
     // =========================================================
     // 1. AGARRAR CUALQUIER VERDURA DEL SLOT
     // =========================================================
+
     public void AgarrarVerdura(DatosVerdura item)
     {
         if (verduraAgarrada || completadoTodo || item == null) return;
@@ -164,6 +186,7 @@ public class LavadoVerduras : MonoBehaviour
     // =========================================================
     // 2. CANILLA
     // =========================================================
+
     public void AlternarCanilla()
     {
         if (completadoTodo || !verduraAgarrada) return;
@@ -216,6 +239,7 @@ public class LavadoVerduras : MonoBehaviour
     // =========================================================
     // 3. FROTADO
     // =========================================================
+
     public void ProcesarFrotado(float deltaMovimiento)
     {
         if (!canillaEstaAbierta || !verduraAgarrada || completadoTodo || deltaMovimiento <= 0f) return;
@@ -257,6 +281,7 @@ public class LavadoVerduras : MonoBehaviour
     // =========================================================
     // 4. COMPLETAR Y COLOCAR EN SLOT DERECHO
     // =========================================================
+
     private void CompletarVerduraActual()
     {
         distanciaAcumulada = 0f;
@@ -284,20 +309,15 @@ public class LavadoVerduras : MonoBehaviour
         manoVerdura?.Ocultar();
         verduraAgarrada = false;
 
-        // ACTIVAR Y MOSTRAR EL SLOT LIMPIO CORRESPONDIENTE
         if (verdurasLavadasTotal < slotsLimpiosMesa.Count && slotsLimpiosMesa[verdurasLavadasTotal] != null)
         {
             Image slotLimpio = slotsLimpiosMesa[verdurasLavadasTotal];
-            
-            // 1. Primero asignar el sprite
             slotLimpio.sprite = verduraSeleccionada.spriteMesaLimpia;
-            
-            // 2. Asegurar color opaco visible
+
             Color c = slotLimpio.color;
             c.a = 1f;
             slotLimpio.color = c;
-            
-            // 3. Encender componente Image y GameObject
+
             slotLimpio.enabled = true;
             slotLimpio.gameObject.SetActive(true);
         }
@@ -307,8 +327,25 @@ public class LavadoVerduras : MonoBehaviour
         if (verdurasLavadasTotal >= verdurasInstanciadas.Count)
         {
             completadoTodo = true;
-            SetBotonContinuar(true, Finalizar);
+            SetBotonContinuar(true, ContinuarDesdeLavadoVerduras);
         }
+    }
+
+    private void ContinuarDesdeLavadoVerduras()
+    {
+        SetBotonContinuar(false);
+
+        if (PopupContenido.Instance != null)
+            PopupContenido.Instance.MostrarFeedbackLavado(TerminarEtapaLavado);
+        else
+            TerminarEtapaLavado();
+    }
+
+    private void TerminarEtapaLavado()
+    {
+        SetBotonContinuar(false);
+        gameObject.SetActive(false); // Apagamos este canvas/panel
+        GameManager.Instance?.ContinuarDespuesDelLavadoVerduras();
     }
 
     private void SetVisibilidadBarra(bool visible)
@@ -334,7 +371,6 @@ public class LavadoVerduras : MonoBehaviour
         if (botonCanilla != null)
             botonCanilla.interactable = false;
 
-        // Limpiar y apagar todos los slots limpios
         ApagarSlotsLimpios();
 
         SetVisibilidadBarra(false);
@@ -363,11 +399,5 @@ public class LavadoVerduras : MonoBehaviour
             cg.interactable = visible;
             cg.blocksRaycasts = visible;
         }
-    }
-
-    private void Finalizar()
-    {
-        SetBotonContinuar(false);
-        GameManager.Instance?.ContinuarDespuesDelLavado();
     }
 }

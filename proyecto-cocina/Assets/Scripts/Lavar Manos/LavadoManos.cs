@@ -95,7 +95,6 @@ public class LavadoManos : MonoBehaviour
         if (imagenCanilla != null && canillaAbierta != null)
             imagenCanilla.sprite = canillaAbierta;
 
-        // Inicia animación del agua
         if (animacionAgua != null)
         {
             animacionAgua.gameObject.SetActive(true);
@@ -112,7 +111,6 @@ public class LavadoManos : MonoBehaviour
         if (imagenCanilla != null && canillaCerrada != null)
             imagenCanilla.sprite = canillaCerrada;
 
-        // Detiene y oculta animación del agua
         if (animacionAgua != null)
         {
             animacionAgua.Stop();
@@ -155,9 +153,19 @@ public class LavadoManos : MonoBehaviour
 
         if (barra != null) barra.value = 0f;
 
-        // Vuelve al sprite de manos sucias
-        if (imagenManos != null && manosSucias != null)
-            imagenManos.sprite = manosSucias;
+        // Asegurar que la imagen estática esté encendida, visible y con sprite de manos sucias
+        if (imagenManos != null)
+        {
+            imagenManos.gameObject.SetActive(true);
+            imagenManos.enabled = true;
+
+            Color c = imagenManos.color;
+            c.a = 1f;
+            imagenManos.color = c;
+
+            if (manosSucias != null)
+                imagenManos.sprite = manosSucias;
+        }
 
         SetVisualesLavando(false);
         SetBotonContinuar(false);
@@ -178,6 +186,16 @@ public class LavadoManos : MonoBehaviour
 
         if (animacionManos != null)
         {
+            // Si la animación corre en otro objeto distinto a imagenManos:
+            if (animacionManos.gameObject != (imagenManos != null ? imagenManos.gameObject : null))
+            {
+                if (animacionManos.gameObject.activeSelf != activo)
+                    animacionManos.gameObject.SetActive(activo);
+
+                if (imagenManos != null)
+                    imagenManos.enabled = !activo;
+            }
+
             if (activo) animacionManos.Play(); else animacionManos.Stop();
         }
     }
@@ -187,13 +205,16 @@ public class LavadoManos : MonoBehaviour
         completado = true;
         SetVisualesLavando(false);
 
-        // Al terminar el lavado también cerramos el agua
         CerrarCanilla();
 
         if (barra != null) barra.value = 1f;
 
-        if (imagenManos != null && manosLimpias != null)
-            imagenManos.sprite = manosLimpias;
+        if (imagenManos != null)
+        {
+            imagenManos.enabled = true;
+            if (manosLimpias != null)
+                imagenManos.sprite = manosLimpias;
+        }
 
         SetBotonContinuar(true, ContinuarDesdeLavado);
     }
@@ -211,19 +232,22 @@ public class LavadoManos : MonoBehaviour
     private void TerminarEtapaLavado()
     {
         SetBotonContinuar(false);
-        GameManager.Instance?.ContinuarDespuesDelLavado();
+        gameObject.SetActive(false);
+        GameManager.Instance?.ContinuarDespuesDelLavadoManos();
     }
 
     public void IniciarLavado()
     {
+        gameObject.SetActive(true);
         completado = false;
+        
         CerrarCanilla();
         ReiniciarLavado();
 
+        ActivarCamaraLavado();
+
         if (PopupContenido.Instance != null)
-            PopupContenido.Instance.MostrarInstruccionesLavado(ActivarCamaraLavado);
-        else
-            ActivarCamaraLavado();
+            PopupContenido.Instance.MostrarInstruccionesLavado(null);
     }
 
     private void ActivarCamaraLavado()
