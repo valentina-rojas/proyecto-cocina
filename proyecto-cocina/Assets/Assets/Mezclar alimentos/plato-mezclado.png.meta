@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: cdebf7ab536166d4fa4205878c82cb30
+guid: 7862c8998ef4f3a4384129cee318d010
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2456122699642329245
-    second: tomate emplatado_0
+      213: 7093461948491938049
+    second: plato-mezclado_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: tomate emplatado_0
+      name: plato-mezclado_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 319
-        height: 181
+        width: 408
+        height: 396
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d9854fc0596e51220800000000000000
-      internalID: 2456122699642329245
+      spriteID: 109bc933f0a017260800000000000000
+      internalID: 7093461948491938049
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      tomate emplatado_0: 2456122699642329245
+      plato-mezclado_0: 7093461948491938049
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

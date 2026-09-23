@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 6a862b50e53d0a449a984720cdd8dada
+guid: 22d968ee08578fe4a90f31e3908acff1
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6551152255779376774
-    second: escena7_0
+      213: 2881406217531026938
+    second: bowl-vacio_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: escena7_0
+      name: bowl-vacio_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1920
-        height: 1080
+        width: 1036
+        height: 821
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 68e8a33644e5aea50800000000000000
-      internalID: 6551152255779376774
+      spriteID: afde98140bfccf720800000000000000
+      internalID: 2881406217531026938
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      escena7_0: 6551152255779376774
+      bowl-vacio_0: 2881406217531026938
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

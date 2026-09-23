@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 6a862b50e53d0a449a984720cdd8dada
+guid: a1d2222fb1eb0b347b288660ec25483e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6551152255779376774
-    second: escena7_0
+      213: -5642368800914093987
+    second: 8-victoria_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,7 +113,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: escena7_0
+      name: 8-victoria_0
       rect:
         serializedVersion: 2
         x: 0
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 68e8a33644e5aea50800000000000000
-      internalID: 6551152255779376774
+      spriteID: d58c4c9587742b1b0800000000000000
+      internalID: -5642368800914093987
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      escena7_0: 6551152255779376774
+      8-victoria_0: -5642368800914093987
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

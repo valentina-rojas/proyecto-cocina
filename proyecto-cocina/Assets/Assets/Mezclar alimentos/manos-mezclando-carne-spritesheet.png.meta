@@ -1,22 +1,19 @@
 fileFormatVersion: 2
-guid: 7f10821fefe7d4e40a707adf59827390
+guid: 6623d540137ae564bb545b100d7169e7
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1236000809863804804
-    second: hamburguesa-spritesheet 1_0
+      213: 5992971458108402220
+    second: manos-mezclando-carne-spritesheet_0
   - first:
-      213: 6833191812178603303
-    second: hamburguesa-spritesheet 1_1
+      213: 2353781785822235164
+    second: manos-mezclando-carne-spritesheet_1
   - first:
-      213: 1569274353399582308
-    second: hamburguesa-spritesheet 1_2
+      213: -2216227396584794692
+    second: manos-mezclando-carne-spritesheet_2
   - first:
-      213: 7167283986084743036
-    second: hamburguesa-spritesheet 1_3
-  - first:
-      213: -1758466824734259122
-    second: hamburguesa-spritesheet 1_4
+      213: 7555342775219328941
+    second: manos-mezclando-carne-spritesheet_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -84,7 +81,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -125,13 +122,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: hamburguesa-spritesheet 1_0
+      name: manos-mezclando-carne-spritesheet_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 421
-        height: 436
+        width: 1920
+        height: 676
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -140,96 +137,52 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 487f60e1038272110800000000000000
-      internalID: 1236000809863804804
+      spriteID: c2a2b9df9cf4b2350800000000000000
+      internalID: 5992971458108402220
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hamburguesa-spritesheet 1_1
+      name: manos-mezclando-carne-spritesheet_1
       rect:
         serializedVersion: 2
-        x: 421
+        x: 1920
         y: 0
-        width: 421
-        height: 436
+        width: 1920
+        height: 676
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: b0d853350d38f72419b020a059294c1d
-      internalID: 6833191812178603303
+      spriteID: c1a08b630105aa020800000000000000
+      internalID: 2353781785822235164
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hamburguesa-spritesheet 1_2
+      name: manos-mezclando-carne-spritesheet_2
       rect:
         serializedVersion: 2
-        x: 842
+        x: 3840
         y: 0
-        width: 421
-        height: 436
+        width: 1920
+        height: 676
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 1a0475ad01d4334489d69f51560f552d
-      internalID: 1569274353399582308
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: hamburguesa-spritesheet 1_3
-      rect:
-        serializedVersion: 2
-        x: 1263
-        y: 0
-        width: 421
-        height: 436
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c85678604aef3064ab9f7d3f52893281
-      internalID: 7167283986084743036
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: hamburguesa-spritesheet 1_4
-      rect:
-        serializedVersion: 2
-        x: 1684
-        y: 0
-        width: 421
-        height: 436
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 329b0c01ccd51384eae8ec85f8b77c72
-      internalID: -1758466824734259122
+      spriteID: cb51315cce06e31e0800000000000000
+      internalID: -2216227396584794692
       vertices: []
       indices: 
       edges: []
@@ -238,7 +191,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 9470a90f715fd8042bcd571c9b8e0bf9
+    spriteID: d9dfd7ad7480772468083076e5eba2d5
     internalID: 0
     vertices: []
     indices: 
@@ -248,13 +201,11 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":5.0,"y":1.0},"gridSpriteSize":{"x":421.0,"y":436.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":3.0,"y":1.0},"gridSpriteSize":{"x":1920.0,"y":676.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      hamburguesa-spritesheet 1_0: 1236000809863804804
-      hamburguesa-spritesheet 1_1: 6833191812178603303
-      hamburguesa-spritesheet 1_2: 1569274353399582308
-      hamburguesa-spritesheet 1_3: 7167283986084743036
-      hamburguesa-spritesheet 1_4: -1758466824734259122
+      manos-mezclando-carne-spritesheet_0: 5992971458108402220
+      manos-mezclando-carne-spritesheet_1: 2353781785822235164
+      manos-mezclando-carne-spritesheet_2: -2216227396584794692
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

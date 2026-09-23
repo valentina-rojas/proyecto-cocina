@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 6272ffeefa9879e4592c21c66292946a
+guid: 3ea548ca7be5b7548ad710951f5d53b3
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6676581672595578338
-    second: queso emplatado_0
+      213: 8968940389053004262
+    second: carne-plato (1)_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: queso emplatado_0
+      name: carne-plato (1)_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 252
-        height: 198
+        width: 668
+        height: 373
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e12ae03c7540853a0800000000000000
-      internalID: -6676581672595578338
+      spriteID: 6e9782da3c3187c70800000000000000
+      internalID: 8968940389053004262
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      queso emplatado_0: -6676581672595578338
+      carne-plato (1)_0: 8968940389053004262
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

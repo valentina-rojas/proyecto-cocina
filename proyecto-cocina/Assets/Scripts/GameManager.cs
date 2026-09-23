@@ -8,9 +8,10 @@ public class GameManager : MonoBehaviour
     {
         OrdenandoIngredientes,
         SeleccionandoReceta,
-        LavadoVerduras, // <-- Nuevo estado antes de LavadoManos
+        LavadoVerduras,
         LavadoManos,
         Cortado,
+        Mezclado, // <-- NUEVA ETAPA
         Coccion,
         Emplatado,
         Final
@@ -46,25 +47,10 @@ public class GameManager : MonoBehaviour
     // REGISTRO DE ERRORES
     // =========================================================
 
-    public void RegistrarIngredientesMalOrdenados()
-    {
-        puntuacion?.RegistrarIngredientesMalOrdenados();
-    }
-
-    public void RegistrarCarneCruda()
-    {
-        puntuacion?.RegistrarCarneCruda();
-    }
-
-    public void RegistrarCarneQuemada()
-    {
-        puntuacion?.RegistrarCarneQuemada();
-    }
-
-    public void RegistrarContaminacionCruzadaCortado()
-    {
-        puntuacion?.RegistrarContaminacionCruzadaCortado();
-    }
+    public void RegistrarIngredientesMalOrdenados() => puntuacion?.RegistrarIngredientesMalOrdenados();
+    public void RegistrarCarneCruda() => puntuacion?.RegistrarCarneCruda();
+    public void RegistrarCarneQuemada() => puntuacion?.RegistrarCarneQuemada();
+    public void RegistrarContaminacionCruzadaCortado() => puntuacion?.RegistrarContaminacionCruzadaCortado();
 
     // =========================================================
     // ETAPA 1 - GUARDADO DE ALIMENTOS
@@ -95,9 +81,7 @@ public class GameManager : MonoBehaviour
 
         if (PopupContenido.Instance != null)
         {
-            PopupContenido.Instance.MostrarInstruccionesReceta(
-                EmpezarSeleccionReceta
-            );
+            PopupContenido.Instance.MostrarInstruccionesReceta(EmpezarSeleccionReceta);
         }
         else
         {
@@ -119,9 +103,7 @@ public class GameManager : MonoBehaviour
 
         if (esValido)
         {
-            UIManager.Instance?.PrepararBotonContinuar(
-                ContinuarDesdeSeleccionReceta
-            );
+            UIManager.Instance?.PrepararBotonContinuar(ContinuarDesdeSeleccionReceta);
         }
         else
         {
@@ -138,13 +120,11 @@ public class GameManager : MonoBehaviour
     {
         SeleccionRecetaManager.Instance?.FinalizarSeleccion();
         UIManager.Instance?.OcultarBotonContinuar();
-
-        // Tras seleccionar la receta, vamos al LAVADO DE VERDURAS
         ActivarLavadoVerduras();
     }
 
     // =========================================================
-    // ETAPA 3 - LAVADO DE VERDURAS (NUEVO)
+    // ETAPA 3 - LAVADO DE VERDURAS
     // =========================================================
 
     public void ActivarLavadoVerduras()
@@ -176,7 +156,6 @@ public class GameManager : MonoBehaviour
 
     public void ContinuarDespuesDelLavadoManos()
     {
-        // Al terminar el lavado de manos, pasamos al CORTADO
         ActivarCortado();
     }
 
@@ -192,12 +171,49 @@ public class GameManager : MonoBehaviour
 
     public void ContinuarDespuesDelCortado()
     {
+        // En lugar de ir directo a Cocción, pasamos a Mezclado
         if (PopupContenido.Instance != null)
         {
             PopupContenido.Instance.MostrarFeedbackCortado(
                 contaminacionCruzadaCortado,
-                ActivarCoccion
+                ActivarMezclado
             );
+        }
+        else
+        {
+            ActivarMezclado();
+        }
+    }
+
+    // =========================================================
+    // ETAPA 5.5 - MEZCLADO
+    // =========================================================
+
+    public void ActivarMezclado()
+    {
+        estadoActual = EstadoJuego.Mezclado;
+        Debug.Log("[Mezclado] ActivarMezclado ejecutado");
+
+        if (PopupContenido.Instance != null)
+        {
+            PopupContenido.Instance.MostrarInstruccionesMezclado(IniciarMezclado);
+        }
+        else
+        {
+            IniciarMezclado();
+        }
+    }
+
+    private void IniciarMezclado()
+    {
+        MezcladoManager.Instance?.IniciarMezclado();
+    }
+
+    public void ContinuarDespuesDelMezclado()
+    {
+        if (PopupContenido.Instance != null)
+        {
+            PopupContenido.Instance.MostrarFeedbackMezclado(ActivarCoccion);
         }
         else
         {
@@ -259,9 +275,7 @@ public class GameManager : MonoBehaviour
     private void FinalizarPartida()
     {
         estadoActual = EstadoJuego.Final;
-
         bool gano = puntuacion != null && puntuacion.EsVictoria();
-
         UIManager.Instance?.MostrarResumenFinal(gano);
     }
 

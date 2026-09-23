@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: fc57cca0d6e2ad74886d23c89530376b
+guid: 01abc0a73aa438a48a40a60c252932d7
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7829947995586942833
-    second: pan emplatado_0
+      213: -4715980164339160622
+    second: flecha-mezclar_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: pan emplatado_0
+      name: flecha-mezclar_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 418
-        height: 269
+        width: 512
+        height: 379
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 177ddb6973099ac60800000000000000
-      internalID: 7829947995586942833
+      spriteID: 2d9a6c0e6097d8eb0800000000000000
+      internalID: -4715980164339160622
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      pan emplatado_0: 7829947995586942833
+      flecha-mezclar_0: -4715980164339160622
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

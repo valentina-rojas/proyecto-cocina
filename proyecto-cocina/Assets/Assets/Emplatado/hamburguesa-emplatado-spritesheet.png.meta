@@ -1,22 +1,22 @@
 fileFormatVersion: 2
-guid: 01281b9c29ceb464da13e89403364f72
+guid: f030cd5db33caba48831f6f4b2a256a5
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5874101106495223124
-    second: hamburguesa-spritesheet_0
+      213: -3913432170857964161
+    second: hamburguesa-emplatado-spritesheet_0
   - first:
-      213: -6424054936020723806
-    second: hamburguesa-spritesheet_1
+      213: -3212230067247190999
+    second: hamburguesa-emplatado-spritesheet_1
   - first:
-      213: 6826639567518245684
-    second: hamburguesa-spritesheet_2
+      213: -7425308786885074158
+    second: hamburguesa-emplatado-spritesheet_2
   - first:
-      213: 3987425782847668203
-    second: hamburguesa-spritesheet_3
+      213: 7315807406425337771
+    second: hamburguesa-emplatado-spritesheet_3
   - first:
-      213: 5183155540051760211
-    second: hamburguesa-spritesheet_4
+      213: 1362768144118384687
+    second: hamburguesa-emplatado-spritesheet_4
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -125,13 +125,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: hamburguesa-spritesheet_0
+      name: hamburguesa-emplatado-spritesheet_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 468
-        height: 470
+        width: 418
+        height: 442
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -140,20 +140,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 455706385dff48150800000000000000
-      internalID: 5874101106495223124
+      spriteID: f7ddc63cc22b0b9c0800000000000000
+      internalID: -3913432170857964161
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hamburguesa-spritesheet_1
+      name: hamburguesa-emplatado-spritesheet_1
       rect:
         serializedVersion: 2
-        x: 468
+        x: 418
         y: 0
-        width: 468
-        height: 470
+        width: 418
+        height: 442
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -162,20 +162,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2a7d3e0621c29d6a0800000000000000
-      internalID: -6424054936020723806
+      spriteID: 92ce6e0e5cddb63d0800000000000000
+      internalID: -3212230067247190999
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hamburguesa-spritesheet_2
+      name: hamburguesa-emplatado-spritesheet_2
       rect:
         serializedVersion: 2
-        x: 936
+        x: 836
         y: 0
-        width: 468
-        height: 470
+        width: 418
+        height: 442
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -184,20 +184,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4332d8f74881dbe50800000000000000
-      internalID: 6826639567518245684
+      spriteID: 213e022dff004f890800000000000000
+      internalID: -7425308786885074158
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hamburguesa-spritesheet_3
+      name: hamburguesa-emplatado-spritesheet_3
       rect:
         serializedVersion: 2
-        x: 1404
+        x: 1254
         y: 0
-        width: 468
-        height: 470
+        width: 418
+        height: 442
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -206,20 +206,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: bef7eda8f9e265730800000000000000
-      internalID: 3987425782847668203
+      spriteID: baf67294318f68560800000000000000
+      internalID: 7315807406425337771
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hamburguesa-spritesheet_4
+      name: hamburguesa-emplatado-spritesheet_4
       rect:
         serializedVersion: 2
-        x: 1872
+        x: 1672
         y: 0
-        width: 468
-        height: 470
+        width: 418
+        height: 442
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -228,8 +228,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 354126c80844ee740800000000000000
-      internalID: 5183155540051760211
+      spriteID: f280565286689e210800000000000000
+      internalID: 1362768144118384687
       vertices: []
       indices: 
       edges: []
@@ -238,7 +238,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 7ff71788760e01c44a037db1cead15b1
+    spriteID: 5d1f04e0a268a0844ad97343f52d1056
     internalID: 0
     vertices: []
     indices: 
@@ -248,13 +248,13 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":5.0,"y":1.0},"gridSpriteSize":{"x":468.0,"y":470.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":5.0,"y":1.0},"gridSpriteSize":{"x":418.0,"y":442.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      hamburguesa-spritesheet_0: 5874101106495223124
-      hamburguesa-spritesheet_1: -6424054936020723806
-      hamburguesa-spritesheet_2: 6826639567518245684
-      hamburguesa-spritesheet_3: 3987425782847668203
-      hamburguesa-spritesheet_4: 5183155540051760211
+      hamburguesa-emplatado-spritesheet_0: -3913432170857964161
+      hamburguesa-emplatado-spritesheet_1: -3212230067247190999
+      hamburguesa-emplatado-spritesheet_2: -7425308786885074158
+      hamburguesa-emplatado-spritesheet_3: 7315807406425337771
+      hamburguesa-emplatado-spritesheet_4: 1362768144118384687
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

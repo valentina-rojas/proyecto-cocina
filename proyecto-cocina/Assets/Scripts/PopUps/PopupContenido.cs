@@ -39,6 +39,10 @@ public class PopupContenido : MonoBehaviour
     public MensajePopup fbCortado = new MensajePopup("¡Buen trabajo!", "¡Buen trabajo! Completaste correctamente el corte de los ingredientes.");
     public MensajePopup fbCortadoContaminado = new MensajePopup("¡Cuidado!", "Se produjo contaminación cruzada durante el cortado de los alimentos.");
 
+    [Header("Mezclado")]
+    public MensajePopup instMezclado = new MensajePopup("Mezclar los ingredientes", "Arrastrá los ingredientes al bowl y realizá movimientos circulares para mezclarlos.");
+    public MensajePopup fbMezclado = new MensajePopup("¡Mezcla lista!", "¡Excelente! Los ingredientes se integraron de forma uniforme.");
+
     [Header("Cocción")]
     public MensajePopup instCoccion = new MensajePopup("Cocción", "Colocá la carne sobre la hornalla y controlá el indicador de cocción.");
     public MensajePopup fbCarneCorrecta = new MensajePopup("¡Cocción perfecta!", "¡Excelente! La carne alcanzó el punto de cocción adecuado.");
@@ -102,6 +106,7 @@ public class PopupContenido : MonoBehaviour
     // Métodos para Manos y etapas siguientes
     public void MostrarInstruccionesLavado(UnityAction accion = null)         => Mostrar(instLavado, accion);
     public void MostrarInstruccionesCortado(UnityAction accion = null)        => Mostrar(instCortado, accion);
+    public void MostrarInstruccionesMezclado(UnityAction accion = null)       => Mostrar(instMezclado, accion);
     public void MostrarInstruccionesCoccion(UnityAction accion = null)        => Mostrar(instCoccion, accion);
     public void MostrarInstruccionesEmplatado(UnityAction accion = null)      => Mostrar(instEmplatado, accion);
 
@@ -115,6 +120,8 @@ public class PopupContenido : MonoBehaviour
     {
         Mostrar(huboContaminacionCruzada ? fbCortadoContaminado : fbCortado, accion);
     }
+
+    public void MostrarFeedbackMezclado(UnityAction accion = null)            => Mostrar(fbMezclado, accion);
 
     public void MostrarFeedbackCoccion(bool cruda, bool quemada, UnityAction accion = null)
     {
