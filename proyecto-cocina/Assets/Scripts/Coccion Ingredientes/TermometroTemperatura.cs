@@ -186,18 +186,24 @@ public class TermometroTemperatura : MonoBehaviour
 
     private void MostrarResultado()
     {
-        if (popupResultado != null) 
-            popupResultado.SetActive(true);
+        
+        popupResultado.SetActive(true);
 
         if (TemperaturaCorrecta)
         {
             textoResultado.text = "¡Temperatura correcta!\nLa hornalla está en temperatura óptima.";
-            if (botonReintentar != null) botonReintentar.gameObject.SetActive(false);
+            
+            // Si acertó: muestra continuar y oculta reintentar
+            botonContinuar.gameObject.SetActive(true);
+            botonReintentar.gameObject.SetActive(false);
         }
         else
         {
-            textoResultado.text = "Temperatura incorrecta.\nPodés intentarlo nuevamente o continuar con esta potencia.";
-            if (botonReintentar != null) botonReintentar.gameObject.SetActive(true);
+            textoResultado.text = "Temperatura incorrecta.\nPor favor, inténtalo de nuevo.";
+            
+            // Si falló: solo muestra reintentar y oculta continuar
+            botonContinuar.gameObject.SetActive(false);
+            botonReintentar.gameObject.SetActive(true);
         }
     }
 

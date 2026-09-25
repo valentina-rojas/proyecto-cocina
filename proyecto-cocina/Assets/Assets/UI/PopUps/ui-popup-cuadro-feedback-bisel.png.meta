@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: da6e829e7ef64f1439de57b4e90711b6
+guid: a9ae7112c1deee04b8536cc8ad898e04
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3936225256375849178
-    second: ui-barra-contaminacion-vacia_0
+      213: -4440495950407269387
+    second: ui-popup-cuadro-feedback-bisel_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ui-barra-contaminacion-vacia_0
+      name: ui-popup-cuadro-feedback-bisel_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 954
-        height: 142
+        width: 654
+        height: 663
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ad01432040840a630800000000000000
-      internalID: 3936225256375849178
+      spriteID: 5f30a69b5703062c0800000000000000
+      internalID: -4440495950407269387
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      ui-barra-contaminacion-vacia_0: 3936225256375849178
+      ui-popup-cuadro-feedback-bisel_0: -4440495950407269387
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

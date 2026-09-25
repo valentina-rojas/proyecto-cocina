@@ -1,10 +1,16 @@
 fileFormatVersion: 2
-guid: e700ff49dc563344bb6a015823c3511e
+guid: d471fb46e9d4b39448ad6cb8e782bc17
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3302718375361130864
-    second: cuchillo4_0
+      213: 5494228921663777450
+    second: ui-seleccion-alimentos-recuadro_0
+  - first:
+      213: 7628990211777242228
+    second: ui-seleccion-alimentos-recuadro_1
+  - first:
+      213: 5422060317485992968
+    second: ui-seleccion-alimentos-recuadro_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +119,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: cuchillo4_0
+      name: ui-seleccion-alimentos-recuadro_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 656
-        height: 144
+        width: 556
+        height: 896
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +134,52 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0713e842ddc95dd20800000000000000
-      internalID: 3302718375361130864
+      spriteID: aaa6276381c6f3c40800000000000000
+      internalID: 5494228921663777450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui-seleccion-alimentos-recuadro_1
+      rect:
+        serializedVersion: 2
+        x: 574
+        y: 0
+        width: 557
+        height: 896
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4742aef6d2e9fd960800000000000000
+      internalID: 7628990211777242228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui-seleccion-alimentos-recuadro_2
+      rect:
+        serializedVersion: 2
+        x: 1149
+        y: 0
+        width: 556
+        height: 896
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 80c8e76a1270f3b40800000000000000
+      internalID: 5422060317485992968
       vertices: []
       indices: 
       edges: []
@@ -148,7 +198,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      cuchillo4_0: 3302718375361130864
+      ui-seleccion-alimentos-recuadro_0: 5494228921663777450
+      ui-seleccion-alimentos-recuadro_1: 7628990211777242228
+      ui-seleccion-alimentos-recuadro_2: 5422060317485992968
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

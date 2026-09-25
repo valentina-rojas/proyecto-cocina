@@ -40,7 +40,9 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        MostrarInstruccionesIngredientes();
+       // MostrarInstruccionesIngredientes();
+
+       ActivarCortado();
     }
 
     // =========================================================

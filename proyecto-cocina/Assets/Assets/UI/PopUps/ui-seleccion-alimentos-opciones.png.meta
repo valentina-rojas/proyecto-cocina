@@ -1,10 +1,16 @@
 fileFormatVersion: 2
-guid: da6e829e7ef64f1439de57b4e90711b6
+guid: 63a940509f6402140be108b9d595e0a2
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3936225256375849178
-    second: ui-barra-contaminacion-vacia_0
+      213: 8438545828304787659
+    second: ui-seleccion-alimentos-opciones_0
+  - first:
+      213: -6110374130239230375
+    second: ui-seleccion-alimentos-opciones_1
+  - first:
+      213: -390188117980428222
+    second: ui-seleccion-alimentos-opciones_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,23 +119,67 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ui-barra-contaminacion-vacia_0
+      name: ui-seleccion-alimentos-opciones_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 954
-        height: 142
+        width: 538
+        height: 331
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ad01432040840a630800000000000000
-      internalID: 3936225256375849178
+      spriteID: bc816f4b8bcbb1570800000000000000
+      internalID: 8438545828304787659
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui-seleccion-alimentos-opciones_1
+      rect:
+        serializedVersion: 2
+        x: 538
+        y: 0
+        width: 538
+        height: 331
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 95eaa5a4a17933ba0800000000000000
+      internalID: -6110374130239230375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui-seleccion-alimentos-opciones_2
+      rect:
+        serializedVersion: 2
+        x: 1076
+        y: 0
+        width: 538
+        height: 331
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 248c23859f5c59af0800000000000000
+      internalID: -390188117980428222
       vertices: []
       indices: 
       edges: []
@@ -138,7 +188,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 20e43493fd7e7274086a7875fc57a2ca
     internalID: 0
     vertices: []
     indices: 
@@ -146,9 +196,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":3.0,"y":1.0},"gridSpriteSize":{"x":538.0,"y":331.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      ui-barra-contaminacion-vacia_0: 3936225256375849178
+      ui-seleccion-alimentos-opciones_0: 8438545828304787659
+      ui-seleccion-alimentos-opciones_1: -6110374130239230375
+      ui-seleccion-alimentos-opciones_2: -390188117980428222
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

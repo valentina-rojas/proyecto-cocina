@@ -329,18 +329,12 @@ public class CortadoManager : MonoBehaviour
 
     private bool EsCuchilloValido(TipoAlimento cuchillo, TipoAlimento alimento)
     {
-        // El cuchillo sucio siempre genera contaminación
         if (cuchillo == TipoAlimento.Sucio) return false;
 
         if (cuchillo == TipoAlimento.Carnes) return alimento == TipoAlimento.Carnes;
-        if (cuchillo == TipoAlimento.Vegetales) return alimento == TipoAlimento.Vegetales;
-        
-        // Cuchillo de secos acepta secos y lácteos
-        if (cuchillo == TipoAlimento.Secos) 
-            return alimento == TipoAlimento.Secos || alimento == TipoAlimento.Lacteos;
-
-        if (cuchillo == TipoAlimento.Aderezos) 
-            return alimento == TipoAlimento.Aderezos;
+        if (cuchillo == TipoAlimento.Secos) return alimento == TipoAlimento.Secos;
+        if (cuchillo == TipoAlimento.Aderezos) return alimento == TipoAlimento.Aderezos;
+        if (cuchillo == TipoAlimento.Vegetales) return alimento == TipoAlimento.Vegetales || alimento == TipoAlimento.Lacteos;
 
         return cuchillo == alimento;
     }

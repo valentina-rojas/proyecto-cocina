@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 171915d754c44974e9e5042f5dac4fc6
+guid: f192c02a0b102f14aa5290e2e996c7c1
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8546328687746647506
-    second: cuchillo2_0
+      213: -5307355248838945263
+    second: ui-popup-cuadro-devolucion-nivel_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: cuchillo2_0
+      name: ui-popup-cuadro-devolucion-nivel_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 797
-        height: 126
+        width: 648
+        height: 448
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e2a7121c657556980800000000000000
-      internalID: -8546328687746647506
+      spriteID: 1165620558c7856b0800000000000000
+      internalID: -5307355248838945263
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      cuchillo2_0: -8546328687746647506
+      ui-popup-cuadro-devolucion-nivel_0: -5307355248838945263
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
