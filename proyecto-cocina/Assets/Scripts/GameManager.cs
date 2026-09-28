@@ -40,10 +40,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-      //  MostrarInstruccionesIngredientes();
-
-      ActivarEmplatado(); 
-
+       MostrarInstruccionesIngredientes();
 
     }
 
