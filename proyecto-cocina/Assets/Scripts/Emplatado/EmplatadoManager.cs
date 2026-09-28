@@ -11,7 +11,6 @@ public class EmplatadoManager : MonoBehaviour
 
     private bool emplatadoCompletado = false;
 
-
     // =========================================================
     // UNITY
     // =========================================================
@@ -28,12 +27,10 @@ public class EmplatadoManager : MonoBehaviour
         }
     }
 
-
     private void Start()
     {
         OcultarBoton();
     }
-
 
     // =========================================================
     // INICIAR ETAPA
@@ -41,36 +38,33 @@ public class EmplatadoManager : MonoBehaviour
 
     public void IniciarEmplatado()
     {
+        gameObject.SetActive(true);
         emplatadoCompletado = false;
 
         OcultarBoton();
 
         if (GameManager.Instance != null)
         {
-            GameManager.Instance.estadoActual =
-                GameManager.EstadoJuego.Emplatado;
+            GameManager.Instance.estadoActual = GameManager.EstadoJuego.Emplatado;
         }
 
-        Debug.Log(
-            "EmplatadoManager: Iniciando etapa de emplatado."
-        );
+        Debug.Log("EmplatadoManager: Iniciando etapa de emplatado.");
 
         if (PopupContenido.Instance != null)
         {
-            PopupContenido.Instance.MostrarInstruccionesEmplatado(
-                ActivarCamaraEmplatado
-            );
+            PopupContenido.Instance.MostrarInstruccionesEmplatado(AlConfirmarInicio);
         }
         else
         {
-            Debug.LogError(
-                "EmplatadoManager: No existe PopupContenido."
-            );
-
-            ActivarCamaraEmplatado();
+            AlConfirmarInicio();
         }
     }
 
+    private void AlConfirmarInicio()
+    {
+        ActivarCamaraEmplatado();
+        PlateManager.Instance?.ActualizarIngredientePalpitando();
+    }
 
     // =========================================================
     // CÁMARA
@@ -80,17 +74,13 @@ public class EmplatadoManager : MonoBehaviour
     {
         if (CameraManager.Instance != null)
         {
-            CameraManager.Instance
-                .MostrarCamaraEmplatado();
+            CameraManager.Instance.MostrarCamaraEmplatado();
         }
         else
         {
-            Debug.LogError(
-                "EmplatadoManager: No existe CameraManager."
-            );
+            Debug.LogError("EmplatadoManager: No existe CameraManager.");
         }
     }
-
 
     // =========================================================
     // EMPLATADO COMPLETADO
@@ -103,17 +93,10 @@ public class EmplatadoManager : MonoBehaviour
 
         emplatadoCompletado = true;
 
-        Debug.Log(
-            "EmplatadoManager: Emplatado completado."
-        );
+        Debug.Log("EmplatadoManager: Emplatado completado.");
 
-        // Primero aparece el botón Siguiente.
-        // El feedback NO aparece automáticamente.
-        PrepararBoton(
-            ContinuarDesdeEmplatado
-        );
+        PrepararBoton(ContinuarDesdeEmplatado);
     }
-
 
     // =========================================================
     // BOTÓN SIGUIENTE
@@ -123,26 +106,17 @@ public class EmplatadoManager : MonoBehaviour
     {
         if (botonContinuar == null)
         {
-            Debug.LogError(
-                "EmplatadoManager: No está asignado el botón Siguiente."
-            );
-
+            Debug.LogError("EmplatadoManager: No está asignado el botón Siguiente.");
             return;
         }
 
         botonContinuar.onClick.RemoveAllListeners();
-
         botonContinuar.onClick.AddListener(accion);
-
         botonContinuar.gameObject.SetActive(true);
-
         botonContinuar.interactable = true;
 
-        Debug.Log(
-            "EmplatadoManager: Botón Siguiente habilitado."
-        );
+        Debug.Log("EmplatadoManager: Botón Siguiente habilitado.");
     }
-
 
     private void OcultarBoton()
     {
@@ -150,12 +124,9 @@ public class EmplatadoManager : MonoBehaviour
             return;
 
         botonContinuar.onClick.RemoveAllListeners();
-
         botonContinuar.interactable = false;
-
         botonContinuar.gameObject.SetActive(false);
     }
-
 
     // =========================================================
     // FEEDBACK
@@ -165,26 +136,17 @@ public class EmplatadoManager : MonoBehaviour
     {
         OcultarBoton();
 
-        Debug.Log(
-            "EmplatadoManager: Mostrando feedback del emplatado."
-        );
+        Debug.Log("EmplatadoManager: Mostrando feedback del emplatado.");
 
         if (PopupContenido.Instance != null)
         {
-            PopupContenido.Instance.MostrarFeedbackEmplatado(
-                TerminarEtapaEmplatado
-            );
+            PopupContenido.Instance.MostrarFeedbackEmplatado(TerminarEtapaEmplatado);
         }
         else
         {
-            Debug.LogError(
-                "EmplatadoManager: No existe PopupContenido."
-            );
-
             TerminarEtapaEmplatado();
         }
     }
-
 
     // =========================================================
     // TERMINAR ETAPA
@@ -194,9 +156,7 @@ public class EmplatadoManager : MonoBehaviour
     {
         OcultarBoton();
 
-        Debug.Log(
-            "EmplatadoManager: Etapa de emplatado finalizada."
-        );
+        Debug.Log("EmplatadoManager: Etapa de emplatado finalizada.");
 
         if (GameManager.Instance != null)
         {
@@ -204,9 +164,7 @@ public class EmplatadoManager : MonoBehaviour
         }
         else
         {
-            Debug.LogError(
-                "EmplatadoManager: No existe GameManager."
-            );
+            Debug.LogError("EmplatadoManager: No existe GameManager.");
         }
     }
 }

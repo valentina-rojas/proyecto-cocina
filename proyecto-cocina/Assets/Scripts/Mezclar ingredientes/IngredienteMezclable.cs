@@ -52,6 +52,9 @@ public class IngredienteMezclable : MonoBehaviour, IBeginDragHandler, IDragHandl
         wasConsumed = false;
         canvasGroup.blocksRaycasts = false; // Permite que el bowl detecte el OnDrop
 
+        // Detiene el palpitar y devuelve el ingrediente a su escala natural al arrastrarlo
+        MezcladoManager.Instance?.DetenerPalpitarIngrediente();
+
         if (rootCanvas != null)
         {
             transform.SetParent(rootCanvas.transform, true);
@@ -75,17 +78,22 @@ public class IngredienteMezclable : MonoBehaviour, IBeginDragHandler, IDragHandl
     {
         canvasGroup.blocksRaycasts = true;
 
-        // Si no cayó dentro del bowl, regresa a su posición y padre originales
+        // Si no cayó dentro del bowl, regresa a su posición, padre original y vuelve a palpitar
         if (!wasConsumed)
         {
             transform.SetParent(originalParent, true);
             rectTransform.anchoredPosition = originalAnchoredPosition;
+
+            // Reanuda el palpitar si el jugador lo soltó fuera del bowl
+            MezcladoManager.Instance?.ReanudarPalpitarIngrediente();
         }
     }
 
     public void Consume()
     {
         wasConsumed = true;
+        // Se asegura de apagar la animación al consumirse
+        MezcladoManager.Instance?.DetenerPalpitarIngrediente();
         gameObject.SetActive(false); // O Destroy(gameObject); si prefieres eliminarlo
     }
 

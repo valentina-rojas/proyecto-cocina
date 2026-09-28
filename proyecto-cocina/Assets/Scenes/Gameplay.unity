@@ -190,6 +190,10 @@ MonoBehaviour:
   - {fileID: 7315807406425337771, guid: f030cd5db33caba48831f6f4b2a256a5, type: 3}
   - {fileID: 1362768144118384687, guid: f030cd5db33caba48831f6f4b2a256a5, type: 3}
   ordenCorrecto: 00000000010000000200000003000000
+  ingredientesEnMesa: []
+  velocidadPalpitar: 4
+  escalaMinima: 0.97
+  escalaMaxima: 1.02
 --- !u!4 &27558698
 Transform:
   m_ObjectHideFlags: 0
@@ -762,7 +766,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -121.71, y: 3.253}
+  m_AnchoredPosition: {x: -121.71, y: 7}
   m_SizeDelta: {x: 1412.9, y: 152.9477}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &62922683
@@ -813,20 +817,20 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 50
-  m_fontSizeBase: 50
+  m_fontSize: 45
+  m_fontSizeBase: 45
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 1
   m_HorizontalAlignment: 1
-  m_VerticalAlignment: 512
+  m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_characterHorizontalScale: 1
   m_wordSpacing: 0
-  m_lineSpacing: 25
+  m_lineSpacing: 20
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
@@ -1210,6 +1214,7 @@ GameObject:
   - component: {fileID: 110118448}
   - component: {fileID: 110118447}
   - component: {fileID: 110118449}
+  - component: {fileID: 110118450}
   m_Layer: 0
   m_Name: slot verdura sucia
   m_TagString: Untagged
@@ -1318,6 +1323,22 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &110118450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 110118445}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50237c956dc29ee449ff42543d2a4335, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UIPalpitacion
+  velocidad: 5
+  escalaMinima: 0.99
+  escalaMaxima: 1.02
+  iniciarAlActivar: 0
 --- !u!1001 &114062099
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2257,6 +2278,9 @@ MonoBehaviour:
   - {fileID: 927903693}
   - {fileID: 635929411}
   manoVerdura: {fileID: 1864198200}
+  velocidadPalpitar: 4
+  escalaMinima: 0.98
+  escalaMaxima: 1.02
   barraProgreso: {fileID: 969620607}
   objetoBarra: {fileID: 0}
   botonContinuar: {fileID: 991081302}
@@ -3011,6 +3035,9 @@ MonoBehaviour:
   contenedorSpawn: {fileID: 856351509}
   prefabsIngredientes:
   - {fileID: 7770242815649494434, guid: f2efd0947f8fa4542ae234b48f07daef, type: 3}
+  velocidadPalpitar: 4
+  escalaMinima: 0.98
+  escalaMaxima: 1.02
 --- !u!1 &308327409
 GameObject:
   m_ObjectHideFlags: 0
@@ -4321,6 +4348,7 @@ GameObject:
   - component: {fileID: 465080468}
   - component: {fileID: 465080467}
   - component: {fileID: 465080466}
+  - component: {fileID: 465080469}
   m_Layer: 0
   m_Name: slot verdura sucia
   m_TagString: Untagged
@@ -4429,6 +4457,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 465080464}
   m_CullTransparentMesh: 1
+--- !u!114 &465080469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 465080464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50237c956dc29ee449ff42543d2a4335, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UIPalpitacion
+  velocidad: 5
+  escalaMinima: 0.99
+  escalaMaxima: 1.02
+  iniciarAlActivar: 0
 --- !u!1 &487235009
 GameObject:
   m_ObjectHideFlags: 0
@@ -7752,8 +7796,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -426.51, y: 132}
-  m_SizeDelta: {x: 803.2841, y: 63.4982}
+  m_AnchoredPosition: {x: -370.93, y: 132}
+  m_SizeDelta: {x: 914.4622, y: 63.4982}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &743844398
 MonoBehaviour:
@@ -8280,6 +8324,7 @@ GameObject:
   - component: {fileID: 780014592}
   - component: {fileID: 780014590}
   - component: {fileID: 780014591}
+  - component: {fileID: 780014593}
   m_Layer: 0
   m_Name: canilla
   m_TagString: Untagged
@@ -8447,6 +8492,22 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &780014593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 780014587}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50237c956dc29ee449ff42543d2a4335, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UIPalpitacion
+  velocidad: 5
+  escalaMinima: 0.99
+  escalaMaxima: 1.02
+  iniciarAlActivar: 0
 --- !u!1 &810115506
 GameObject:
   m_ObjectHideFlags: 0
@@ -8905,6 +8966,7 @@ GameObject:
   - component: {fileID: 857308055}
   - component: {fileID: 857308054}
   - component: {fileID: 857308056}
+  - component: {fileID: 857308057}
   m_Layer: 0
   m_Name: jabon
   m_TagString: Untagged
@@ -8981,6 +9043,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a49b94e7dd24b14889d5f06741e439e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SoapController
+--- !u!114 &857308057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 857308051}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50237c956dc29ee449ff42543d2a4335, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UIPalpitacion
+  velocidad: 5
+  escalaMinima: 0.99
+  escalaMaxima: 1.02
+  iniciarAlActivar: 0
 --- !u!1 &910695083
 GameObject:
   m_ObjectHideFlags: 0
@@ -9485,80 +9563,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e4742977594419498a45801cf12dbd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PopupContenido
-  instIngredientes:
-    titulo: Guardado de alimentos
-    texto: "Almacen\xE1 cada alimento en el lugar correspondiente."
-    imagen: {fileID: 614017651250292314, guid: 98682f698076ddb4cafe20c894318213, type: 3}
-  fbIngredientesCorrectos:
-    titulo: "\xA1Muy bien!"
-    texto: "\xA1Muy bien! Todos los ingredientes fueron almacenados correctamente."
-    imagen: {fileID: 2993095752457197746, guid: 6aa6eb039ee823045996d1e8abb3c1d0, type: 3}
-  fbIngredientesIncorrectos:
-    titulo: "Revis\xE1 la organizaci\xF3n"
-    texto: Hay ingredientes almacenados en lugares incorrectos.
-    imagen: {fileID: 2993095752457197746, guid: 6aa6eb039ee823045996d1e8abb3c1d0, type: 3}
-  instLavadoVerduras:
-    titulo: Lavado de verduras
-    texto: Asegurate de lavar correctamente las verduras para quitarles la suciedad.
-    imagen: {fileID: 0}
-  fbLavadoVerduras:
-    titulo: "\xA1Verduras limpias!"
-    texto: "\xA1Excelente! Todas las verduras quedaron limpias y listas para cortar."
-    imagen: {fileID: 0}
-  instLavado:
-    titulo: Lavado de manos
-    texto: Lavate las manos antes de comenzar a manipular los alimentos.
-    imagen: {fileID: 2196400052816904958, guid: 260a8a45222952941b8c61ab3b03e519, type: 3}
-  fbLavado:
-    titulo: "\xA1Lavado completado!"
-    texto: "\xA1Muy bien! Completaste correctamente el lavado de manos."
-    imagen: {fileID: 7243696176584207193, guid: 921920767bd1cc444a633475b157a3cf, type: 3}
-  instCortado:
-    titulo: Cortar los ingredientes
-    texto: "Us\xE1 el cuchillo para cortar el ingrediente siguiendo los puntos de
-      corte."
-    imagen: {fileID: 6551152255779376774, guid: 6a862b50e53d0a449a984720cdd8dada, type: 3}
-  fbCortado:
-    titulo: "\xA1Buen trabajo!"
-    texto: "\xA1Buen trabajo! Completaste correctamente el corte de los ingredientes."
-    imagen: {fileID: -6590363398050559408, guid: 4c75e87845e0e4841bd40c46d1b4532b, type: 3}
-  fbCortadoContaminado:
-    titulo: "\xA1Cuidado!"
-    texto: "Se produjo contaminaci\xF3n cruzada durante el cortado de los alimentos."
-    imagen: {fileID: -6590363398050559408, guid: 4c75e87845e0e4841bd40c46d1b4532b, type: 3}
-  instMezclado:
-    titulo: Mezclar los ingredientes
-    texto: "Arrastr\xE1 los ingredientes al bowl y realiz\xE1 movimientos circulares
-      para mezclarlos."
-    imagen: {fileID: 0}
-  fbMezclado:
-    titulo: "\xA1Mezcla lista!"
-    texto: "\xA1Excelente! Los ingredientes se integraron de forma uniforme."
-    imagen: {fileID: 0}
-  instCoccion:
-    titulo: "Cocci\xF3n"
-    texto: "Coloc\xE1 la carne sobre la hornalla y control\xE1 el indicador de cocci\xF3n."
-    imagen: {fileID: -6590363398050559408, guid: 4c75e87845e0e4841bd40c46d1b4532b, type: 3}
-  fbCarneCorrecta:
-    titulo: "\xA1Cocci\xF3n perfecta!"
-    texto: "\xA1Excelente! La carne alcanz\xF3 el punto de cocci\xF3n adecuado."
-    imagen: {fileID: -5932461725324412915, guid: 039b76ff0105efd408b1de656ff7be92, type: 3}
-  fbCarneCruda:
-    titulo: "Cocci\xF3n incompleta"
-    texto: "La carne qued\xF3 cruda."
-    imagen: {fileID: -5932461725324412915, guid: 039b76ff0105efd408b1de656ff7be92, type: 3}
-  fbCarneQuemada:
-    titulo: "Cocci\xF3n incorrecta"
-    texto: "La carne se quem\xF3."
-    imagen: {fileID: -5932461725324412915, guid: 039b76ff0105efd408b1de656ff7be92, type: 3}
-  instEmplatado:
-    titulo: Emplatado
-    texto: "Coloc\xE1 los ingredientes en el plato siguiendo el orden indicado."
-    imagen: {fileID: -6590363398050559408, guid: 4c75e87845e0e4841bd40c46d1b4532b, type: 3}
-  fbEmplatado:
-    titulo: "\xA1Plato terminado!"
-    texto: "\xA1Plato terminado! Completaste correctamente la preparaci\xF3n."
-    imagen: {fileID: 0}
+  imgInstIngredientes: {fileID: 614017651250292314, guid: 98682f698076ddb4cafe20c894318213, type: 3}
+  imgFbIngredientesCorrectos: {fileID: 2993095752457197746, guid: 6aa6eb039ee823045996d1e8abb3c1d0, type: 3}
+  imgFbIngredientesIncorrectos: {fileID: 2993095752457197746, guid: 6aa6eb039ee823045996d1e8abb3c1d0, type: 3}
+  imgInstLavadoVerduras: {fileID: 0}
+  imgFbLavadoVerduras: {fileID: 0}
+  imgInstLavadoManos: {fileID: 2196400052816904958, guid: 260a8a45222952941b8c61ab3b03e519, type: 3}
+  imgFbLavadoManos: {fileID: 7243696176584207193, guid: 921920767bd1cc444a633475b157a3cf, type: 3}
+  imgInstCortado: {fileID: 6551152255779376774, guid: 6a862b50e53d0a449a984720cdd8dada, type: 3}
+  imgFbCortado: {fileID: 6551152255779376774, guid: 6a862b50e53d0a449a984720cdd8dada, type: 3}
+  imgFbCortadoContaminado: {fileID: 6551152255779376774, guid: 6a862b50e53d0a449a984720cdd8dada, type: 3}
+  imgInstMezclado: {fileID: 1555306994392857404, guid: 9a9876163f5846f4fb31b2a9a5ce08a1, type: 3}
+  imgFbMezclado: {fileID: 1555306994392857404, guid: 9a9876163f5846f4fb31b2a9a5ce08a1, type: 3}
+  imgInstCoccion: {fileID: -6590363398050559408, guid: 4c75e87845e0e4841bd40c46d1b4532b, type: 3}
+  imgFbCarneCorrecta: {fileID: -5932461725324412915, guid: 039b76ff0105efd408b1de656ff7be92, type: 3}
+  imgFbCarneCruda: {fileID: -5932461725324412915, guid: 039b76ff0105efd408b1de656ff7be92, type: 3}
+  imgFbCarneQuemada: {fileID: -5932461725324412915, guid: 039b76ff0105efd408b1de656ff7be92, type: 3}
+  imgInstEmplatado: {fileID: 0}
+  imgFbEmplatado: {fileID: 0}
 --- !u!1 &967623965
 GameObject:
   m_ObjectHideFlags: 0
@@ -11847,6 +11869,7 @@ GameObject:
   - component: {fileID: 1178991263}
   - component: {fileID: 1178991260}
   - component: {fileID: 1178991262}
+  - component: {fileID: 1178991264}
   m_Layer: 0
   m_Name: canilla
   m_TagString: Untagged
@@ -12014,6 +12037,22 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1178991264
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1178991258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50237c956dc29ee449ff42543d2a4335, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UIPalpitacion
+  velocidad: 5
+  escalaMinima: 0.99
+  escalaMaxima: 1.02
+  iniciarAlActivar: 0
 --- !u!1 &1192028237
 GameObject:
   m_ObjectHideFlags: 0
@@ -18127,6 +18166,10 @@ MonoBehaviour:
   imagenCanilla: {fileID: 780014591}
   canillaCerrada: {fileID: -5805330970839551717, guid: d04d604e5cbc2a6458ddfbd674c655ad, type: 3}
   canillaAbierta: {fileID: -7788344583197865734, guid: d04d604e5cbc2a6458ddfbd674c655ad, type: 3}
+  objetoJabon: {fileID: 857308052}
+  velocidadPalpitar: 4
+  escalaMinima: 0.98
+  escalaMaxima: 1.02
   animacionAgua: {fileID: 284611532}
   animacionManos: {fileID: 818756225}
   animacionEspuma: {fileID: 173808897}
@@ -19710,7 +19753,7 @@ MonoBehaviour:
   - {fileID: 6449779012464524062, guid: 5b9afa9cff6ab47409f51ea172514587, type: 3}
   - {fileID: -728961273469668548, guid: 5b9afa9cff6ab47409f51ea172514587, type: 3}
   - {fileID: -3168058070270868474, guid: 5b9afa9cff6ab47409f51ea172514587, type: 3}
-  frameRate: 0.08
+  frameRate: 0.9
   loop: 1
   playOnStart: 1
 --- !u!1 &1938907311
@@ -21839,6 +21882,9 @@ MonoBehaviour:
   carne: {fileID: 1431918765}
   hornalla: {fileID: 611479537}
   termometro: {fileID: 530158670}
+  velocidadPalpitar: 4
+  escalaMinima: 0.98
+  escalaMaxima: 1.02
   botonContinuar: {fileID: 991081302}
 --- !u!1 &2099846733
 GameObject:
@@ -22249,6 +22295,7 @@ GameObject:
   - component: {fileID: 2124255090}
   - component: {fileID: 2124255089}
   - component: {fileID: 2124255088}
+  - component: {fileID: 2124255091}
   m_Layer: 0
   m_Name: slot verdura sucia
   m_TagString: Untagged
@@ -22357,6 +22404,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2124255086}
   m_CullTransparentMesh: 1
+--- !u!114 &2124255091
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2124255086}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50237c956dc29ee449ff42543d2a4335, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UIPalpitacion
+  velocidad: 5
+  escalaMinima: 0.99
+  escalaMaxima: 1.02
+  iniciarAlActivar: 0
 --- !u!1 &2128922410
 GameObject:
   m_ObjectHideFlags: 0

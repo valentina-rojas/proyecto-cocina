@@ -28,6 +28,9 @@ public class DraggableIngredienteEmplatado : MonoBehaviour,
         posicionInicial = rectTransform.anchoredPosition;
         padreInicial = transform.parent;
 
+        // Pausa la palpitación para arrastrar con la escala original limpia
+        PlateManager.Instance?.DetenerPalpitarActual();
+
         transform.SetParent(canvas.transform);
 
         if (canvasGroup != null)
@@ -50,8 +53,11 @@ public class DraggableIngredienteEmplatado : MonoBehaviour,
             return;
         }
 
+        // Si se soltó fuera del plato o en el orden incorrecto, regresa y reanuda la palpitación
         transform.SetParent(padreInicial);
         rectTransform.anchoredPosition = posicionInicial;
+
+        PlateManager.Instance?.ReanudarPalpitarActual();
     }
 
     public void ColocadoCorrectamente()

@@ -11,10 +11,21 @@ public class CoccionManager : MonoBehaviour
     [SerializeField] private Hornalla hornalla;
     [SerializeField] private TermometroTemperatura termometro;
 
+    [Header("Animación de Palpitar (Perilla)")]
+    [SerializeField] private float velocidadPalpitar = 4f;
+    [SerializeField] private float escalaMinima = 0.98f;
+    [SerializeField] private float escalaMaxima = 1.02f;
+
     [Header("UI")]
     [SerializeField] private Button botonContinuar;
 
     private bool coccionCompletada;
+
+    // Control de palpitación interna
+    private Transform perillaPalpitar;
+    private Vector3 escalaOriginalPerilla = Vector3.one;
+    private float tiempoAnimacion;
+    private bool estaPalpitandoPerilla;
 
     private void Awake()
     {
@@ -29,7 +40,28 @@ public class CoccionManager : MonoBehaviour
         SetBotonContinuar(false);
 
         if (hornalla != null && hornalla.botonCoccion != null)
+        {
             hornalla.botonCoccion.interactable = false;
+            // Al hacer clic en la perilla para encender el fuego, se detiene la animación
+            hornalla.botonCoccion.onClick.AddListener(DetenerPalpitarPerilla);
+        }
+    }
+
+    private void OnDisable()
+    {
+        ResetearEscalaPerilla();
+    }
+
+    private void LateUpdate()
+    {
+        if (!estaPalpitandoPerilla || perillaPalpitar == null || !perillaPalpitar.gameObject.activeInHierarchy)
+            return;
+
+        tiempoAnimacion += Time.unscaledDeltaTime * velocidadPalpitar;
+        float factor = (Mathf.Sin(tiempoAnimacion) + 1f) * 0.5f;
+        float multiplicadorEscala = Mathf.Lerp(escalaMinima, escalaMaxima, factor);
+
+        perillaPalpitar.localScale = escalaOriginalPerilla * multiplicadorEscala;
     }
 
     // =========================================================
@@ -39,6 +71,7 @@ public class CoccionManager : MonoBehaviour
     public void IniciarCoccion()
     {
         coccionCompletada = false;
+        ResetearEscalaPerilla();
         SetBotonContinuar(false);
 
         IniciarTemperatura();
@@ -83,7 +116,11 @@ public class CoccionManager : MonoBehaviour
         }
 
         if (hornalla != null && hornalla.botonCoccion != null)
+        {
             hornalla.botonCoccion.interactable = true;
+            // Inicia la palpitación de la perilla para indicar que hay que prender el fuego
+            IniciarPalpitarPerilla(hornalla.botonCoccion.transform);
+        }
     }
 
     // =========================================================
@@ -96,6 +133,7 @@ public class CoccionManager : MonoBehaviour
             return;
 
         coccionCompletada = true;
+        DetenerPalpitarPerilla();
 
         SetBotonContinuar(true, ContinuarDesdeCoccion);
     }
@@ -136,6 +174,7 @@ public class CoccionManager : MonoBehaviour
 
     private void TerminarEtapaCoccion()
     {
+        ResetearEscalaPerilla();
         SetBotonContinuar(false);
 
         GameManager.Instance?.ContinuarDespuesDeCoccion();
@@ -159,5 +198,40 @@ public class CoccionManager : MonoBehaviour
 
         botonContinuar.interactable = visible;
         botonContinuar.gameObject.SetActive(visible);
+    }
+
+    // =========================================================
+    // CONTROL DE PALPITACIÓN DE LA PERILLA
+    // =========================================================
+
+    private void IniciarPalpitarPerilla(Transform objetivo)
+    {
+        if (objetivo == null) return;
+
+        perillaPalpitar = objetivo;
+        // Guarda la escala que tiene configurada en el Canvas para no romper su tamaño base
+        escalaOriginalPerilla = objetivo.localScale.sqrMagnitude > 0.001f ? objetivo.localScale : Vector3.one;
+        tiempoAnimacion = 0f;
+        estaPalpitandoPerilla = true;
+    }
+
+    public void DetenerPalpitarPerilla()
+    {
+        estaPalpitandoPerilla = false;
+        if (perillaPalpitar != null)
+        {
+            perillaPalpitar.localScale = escalaOriginalPerilla;
+        }
+    }
+
+    private void ResetearEscalaPerilla()
+    {
+        estaPalpitandoPerilla = false;
+        if (perillaPalpitar != null)
+        {
+            perillaPalpitar.localScale = escalaOriginalPerilla;
+            perillaPalpitar = null;
+        }
+        tiempoAnimacion = 0f;
     }
 }

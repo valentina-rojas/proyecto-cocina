@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
@@ -12,15 +13,22 @@ public class LavadoManos : MonoBehaviour
     [SerializeField] private Sprite canillaCerrada;
     [SerializeField] private Sprite canillaAbierta;
 
+    [Header("Jabón / Interactuable")]
+    [Tooltip("Transform o Botón del jabón que debe palpitar tras abrir la canilla")]
+    [SerializeField] private RectTransform objetoJabon;
+
+    [Header("Animación de Palpitar")]
+    [SerializeField] private float velocidadPalpitar = 4f;
+    [SerializeField] private float escalaMinima = 0.98f;
+    [SerializeField] private float escalaMaxima = 1.02f;
+
     [Header("Animaciones UI (Capas del Canvas)")]
     [SerializeField] private ImageFrameAnimation animacionAgua;  
     [SerializeField] private ImageFrameAnimation animacionManos;
     [SerializeField] private ImageFrameAnimation animacionEspuma;
 
     [Header("Progreso y Sensibilidad")]
-    [Tooltip("Distancia en píxeles que debe frotarse el jabón para completar el lavado")]
     [SerializeField] private float distanciaTotalNecesaria = 2000f;
-    [Tooltip("Tiempo en segundos sin mover el jabón antes de reiniciar la barra")]
     [SerializeField] private float tiempoParaReiniciar = 0.5f;
 
     [Header("UI")]
@@ -37,6 +45,12 @@ public class LavadoManos : MonoBehaviour
     private float tiempoInactivo;
     private bool canillaEstaAbierta;
     private bool completado;
+    private bool estaFrotando;
+
+    // Control de palpitación con respaldo de escalas originales del Canvas
+    private readonly List<Transform> objetosPalpitando = new List<Transform>();
+    private readonly Dictionary<Transform, Vector3> escalasOriginales = new Dictionary<Transform, Vector3>();
+    private float tiempoAnimacion;
 
     private void Awake()
     {
@@ -46,10 +60,22 @@ public class LavadoManos : MonoBehaviour
         CerrarCanilla();
     }
 
+    private void OnEnable()
+    {
+        ActivarCamaraLavado();
+        ActualizarObjetosPalpitando();
+    }
+
     private void Start()
     {
         ConfigurarBotonCanilla();
         ReiniciarLavado();
+        ActivarCamaraLavado();
+    }
+
+    private void OnDisable()
+    {
+        ResetearEscalaObjetos();
     }
 
     private void ConfigurarBotonCanilla()
@@ -67,10 +93,30 @@ public class LavadoManos : MonoBehaviour
         if (completado || distanciaAcumulada <= 0f) return;
 
         tiempoInactivo += Time.deltaTime;
-
         if (tiempoInactivo >= tiempoParaReiniciar)
         {
             ReiniciarLavado();
+        }
+    }
+
+    private void LateUpdate()
+    {
+        if (objetosPalpitando.Count == 0) return;
+
+        tiempoAnimacion += Time.unscaledDeltaTime * velocidadPalpitar;
+        float factor = (Mathf.Sin(tiempoAnimacion) + 1f) * 0.5f;
+        float multiplicadorEscala = Mathf.Lerp(escalaMinima, escalaMaxima, factor);
+
+        for (int i = 0; i < objetosPalpitando.Count; i++)
+        {
+            Transform t = objetosPalpitando[i];
+            if (t != null && t.gameObject.activeInHierarchy)
+            {
+                if (escalasOriginales.TryGetValue(t, out Vector3 escalaBase))
+                {
+                    t.localScale = escalaBase * multiplicadorEscala;
+                }
+            }
         }
     }
 
@@ -82,18 +128,25 @@ public class LavadoManos : MonoBehaviour
     {
         if (completado) return;
 
-        if (canillaEstaAbierta)
-            CerrarCanilla();
-        else
-            AbrirCanilla();
+        if (canillaEstaAbierta) CerrarCanilla();
+        else AbrirCanilla();
     }
 
     public void AbrirCanilla()
     {
         canillaEstaAbierta = true;
 
-        if (imagenCanilla != null && canillaAbierta != null)
-            imagenCanilla.sprite = canillaAbierta;
+        if (imagenCanilla != null)
+        {
+            imagenCanilla.gameObject.SetActive(true);
+            imagenCanilla.enabled = true;
+            Color c = imagenCanilla.color;
+            c.a = 1f;
+            imagenCanilla.color = c;
+
+            if (canillaAbierta != null)
+                imagenCanilla.sprite = canillaAbierta;
+        }
 
         if (animacionAgua != null)
         {
@@ -101,15 +154,25 @@ public class LavadoManos : MonoBehaviour
             animacionAgua.Play();
         }
 
-        Debug.Log("🚰 Canilla ABIERTA.");
+        ActualizarObjetosPalpitando();
     }
 
     public void CerrarCanilla()
     {
         canillaEstaAbierta = false;
+        estaFrotando = false;
 
-        if (imagenCanilla != null && canillaCerrada != null)
-            imagenCanilla.sprite = canillaCerrada;
+        if (imagenCanilla != null)
+        {
+            imagenCanilla.gameObject.SetActive(true);
+            imagenCanilla.enabled = true;
+            Color c = imagenCanilla.color;
+            c.a = 1f;
+            imagenCanilla.color = c;
+
+            if (canillaCerrada != null)
+                imagenCanilla.sprite = canillaCerrada;
+        }
 
         if (animacionAgua != null)
         {
@@ -118,8 +181,7 @@ public class LavadoManos : MonoBehaviour
         }
 
         SetVisualesLavando(false);
-
-        Debug.Log("🚰 Canilla CERRADA.");
+        ActualizarObjetosPalpitando();
     }
 
     // =========================================================
@@ -129,6 +191,12 @@ public class LavadoManos : MonoBehaviour
     public void ProcesarFrotado(float deltaMovimiento)
     {
         if (!canillaEstaAbierta || completado || deltaMovimiento <= 0f) return;
+
+        if (!estaFrotando)
+        {
+            estaFrotando = true;
+            ActualizarObjetosPalpitando(); // Detiene el palpitar del jabón al interactuar
+        }
 
         tiempoInactivo = 0f;
         distanciaAcumulada += deltaMovimiento;
@@ -150,15 +218,14 @@ public class LavadoManos : MonoBehaviour
 
         distanciaAcumulada = 0f;
         tiempoInactivo = 0f;
+        estaFrotando = false;
 
         if (barra != null) barra.value = 0f;
 
-        // Asegurar que la imagen estática esté encendida, visible y con sprite de manos sucias
         if (imagenManos != null)
         {
             imagenManos.gameObject.SetActive(true);
             imagenManos.enabled = true;
-
             Color c = imagenManos.color;
             c.a = 1f;
             imagenManos.color = c;
@@ -169,6 +236,7 @@ public class LavadoManos : MonoBehaviour
 
         SetVisualesLavando(false);
         SetBotonContinuar(false);
+        ActualizarObjetosPalpitando();
     }
 
     private void SetVisualesLavando(bool activo)
@@ -186,7 +254,6 @@ public class LavadoManos : MonoBehaviour
 
         if (animacionManos != null)
         {
-            // Si la animación corre en otro objeto distinto a imagenManos:
             if (animacionManos.gameObject != (imagenManos != null ? imagenManos.gameObject : null))
             {
                 if (animacionManos.gameObject.activeSelf != activo)
@@ -203,8 +270,9 @@ public class LavadoManos : MonoBehaviour
     private void CompletarLavado()
     {
         completado = true;
-        SetVisualesLavando(false);
+        ResetearEscalaObjetos();
 
+        SetVisualesLavando(false);
         CerrarCanilla();
 
         if (barra != null) barra.value = 1f;
@@ -231,6 +299,7 @@ public class LavadoManos : MonoBehaviour
 
     private void TerminarEtapaLavado()
     {
+        ResetearEscalaObjetos();
         SetBotonContinuar(false);
         gameObject.SetActive(false);
         GameManager.Instance?.ContinuarDespuesDelLavadoManos();
@@ -240,10 +309,9 @@ public class LavadoManos : MonoBehaviour
     {
         gameObject.SetActive(true);
         completado = false;
-        
+
         CerrarCanilla();
         ReiniciarLavado();
-
         ActivarCamaraLavado();
 
         if (PopupContenido.Instance != null)
@@ -265,5 +333,66 @@ public class LavadoManos : MonoBehaviour
 
         botonContinuar.interactable = visible;
         botonContinuar.gameObject.SetActive(visible);
+    }
+
+    // =========================================================
+    // CONTROL DIRECTO DE PALPITACIÓN
+    // =========================================================
+
+    private void ResetearEscalaObjetos()
+    {
+        for (int i = 0; i < objetosPalpitando.Count; i++)
+        {
+            Transform t = objetosPalpitando[i];
+            if (t != null && escalasOriginales.TryGetValue(t, out Vector3 original))
+            {
+                t.localScale = original;
+            }
+        }
+
+        objetosPalpitando.Clear();
+        tiempoAnimacion = 0f;
+    }
+
+    private void RegistrarObjetoPalpitar(Transform t)
+    {
+        if (t == null) return;
+
+        if (!escalasOriginales.ContainsKey(t))
+        {
+            Vector3 escalaActual = t.localScale;
+            escalasOriginales[t] = escalaActual.sqrMagnitude > 0.001f ? escalaActual : Vector3.one;
+        }
+
+        if (!objetosPalpitando.Contains(t))
+        {
+            objetosPalpitando.Add(t);
+        }
+    }
+
+    private void ActualizarObjetosPalpitando()
+    {
+        ResetearEscalaObjetos();
+
+        if (completado) return;
+
+        // 1. Canilla cerrada: debe palpitar el botón de la canilla
+        if (!canillaEstaAbierta)
+        {
+            if (botonCanilla != null)
+            {
+                RegistrarObjetoPalpitar(botonCanilla.transform);
+            }
+            return;
+        }
+
+        // 2. Canilla abierta y aún no está frotando activamente: palpita el jabón
+        if (!estaFrotando)
+        {
+            if (objetoJabon != null)
+            {
+                RegistrarObjetoPalpitar(objetoJabon.transform);
+            }
+        }
     }
 }

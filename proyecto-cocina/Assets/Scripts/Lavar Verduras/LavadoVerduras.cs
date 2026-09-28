@@ -16,18 +16,19 @@ public class LavadoVerduras : MonoBehaviour
     [SerializeField] private ImageFrameAnimation animacionAgua;
 
     [Header("Prefabs de Verduras a Lavar")]
-    [Tooltip("Arrastra aquí los prefabs de las verduras (ej. Prefab_Tomate, Prefab_Zanahoria)")]
     [SerializeField] private List<DatosVerdura> prefabsVerduras = new List<DatosVerdura>();
 
     [Header("Slots en Mesada")]
-    [Tooltip("Transforms vacíos en la mesada izquierda que marcan dónde aparecen las verduras sucias")]
     [SerializeField] private List<Transform> slotsSuciosMesa = new List<Transform>();
-
-    [Tooltip("Imágenes en la mesada derecha que mostrarán las verduras limpiadas")]
     [SerializeField] private List<Image> slotsLimpiosMesa = new List<Image>();
 
     [Header("Mano y Verdura")]
     [SerializeField] private ManoVerduraController manoVerdura;
+
+    [Header("Animación de Palpitar")]
+    [SerializeField] private float velocidadPalpitar = 4f;
+    [SerializeField] private float escalaMinima = 0.98f;
+    [SerializeField] private float escalaMaxima = 1.02f;
 
     [Header("UI y Sensibilidad")]
     [SerializeField] private Slider barraProgreso;
@@ -36,10 +37,8 @@ public class LavadoVerduras : MonoBehaviour
     [SerializeField] private float tiempoParaReiniciar = 0.5f;
     [SerializeField] private float delayVerduraLimpia = 0.6f;
 
-    // Lista de instancias vivas en la escena
     private List<DatosVerdura> verdurasInstanciadas = new List<DatosVerdura>();
 
-    // Estado actual de la ronda
     private DatosVerdura verduraSeleccionada;
     private float distanciaObjetivo;
     private float distanciaAcumulada;
@@ -49,6 +48,11 @@ public class LavadoVerduras : MonoBehaviour
     private bool verduraAgarrada;
     private bool canillaEstaAbierta;
     private bool completadoTodo;
+
+    // Control de palpitación con respaldo de escalas originales del Canvas
+    private readonly List<Transform> objetosPalpitando = new List<Transform>();
+    private readonly Dictionary<Transform, Vector3> escalasOriginales = new Dictionary<Transform, Vector3>();
+    private float tiempoAnimacion;
 
     private void Awake()
     {
@@ -62,6 +66,12 @@ public class LavadoVerduras : MonoBehaviour
     {
         ConfigurarBotonCanilla();
         ReiniciarEscena();
+        ActivarCamaraLavadoVerduras();
+    }
+
+    private void OnDisable()
+    {
+        ResetearEscalaObjetos();
     }
 
     private void ConfigurarBotonCanilla()
@@ -87,17 +97,13 @@ public class LavadoVerduras : MonoBehaviour
         }
     }
 
-    // =========================================================
-    // CONTROL DEL FLUJO GLOBAL
-    // =========================================================
-
     public void IniciarLavado()
     {
         gameObject.SetActive(true);
         completadoTodo = false;
         ReiniciarEscena();
+        ActivarCamaraLavadoVerduras();
 
-        // Muestra las instrucciones de lavado de verduras antes de encender la interacción/cámara
         if (PopupContenido.Instance != null)
             PopupContenido.Instance.MostrarInstruccionesLavadoVerduras(ActivarCamaraLavadoVerduras);
         else
@@ -108,10 +114,6 @@ public class LavadoVerduras : MonoBehaviour
     {
         CameraManager.Instance?.MostrarCamaraLavadoVerduras();
     }
-
-    // =========================================================
-    // INSTANCIACIÓN EN LOS SLOTS SUCIOS
-    // =========================================================
 
     private void SpawnearVerdurasEnSlots()
     {
@@ -142,10 +144,13 @@ public class LavadoVerduras : MonoBehaviour
             {
                 btn.onClick.RemoveAllListeners();
                 btn.onClick.AddListener(() => AgarrarVerdura(nuevaVerdura));
+                btn.transition = Selectable.Transition.None;
             }
 
             verdurasInstanciadas.Add(nuevaVerdura);
         }
+
+        ActualizarObjetosPalpitando();
     }
 
     private void Update()
@@ -159,9 +164,26 @@ public class LavadoVerduras : MonoBehaviour
         }
     }
 
-    // =========================================================
-    // 1. AGARRAR CUALQUIER VERDURA DEL SLOT
-    // =========================================================
+    private void LateUpdate()
+    {
+        if (objetosPalpitando.Count == 0) return;
+
+        tiempoAnimacion += Time.unscaledDeltaTime * velocidadPalpitar;
+        float factor = (Mathf.Sin(tiempoAnimacion) + 1f) * 0.5f;
+        float multiplicadorEscala = Mathf.Lerp(escalaMinima, escalaMaxima, factor);
+
+        for (int i = 0; i < objetosPalpitando.Count; i++)
+        {
+            Transform t = objetosPalpitando[i];
+            if (t != null && t.gameObject.activeInHierarchy)
+            {
+                if (escalasOriginales.TryGetValue(t, out Vector3 escalaBase))
+                {
+                    t.localScale = escalaBase * multiplicadorEscala;
+                }
+            }
+        }
+    }
 
     public void AgarrarVerdura(DatosVerdura item)
     {
@@ -181,11 +203,9 @@ public class LavadoVerduras : MonoBehaviour
             manoVerdura.CargarVerdura(item);
             manoVerdura.MostrarSosteniendo();
         }
-    }
 
-    // =========================================================
-    // 2. CANILLA
-    // =========================================================
+        ActualizarObjetosPalpitando();
+    }
 
     public void AlternarCanilla()
     {
@@ -201,8 +221,17 @@ public class LavadoVerduras : MonoBehaviour
 
         canillaEstaAbierta = true;
 
-        if (imagenCanilla != null && canillaAbierta != null)
-            imagenCanilla.sprite = canillaAbierta;
+        if (imagenCanilla != null)
+        {
+            imagenCanilla.gameObject.SetActive(true);
+            imagenCanilla.enabled = true;
+            Color c = imagenCanilla.color;
+            c.a = 1f;
+            imagenCanilla.color = c;
+
+            if (canillaAbierta != null)
+                imagenCanilla.sprite = canillaAbierta;
+        }
 
         if (animacionAgua != null)
         {
@@ -212,14 +241,25 @@ public class LavadoVerduras : MonoBehaviour
 
         manoVerdura?.MostrarBajoAgua();
         SetVisibilidadBarra(true);
+
+        ActualizarObjetosPalpitando();
     }
 
     private void CerrarCanilla()
     {
         canillaEstaAbierta = false;
 
-        if (imagenCanilla != null && canillaCerrada != null)
-            imagenCanilla.sprite = canillaCerrada;
+        if (imagenCanilla != null)
+        {
+            imagenCanilla.gameObject.SetActive(true);
+            imagenCanilla.enabled = true;
+            Color c = imagenCanilla.color;
+            c.a = 1f;
+            imagenCanilla.color = c;
+
+            if (canillaCerrada != null)
+                imagenCanilla.sprite = canillaCerrada;
+        }
 
         if (animacionAgua != null)
         {
@@ -234,11 +274,9 @@ public class LavadoVerduras : MonoBehaviour
             manoVerdura?.MostrarSosteniendo();
             SetVisibilidadBarra(false);
         }
-    }
 
-    // =========================================================
-    // 3. FROTADO
-    // =========================================================
+        ActualizarObjetosPalpitando();
+    }
 
     public void ProcesarFrotado(float deltaMovimiento)
     {
@@ -276,24 +314,23 @@ public class LavadoVerduras : MonoBehaviour
         {
             manoVerdura?.MostrarBajoAgua();
         }
-    }
 
-    // =========================================================
-    // 4. COMPLETAR Y COLOCAR EN SLOT DERECHO
-    // =========================================================
+        ActualizarObjetosPalpitando();
+    }
 
     private void CompletarVerduraActual()
     {
         distanciaAcumulada = 0f;
         estaMoviendo = false;
+        verduraAgarrada = false; // Se marca como no agarrada antes de cerrar para que no palpite la canilla
 
+        ResetearEscalaObjetos();
         CerrarCanilla();
 
         if (botonCanilla != null)
             botonCanilla.interactable = false;
 
         manoVerdura?.MostrarLimpio();
-
         StartCoroutine(RutinaPasarALaMesada());
     }
 
@@ -307,7 +344,6 @@ public class LavadoVerduras : MonoBehaviour
         if (barraProgreso != null) barraProgreso.value = 0f;
 
         manoVerdura?.Ocultar();
-        verduraAgarrada = false;
 
         if (verdurasLavadasTotal < slotsLimpiosMesa.Count && slotsLimpiosMesa[verdurasLavadasTotal] != null)
         {
@@ -329,6 +365,9 @@ public class LavadoVerduras : MonoBehaviour
             completadoTodo = true;
             SetBotonContinuar(true, ContinuarDesdeLavadoVerduras);
         }
+
+        // Al asentarse en la mesada limpia, comienzan a palpitar las verduras restantes
+        ActualizarObjetosPalpitando();
     }
 
     private void ContinuarDesdeLavadoVerduras()
@@ -343,8 +382,9 @@ public class LavadoVerduras : MonoBehaviour
 
     private void TerminarEtapaLavado()
     {
+        ResetearEscalaObjetos();
         SetBotonContinuar(false);
-        gameObject.SetActive(false); // Apagamos este canvas/panel
+        gameObject.SetActive(false);
         GameManager.Instance?.ContinuarDespuesDelLavadoVerduras();
     }
 
@@ -357,6 +397,7 @@ public class LavadoVerduras : MonoBehaviour
     public void ReiniciarEscena()
     {
         StopAllCoroutines();
+        ResetearEscalaObjetos();
 
         completadoTodo = false;
         verduraAgarrada = false;
@@ -372,7 +413,6 @@ public class LavadoVerduras : MonoBehaviour
             botonCanilla.interactable = false;
 
         ApagarSlotsLimpios();
-
         SetVisibilidadBarra(false);
         if (barraProgreso != null) barraProgreso.value = 0f;
 
@@ -392,12 +432,74 @@ public class LavadoVerduras : MonoBehaviour
 
         botonContinuar.interactable = visible;
         botonContinuar.gameObject.SetActive(visible);
+    }
 
-        if (botonContinuar.TryGetComponent<CanvasGroup>(out var cg))
+    // =========================================================
+    // CONTROL DIRECTO DE PALPITACIÓN
+    // =========================================================
+
+    private void ResetearEscalaObjetos()
+    {
+        for (int i = 0; i < objetosPalpitando.Count; i++)
         {
-            cg.alpha = visible ? 1f : 0f;
-            cg.interactable = visible;
-            cg.blocksRaycasts = visible;
+            Transform t = objetosPalpitando[i];
+            if (t != null && escalasOriginales.TryGetValue(t, out Vector3 original))
+            {
+                t.localScale = original;
+            }
         }
+
+        objetosPalpitando.Clear();
+        tiempoAnimacion = 0f;
+    }
+
+    private void RegistrarObjetoPalpitar(Transform t)
+    {
+        if (t == null) return;
+
+        if (!escalasOriginales.ContainsKey(t))
+        {
+            Vector3 escalaActual = t.localScale;
+            escalasOriginales[t] = escalaActual.sqrMagnitude > 0.001f ? escalaActual : Vector3.one;
+        }
+
+        if (!objetosPalpitando.Contains(t))
+        {
+            objetosPalpitando.Add(t);
+        }
+    }
+
+    private void ActualizarObjetosPalpitando()
+    {
+        ResetearEscalaObjetos();
+
+        if (completadoTodo) return;
+
+        // 1. Sin verdura agarrada: palpitan las verduras sucias en la mesa izquierda
+        if (!verduraAgarrada)
+        {
+            for (int i = 0; i < verdurasInstanciadas.Count; i++)
+            {
+                if (verdurasInstanciadas[i] != null && verdurasInstanciadas[i].gameObject.activeSelf)
+                {
+                    Transform target = verdurasInstanciadas[i].Boton != null ? 
+                                       verdurasInstanciadas[i].Boton.transform : 
+                                       verdurasInstanciadas[i].transform;
+
+                    RegistrarObjetoPalpitar(target);
+                }
+            }
+            return;
+        }
+
+        // 2. Con verdura agarrada pero canilla cerrada: palpita solo el botón de la canilla
+        if (!canillaEstaAbierta)
+        {
+            if (botonCanilla != null)
+            {
+                RegistrarObjetoPalpitar(botonCanilla.transform);
+            }
+        }
+        // 3. Con la canilla abierta: nada palpita mientras el usuario frota bajo el agua
     }
 }
