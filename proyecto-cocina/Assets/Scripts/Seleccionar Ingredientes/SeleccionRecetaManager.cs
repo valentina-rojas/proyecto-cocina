@@ -25,11 +25,8 @@ public class SeleccionRecetaManager : MonoBehaviour
 
     private IEnumerator Start()
     {
-        // Esperamos hasta que existan los InventorySlot
         yield return new WaitUntil(() =>
-            FindObjectsByType<InventorySlot>(
-                FindObjectsSortMode.None
-            ).Length > 0
+            FindObjectsByType<InventorySlot>(FindObjectsSortMode.None).Length > 0
         );
 
         ActualizarSlots();
@@ -37,38 +34,39 @@ public class SeleccionRecetaManager : MonoBehaviour
 
     private void OnEnable()
     {
-        DraggableItem.OnAnyItemEndDrag += ChequearReceta;
+        DraggableItem.OnAnyItemEndDrag += OnItemMoved;
     }
 
     private void OnDisable()
     {
-        DraggableItem.OnAnyItemEndDrag -= ChequearReceta;
+        DraggableItem.OnAnyItemEndDrag -= OnItemMoved;
     }
 
-    // =========================================================
-    // ACTUALIZAR SLOTS
-    // =========================================================
-
-    private void ActualizarSlots()
+    private void OnItemMoved()
     {
-        slots = FindObjectsByType<InventorySlot>(
-            FindObjectsSortMode.None
-        );
+        if (!seleccionActiva)
+            return;
+
+        StartCoroutine(ChequearDespuesDeUnFrame());
     }
 
-    // =========================================================
-    // INICIAR SELECCIÓN
-    // =========================================================
+    private IEnumerator ChequearDespuesDeUnFrame()
+    {
+        yield return null;
+        ChequearReceta();
+    }
+
+    public void ActualizarSlots()
+    {
+        slots = FindObjectsByType<InventorySlot>(FindObjectsSortMode.None);
+    }
 
     public void IniciarSeleccion()
     {
         seleccionActiva = true;
-
-        // Por seguridad, volvemos a buscar los slots.
         ActualizarSlots();
 
         string recetaActual = ObtenerRecetaActual();
-
         Debug.Log("Iniciando selección de receta: " + recetaActual);
 
         if (string.IsNullOrEmpty(recetaActual))
@@ -86,13 +84,11 @@ public class SeleccionRecetaManager : MonoBehaviour
                 if (slot == null)
                     continue;
 
-                IngredienteData[] ingredientes =
-                    slot.GetComponentsInChildren<IngredienteData>(true);
+                IngredienteData[] ingredientes = slot.GetComponentsInChildren<IngredienteData>(true);
 
                 foreach (IngredienteData ingrediente in ingredientes)
                 {
-                    if (ingrediente != null &&
-                        PerteneceAReceta(ingrediente, recetaActual))
+                    if (ingrediente != null && PerteneceAReceta(ingrediente, recetaActual))
                     {
                         ingredientesNecesarios.Add(ingrediente);
                     }
@@ -100,65 +96,34 @@ public class SeleccionRecetaManager : MonoBehaviour
             }
         }
 
-        Debug.Log(
-            "Ingredientes encontrados para la receta: " +
-            ingredientesNecesarios.Count
-        );
-
-        if (ingredientesNecesarios.Count == 0)
-        {
-            Debug.LogWarning(
-                "⚠️ No se encontraron ingredientes para la receta '" +
-                recetaActual + "'. " +
-                "Revisá nombreReceta en los IngredienteData."
-            );
-        }
+        Debug.Log("Ingredientes encontrados para la receta: " + ingredientesNecesarios.Count);
 
         if (RecetaUIManager.Instance != null)
         {
-            RecetaUIManager.Instance.MostrarReceta(
-                ingredientesNecesarios
-            );
-        }
-        else
-        {
-            Debug.LogWarning(
-                "⚠️ No existe RecetaUIManager en la escena."
-            );
+            RecetaUIManager.Instance.MostrarReceta(ingredientesNecesarios);
         }
 
         ChequearReceta();
     }
-
-    // =========================================================
-    // FINALIZAR SELECCIÓN
-    // =========================================================
 
     public void FinalizarSeleccion()
     {
         seleccionActiva = false;
     }
 
-    // =========================================================
-    // COMPROBAR RECETA
-    // =========================================================
-
     public void ChequearReceta()
     {
         if (!seleccionActiva)
             return;
 
-        // Por seguridad, si todavía no tenemos slots los buscamos.
         if (slots == null || slots.Length == 0)
         {
             ActualizarSlots();
-
             if (slots == null || slots.Length == 0)
                 return;
         }
 
         string recetaActual = ObtenerRecetaActual();
-
         if (string.IsNullOrEmpty(recetaActual))
             return;
 
@@ -172,9 +137,7 @@ public class SeleccionRecetaManager : MonoBehaviour
                 continue;
 
             bool esMesa = slot.EsMesa;
-
-            IngredienteData[] ingredientes =
-                slot.GetComponentsInChildren<IngredienteData>(true);
+            IngredienteData[] ingredientes = slot.GetComponentsInChildren<IngredienteData>(true);
 
             foreach (IngredienteData ing in ingredientes)
             {
@@ -184,7 +147,6 @@ public class SeleccionRecetaManager : MonoBehaviour
                 if (PerteneceAReceta(ing, recetaActual))
                 {
                     necesarios++;
-
                     if (esMesa)
                     {
                         correctosEnMesa++;
@@ -192,8 +154,7 @@ public class SeleccionRecetaManager : MonoBehaviour
                 }
                 else if (esMesa)
                 {
-                    // Ingrediente que está en la mesa
-                    // pero no pertenece a la receta.
+                    // Hay un ingrediente en la mesa que no pertenece a esta receta
                     incorrectosEnMesa++;
                 }
             }
@@ -204,61 +165,28 @@ public class SeleccionRecetaManager : MonoBehaviour
             RecetaUIManager.Instance.ActualizarLista();
         }
 
-        bool esValido =
-            necesarios > 0 &&
-            correctosEnMesa == necesarios &&
-            incorrectosEnMesa == 0;
+        // Condición estricta:
+        // 1. Existen ingredientes necesarios.
+        // 2. Todos los ingredientes requeridos están en la mesa.
+        // 3. No hay ningún ingrediente ajeno/extra en la mesa.
+        bool esValido = necesarios > 0 && correctosEnMesa == necesarios && incorrectosEnMesa == 0;
 
-      /*  Debug.Log(
-            $"🍔 Receta: {recetaActual} | " +
-            $"Necesarios: {necesarios} | " +
-            $"En mesa: {correctosEnMesa} | " +
-            $"Incorrectos: {incorrectosEnMesa} | " +
-            $"Válida: {esValido}"
-        );*/
-
-        GameManager.Instance?.ActualizarEstadoSeleccionReceta(
-            esValido
-        );
+        GameManager.Instance?.ActualizarEstadoSeleccionReceta(esValido);
     }
-
-    // =========================================================
-    // OBTENER RECETA
-    // =========================================================
 
     private string ObtenerRecetaActual()
     {
-        if (DayManager.Instance == null)
+        if (DayManager.Instance == null || string.IsNullOrEmpty(DayManager.Instance.recetaActual))
             return string.Empty;
 
-        if (string.IsNullOrEmpty(DayManager.Instance.recetaActual))
-            return string.Empty;
-
-        return DayManager.Instance.recetaActual
-            .Trim()
-            .ToLower();
+        return DayManager.Instance.recetaActual.Trim().ToLower();
     }
 
-    // =========================================================
-    // COMPROBAR SI PERTENECE A LA RECETA
-    // =========================================================
-
-    private bool PerteneceAReceta(
-        IngredienteData ing,
-        string receta
-    )
+    private bool PerteneceAReceta(IngredienteData ing, string receta)
     {
-        if (ing == null)
+        if (ing == null || string.IsNullOrEmpty(ing.nombreReceta))
             return false;
 
-        if (string.IsNullOrEmpty(ing.nombreReceta))
-            return false;
-
-        return ing.nombreReceta
-            .Trim()
-            .Equals(
-                receta,
-                StringComparison.OrdinalIgnoreCase
-            );
+        return ing.nombreReceta.Trim().Equals(receta, StringComparison.OrdinalIgnoreCase);
     }
 }

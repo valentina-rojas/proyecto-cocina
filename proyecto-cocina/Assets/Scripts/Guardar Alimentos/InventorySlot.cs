@@ -24,9 +24,13 @@ public class InventorySlot : MonoBehaviour, IDropHandler
         if (draggableItem == null || ingrediente == null)
             return;
 
+        // Evitar que dos elementos ocupen el mismo slot (las mesas pueden permitir múltiples si no usan slots individuales)
+        if (!EsMesa && transform.childCount > 0)
+            return;
+
         draggableItem.parentAfterDrag = transform;
 
-        // Si no estamos ordenando ingredientes, se omite la validación
+        // Si no estamos ordenando ingredientes, se omite la validación de feedback
         if (GameManager.Instance != null && GameManager.Instance.estadoActual != GameManager.EstadoJuego.OrdenandoIngredientes)
             return;
 

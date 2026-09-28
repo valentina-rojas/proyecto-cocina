@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
-using System; // Necesario para el Action
+using System;
 
 public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
@@ -14,7 +14,6 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
     private RectTransform rectTransform;
 
-    // Evento para avisar a otros scripts que el arrastre terminó
     public static event Action OnAnyItemEndDrag;
 
     private void Awake()
@@ -28,7 +27,9 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         parentAfterDrag = transform.parent;
         transform.SetParent(canvas.transform);
         transform.SetAsLastSibling();
-        image.raycastTarget = false;
+        
+        if (image != null)
+            image.raycastTarget = false;
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -67,11 +68,17 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        transform.SetParent(parentAfterDrag, false); 
-        rectTransform.anchoredPosition = Vector2.zero; 
-        image.raycastTarget = true;
+        transform.SetParent(parentAfterDrag, false);
 
-        // Disparamos el evento global de que un objeto terminó de moverse
+        // Aseguramos que los anclajes y el pivote queden al centro para que anchoredPosition.zero no desplace el sprite
+        rectTransform.anchorMin = new Vector2(0.5f, 0.5f);
+        rectTransform.anchorMax = new Vector2(0.5f, 0.5f);
+        rectTransform.pivot = new Vector2(0.5f, 0.5f);
+        rectTransform.anchoredPosition = Vector2.zero;
+
+        if (image != null)
+            image.raycastTarget = true;
+
         OnAnyItemEndDrag?.Invoke();
     }
 }

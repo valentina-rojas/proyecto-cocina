@@ -11,11 +11,9 @@ public class GuardadoAlimentosManager : MonoBehaviour
     [SerializeField] private Button botonContinuar;
 
     private InventorySlot[] todosLosSlots;
-
     private int cantidadInicialIngredientes;
-
-    private bool guardadoCompletado;
     private bool feedbackMostrado;
+    private bool faseCompletada;
 
     private void Awake()
     {
@@ -43,28 +41,17 @@ public class GuardadoAlimentosManager : MonoBehaviour
     {
         SetBotonContinuar(false);
 
-        // Esperamos hasta que existan los InventorySlot.
         yield return new WaitUntil(() =>
-            FindObjectsByType<InventorySlot>(
-                FindObjectsSortMode.None
-            ).Length > 0
+            FindObjectsByType<InventorySlot>(FindObjectsSortMode.None).Length > 0
         );
 
-        // Guardamos los slots existentes.
-        todosLosSlots = FindObjectsByType<InventorySlot>(
-            FindObjectsSortMode.None
-        );
+        todosLosSlots = FindObjectsByType<InventorySlot>(FindObjectsSortMode.None);
 
-        // Esperamos un frame para asegurarnos de que
-        // los ingredientes ya hayan sido colocados.
         yield return null;
 
         cantidadInicialIngredientes = ContarIngredientesEnMesas();
 
-        Debug.Log(
-            $"Guardado de alimentos iniciado. " +
-            $"Ingredientes iniciales: {cantidadInicialIngredientes}"
-        );
+        Debug.Log($"Guardado de alimentos iniciado. Ingredientes iniciales: {cantidadInicialIngredientes}");
     }
 
     // =========================================================
@@ -73,7 +60,11 @@ public class GuardadoAlimentosManager : MonoBehaviour
 
     private void OnItemTerminoDeMoverse()
     {
-        if (guardadoCompletado)
+        // Si ya terminamos esta etapa o no estamos en la fase de guardado/ordenado, NO interferir
+        if (faseCompletada)
+            return;
+
+        if (GameManager.Instance != null && GameManager.Instance.estadoActual != GameManager.EstadoJuego.OrdenandoIngredientes)
             return;
 
         StartCoroutine(ChequearDespuesDeUnFrame());
@@ -82,7 +73,6 @@ public class GuardadoAlimentosManager : MonoBehaviour
     private IEnumerator ChequearDespuesDeUnFrame()
     {
         yield return null;
-
         ChequearEstadoGuardado();
     }
 
@@ -102,9 +92,7 @@ public class GuardadoAlimentosManager : MonoBehaviour
             if (slot == null || !slot.EsMesa)
                 continue;
 
-            DraggableItem[] ingredientes =
-                slot.GetComponentsInChildren<DraggableItem>(true);
-
+            DraggableItem[] ingredientes = slot.GetComponentsInChildren<DraggableItem>(true);
             total += ingredientes.Length;
         }
 
@@ -117,37 +105,32 @@ public class GuardadoAlimentosManager : MonoBehaviour
 
     public void ChequearEstadoGuardado()
     {
-        if (guardadoCompletado)
+        if (faseCompletada)
+            return;
+
+        if (GameManager.Instance != null && GameManager.Instance.estadoActual != GameManager.EstadoJuego.OrdenandoIngredientes)
             return;
 
         if (todosLosSlots == null || todosLosSlots.Length == 0)
         {
-            Debug.LogWarning(
-                "⚠️ No hay InventorySlot disponibles todavía."
-            );
-
+            Debug.LogWarning("⚠️ No hay InventorySlot disponibles todavía.");
             return;
         }
 
         int alimentosEnMesa = ContarIngredientesEnMesas();
+        Debug.Log($"Ingredientes restantes en mesa: {alimentosEnMesa}");
 
-        Debug.Log(
-            $"Ingredientes restantes en mesa: {alimentosEnMesa}"
-        );
-
-        // No completamos si nunca hubo ingredientes iniciales.
         if (cantidadInicialIngredientes <= 0)
         {
-            Debug.LogWarning(
-                "⚠️ No se detectaron ingredientes iniciales."
-            );
-
+            Debug.LogWarning("⚠️ No se detectaron ingredientes iniciales.");
+            SetBotonContinuar(false);
             return;
         }
 
+        // En esta fase: SOLO avanza si la mesa queda vacía
         if (alimentosEnMesa == 0)
         {
-            CompletarGuardado();
+            SetBotonContinuar(true, ContinuarDesdeGuardado);
         }
         else
         {
@@ -156,34 +139,19 @@ public class GuardadoAlimentosManager : MonoBehaviour
     }
 
     // =========================================================
-    // COMPLETAR GUARDADO
-    // =========================================================
-
-    private void CompletarGuardado()
-    {
-        if (guardadoCompletado)
-            return;
-
-        guardadoCompletado = true;
-
-        Debug.Log(
-            "Todos los ingredientes fueron guardados."
-        );
-
-        SetBotonContinuar(
-            true,
-            ContinuarDesdeGuardado
-        );
-    }
-
-    // =========================================================
     // CONTINUAR
     // =========================================================
 
     private void ContinuarDesdeGuardado()
     {
-        SetBotonContinuar(false);
+        if (ContarIngredientesEnMesas() > 0)
+        {
+            Debug.LogWarning("⚠️ No puedes continuar: todavía hay alimentos en la mesa.");
+            SetBotonContinuar(false);
+            return;
+        }
 
+        SetBotonContinuar(false);
         MostrarFeedback();
     }
 
@@ -197,7 +165,6 @@ public class GuardadoAlimentosManager : MonoBehaviour
             return;
 
         feedbackMostrado = true;
-
         EvaluarIngredientes();
 
         bool ingredientesCorrectos =
@@ -218,10 +185,6 @@ public class GuardadoAlimentosManager : MonoBehaviour
         }
     }
 
-    // =========================================================
-    // EVALUACIÓN DE INGREDIENTES
-    // =========================================================
-
     public void EvaluarIngredientes()
     {
         if (todosLosSlots == null)
@@ -231,24 +194,15 @@ public class GuardadoAlimentosManager : MonoBehaviour
 
         foreach (InventorySlot slot in todosLosSlots)
         {
-            // Las mesas no se evalúan.
             if (slot == null || slot.EsMesa)
                 continue;
 
-            IngredienteData ingrediente =
-                slot.GetComponentInChildren<IngredienteData>();
+            IngredienteData ingrediente = slot.GetComponentInChildren<IngredienteData>();
 
-            if (ingrediente != null &&
-                ingrediente.tipo != slot.TipoAceptado)
+            if (ingrediente != null && ingrediente.tipo != slot.TipoAceptado)
             {
                 hayIncorrectos = true;
-
-                Debug.LogWarning(
-                    $"❌ Ingrediente incorrecto: " +
-                    $"{ingrediente.nombreIngrediente} " +
-                    $"en el estante de {slot.TipoAceptado}"
-                );
-
+                Debug.LogWarning($"❌ Ingrediente incorrecto: {ingrediente.nombreIngrediente} en el estante de {slot.TipoAceptado}");
                 break;
             }
         }
@@ -265,8 +219,11 @@ public class GuardadoAlimentosManager : MonoBehaviour
 
     private void TerminarEtapa()
     {
-        SetBotonContinuar(false);
+        // Marcar terminada y desuscribir para no colisionar con SeleccionRecetaManager
+        faseCompletada = true;
+        DraggableItem.OnAnyItemEndDrag -= OnItemTerminoDeMoverse;
 
+        SetBotonContinuar(false);
         GameManager.Instance?.ContinuarDespuesDelGuardado();
     }
 
@@ -274,17 +231,11 @@ public class GuardadoAlimentosManager : MonoBehaviour
     // UI
     // =========================================================
 
-    private void SetBotonContinuar(
-        bool visible,
-        UnityAction accion = null)
+    private void SetBotonContinuar(bool visible, UnityAction accion = null)
     {
         if (botonContinuar == null)
         {
-            Debug.LogWarning(
-                "⚠️ GuardadoAlimentosManager: " +
-                "botonContinuar no está asignado."
-            );
-
+            Debug.LogWarning("⚠️ GuardadoAlimentosManager: botonContinuar no está asignado.");
             return;
         }
 
