@@ -10,6 +10,10 @@ public class MezcladoManager : MonoBehaviour
     [Header("Secuencia de Ingredientes (Prefabs)")]
     [SerializeField] private IngredienteMezclable[] prefabsIngredientes;
 
+    [Header("UI / Indicaciones")]
+    [Tooltip("Imagen o canvas/objeto que muestra la mano/flecha indicando el movimiento")]
+    [SerializeField] private GameObject indicacionMovimiento;
+
     [Header("Animación de Palpitar")]
     [SerializeField] private float velocidadPalpitar = 4f;
     [SerializeField] private float escalaMinima = 0.98f;
@@ -33,11 +37,13 @@ public class MezcladoManager : MonoBehaviour
     private void OnEnable()
     {
         CameraManager.Instance?.MostrarCamaraMezcladoIngredientes();
+        OcultarIndicacionMovimiento();
     }
 
     private void OnDisable()
     {
         ResetearEscala();
+        OcultarIndicacionMovimiento();
     }
 
     private void LateUpdate()
@@ -51,14 +57,12 @@ public class MezcladoManager : MonoBehaviour
         objetivoPalpitar.localScale = escalaOriginal * multiplicadorEscala;
     }
 
-    /// <summary>
-    /// Llamado desde GameManager cuando termina el Cortado
-    /// </summary>
     public void IniciarMezclado()
     {
         gameObject.SetActive(true);
         CameraManager.Instance?.MostrarCamaraMezcladoIngredientes(); 
 
+        OcultarIndicacionMovimiento();
         indiceActual = 0;
         SpawnearIngredienteActual();
     }
@@ -87,13 +91,13 @@ public class MezcladoManager : MonoBehaviour
         RectTransform rt = ingredienteInstanciado.GetComponent<RectTransform>();
         if (rt != null) rt.anchoredPosition = Vector2.zero;
 
-        // Iniciar el efecto de palpitar en el ingrediente recién creado
         IniciarPalpitar(ingredienteInstanciado.transform);
     }
 
     public void OnMezclaCompletada()
     {
         ResetearEscala();
+        OcultarIndicacionMovimiento();
         indiceActual++;
 
         if (prefabsIngredientes != null && indiceActual < prefabsIngredientes.Length)
@@ -109,6 +113,7 @@ public class MezcladoManager : MonoBehaviour
     private void CompletarActividad()
     {
         ResetearEscala();
+        OcultarIndicacionMovimiento();
         UIManager.Instance?.PrepararBotonContinuar(OnClicSiguiente);
     }
 
@@ -116,6 +121,32 @@ public class MezcladoManager : MonoBehaviour
     {
         UIManager.Instance?.OcultarBotonContinuar();
         GameManager.Instance?.ContinuarDespuesDelMezclado();
+    }
+
+    // =========================================================
+    // CONTROL DE INDICACIÓN DE MOVIMIENTO
+    // =========================================================
+
+    /// <summary>
+    /// Llamar a este método cuando la carne/ingrediente es soltado con éxito dentro del bowl.
+    /// </summary>
+    public void MostrarIndicacionMovimiento()
+    {
+        if (indicacionMovimiento != null)
+        {
+            indicacionMovimiento.SetActive(true);
+        }
+    }
+
+    /// <summary>
+    /// Llamar a este método cuando el jugador empiece a arrastrar o hacer el gesto de revolver.
+    /// </summary>
+    public void OcultarIndicacionMovimiento()
+    {
+        if (indicacionMovimiento != null && indicacionMovimiento.activeSelf)
+        {
+            indicacionMovimiento.SetActive(false);
+        }
     }
 
     // =========================================================
@@ -127,7 +158,6 @@ public class MezcladoManager : MonoBehaviour
         if (objetivo == null) return;
 
         objetivoPalpitar = objetivo;
-        // Respalda la escala base real configurada
         escalaOriginal = objetivo.localScale.sqrMagnitude > 0.001f ? objetivo.localScale : Vector3.one;
         tiempoAnimacion = 0f;
         estaPalpitando = true;

@@ -66,6 +66,8 @@ public class BowlController : MonoBehaviour, IDropHandler, IPointerDownHandler, 
             mixProgressBar.value = 0f;
             mixProgressBar.gameObject.SetActive(true);
         }
+
+        MezcladoManager.Instance?.MostrarIndicacionMovimiento();
     }
 
     public void OnPointerDown(PointerEventData eventData)
@@ -93,6 +95,8 @@ public class BowlController : MonoBehaviour, IDropHandler, IPointerDownHandler, 
 
         if (Mathf.Abs(angleDelta) > 0.5f && Mathf.Abs(angleDelta) < 90f)
         {
+            MezcladoManager.Instance?.OcultarIndicacionMovimiento();
+            
             float absAngle = Mathf.Abs(angleDelta);
 
             // 1. Progreso acumulado

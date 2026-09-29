@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 19bfa97f2e5237845b675868eceb81d7
+guid: 95943bb6c034fbd4db7e8d61b0f6aa0e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1593867915147882615
-    second: ui-ventana-subtitulos-bisel 2_0
+      213: 2485206041326735148
+    second: ui-barra-accion-fondo-2_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ui-ventana-subtitulos-bisel 2_0
+      name: ui-barra-accion-fondo-2_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1877
-        height: 336
+        width: 607
+        height: 49
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 98fc7ba639171e9e0800000000000000
-      internalID: -1593867915147882615
+      spriteID: c2f4fe63ab93d7220800000000000000
+      internalID: 2485206041326735148
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      ui-ventana-subtitulos-bisel 2_0: -1593867915147882615
+      ui-barra-accion-fondo-2_0: 2485206041326735148
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

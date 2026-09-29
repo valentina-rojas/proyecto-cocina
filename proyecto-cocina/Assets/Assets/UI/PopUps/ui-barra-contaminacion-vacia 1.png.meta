@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 853a712a8a77f1645a2d52e491810860
+guid: bcce82a64258ef14fb09ebe7d0c6e03e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5905370524626938064
-    second: ui-ventana-subtitulos-bisel 1_0
+      213: 8506277483533310721
+    second: ui-barra-contaminacion-vacia 1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ui-ventana-subtitulos-bisel 1_0
+      name: ui-barra-contaminacion-vacia 1_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1877
-        height: 336
+        width: 960
+        height: 148
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0d86373443714f150800000000000000
-      internalID: 5905370524626938064
+      spriteID: 10b18e69d4e5c0670800000000000000
+      internalID: 8506277483533310721
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      ui-ventana-subtitulos-bisel 1_0: 5905370524626938064
+      ui-barra-contaminacion-vacia 1_0: 8506277483533310721
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

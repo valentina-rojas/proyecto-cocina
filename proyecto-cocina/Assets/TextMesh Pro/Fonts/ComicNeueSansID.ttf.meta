@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 9117b45fe82c26844a2af7ad2d1e64ad
+guid: eb6a2aeae38f3cc4da933022d246e6c9
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,7 +9,7 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - Anime Ace 2.0 BB
+  - ComicNeueSansID
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0
