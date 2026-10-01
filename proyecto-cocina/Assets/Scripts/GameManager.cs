@@ -40,7 +40,8 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-       MostrarInstruccionesIngredientes();
+      MostrarInstruccionesIngredientes();
+
 
     }
 
@@ -273,11 +274,24 @@ public class GameManager : MonoBehaviour
     // FINALIZACIÓN Y MENÚ
     // =========================================================
 
+    private int ContarErrores()
+    {
+        int errores = 0;
+        if (ingredientesMalOrdenados) errores++;
+        if (carneCruda) errores++;
+        if (carneQuemada) errores++;
+        if (contaminacionCruzadaCortado) errores++;
+        return errores;
+    }
+
     private void FinalizarPartida()
     {
         estadoActual = EstadoJuego.Final;
         bool gano = puntuacion != null && puntuacion.EsVictoria();
-        UIManager.Instance?.MostrarResumenFinal(gano);
+        int totalErrores = ContarErrores();
+
+        // Enviamos el resultado y la cantidad de errores
+        UIManager.Instance?.MostrarResumenFinal(gano, totalErrores);
     }
 
     public void VolverAlMenu()
