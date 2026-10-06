@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
-using TMPro; // Si usas TextMeshPro (si usas UI tradicional, cambia TextMeshProUGUI por Text)
+using TMPro;
 
 public class UIManager : MonoBehaviour
 {
@@ -24,13 +24,15 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Sprite spriteEstrellaVacia;
 
     [Header("Feedback de Desempeño")]
-    [SerializeField] private TextMeshProUGUI textoDesempeno; // O 'Text' de UnityEngine.UI
+    [SerializeField] private TextMeshProUGUI textoDesempeno;
     [TextArea(2, 3)]
     [SerializeField] private string mensajeTresEstrellas = "¡Excelente trabajo!";
     [TextArea(2, 3)]
     [SerializeField] private string mensajeDosEstrellas = "¡Buen trabajo!";
     [TextArea(2, 3)]
-    [SerializeField] private string mensajeUnaEstrella = "Juego Perdido";
+    [SerializeField] private string mensajeUnaEstrella = "Puedes mejorar";
+    [TextArea(2, 3)]
+    [SerializeField] private string mensajeCeroEstrellas = "¡Cocina Contaminada!";
 
     private void Awake()
     {
@@ -38,13 +40,18 @@ public class UIManager : MonoBehaviour
         else Destroy(gameObject);
     }
 
-    private void Start()
+    private void StartVisuals()
     {
         if (panelResumen != null) panelResumen.SetActive(false);
         OcultarBotonContinuar();
         
         if (botonMenuPrincipal != null)
             botonMenuPrincipal.onClick.AddListener(() => GameManager.Instance.VolverAlMenu());
+    }
+
+    private void Start()
+    {
+        StartVisuals();
     }
 
     public void PrepararBotonContinuar(UnityAction accion)
@@ -70,8 +77,14 @@ public class UIManager : MonoBehaviour
         bool mostrarVictoria;
         string mensaje;
 
-        // Reglas basadas en la cantidad de equivocaciones
-        if (cantidadErrores == 0)
+        // Si se llenó la barra (5 o más errores) -> DERROTA TOTAL CON 0 ESTRELLAS
+        if (cantidadErrores >= 5)
+        {
+            estrellasConseguidas = 0;
+            mostrarVictoria = false;
+            mensaje = mensajeCeroEstrellas;
+        }
+        else if (cantidadErrores == 0 && esVictoria)
         {
             estrellasConseguidas = 3;
             mostrarVictoria = true;
@@ -83,10 +96,10 @@ public class UIManager : MonoBehaviour
             mostrarVictoria = true;
             mensaje = mensajeDosEstrellas;
         }
-        else // 2 o más errores
+        else // De 2 a 4 errores
         {
             estrellasConseguidas = 1;
-            mostrarVictoria = false;
+            mostrarVictoria = esVictoria;
             mensaje = mensajeUnaEstrella;
         }
 
@@ -96,13 +109,13 @@ public class UIManager : MonoBehaviour
             imagenResultado.sprite = mostrarVictoria ? spriteVictoria : spriteDerrota;
         }
 
-        // 2. Asignar el mensaje de texto limpio
+        // 2. Asignar el mensaje de texto
         if (textoDesempeno != null)
         {
             textoDesempeno.text = mensaje;
         }
 
-        // 3. Actualizar la cantidad visual de estrellas
+        // 3. Actualizar la cantidad visual de estrellas (con 0, todas quedarán vacías o apagadas)
         ActualizarEstrellasUI(estrellasConseguidas);
 
         // 4. Mostrar el panel
@@ -122,7 +135,7 @@ public class UIManager : MonoBehaviour
 
             bool encendida = i < estrellas;
 
-            // Si tienes sprites para llena y vacía, alterna los sprites
+            // Si tienes sprites para llena y vacía, alterna los sprites (0 estrellas = las 3 vacías)
             if (spriteEstrellaLlena != null && spriteEstrellaVacia != null)
             {
                 imagenesEstrellas[i].sprite = encendida ? spriteEstrellaLlena : spriteEstrellaVacia;
@@ -130,7 +143,7 @@ public class UIManager : MonoBehaviour
             }
             else
             {
-                // Si solo quieres encender/apagar el GameObject de la estrella
+                // Si solo quieres encender/apagar el GameObject de la estrella (0 estrellas = las 3 ocultas)
                 imagenesEstrellas[i].gameObject.SetActive(encendida);
             }
         }

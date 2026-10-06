@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class GameManager : MonoBehaviour
 {
@@ -11,7 +12,7 @@ public class GameManager : MonoBehaviour
         LavadoVerduras,
         LavadoManos,
         Cortado,
-        Mezclado, // <-- NUEVA ETAPA
+        Mezclado,
         Coccion,
         Emplatado,
         Final
@@ -23,6 +24,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private ScoreData puntuacion;
     [SerializeField] private InicioDiaUI inicioDiaUI;
     [SerializeField] private string nombreEscenaMenu = "MenuPrincipal";
+
+    [Header("Condiciones de Derrota")]
+    [SerializeField] private int maximoErroresPermitidos = 5;
 
     public ScoreData Score => puntuacion;
     public bool ingredientesMalOrdenados => puntuacion != null && puntuacion.IngredientesMalOrdenados;
@@ -40,19 +44,47 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-      MostrarInstruccionesIngredientes();
-
-
+        MostrarInstruccionesIngredientes();
     }
 
     // =========================================================
-    // REGISTRO DE ERRORES
+    // REGISTRO DE ERRORES (Solo acumulan en silencio durante la etapa)
     // =========================================================
 
     public void RegistrarIngredientesMalOrdenados() => puntuacion?.RegistrarIngredientesMalOrdenados();
     public void RegistrarCarneCruda() => puntuacion?.RegistrarCarneCruda();
     public void RegistrarCarneQuemada() => puntuacion?.RegistrarCarneQuemada();
     public void RegistrarContaminacionCruzadaCortado() => puntuacion?.RegistrarContaminacionCruzadaCortado();
+
+    // =========================================================
+    // CONTROL CENTRALIZADO DE DERROTA POR ERRORES
+    // =========================================================
+
+    /// <summary>
+    /// Comprueba si se alcanzó el límite de errores. 
+    /// Si se alcanzó, termina el juego en derrota (0 estrellas). 
+    /// Si no, avanza a la siguiente etapa designada.
+    /// </summary>
+    public void EjecutarSiguientePasoOPerder(UnityAction accionSiguienteEtapa)
+    {
+        if (ContarErrores() >= maximoErroresPermitidos)
+        {
+            DerrotaInmediata();
+        }
+        else
+        {
+            accionSiguienteEtapa?.Invoke();
+        }
+    }
+
+    public void DerrotaInmediata()
+    {
+        if (estadoActual == EstadoJuego.Final) return;
+
+        estadoActual = EstadoJuego.Final;
+        PopupManager.Instance?.CerrarPopup();
+        UIManager.Instance?.MostrarResumenFinal(false, ContarErrores());
+    }
 
     // =========================================================
     // ETAPA 1 - GUARDADO DE ALIMENTOS
@@ -69,7 +101,8 @@ public class GameManager : MonoBehaviour
 
     public void ContinuarDespuesDelGuardado()
     {
-        MostrarInstruccionesReceta();
+        // Al terminar de ordenar y presionar continuar
+        EjecutarSiguientePasoOPerder(MostrarInstruccionesReceta);
     }
 
     // =========================================================
@@ -122,7 +155,8 @@ public class GameManager : MonoBehaviour
     {
         SeleccionRecetaManager.Instance?.FinalizarSeleccion();
         UIManager.Instance?.OcultarBotonContinuar();
-        ActivarLavadoVerduras();
+        
+        EjecutarSiguientePasoOPerder(ActivarLavadoVerduras);
     }
 
     // =========================================================
@@ -143,7 +177,8 @@ public class GameManager : MonoBehaviour
 
     public void ContinuarDespuesDelLavadoVerduras()
     {
-        ActivarLavadoManos();
+        // Al presionar continuar después de lavar verduras
+        EjecutarSiguientePasoOPerder(ActivarLavadoManos);
     }
 
     // =========================================================
@@ -158,7 +193,8 @@ public class GameManager : MonoBehaviour
 
     public void ContinuarDespuesDelLavadoManos()
     {
-        ActivarCortado();
+        // Al presionar continuar después de lavarse las manos
+        EjecutarSiguientePasoOPerder(ActivarCortado);
     }
 
     // =========================================================
@@ -173,17 +209,17 @@ public class GameManager : MonoBehaviour
 
     public void ContinuarDespuesDelCortado()
     {
-        // En lugar de ir directo a Cocción, pasamos a Mezclado
+        // Si hay popup de feedback, lo muestra primero con la barra actualizada
         if (PopupContenido.Instance != null)
         {
             PopupContenido.Instance.MostrarFeedbackCortado(
                 contaminacionCruzadaCortado,
-                ActivarMezclado
+                () => EjecutarSiguientePasoOPerder(ActivarMezclado)
             );
         }
         else
         {
-            ActivarMezclado();
+            EjecutarSiguientePasoOPerder(ActivarMezclado);
         }
     }
 
@@ -215,11 +251,13 @@ public class GameManager : MonoBehaviour
     {
         if (PopupContenido.Instance != null)
         {
-            PopupContenido.Instance.MostrarFeedbackMezclado(ActivarCoccion);
+            PopupContenido.Instance.MostrarFeedbackMezclado(
+                () => EjecutarSiguientePasoOPerder(ActivarCoccion)
+            );
         }
         else
         {
-            ActivarCoccion();
+            EjecutarSiguientePasoOPerder(ActivarCoccion);
         }
     }
 
@@ -230,29 +268,25 @@ public class GameManager : MonoBehaviour
     public void ActivarCoccion()
     {
         estadoActual = EstadoJuego.Coccion;
-        Debug.Log("[Coccion] ActivarCoccion ejecutado");
 
         if (PopupContenido.Instance != null)
         {
-            Debug.Log("[Coccion] Mostrando popup de instrucciones...");
             PopupContenido.Instance.MostrarInstruccionesCoccion(IniciarCoccion);
         }
         else
         {
-            Debug.LogWarning("[Coccion] PopupContenido es nulo, iniciando directo");
             IniciarCoccion();
         }
     }
 
     private void IniciarCoccion()
     {
-        Debug.Log("[Coccion] Callback IniciarCoccion recibido");
         CoccionManager.Instance?.IniciarCoccion();
     }
 
     public void ContinuarDespuesDeCoccion()
     {
-        ActivarEmplatado();
+        EjecutarSiguientePasoOPerder(ActivarEmplatado);
     }
 
     // =========================================================
@@ -274,13 +308,16 @@ public class GameManager : MonoBehaviour
     // FINALIZACIÓN Y MENÚ
     // =========================================================
 
-    private int ContarErrores()
+    public int ContarErrores()
     {
         int errores = 0;
         if (ingredientesMalOrdenados) errores++;
         if (carneCruda) errores++;
         if (carneQuemada) errores++;
-        if (contaminacionCruzadaCortado) errores++;
+
+        if (puntuacion != null)
+            errores += puntuacion.ErroresCortadoContaminado;
+
         return errores;
     }
 
@@ -290,7 +327,6 @@ public class GameManager : MonoBehaviour
         bool gano = puntuacion != null && puntuacion.EsVictoria();
         int totalErrores = ContarErrores();
 
-        // Enviamos el resultado y la cantidad de errores
         UIManager.Instance?.MostrarResumenFinal(gano, totalErrores);
     }
 

@@ -142,8 +142,12 @@ public class PopupManager : MonoBehaviour
         if (GameManager.Instance != null && GameManager.Instance.Score != null)
         {
             if (GameManager.Instance.ingredientesMalOrdenados) errores++;
-            if (GameManager.Instance.contaminacionCruzadaCortado) errores++;
-            if (GameManager.Instance.carneCruda || GameManager.Instance.carneQuemada) errores++;
+
+            // Suma cada alimento contaminado individualmente
+            errores += GameManager.Instance.Score.ErroresCortadoContaminado;
+
+            if (GameManager.Instance.carneCruda) errores++;
+            if (GameManager.Instance.carneQuemada) errores++;
         }
 
         sliderContaminacion.value = errores;
@@ -154,7 +158,6 @@ public class PopupManager : MonoBehaviour
     {
         if (fillSliderContaminacion == null || coloresErrores == null || coloresErrores.Length == 0) return;
 
-        // Si errores = 0 usa el índice 0; del 1 al 5 mapea a los índices 0 al 4
         int indiceColor = (cantidadErrores <= 1) ? 0 : Mathf.Clamp(cantidadErrores - 1, 0, coloresErrores.Length - 1);
         fillSliderContaminacion.color = coloresErrores[indiceColor];
     }

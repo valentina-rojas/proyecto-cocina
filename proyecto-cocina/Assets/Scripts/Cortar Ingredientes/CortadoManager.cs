@@ -19,7 +19,6 @@ public class CortadoManager : MonoBehaviour
     [SerializeField] private GameObject panelSeleccionIngredientes;
     [SerializeField] private GameObject panelSeleccionTabla;
     [SerializeField] private GameObject panelSeleccionCuchillo;
-    [SerializeField] private GameObject panelMesaDeCorte;
 
     [Header("Botones de Tablas")]
     [SerializeField] private Button botonTablaCarnes;
@@ -60,7 +59,7 @@ public class CortadoManager : MonoBehaviour
     [Header("UI General")]
     [SerializeField] private Button botonContinuar;
 
-    // Variables para seguimiento de elecciones y errores
+    // Variables de seguimiento interno
     private IngredienteData ingredienteSeleccionado;
     private CuttableIngredient ingredienteEnMesa;
     private TipoAlimento tipoTablaSeleccionada;
@@ -71,8 +70,10 @@ public class CortadoManager : MonoBehaviour
 
     private void Awake()
     {
-        if (Instance == null) Instance = this;
-        else Destroy(gameObject);
+        if (Instance == null) 
+            Instance = this;
+        else 
+            Destroy(gameObject);
 
         ConfigurarBotonesTablas();
         ConfigurarBotonesCuchillos();
@@ -117,6 +118,8 @@ public class CortadoManager : MonoBehaviour
     {
         ingredientesCortadosCount = 0;
         ErroresCometidos = 0;
+        ingredienteSeleccionado = null;
+        ingredienteEnMesa = null;
         SetBotonContinuar(false);
 
         if (ingredientesEtapa == null || ingredientesEtapa.Count == 0)
@@ -142,10 +145,9 @@ public class CortadoManager : MonoBehaviour
     {
         CameraManager.Instance?.MostrarCamaraCortadoIngredientes();
 
-        if (panelSeleccionIngredientes != null) panelSeleccionIngredientes.SetActive(true);
+        panelSeleccionIngredientes.SetActive(true);
         if (panelSeleccionTabla != null) panelSeleccionTabla.SetActive(false);
         if (panelSeleccionCuchillo != null) panelSeleccionCuchillo.SetActive(false);
-        if (panelMesaDeCorte != null) panelMesaDeCorte.SetActive(false);
 
         SetBotonContinuar(false);
         ActualizarBotonesIngredientes();
@@ -172,6 +174,7 @@ public class CortadoManager : MonoBehaviour
                 }
 
                 slot.boton.interactable = !data.yaCortado;
+                
                 if (slot.marcaCompletado != null)
                     slot.marcaCompletado.SetActive(data.yaCortado);
 
@@ -189,25 +192,19 @@ public class CortadoManager : MonoBehaviour
     {
         ingredienteSeleccionado = ingredientesEtapa[index];
 
-        if (panelSeleccionIngredientes != null) 
-            panelSeleccionIngredientes.SetActive(false);
-
-        if (panelSeleccionTabla != null) 
-            panelSeleccionTabla.SetActive(true);
+        panelSeleccionIngredientes.SetActive(false);
+        panelSeleccionTabla.SetActive(true);
     }
 
     public void SeleccionarTabla(Sprite spriteTabla, TipoAlimento tipo)
     {
         tipoTablaSeleccionada = tipo;
 
-        if (imagenTabla != null && spriteTabla != null)
+        if (imagenTabla != null)
             imagenTabla.sprite = spriteTabla;
 
-        if (panelSeleccionTabla != null) 
-            panelSeleccionTabla.SetActive(false);
-
-        if (panelSeleccionCuchillo != null) 
-            panelSeleccionCuchillo.SetActive(true);
+        panelSeleccionTabla.SetActive(false);
+        panelSeleccionCuchillo.SetActive(true);
     }
 
     public void SeleccionarCuchillo(Sprite spriteCuchillo, TipoAlimento tipo)
@@ -225,7 +222,6 @@ public class CortadoManager : MonoBehaviour
 
     private void PrepararMesaDeCorte()
     {
-        if (panelMesaDeCorte != null) panelMesaDeCorte.SetActive(true);
 
         if (ingredienteEnMesa != null)
         {
@@ -235,7 +231,7 @@ public class CortadoManager : MonoBehaviour
 
         if (ingredienteSeleccionado == null || ingredienteSeleccionado.prefabCortable == null)
         {
-            Debug.LogError("[CortadoManager] Falta ingredienteSeleccionado o su prefab.");
+            Debug.LogError("[CortadoManager] Falta ingredienteSeleccionado o su prefab cortable.");
             return;
         }
 
@@ -267,7 +263,7 @@ public class CortadoManager : MonoBehaviour
             knifeController.gameObject.SetActive(true);
         }
 
-        // Evalúa si las herramientas coinciden con el ingrediente
+        // Evalúa la contaminación del ingrediente actual
         ValidarSeleccionHerramientas();
     }
 
@@ -275,13 +271,13 @@ public class CortadoManager : MonoBehaviour
     {
         if (ingredienteSeleccionado == null) return;
 
-        bool huboError = false;
+        bool alimentoContaminado = false;
 
-        // 1. Validar Tabla con la regla de 3 tablas
+        // 1. Validar Tabla
         if (!EsTablaValida(tipoTablaSeleccionada, ingredienteSeleccionado.tipo))
         {
-            huboError = true;
-            Debug.LogWarning($"[Error Contaminación] Tabla incorrecta: usaste tabla de {tipoTablaSeleccionada} con {ingredienteSeleccionado.nombreIngrediente} ({ingredienteSeleccionado.tipo}).");
+            alimentoContaminado = true;
+            Debug.LogWarning($"[Error Contaminación] Tabla incorrecta: usaste {tipoTablaSeleccionada} con {ingredienteSeleccionado.nombreIngrediente} ({ingredienteSeleccionado.tipo}).");
         }
         else
         {
@@ -291,18 +287,20 @@ public class CortadoManager : MonoBehaviour
         // 2. Validar Cuchillo
         if (!EsCuchilloValido(tipoCuchilloSeleccionado, ingredienteSeleccionado.tipo))
         {
-            huboError = true;
-            Debug.LogWarning($"[Error Contaminación] Cuchillo incorrecto: usaste cuchillo {tipoCuchilloSeleccionado} con {ingredienteSeleccionado.nombreIngrediente} ({ingredienteSeleccionado.tipo}).");
+            alimentoContaminado = true;
+            Debug.LogWarning($"[Error Contaminación] Cuchillo incorrecto: usaste {tipoCuchilloSeleccionado} con {ingredienteSeleccionado.nombreIngrediente} ({ingredienteSeleccionado.tipo}).");
         }
         else
         {
             Debug.Log($"[Higiene] Cuchillo correcto para {ingredienteSeleccionado.nombreIngrediente}.");
         }
 
-        if (huboError)
+        // Si falló la tabla, el cuchillo o ambos, suma un error a este alimento
+        if (alimentoContaminado)
         {
             ErroresCometidos++;
             GameManager.Instance?.RegistrarContaminacionCruzadaCortado();
+            Debug.Log($"[Contaminación] Error registrado. Total acumulado: {ErroresCometidos}");
         }
     }
 
@@ -317,7 +315,6 @@ public class CortadoManager : MonoBehaviour
                 return alimento == TipoAlimento.Vegetales;
 
             case TipoAlimento.Secos:
-                // La tercera tabla acepta secos, lácteos y aderezos
                 return alimento == TipoAlimento.Secos || 
                        alimento == TipoAlimento.Lacteos || 
                        alimento == TipoAlimento.Aderezos;
@@ -357,7 +354,13 @@ public class CortadoManager : MonoBehaviour
         SetBotonContinuar(false);
 
         if (ingredienteEnMesa != null)
+        {
             Destroy(ingredienteEnMesa.gameObject);
+            ingredienteEnMesa = null;
+        }
+
+        // Limpieza de referencia para evitar arrastrar el alimento previo
+        ingredienteSeleccionado = null;
 
         if (ingredientesCortadosCount < ingredientesEtapa.Count)
         {
@@ -371,8 +374,6 @@ public class CortadoManager : MonoBehaviour
 
     private void FinalizarEtapaCortado()
     {
-        if (panelMesaDeCorte != null) panelMesaDeCorte.SetActive(false);
-
         TerminarEtapaCortado();
     }
 
