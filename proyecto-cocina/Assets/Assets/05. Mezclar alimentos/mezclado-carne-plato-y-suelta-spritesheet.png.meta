@@ -1,0 +1,364 @@
+fileFormatVersion: 2
+guid: 59e018c33a9b2f848bbf152b3e68df5c
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 9188226253712346282
+    second: mezclado-carne-plato-y-suelta-spritesheet_0
+  - first:
+      213: -2352890146269673785
+    second: mezclado-carne-plato-y-suelta-spritesheet_1
+  - first:
+      213: 1885066142780810263
+    second: mezclado-carne-plato-y-suelta-spritesheet_2
+  - first:
+      213: 8846853246515691594
+    second: mezclado-carne-plato-y-suelta-spritesheet_3
+  - first:
+      213: -8483953177113643784
+    second: mezclado-carne-plato-y-suelta-spritesheet_4
+  - first:
+      213: 70385798784962741
+    second: mezclado-carne-plato-y-suelta-spritesheet_5
+  - first:
+      213: 4592524724309304228
+    second: mezclado-carne-plato-y-suelta-spritesheet_6
+  - first:
+      213: -3964337877964875471
+    second: mezclado-carne-plato-y-suelta-spritesheet_7
+  - first:
+      213: -1565106395831893602
+    second: mezclado-carne-plato-y-suelta-spritesheet_8
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: mezclado-carne-plato-y-suelta-spritesheet_0
+      rect:
+        serializedVersion: 2
+        x: 139
+        y: 55
+        width: 410
+        height: 398
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aac4170b813238f70800000000000000
+      internalID: 9188226253712346282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mezclado-carne-plato-y-suelta-spritesheet_1
+      rect:
+        serializedVersion: 2
+        x: 785
+        y: 55
+        width: 410
+        height: 435
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c6441cc0ead85fd0800000000000000
+      internalID: -2352890146269673785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mezclado-carne-plato-y-suelta-spritesheet_2
+      rect:
+        serializedVersion: 2
+        x: 1330
+        y: 25
+        width: 583
+        height: 511
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 714e09a5ba9192a10800000000000000
+      internalID: 1885066142780810263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mezclado-carne-plato-y-suelta-spritesheet_3
+      rect:
+        serializedVersion: 2
+        x: 1888
+        y: 305
+        width: 50
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a404492b72656ca70800000000000000
+      internalID: 8846853246515691594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mezclado-carne-plato-y-suelta-spritesheet_4
+      rect:
+        serializedVersion: 2
+        x: 1291
+        y: 222
+        width: 44
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f4381b0981f24a80800000000000000
+      internalID: -8483953177113643784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mezclado-carne-plato-y-suelta-spritesheet_5
+      rect:
+        serializedVersion: 2
+        x: 1917
+        y: 185
+        width: 21
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b05fc5d28f0af000800000000000000
+      internalID: 70385798784962741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mezclado-carne-plato-y-suelta-spritesheet_6
+      rect:
+        serializedVersion: 2
+        x: 1302
+        y: 182
+        width: 21
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a3a7ae87ecebbf30800000000000000
+      internalID: 4592524724309304228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mezclado-carne-plato-y-suelta-spritesheet_7
+      rect:
+        serializedVersion: 2
+        x: 1860
+        y: 120
+        width: 69
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 139174634b7dbf8c0800000000000000
+      internalID: -3964337877964875471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mezclado-carne-plato-y-suelta-spritesheet_8
+      rect:
+        serializedVersion: 2
+        x: 1585
+        y: 0
+        width: 75
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e918fb87600a74ae0800000000000000
+      internalID: -1565106395831893602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      mezclado-carne-plato-y-suelta-spritesheet_0: 9188226253712346282
+      mezclado-carne-plato-y-suelta-spritesheet_1: -2352890146269673785
+      mezclado-carne-plato-y-suelta-spritesheet_2: 1885066142780810263
+      mezclado-carne-plato-y-suelta-spritesheet_3: 8846853246515691594
+      mezclado-carne-plato-y-suelta-spritesheet_4: -8483953177113643784
+      mezclado-carne-plato-y-suelta-spritesheet_5: 70385798784962741
+      mezclado-carne-plato-y-suelta-spritesheet_6: 4592524724309304228
+      mezclado-carne-plato-y-suelta-spritesheet_7: -3964337877964875471
+      mezclado-carne-plato-y-suelta-spritesheet_8: -1565106395831893602
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

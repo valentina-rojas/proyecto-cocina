@@ -160,7 +160,7 @@ public class EmplatadoManager : MonoBehaviour
 
         if (GameManager.Instance != null)
         {
-            GameManager.Instance.ContinuarDespuesDelEmplatado();
+            GameManager.Instance.AvanzarEtapa();
         }
         else
         {

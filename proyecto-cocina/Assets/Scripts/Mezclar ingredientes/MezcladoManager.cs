@@ -120,7 +120,7 @@ public class MezcladoManager : MonoBehaviour
     private void OnClicSiguiente()
     {
         UIManager.Instance?.OcultarBotonContinuar();
-        GameManager.Instance?.ContinuarDespuesDelMezclado();
+        GameManager.Instance.AvanzarEtapa();
     }
 
     // =========================================================

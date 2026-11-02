@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 
 [System.Serializable]
 public class SlotIngredienteCortar
@@ -32,17 +33,21 @@ public class CortadoManager : MonoBehaviour
 
     [Header("Botones de Cuchillos")]
     [SerializeField] private Button botonCuchilloCarnes;
-    [SerializeField] private Button botonCuchilloVegetales;
+    [FormerlySerializedAs("botonCuchilloSucio")]
+    [SerializeField] private Button botonCuchilloVerduras;
+    [FormerlySerializedAs("botonCuchilloVegetales")]
+    [SerializeField] private Button botonCuchilloOtros;
     [SerializeField] private Button botonCuchilloSecos;
     [SerializeField] private Button botonCuchilloAderezos;
-    [SerializeField] private Button botonCuchilloSucio;
 
     [Header("Sprites de los Cuchillos en Escena")]
     [SerializeField] private Sprite spriteCuchilloCarnes;
-    [SerializeField] private Sprite spriteCuchilloVegetales;
+    [FormerlySerializedAs("spriteCuchilloSucio")]
+    [SerializeField] private Sprite spriteCuchilloVerduras;
+    [FormerlySerializedAs("spriteCuchilloVegetales")]
+    [SerializeField] private Sprite spriteCuchilloOtros;
     [SerializeField] private Sprite spriteCuchilloSecos;
     [SerializeField] private Sprite spriteCuchilloAderezos;
-    [SerializeField] private Sprite spriteCuchilloSucio;
 
     [Header("Slots de la UI (Máximo 3)")]
     [SerializeField] private SlotIngredienteCortar[] slotsIngredientes = new SlotIngredienteCortar[3];
@@ -70,9 +75,9 @@ public class CortadoManager : MonoBehaviour
 
     private void Awake()
     {
-        if (Instance == null) 
+        if (Instance == null)
             Instance = this;
-        else 
+        else
             Destroy(gameObject);
 
         ConfigurarBotonesTablas();
@@ -101,10 +106,10 @@ public class CortadoManager : MonoBehaviour
     private void ConfigurarBotonesCuchillos()
     {
         VincularBotonCuchillo(botonCuchilloCarnes, spriteCuchilloCarnes, TipoAlimento.Carnes);
-        VincularBotonCuchillo(botonCuchilloVegetales, spriteCuchilloVegetales, TipoAlimento.Vegetales);
+        VincularBotonCuchillo(botonCuchilloVerduras, spriteCuchilloVerduras, TipoAlimento.Vegetales);
+        VincularBotonCuchillo(botonCuchilloOtros, spriteCuchilloOtros, TipoAlimento.Lacteos); 
         VincularBotonCuchillo(botonCuchilloSecos, spriteCuchilloSecos, TipoAlimento.Secos);
         VincularBotonCuchillo(botonCuchilloAderezos, spriteCuchilloAderezos, TipoAlimento.Aderezos);
-        VincularBotonCuchillo(botonCuchilloSucio, spriteCuchilloSucio, TipoAlimento.Sucio);
     }
 
     private void VincularBotonCuchillo(Button btn, Sprite spriteDestino, TipoAlimento tipo)
@@ -174,7 +179,7 @@ public class CortadoManager : MonoBehaviour
                 }
 
                 slot.boton.interactable = !data.yaCortado;
-                
+
                 if (slot.marcaCompletado != null)
                     slot.marcaCompletado.SetActive(data.yaCortado);
 
@@ -214,7 +219,7 @@ public class CortadoManager : MonoBehaviour
         if (knifeController != null && spriteCuchillo != null && knifeController.image != null)
             knifeController.image.sprite = spriteCuchillo;
 
-        if (panelSeleccionCuchillo != null) 
+        if (panelSeleccionCuchillo != null)
             panelSeleccionCuchillo.SetActive(false);
 
         PrepararMesaDeCorte();
@@ -222,7 +227,6 @@ public class CortadoManager : MonoBehaviour
 
     private void PrepararMesaDeCorte()
     {
-
         if (ingredienteEnMesa != null)
         {
             Destroy(ingredienteEnMesa.gameObject);
@@ -315,8 +319,8 @@ public class CortadoManager : MonoBehaviour
                 return alimento == TipoAlimento.Vegetales;
 
             case TipoAlimento.Secos:
-                return alimento == TipoAlimento.Secos || 
-                       alimento == TipoAlimento.Lacteos || 
+                return alimento == TipoAlimento.Secos ||
+                       alimento == TipoAlimento.Lacteos ||
                        alimento == TipoAlimento.Aderezos;
 
             default:
@@ -326,14 +330,27 @@ public class CortadoManager : MonoBehaviour
 
     private bool EsCuchilloValido(TipoAlimento cuchillo, TipoAlimento alimento)
     {
-        if (cuchillo == TipoAlimento.Sucio) return false;
+        switch (cuchillo)
+        {
+            case TipoAlimento.Carnes:
+                return alimento == TipoAlimento.Carnes;
 
-        if (cuchillo == TipoAlimento.Carnes) return alimento == TipoAlimento.Carnes;
-        if (cuchillo == TipoAlimento.Secos) return alimento == TipoAlimento.Secos;
-        if (cuchillo == TipoAlimento.Aderezos) return alimento == TipoAlimento.Aderezos;
-        if (cuchillo == TipoAlimento.Vegetales) return alimento == TipoAlimento.Vegetales || alimento == TipoAlimento.Lacteos;
+            case TipoAlimento.Vegetales: // Cuchillo de verduras (antes "sucio")
+                return alimento == TipoAlimento.Vegetales;
 
-        return cuchillo == alimento;
+            case TipoAlimento.Lacteos: // Cuchillo "otros" (antes de vegetales)
+                return alimento == TipoAlimento.Lacteos;
+                // Para más tipos: return alimento == TipoAlimento.Lacteos || alimento == TipoAlimento.OtroTipo;
+
+            case TipoAlimento.Secos:
+                return alimento == TipoAlimento.Secos;
+
+            case TipoAlimento.Aderezos:
+                return alimento == TipoAlimento.Aderezos;
+
+            default:
+                return false;
+        }
     }
 
     public void IngredienteCortado()
@@ -380,7 +397,7 @@ public class CortadoManager : MonoBehaviour
     private void TerminarEtapaCortado()
     {
         SetBotonContinuar(false);
-        GameManager.Instance?.ContinuarDespuesDelCortado();
+        GameManager.Instance.AvanzarEtapa();
     }
 
     private void SetBotonContinuar(bool visible, UnityAction accion = null)

@@ -224,7 +224,7 @@ public class GuardadoAlimentosManager : MonoBehaviour
         DraggableItem.OnAnyItemEndDrag -= OnItemTerminoDeMoverse;
 
         SetBotonContinuar(false);
-        GameManager.Instance?.ContinuarDespuesDelGuardado();
+        GameManager.Instance.AvanzarEtapa();
     }
 
     // =========================================================

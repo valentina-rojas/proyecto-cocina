@@ -302,10 +302,10 @@ public class LavadoManos : MonoBehaviour
         ResetearEscalaObjetos();
         SetBotonContinuar(false);
         gameObject.SetActive(false);
-        GameManager.Instance?.ContinuarDespuesDelLavadoManos();
+        GameManager.Instance.AvanzarEtapa();
     }
 
-    public void IniciarLavado()
+   public void IniciarLavado(bool mostrarInstrucciones = true)
     {
         gameObject.SetActive(true);
         completado = false;
@@ -314,10 +314,10 @@ public class LavadoManos : MonoBehaviour
         ReiniciarLavado();
         ActivarCamaraLavado();
 
-        if (PopupContenido.Instance != null)
+        if (mostrarInstrucciones && PopupContenido.Instance != null)
             PopupContenido.Instance.MostrarInstruccionesLavado(null);
     }
-
+    
     private void ActivarCamaraLavado()
     {
         CameraManager.Instance?.MostrarCamaraLavadoManos();

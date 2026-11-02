@@ -77,8 +77,9 @@ public class UIManager : MonoBehaviour
         bool mostrarVictoria;
         string mensaje;
 
-        // Si se llenó la barra (5 o más errores) -> DERROTA TOTAL CON 0 ESTRELLAS
-        if (cantidadErrores >= 5)
+        int limite = GameManager.Instance != null ? GameManager.Instance.MaximoErroresPermitidos : 3;
+
+        if (cantidadErrores >= limite)
         {
             estrellasConseguidas = 0;
             mostrarVictoria = false;
@@ -96,34 +97,25 @@ public class UIManager : MonoBehaviour
             mostrarVictoria = true;
             mensaje = mensajeDosEstrellas;
         }
-        else // De 2 a 4 errores
+        else // 2 errores (o 0 errores sin victoria)
         {
             estrellasConseguidas = 1;
             mostrarVictoria = esVictoria;
             mensaje = mensajeUnaEstrella;
         }
 
-        // 1. Asignar el sprite de Victoria o Derrota
         if (imagenResultado != null)
-        {
             imagenResultado.sprite = mostrarVictoria ? spriteVictoria : spriteDerrota;
-        }
 
-        // 2. Asignar el mensaje de texto
         if (textoDesempeno != null)
-        {
             textoDesempeno.text = mensaje;
-        }
 
-        // 3. Actualizar la cantidad visual de estrellas (con 0, todas quedarán vacías o apagadas)
         ActualizarEstrellasUI(estrellasConseguidas);
 
-        // 4. Mostrar el panel
         if (panelResumen != null)
-        {
             panelResumen.SetActive(true);
-        }
     }
+    
 
     private void ActualizarEstrellasUI(int estrellas)
     {
@@ -148,4 +140,4 @@ public class UIManager : MonoBehaviour
             }
         }
     }
-}
+} 

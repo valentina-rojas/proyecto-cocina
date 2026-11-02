@@ -385,7 +385,7 @@ public class LavadoVerduras : MonoBehaviour
         ResetearEscalaObjetos();
         SetBotonContinuar(false);
         gameObject.SetActive(false);
-        GameManager.Instance?.ContinuarDespuesDelLavadoVerduras();
+        GameManager.Instance.AvanzarEtapa();
     }
 
     private void SetVisibilidadBarra(bool visible)

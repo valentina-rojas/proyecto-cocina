@@ -6,24 +6,17 @@ public class PopupContenido : MonoBehaviour
 {
     public static PopupContenido Instance { get; private set; }
 
-    public struct MensajePopup
+    public readonly struct MensajePopup
     {
-        public string titulo;
-        public string[] lineasTexto;
-        public Sprite imagen;
+        public readonly string titulo;
+        public readonly Sprite imagen;
+        public readonly string[] lineas;
 
-        public MensajePopup(string titulo, string texto, Sprite imagen = null)
+        public MensajePopup(string titulo, Sprite imagen, params string[] lineas)
         {
             this.titulo = titulo;
-            this.lineasTexto = new string[] { texto };
             this.imagen = imagen;
-        }
-
-        public MensajePopup(string titulo, string[] lineas, Sprite imagen = null)
-        {
-            this.titulo = titulo;
-            this.lineasTexto = lineas;
-            this.imagen = imagen;
+            this.lineas = lineas;
         }
     }
 
@@ -59,109 +52,98 @@ public class PopupContenido : MonoBehaviour
     [SerializeField] private Sprite imgInstEmplatado;
     [SerializeField] private Sprite imgFbEmplatado;
 
-    [NonSerialized] public MensajePopup instIngredientes;
-    [NonSerialized] public MensajePopup fbIngredientesCorrectos;
-    [NonSerialized] public MensajePopup fbIngredientesIncorrectos;
+    private MensajePopup instIngredientes, fbIngredientesCorrectos, fbIngredientesIncorrectos;
+    private MensajePopup instLavadoVerduras, fbLavadoVerduras;
+    private MensajePopup instLavado, fbLavado;
+    private MensajePopup instCortado, fbCortado, fbCortadoContaminado;
+    private MensajePopup instMezclado, fbMezclado;
+    private MensajePopup instCoccion, fbCarneCorrecta, fbCarneCruda, fbCarneQuemada;
+    private MensajePopup instEmplatado, fbEmplatado;
 
-    [NonSerialized] public MensajePopup instLavadoVerduras;
-    [NonSerialized] public MensajePopup fbLavadoVerduras;
-
-    [NonSerialized] public MensajePopup instLavado;
-    [NonSerialized] public MensajePopup fbLavado;
-
-    [NonSerialized] public MensajePopup instCortado;
-    [NonSerialized] public MensajePopup fbCortado;
-    [NonSerialized] public MensajePopup fbCortadoContaminado;
-
-    [NonSerialized] public MensajePopup instMezclado;
-    [NonSerialized] public MensajePopup fbMezclado;
-
-    [NonSerialized] public MensajePopup instCoccion;
-    [NonSerialized] public MensajePopup fbCarneCorrecta;
-    [NonSerialized] public MensajePopup fbCarneCruda;
-    [NonSerialized] public MensajePopup fbCarneQuemada;
-
-    [NonSerialized] public MensajePopup instEmplatado;
-    [NonSerialized] public MensajePopup fbEmplatado;
-
-    // Control de secuencia activa
-    private int secuenciaIdActual = 0;
+    // Se incrementa con cada secuencia nueva u omitida; invalida los callbacks viejos
+    private int secuenciaId;
 
     private void Awake()
     {
-        if (Instance == null) Instance = this;
-        else Destroy(gameObject);
-
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
         InicializarMensajes();
     }
 
     private void InicializarMensajes()
     {
-        instIngredientes = new MensajePopup("Organización de la heladera", new string[] {
+        instIngredientes = new MensajePopup("Organización de la heladera", imgInstIngredientes,
             "El manual indica que nunca debemos juntar alimentos crudos con los que ya están listos para consumir.",
             "Ubicá cada producto según su tipo y temperatura recomendada para evitar goteos y contaminación.",
-            "Arrastrá cada ingrediente a su estante o sector correspondiente."
-        }, imgInstIngredientes);
+            "Arrastrá cada ingrediente a su estante o sector correspondiente.");
+        fbIngredientesCorrectos = new MensajePopup("¡Excelente organización!", imgFbIngredientesCorrectos,
+            "Guardaste cada alimento en el lugar indicado, garantizando su frescura y seguridad.");
+        fbIngredientesIncorrectos = new MensajePopup("Revisá la distribución", imgFbIngredientesIncorrectos,
+            "Algunos alimentos quedaron en el sector equivocado.");
 
-        fbIngredientesCorrectos = new MensajePopup("¡Excelente organización!", "Guardaste cada alimento en el lugar indicado, garantizando su frescura y seguridad.", imgFbIngredientesCorrectos);
-        fbIngredientesIncorrectos = new MensajePopup("Revisá la distribución", "Algunos alimentos quedaron en el sector equivocado.", imgFbIngredientesIncorrectos);
+        instLavadoVerduras = new MensajePopup("Lavado de verduras", imgInstLavadoVerduras,
+            "Asegurate de lavarlas correctamente para quitarles toda la suciedad.");
+        fbLavadoVerduras = new MensajePopup("¡Verduras limpias!", imgFbLavadoVerduras,
+            "¡Excelente! Todas las verduras quedaron limpias y listas para cortar.");
 
-        instLavadoVerduras = new MensajePopup("Lavado de verduras", "Asegurate de lavarlas correctamente para quitarles toda la suciedad.", imgInstLavadoVerduras);
-        fbLavadoVerduras = new MensajePopup("¡Verduras limpias!", "¡Excelente! Todas las verduras quedaron limpias y listas para cortar.", imgFbLavadoVerduras);
-
-        instLavado = new MensajePopup("Higiene personal", new string[] { 
+        instLavado = new MensajePopup("Higiene personal", imgInstLavadoManos,
             "Antes de tocar cualquier comida o utensilio, es fundamental sanitizarse.",
-            "Frotá bien con jabón por toda la superficie de las manos hasta completar el tiempo requerido."
-        }, imgInstLavadoManos);
+            "Frotá bien con jabón por toda la superficie de las manos hasta completar el tiempo requerido.");
+        fbLavado = new MensajePopup("¡Manos limpias!", imgFbLavadoManos,
+            "Cumpliste con el protocolo de desinfección, ahora podés manipular los alimentos con seguridad.");
 
-        fbLavado = new MensajePopup("¡Manos limpias!", "Cumpliste con el protocolo de desinfección, ahora podés manipular los alimentos con seguridad.", imgFbLavadoManos);
-
-        instCortado = new MensajePopup("Cortar los ingredientes", new string[] {
+        instCortado = new MensajePopup("Cortar los ingredientes", imgInstCortado,
             "Seleccioná la tabla y el cuchillo asignados a cada tipo de alimento para prevenir la contaminación cruzada.",
-            "Deslizá con cuidado siguiendo el trazo de la guía para lograr un corte parejo."
-        }, imgInstCortado);
+            "Deslizá con cuidado siguiendo el trazo de la guía para lograr un corte parejo.");
+        fbCortado = new MensajePopup("¡Corte preciso!", imgFbCortado,
+            "Usaste los utensilios correctos y completaste el corte a la perfección.");
+        fbCortadoContaminado = new MensajePopup("¡Atención!", imgFbCortadoContaminado,
+            "La tabla o el cuchillo elegidos no correspondían a esos alimentos, se produjo contaminación cruzada.");
 
-        fbCortado = new MensajePopup("¡Corte preciso!", "Usaste los utensilios correctos y completaste el corte a la perfección.", imgFbCortado);
-        fbCortadoContaminado = new MensajePopup("¡Atención!", "La tabla o el cuchillo elegidos no correspondían a esos alimentos, se produjo contaminación cruzada.", imgFbCortadoContaminado);
+        instMezclado = new MensajePopup("Mezclar los ingredientes", imgInstMezclado,
+            "Arrastrá los ingredientes al bowl y realizá movimientos circulares para mezclarlos.");
+        fbMezclado = new MensajePopup("¡Mezcla lista!", imgFbMezclado,
+            "¡Excelente! Los ingredientes se integraron de forma uniforme.");
 
-        instMezclado = new MensajePopup("Mezclar los ingredientes", "Arrastrá los ingredientes al bowl y realizá movimientos circulares para mezclarlos.", imgInstMezclado);
-        fbMezclado = new MensajePopup("¡Mezcla lista!", "¡Excelente! Los ingredientes se integraron de forma uniforme.", imgFbMezclado);
-
-        instCoccion = new MensajePopup("Punto de cocción", new string[] {
+        instCoccion = new MensajePopup("Punto de cocción", imgInstCoccion,
             "El manual dice que para una cocción adecuada se deben superar los 70 °C...",
-            "Prestá atención al tiempo sobre la hornalla y retirá la pieza en el momento justo para no secarla ni quemarla."
-        }, imgInstCoccion);
+            "Prestá atención al tiempo sobre la hornalla y retirá la pieza en el momento justo para no secarla ni quemarla.");
+        fbCarneCorrecta = new MensajePopup("¡Punto justo!", imgFbCarneCorrecta,
+            "La carne alcanzó una temperatura segura y una cocción uniforme.");
+        fbCarneCruda = new MensajePopup("Falta cocción", imgFbCarneCruda,
+            "El alimento quedó crudo en el centro, lo que representa un riesgo para la salud.");
+        fbCarneQuemada = new MensajePopup("Exceso de calor", imgFbCarneQuemada,
+            "La comida superó el tiempo máximo en el fuego y se quemó.");
 
-        fbCarneCorrecta = new MensajePopup("¡Punto justo!", "La carne alcanzó una temperatura segura y una cocción uniforme.", imgFbCarneCorrecta);
-        fbCarneCruda = new MensajePopup("Falta cocción", "El alimento quedó crudo en el centro, lo que representa un riesgo para la salud.", imgFbCarneCruda);
-        fbCarneQuemada = new MensajePopup("Exceso de calor", "La comida superó el tiempo máximo en el fuego y se quemó.", imgFbCarneQuemada);
-
-        instEmplatado = new MensajePopup("Emplatado", "Colocá los ingredientes en el plato siguiendo el orden indicado.", imgInstEmplatado);
-        fbEmplatado = new MensajePopup("¡Plato terminado!", "Completaste correctamente la preparación.", imgFbEmplatado);
+        instEmplatado = new MensajePopup("Emplatado", imgInstEmplatado,
+            "Colocá los ingredientes en el plato siguiendo el orden indicado.");
+        fbEmplatado = new MensajePopup("¡Plato terminado!", imgFbEmplatado,
+            "Completaste correctamente la preparación.");
     }
+
+    // ---------------------------------------------------------
+    // Motor de secuencia
+    // ---------------------------------------------------------
 
     private void Mostrar(MensajePopup msg, UnityAction accionFinal = null)
     {
-        if (msg.lineasTexto == null || msg.lineasTexto.Length == 0)
+        if (msg.lineas == null || msg.lineas.Length == 0)
         {
             accionFinal?.Invoke();
             return;
         }
 
-        // Cada llamada genera un identificador único
-        secuenciaIdActual++;
-        int idEstaSecuencia = secuenciaIdActual;
-
-        MostrarSecuencia(msg.titulo, msg.lineasTexto, 0, msg.imagen, accionFinal, idEstaSecuencia);
+        secuenciaId++;
+        MostrarLinea(msg, 0, accionFinal, secuenciaId);
     }
 
-    private void MostrarSecuencia(string titulo, string[] lineas, int index, Sprite imagen, UnityAction accionFinal, int idSecuencia)
+    private void MostrarLinea(MensajePopup msg, int index, UnityAction accionFinal, int id)
     {
-        // Si la secuencia fue cancelada/omitida o se inició otra, aborta de inmediato
-        if (idSecuencia != secuenciaIdActual)
-        {
-            return;
-        }
+        if (id != secuenciaId) return;
 
         if (PopupManager.Instance == null)
         {
@@ -169,99 +151,73 @@ public class PopupContenido : MonoBehaviour
             return;
         }
 
-        bool esUltimaLinea = index >= lineas.Length - 1;
+        bool esUltimaLinea = index >= msg.lineas.Length - 1;
 
-        // Callback cuando el usuario da a CONTINUAR (línea por línea)
-        UnityAction callbackContinuar;
-        if (esUltimaLinea)
+        UnityAction continuar = () =>
         {
-            callbackContinuar = () =>
-            {
-                if (idSecuencia == secuenciaIdActual)
-                {
-                    accionFinal?.Invoke();
-                }
-            };
-        }
-        else
-        {
-            callbackContinuar = () =>
-            {
-                if (idSecuencia == secuenciaIdActual)
-                {
-                    MostrarSecuencia(titulo, lineas, index + 1, imagen, accionFinal, idSecuencia);
-                }
-            };
-        }
+            if (id != secuenciaId) return;
 
-        // Callback cuando el usuario da a OMITIR (cancela la secuencia entera)
-        UnityAction callbackOmitir = () =>
-        {
-            if (idSecuencia == secuenciaIdActual)
-            {
-                // Invalida la secuencia para que ninguna otra línea pueda volver a abrirse
-                secuenciaIdActual++;
-                accionFinal?.Invoke();
-            }
+            if (esUltimaLinea) accionFinal?.Invoke();
+            else MostrarLinea(msg, index + 1, accionFinal, id);
         };
 
-        PopupManager.Instance.MostrarPopup(titulo, lineas[index], imagen, callbackContinuar, callbackOmitir);
+        // Omitir cancela toda la secuencia
+        UnityAction omitir = () =>
+        {
+            if (id != secuenciaId) return;
+
+            secuenciaId++;
+            accionFinal?.Invoke();
+        };
+
+        PopupManager.Instance.MostrarPopup(msg.titulo, msg.lineas[index], msg.imagen, continuar, omitir);
     }
 
-    // --- Métodos de Instrucciones ---
+    // ---------------------------------------------------------
+    // Instrucciones
+    // ---------------------------------------------------------
+
     public void MostrarInstruccionesIngredientes(UnityAction accion = null) => Mostrar(instIngredientes, accion);
+    public void MostrarInstruccionesLavadoVerduras(UnityAction accion = null) => Mostrar(instLavadoVerduras, accion);
+    public void MostrarInstruccionesLavado(UnityAction accion = null) => Mostrar(instLavado, accion);
+    public void MostrarInstruccionesCortado(UnityAction accion = null) => Mostrar(instCortado, accion);
+    public void MostrarInstruccionesMezclado(UnityAction accion = null) => Mostrar(instMezclado, accion);
+    public void MostrarInstruccionesCoccion(UnityAction accion = null) => Mostrar(instCoccion, accion);
+    public void MostrarInstruccionesEmplatado(UnityAction accion = null) => Mostrar(instEmplatado, accion);
 
     public void MostrarInstruccionesReceta(UnityAction accion = null)
     {
-        if (DayManager.Instance != null)
-        {
-            string titulo = "Receta del día";
-            Sprite imagen = DayManager.Instance.imagenRecetaActual;
-
-            string[] lineasReceta = new string[]
-            {
-                $"El plato del día es una {DayManager.Instance.recetaActual}.",
-                "Acá está la lista de ingredientes, asegurate de que no falte ninguno."
-            };
-
-            secuenciaIdActual++;
-            MostrarSecuencia(titulo, lineasReceta, 0, imagen, accion, secuenciaIdActual);
-        }
-        else
+        if (DayManager.Instance == null)
         {
             Debug.LogWarning("PopupContenido: DayManager.Instance es null.");
             accion?.Invoke();
+            return;
         }
+
+        var msg = new MensajePopup("Receta del día", DayManager.Instance.imagenRecetaActual,
+            $"El plato del día es una {DayManager.Instance.recetaActual}.",
+            "Acá está la lista de ingredientes, asegurate de que no falte ninguno.");
+
+        Mostrar(msg, accion);
     }
 
-    public void MostrarInstruccionesLavadoVerduras(UnityAction accion = null) => Mostrar(instLavadoVerduras, accion);
-    public void MostrarFeedbackLavadoVerduras(UnityAction accion = null)      => Mostrar(fbLavadoVerduras, accion);
+    // ---------------------------------------------------------
+    // Feedbacks
+    // ---------------------------------------------------------
 
-    public void MostrarInstruccionesLavado(UnityAction accion = null)         => Mostrar(instLavado, accion);
-    public void MostrarInstruccionesCortado(UnityAction accion = null)        => Mostrar(instCortado, accion);
-    public void MostrarInstruccionesMezclado(UnityAction accion = null)       => Mostrar(instMezclado, accion);
-    public void MostrarInstruccionesCoccion(UnityAction accion = null)        => Mostrar(instCoccion, accion);
-    public void MostrarInstruccionesEmplatado(UnityAction accion = null)      => Mostrar(instEmplatado, accion);
-
-    // --- Métodos de Feedbacks ---
-    public void MostrarFeedbackIngredientes(bool correcto, UnityAction accion = null) => 
+    public void MostrarFeedbackIngredientes(bool correcto, UnityAction accion = null) =>
         Mostrar(correcto ? fbIngredientesCorrectos : fbIngredientesIncorrectos, accion);
 
-    public void MostrarFeedbackLavado(UnityAction accion = null)              => Mostrar(fbLavado, accion);
+    public void MostrarFeedbackLavadoVerduras(UnityAction accion = null) => Mostrar(fbLavadoVerduras, accion);
+    public void MostrarFeedbackLavado(UnityAction accion = null) => Mostrar(fbLavado, accion);
 
-    public void MostrarFeedbackCortado(bool huboContaminacionCruzada, UnityAction accion = null)
-    {
+    public void MostrarFeedbackCortado(bool huboContaminacionCruzada, UnityAction accion = null) =>
         Mostrar(huboContaminacionCruzada ? fbCortadoContaminado : fbCortado, accion);
-    }
 
-    public void MostrarFeedbackMezclado(UnityAction accion = null)            => Mostrar(fbMezclado, accion);
+    public void MostrarFeedbackMezclado(UnityAction accion = null) => Mostrar(fbMezclado, accion);
 
-    public void MostrarFeedbackCoccion(bool cruda, bool quemada, UnityAction accion = null)
-    {
-        if (quemada) Mostrar(fbCarneQuemada, accion);
-        else if (cruda) Mostrar(fbCarneCruda, accion);
-        else Mostrar(fbCarneCorrecta, accion);
-    }
+    public void MostrarFeedbackCoccion(bool cruda, bool quemada, UnityAction accion = null) =>
+        Mostrar(quemada ? fbCarneQuemada : cruda ? fbCarneCruda : fbCarneCorrecta, accion);
 
-    public void MostrarFeedbackEmplatado(UnityAction accion = null)           => Mostrar(fbEmplatado, accion);
+    public void MostrarFeedbackEmplatado(UnityAction accion = null) => Mostrar(fbEmplatado, accion);
 }

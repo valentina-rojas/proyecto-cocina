@@ -22,12 +22,10 @@ public class PopupManager : MonoBehaviour
 
     [Header("5 Colores de Errores")]
     [Tooltip("Element 0: 1er error | Element 4: 5to error (crítico)")]
-    [SerializeField] private Color[] coloresErrores = new Color[5]
+    [SerializeField] private Color[] coloresErrores = new Color[3]
     {
         new Color(0.2f, 0.85f, 0.2f, 1f), // Element 0: Verde / 1er nivel
-        new Color(0.8f, 0.85f, 0.1f, 1f), // Element 1: Amarillo verdoso
         new Color(1f, 0.75f, 0.1f, 1f),   // Element 2: Amarillo / Naranja
-        new Color(1f, 0.45f, 0.1f, 1f),   // Element 3: Naranja intenso
         new Color(0.9f, 0.1f, 0.1f, 1f)    // Element 4: Rojo crítico
     };
 
@@ -119,12 +117,12 @@ public class PopupManager : MonoBehaviour
     // CONTROL DEL SLIDER Y COLORES (5 ESPACIOS)
     // =========================================================
 
-    public void ActualizarNivelContaminacion(float valor, float valorMaximo = 5f)
+    public void ActualizarNivelContaminacion(float valor, float valorMaximo = 3f)
     {
         if (sliderContaminacion == null) return;
 
         sliderContaminacion.minValue = 0f;
-        sliderContaminacion.maxValue = valorMaximo > 0f ? valorMaximo : 5f;
+        sliderContaminacion.maxValue = valorMaximo > 0f ? valorMaximo : 3f;
         sliderContaminacion.value = valor;
 
         AplicarColorSegunErrores(Mathf.RoundToInt(valor));
@@ -136,19 +134,9 @@ public class PopupManager : MonoBehaviour
 
         sliderContaminacion.gameObject.SetActive(mostrarBarraSiempre);
         sliderContaminacion.minValue = 0f;
-        sliderContaminacion.maxValue = 5f;
+        sliderContaminacion.maxValue = 3f;
 
-        int errores = 0;
-        if (GameManager.Instance != null && GameManager.Instance.Score != null)
-        {
-            if (GameManager.Instance.ingredientesMalOrdenados) errores++;
-
-            // Suma cada alimento contaminado individualmente
-            errores += GameManager.Instance.Score.ErroresCortadoContaminado;
-
-            if (GameManager.Instance.carneCruda) errores++;
-            if (GameManager.Instance.carneQuemada) errores++;
-        }
+        int errores = GameManager.Instance != null ? GameManager.Instance.ContarErrores() : 0;
 
         sliderContaminacion.value = errores;
         AplicarColorSegunErrores(errores);

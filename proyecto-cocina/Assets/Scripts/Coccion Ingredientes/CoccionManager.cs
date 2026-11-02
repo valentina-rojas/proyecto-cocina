@@ -177,7 +177,7 @@ public class CoccionManager : MonoBehaviour
         ResetearEscalaPerilla();
         SetBotonContinuar(false);
 
-        GameManager.Instance?.ContinuarDespuesDeCoccion();
+        GameManager.Instance.AvanzarEtapa();
     }
 
     // =========================================================
